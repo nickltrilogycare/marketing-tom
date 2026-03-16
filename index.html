@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing TOM — Trilogy Care</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; padding: 0; background: #0f172a; color: #fff; font-family: 'Inter', sans-serif; }
+
+    :root {
+      --blue: #2c4c79;
+      --teal: #007F7E;
+      --light-blue: #64BCEA;
+      --light-teal: #43C0BE;
+      --bg-dark: #0f172a;
+      --bg-kpis: #1e293b;
+      --text: #ffffff;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ── Shared Animations ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      50%      { opacity: 0.4; transform: translateX(-50%) translateY(8px); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes msFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes msFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes msSlideRight {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes timeline-pulse {
+      0%   { top: -80px; opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { top: calc(100% + 80px); opacity: 0; }
+    }
+    @keyframes timeline-fadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes kpi-bar-grow {
+      from { width: 0 !important; }
+    }
+    @keyframes esBadgePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0, 127, 126, 0.4); }
+      50% { box-shadow: 0 0 20px 4px rgba(0, 127, 126, 0.15); }
+    }
+    @keyframes esNodeFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes esCardSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes esMatrixPop {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes esAbsorbedFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes esBadgeGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(67, 192, 190, 0); }
+      50% { box-shadow: 0 0 12px 2px rgba(67, 192, 190, 0.1); }
+    }
+
+    /* ── Current-State animation classes ── */
+    .fade-in-up { opacity: 0; transform: translateY(32px); }
+    .fade-in-up.visible { animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .fade-in { opacity: 0; }
+    .fade-in.visible { animation: fadeIn 0.6s ease forwards; }
+    .scale-in { opacity: 0; transform: scale(0.92); }
+    .scale-in.visible { animation: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .delay-1 { animation-delay: 0.08s !important; }
+    .delay-2 { animation-delay: 0.16s !important; }
+    .delay-3 { animation-delay: 0.24s !important; }
+    .delay-4 { animation-delay: 0.32s !important; }
+    .delay-5 { animation-delay: 0.40s !important; }
+    .delay-6 { animation-delay: 0.48s !important; }
+    .delay-7 { animation-delay: 0.56s !important; }
+    .delay-8 { animation-delay: 0.64s !important; }
+    .delay-9 { animation-delay: 0.72s !important; }
+    .delay-10 { animation-delay: 0.80s !important; }
+    .delay-11 { animation-delay: 0.88s !important; }
+    .delay-12 { animation-delay: 0.96s !important; }
+
+    /* ── Mid-stage animation classes (start hidden, animate on visible) ── */
+    .ms-fade-up { opacity: 0; transform: translateY(30px); }
+    .ms-fade-up.visible { animation: msFadeUp 0.7s ease-out forwards; }
+    .ms-fade-in { opacity: 0; }
+    .ms-fade-in.visible { animation: msFadeIn 0.6s ease-out forwards; }
+    .ms-slide-right { opacity: 0; transform: translateX(-20px); }
+    .ms-slide-right.visible { animation: msSlideRight 0.5s ease-out forwards; }
+    .ms-delay-1 { animation-delay: 0.1s !important; }
+    .ms-delay-2 { animation-delay: 0.2s !important; }
+    .ms-delay-3 { animation-delay: 0.3s !important; }
+    .ms-delay-4 { animation-delay: 0.4s !important; }
+    .ms-delay-5 { animation-delay: 0.5s !important; }
+    .ms-delay-6 { animation-delay: 0.6s !important; }
+    .ms-delay-7 { animation-delay: 0.7s !important; }
+    .ms-delay-8 { animation-delay: 0.8s !important; }
+    .ms-delay-9 { animation-delay: 0.9s !important; }
+    .ms-delay-10 { animation-delay: 1.0s !important; }
+
+    /* ── End-state animation classes ── */
+    .es-fade-up { opacity: 0; transform: translateY(20px); }
+    .es-fade-up.visible { animation: esCardSlideUp 0.6s ease-out forwards; }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+       ══════════════════════════════════════ */
+    .tc-navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .tc-navbar__logo {
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.8rem;
+      letter-spacing: 0.28em; text-transform: uppercase; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 0.6rem; white-space: nowrap;
+    }
+    .tc-navbar__logo-mark {
+      width: 28px; height: 28px; border-radius: 6px;
+      background: linear-gradient(135deg, var(--light-teal), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.7rem; letter-spacing: 0; color: #fff; flex-shrink: 0;
+    }
+    .tc-navbar__links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .tc-navbar__links a {
+      font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,0.55);
+      text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 6px;
+      transition: color 0.2s, background 0.2s; white-space: nowrap;
+    }
+    .tc-navbar__links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+    .tc-navbar__hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 6px; z-index: 1001;
+    }
+    .tc-navbar__hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    .tc-navbar__hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .tc-navbar__hamburger.active span:nth-child(2) { opacity: 0; }
+    .tc-navbar__hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .tc-navbar__mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(24px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; list-style: none;
+    }
+    .tc-navbar__mobile-menu.open { display: flex; }
+    .tc-navbar__mobile-menu a {
+      font-size: 1.15rem; font-weight: 400; color: rgba(255,255,255,0.7);
+      text-decoration: none; padding: 0.85rem 2rem; border-radius: 8px; transition: color 0.2s, background 0.2s;
+    }
+    .tc-navbar__mobile-menu a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    @media (max-width: 800px) {
+      .tc-navbar__links { display: none; }
+      .tc-navbar__hamburger { display: flex; }
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+       ══════════════════════════════════════ */
+    .tc-hero {
+      position: relative; min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 6rem 1.5rem 4rem; overflow: hidden;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #132240 25%, #0f2f3d 50%, #0a2a2a 75%, var(--bg-dark) 100%);
+      background-size: 400% 400%; animation: gradientShift 16s ease infinite;
+    }
+    .tc-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(67,192,190,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .tc-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 80px 80px; pointer-events: none;
+    }
+    .tc-hero__content { position: relative; z-index: 1; max-width: 720px; width: 100%; }
+    .tc-hero__badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--light-teal); background: rgba(67,192,190,0.08);
+      border: 1px solid rgba(67,192,190,0.18); padding: 0.5rem 1.25rem;
+      border-radius: 100px; margin-bottom: 2.5rem;
+      animation: fadeInUp 0.7s ease-out 0.2s both;
+    }
+    .tc-hero__badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--light-teal); box-shadow: 0 0 8px var(--light-teal); flex-shrink: 0;
+    }
+    .tc-hero__heading {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 700; line-height: 1.15;
+      color: var(--text); margin-bottom: 1.25rem;
+      animation: fadeInUp 0.7s ease-out 0.4s both;
+    }
+    .tc-hero__heading span {
+      background: linear-gradient(90deg, var(--light-teal), var(--light-blue));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .tc-hero__sub {
+      font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 300; line-height: 1.7;
+      color: rgba(255,255,255,0.55); max-width: 540px; margin: 0 auto 3.5rem;
+      animation: fadeInUp 0.7s ease-out 0.6s both;
+    }
+    .tc-hero__sub strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+    .tc-hero__stats {
+      display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;
+      animation: fadeInUp 0.7s ease-out 0.8s both;
+    }
+    .tc-hero__stat {
+      position: relative; background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;
+      padding: 2rem 2.75rem; min-width: 220px; overflow: hidden;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .tc-hero__stat:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
+    .tc-hero__stat::before {
+      content: ''; position: absolute; top: 0; left: 1.5rem; right: 1.5rem; height: 2px;
+      border-radius: 0 0 2px 2px;
+      background: linear-gradient(90deg, transparent, var(--light-teal), transparent);
+      background-size: 200% 100%; animation: shimmer 3s linear infinite;
+    }
+    .tc-hero__stat-value {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem;
+    }
+    .tc-hero__stat-value .tc-arrow {
+      display: inline-block; color: var(--light-teal); margin: 0 0.2rem;
+      font-family: 'Inter', sans-serif; font-weight: 300; font-size: 1.4rem; vertical-align: middle;
+    }
+    .tc-hero__stat-label {
+      font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,0.4);
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .tc-hero__scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      animation: pulse 2.4s ease-in-out infinite; z-index: 1;
+    }
+    .tc-hero__scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent); }
+    .tc-hero__scroll-dot { width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.35); }
+    .tc-hero__scroll-text { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+
+    /* ══════════════════════════════════════
+       CURRENT STATE
+       ══════════════════════════════════════ */
+    #current { background: #1e293b; padding: 100px 40px 120px; position: relative; overflow: hidden; }
+    #current::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(100,188,234,0.3), transparent);
+    }
+    .cs-header { text-align: center; margin-bottom: 64px; }
+    .cs-label {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #64BCEA; margin-bottom: 16px;
+      padding: 6px 16px; border: 1px solid rgba(100,188,234,0.25); border-radius: 100px;
+      background: rgba(100,188,234,0.06);
+    }
+    .cs-title {
+      font-size: 42px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em;
+      line-height: 1.15; margin-bottom: 12px;
+    }
+    .cs-title span { color: #64BCEA; }
+    .cs-subtitle { font-size: 18px; color: #94a3b8; font-weight: 400; max-width: 520px; margin: 0 auto; line-height: 1.5; }
+    .org-chart { max-width: 1100px; margin: 0 auto 80px; }
+    .org-card {
+      display: inline-flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 14px 20px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03); backdrop-filter: blur(8px);
+      min-width: 150px; max-width: 192px; position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .org-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .org-card .name { font-size: 13px; font-weight: 700; color: #ffffff; line-height: 1.3; margin-bottom: 3px; }
+    .org-card .role { font-size: 10.5px; font-weight: 500; color: rgba(255,255,255,0.55); line-height: 1.35; }
+    .org-card.leadership {
+      background: linear-gradient(135deg, rgba(44,76,121,0.55), rgba(44,76,121,0.25));
+      border-color: rgba(44,76,121,0.7); box-shadow: 0 2px 12px rgba(44,76,121,0.2);
+    }
+    .org-card.leadership .role { color: rgba(100,188,234,0.75); }
+    .org-card.performance {
+      background: linear-gradient(135deg, rgba(0,127,126,0.45), rgba(0,127,126,0.18));
+      border-color: rgba(0,127,126,0.6); box-shadow: 0 2px 12px rgba(0,127,126,0.15);
+    }
+    .org-card.performance .role { color: rgba(67,192,190,0.8); }
+    .org-card.creative {
+      background: linear-gradient(135deg, rgba(71,85,105,0.5), rgba(71,85,105,0.2));
+      border-color: rgba(71,85,105,0.6); box-shadow: 0 2px 12px rgba(71,85,105,0.15);
+    }
+    .org-card.creative .role { color: rgba(148,163,184,0.85); }
+    .org-card.absorbed::after {
+      content: 'ABSORBED'; position: absolute; top: -8px; right: -8px;
+      font-size: 8px; font-weight: 800; letter-spacing: 1px; color: #fbbf24;
+      background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4);
+      padding: 2px 7px; border-radius: 4px;
+    }
+    .org-card.absorbed { border-color: rgba(245,158,11,0.35); }
+    .org-tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .org-level-0 { display: flex; justify-content: center; margin-bottom: 0; position: relative; }
+    .org-level-0::after {
+      content: ''; position: absolute; bottom: -36px; left: 50%; width: 1px; height: 36px;
+      background: rgba(100,188,234,0.2);
+    }
+    .org-level-1 {
+      display: flex; justify-content: center; gap: 20px; margin-top: 36px;
+      position: relative; flex-wrap: wrap; padding: 0 8px;
+    }
+    .org-level-1::before {
+      content: ''; position: absolute; top: 0; left: calc(50% - 380px); width: 760px; height: 1px;
+      background: rgba(100,188,234,0.2);
+    }
+    .org-branch { display: flex; flex-direction: column; align-items: center; position: relative; }
+    .org-branch::before {
+      content: ''; position: absolute; top: -18px; left: 50%; width: 1px; height: 18px;
+      background: rgba(100,188,234,0.2);
+    }
+    .org-level-2 { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 16px; position: relative; }
+    .org-level-2::before {
+      content: ''; position: absolute; top: -16px; left: 50%; width: 1px; height: 16px;
+      background: rgba(100,188,234,0.12);
+    }
+    .org-level-2 .org-card { min-width: 140px; max-width: 170px; padding: 10px 14px 8px; }
+    .org-level-2 .org-card .name { font-size: 11.5px; }
+    .org-level-2 .org-card .role { font-size: 9.5px; }
+    .org-cgo-report { display: flex; justify-content: center; margin-top: 48px; position: relative; }
+    .org-cgo-report::before {
+      content: 'Reports to CGO'; position: absolute; top: -24px; left: 50%; transform: translateX(-50%);
+      font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #64BCEA; opacity: 0.5; white-space: nowrap;
+    }
+    .org-cgo-report .org-card { border-style: dashed; }
+    .org-legend { display: flex; justify-content: center; gap: 28px; margin-top: 40px; flex-wrap: wrap; }
+    .org-legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: #94a3b8; font-weight: 500; }
+    .org-legend-swatch { width: 12px; height: 12px; border-radius: 3px; }
+    .org-legend-swatch.swatch-leadership { background: #2c4c79; border: 1px solid rgba(44,76,121,0.8); }
+    .org-legend-swatch.swatch-performance { background: #007F7E; border: 1px solid rgba(0,127,126,0.8); }
+    .org-legend-swatch.swatch-creative { background: #475569; border: 1px solid rgba(71,85,105,0.8); }
+    .org-legend-swatch.swatch-absorbed { background: transparent; border: 1px dashed rgba(245,158,11,0.6); }
+    .disciplines-section { max-width: 900px; margin: 0 auto; }
+    .disciplines-title { text-align: center; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .disciplines-subtitle { text-align: center; font-size: 14px; color: #64748b; margin-bottom: 36px; font-weight: 400; }
+    .disciplines-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .disc-card {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px; padding: 18px 16px; text-align: center; position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .disc-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.14); }
+    .disc-num { font-size: 10px; font-weight: 700; color: rgba(100,188,234,0.4); margin-bottom: 6px; letter-spacing: 0.5px; }
+    .disc-name { font-size: 13px; font-weight: 600; color: #e2e8f0; line-height: 1.3; }
+    .disc-card.gap { border-color: rgba(239,68,68,0.45); background: rgba(239,68,68,0.04); }
+    .disc-card.gap:hover { border-color: rgba(239,68,68,0.65); }
+    .disc-card.gap::after {
+      content: 'GAP'; position: absolute; top: 6px; right: 8px;
+      font-size: 8px; font-weight: 800; letter-spacing: 1.2px; color: #ef4444;
+      background: rgba(239,68,68,0.1); padding: 2px 6px; border-radius: 3px;
+    }
+
+    /* ══════════════════════════════════════
+       MID-STAGE
+       ══════════════════════════════════════ */
+    #mid-stage { background: #0f172a; color: #fff; padding: 100px 40px; overflow: hidden; }
+    #mid-stage * { box-sizing: border-box; }
+    .ms-container { max-width: 1200px; margin: 0 auto; }
+    .ms-phase-label {
+      display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #43C0BE; margin-bottom: 12px;
+    }
+    .ms-title {
+      font-size: 2.75rem; font-weight: 800; line-height: 1.15; margin: 0 0 16px 0;
+      background: linear-gradient(135deg, #fff 0%, #64BCEA 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .ms-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.6); margin: 0 0 60px 0; max-width: 600px; line-height: 1.6; }
+    .ms-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 72px; align-items: start; }
+    .ms-org-chart {
+      background: linear-gradient(145deg, rgba(44,76,121,0.15), rgba(0,127,126,0.08));
+      border: 1px solid rgba(100,188,234,0.12); border-radius: 16px; padding: 32px;
+    }
+    .ms-org-chart-title { font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #64BCEA; margin: 0 0 28px 0; }
+    .ms-org-person { display: flex; align-items: center; gap: 10px; padding: 8px 0; }
+    .ms-org-person-name { font-weight: 700; font-size: 0.95rem; color: #fff; }
+    .ms-org-person-role { font-size: 0.8rem; color: rgba(255,255,255,0.45); font-weight: 400; }
+    .ms-org-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin: 16px 0 8px 0; }
+    .ms-badge-perf { background: rgba(44,76,121,0.4); color: #64BCEA; border: 1px solid rgba(100,188,234,0.25); }
+    .ms-badge-ops { background: rgba(0,127,126,0.25); color: #43C0BE; border: 1px solid rgba(67,192,190,0.25); }
+    .ms-badge-creative { background: rgba(100,188,234,0.12); color: #64BCEA; border: 1px solid rgba(100,188,234,0.2); }
+    .ms-badge-ai { background: rgba(67,192,190,0.15); color: #43C0BE; border: 1px solid rgba(67,192,190,0.3); }
+    .ms-org-tree { padding-left: 0; margin: 0; list-style: none; }
+    .ms-org-tree li { position: relative; padding-left: 24px; }
+    .ms-org-tree li::before { content: ''; position: absolute; left: 4px; top: 0; width: 1px; height: 100%; background: rgba(100,188,234,0.15); }
+    .ms-org-tree li::after { content: ''; position: absolute; left: 4px; top: 18px; width: 14px; height: 1px; background: rgba(100,188,234,0.15); }
+    .ms-org-tree li:last-child::before { height: 18px; }
+    .ms-org-tree .ms-org-tree li::before { background: rgba(67,192,190,0.15); }
+    .ms-org-tree .ms-org-tree li::after { background: rgba(67,192,190,0.15); }
+    .ms-org-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; flex-shrink: 0; }
+    .ms-dot-blue { background: #64BCEA; }
+    .ms-dot-teal { background: #43C0BE; }
+    .ms-dot-navy { background: #2c4c79; }
+    .ms-org-gm {
+      display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+      background: linear-gradient(135deg, rgba(44,76,121,0.35), rgba(44,76,121,0.15));
+      border: 1px solid rgba(100,188,234,0.2); border-radius: 10px; margin-bottom: 20px;
+    }
+    .ms-org-gm .ms-org-person-name { font-size: 1.05rem; }
+    .ms-org-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0; }
+    .ms-org-standalone {
+      display: flex; align-items: center; gap: 10px; padding: 10px 16px;
+      background: rgba(67,192,190,0.08); border: 1px solid rgba(67,192,190,0.15);
+      border-radius: 10px; margin-top: 16px;
+    }
+    .ms-org-reports-to { font-size: 0.7rem; color: rgba(67,192,190,0.7); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-left: auto; }
+    .ms-absorbed { position: relative; }
+    .ms-absorbed-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+    .ms-absorbed-count {
+      display: flex; align-items: center; justify-content: center; width: 52px; height: 52px;
+      border-radius: 14px; background: linear-gradient(135deg, rgba(255,80,80,0.2), rgba(255,80,80,0.05));
+      border: 1px solid rgba(255,80,80,0.25); font-size: 1.5rem; font-weight: 800; color: #ff6b6b;
+    }
+    .ms-absorbed-label { font-size: 1.25rem; font-weight: 700; color: #fff; margin: 0; line-height: 1.2; }
+    .ms-absorbed-sublabel { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin: 2px 0 0 0; }
+    .ms-absorbed-cards { display: flex; flex-direction: column; gap: 12px; }
+    .ms-absorbed-card {
+      display: grid; grid-template-columns: auto 1fr; gap: 14px; padding: 16px 18px;
+      background: linear-gradient(145deg, rgba(255,80,80,0.06), rgba(255,80,80,0.02));
+      border: 1px solid rgba(255,80,80,0.1); border-radius: 12px;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .ms-absorbed-card:hover { border-color: rgba(255,80,80,0.25); background: linear-gradient(145deg, rgba(255,80,80,0.1), rgba(255,80,80,0.04)); }
+    .ms-absorbed-icon {
+      display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+      border-radius: 8px; background: rgba(255,80,80,0.12); color: #ff6b6b; font-size: 1rem;
+    }
+    .ms-absorbed-card-name { font-weight: 700; font-size: 0.9rem; color: #fff; margin: 0 0 2px 0; }
+    .ms-absorbed-card-old-role { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin: 0 0 6px 0; }
+    .ms-absorbed-card-reason { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.45; }
+    .ms-absorbed-arrow { color: #43C0BE; font-weight: 600; font-size: 0.78rem; }
+    .ms-matrix-section { margin-top: 12px; }
+    .ms-matrix-header { text-align: center; margin-bottom: 40px; }
+    .ms-matrix-title { font-size: 1.75rem; font-weight: 800; color: #fff; margin: 0 0 10px 0; }
+    .ms-matrix-subtitle { font-size: 1rem; color: rgba(255,255,255,0.45); margin: 0; }
+    .ms-matrix-grid {
+      width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden;
+      border-radius: 14px; border: 1px solid rgba(100,188,234,0.12);
+    }
+    .ms-matrix-grid thead th {
+      background: rgba(44,76,121,0.3); padding: 16px 20px; text-align: left;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: #64BCEA; border-bottom: 1px solid rgba(100,188,234,0.12);
+    }
+    .ms-matrix-grid thead th:first-child { border-top-left-radius: 14px; }
+    .ms-matrix-grid thead th:last-child { border-top-right-radius: 14px; }
+    .ms-matrix-grid tbody tr { transition: background 0.25s ease; }
+    .ms-matrix-grid tbody tr:hover { background: rgba(44,76,121,0.12); }
+    .ms-matrix-grid tbody td { padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; }
+    .ms-matrix-grid tbody tr:last-child td { border-bottom: none; }
+    .ms-matrix-grid tbody tr:last-child td:first-child { border-bottom-left-radius: 14px; }
+    .ms-matrix-grid tbody tr:last-child td:last-child { border-bottom-right-radius: 14px; }
+    .ms-matrix-person { font-weight: 700; font-size: 0.92rem; color: #fff; white-space: nowrap; }
+    .ms-matrix-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ms-matrix-skill-tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 4px 10px;
+      border-radius: 6px; background: rgba(67,192,190,0.12); color: #43C0BE;
+      border: 1px solid rgba(67,192,190,0.15);
+    }
+    .ms-matrix-how { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.55; margin: 0; }
+
+    /* ══════════════════════════════════════
+       END-STATE
+       ══════════════════════════════════════ */
+    #end-state { background: #1e293b; color: #ffffff; padding: 6rem 2rem; position: relative; overflow: hidden; }
+    #end-state::before {
+      content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,127,126,0.08) 0%, transparent 70%); pointer-events: none;
+    }
+    #end-state::after {
+      content: ''; position: absolute; bottom: -300px; left: -200px; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(44,76,121,0.1) 0%, transparent 70%); pointer-events: none;
+    }
+    .es-container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .es-header { text-align: center; margin-bottom: 4rem; }
+    .es-phase-badge {
+      display: inline-block; background: linear-gradient(135deg, #007F7E, #43C0BE);
+      color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 100px; margin-bottom: 1.25rem;
+      animation: esBadgePulse 3s ease-in-out infinite;
+    }
+    .es-title {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin: 0 0 1rem; line-height: 1.15;
+      background: linear-gradient(135deg, #ffffff 0%, #43C0BE 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .es-subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: rgba(255,255,255,0.6); max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 400; }
+    .es-subtitle strong { color: #43C0BE; font-weight: 600; }
+    .es-section-title {
+      font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4); margin: 0 0 2rem; text-align: center; position: relative;
+    }
+    .es-section-title::after {
+      content: ''; display: block; width: 50px; height: 2px;
+      background: linear-gradient(90deg, #007F7E, #43C0BE); margin: 0.75rem auto 0; border-radius: 2px;
+    }
+    .es-org-chart { margin-bottom: 5rem; }
+    .es-org-tree { display: flex; flex-direction: column; align-items: center; }
+    .es-org-node {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 0.75rem 1.25rem; backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .es-org-node.es-visible { animation: esNodeFadeIn 0.6s ease-out both; }
+    .es-org-node:hover { border-color: rgba(67,192,190,0.3); background: rgba(255,255,255,0.07); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+    .es-org-node-name { font-weight: 700; font-size: 0.95rem; color: #fff; }
+    .es-org-node-role { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 400; }
+    .es-org-node-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .es-dot-blue { background: #2c4c79; box-shadow: 0 0 8px rgba(44,76,121,0.5); }
+    .es-dot-teal { background: #007F7E; box-shadow: 0 0 8px rgba(0,127,126,0.5); }
+    .es-dot-lteal { background: #43C0BE; box-shadow: 0 0 8px rgba(67,192,190,0.5); }
+    .es-dot-lblue { background: #64BCEA; box-shadow: 0 0 8px rgba(100,188,234,0.5); }
+    .es-org-level-0 { display: flex; justify-content: center; margin-bottom: 0; }
+    .es-org-branch { display: flex; flex-direction: column; align-items: center; position: relative; }
+    .es-org-connector { width: 2px; height: 24px; background: rgba(255,255,255,0.12); }
+    .es-org-level-1 { display: flex; gap: 3rem; justify-content: center; position: relative; }
+    .es-org-level-1::before {
+      content: ''; position: absolute; top: -1px;
+      left: calc(50% - (50% - 1.5rem)); right: calc(50% - (50% - 1.5rem));
+      height: 2px; background: rgba(255,255,255,0.12);
+    }
+    .es-org-level-2 { display: flex; justify-content: center; }
+    .es-org-standalone {
+      display: flex; justify-content: center; margin-top: 2.5rem; padding-top: 2rem;
+      border-top: 1px dashed rgba(255,255,255,0.1);
+    }
+    .es-org-standalone .es-org-node { border: 1px dashed rgba(67,192,190,0.3); background: rgba(0,127,126,0.06); }
+    .es-org-report-tag { font-size: 0.65rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; margin-left: 0.5rem; }
+    .es-role-cards { margin-bottom: 5rem; }
+    .es-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+    .es-role-card {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px; padding: 1.75rem 1.5rem; position: relative; overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0; transform: translateY(30px);
+    }
+    .es-role-card.visible { animation: esCardSlideUp 0.6s ease-out forwards; }
+    .es-role-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 16px 16px 0 0; opacity: 0.8; }
+    .es-role-card[data-owner="stephen"]::before { background: linear-gradient(90deg, #2c4c79, #3d6299); }
+    .es-role-card[data-owner="paul"]::before { background: linear-gradient(90deg, #007F7E, #00a09e); }
+    .es-role-card[data-owner="rajitha"]::before { background: linear-gradient(90deg, #43C0BE, #5fd4d2); }
+    .es-role-card[data-owner="mariia"]::before { background: linear-gradient(90deg, #2c4c79, #3d6299); }
+    .es-role-card[data-owner="alisha"]::before { background: linear-gradient(90deg, #64BCEA, #82cbef); }
+    .es-role-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); background: rgba(255,255,255,0.05); }
+    .es-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+    .es-card-person { font-size: 1.1rem; font-weight: 700; color: #fff; margin: 0 0 0.2rem; }
+    .es-card-role-title { font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.45); }
+    .es-agent-badge {
+      display: flex; align-items: center; gap: 0.35rem;
+      background: rgba(0,127,126,0.15); border: 1px solid rgba(67,192,190,0.2);
+      border-radius: 100px; padding: 0.3rem 0.7rem; flex-shrink: 0; margin-left: 0.75rem;
+      animation: esBadgeGlow 4s ease-in-out infinite;
+    }
+    .es-agent-badge svg { width: 14px; height: 14px; opacity: 0.7; }
+    .es-agent-badge span { font-size: 0.75rem; font-weight: 700; color: #43C0BE; white-space: nowrap; }
+    .es-card-disciplines { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .es-card-disciplines li {
+      font-size: 0.72rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px; padding: 0.3rem 0.6rem; color: rgba(255,255,255,0.65); font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .es-role-card:hover .es-card-disciplines li { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); }
+    .es-matrix { margin-bottom: 5rem; }
+    .es-matrix-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; max-width: 800px; margin: 0 auto; }
+    .es-matrix-cell {
+      border-radius: 12px; padding: 1.1rem 1rem; text-align: center; font-size: 0.82rem;
+      font-weight: 600; color: #fff; position: relative; overflow: hidden;
+      transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05);
+      opacity: 0; transform: scale(0.9);
+    }
+    .es-matrix-cell.visible { animation: esMatrixPop 0.5s ease-out forwards; }
+    .es-matrix-cell:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+    .es-matrix-cell .es-cell-owner { display: block; font-size: 0.65rem; font-weight: 400; opacity: 0.6; margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .es-owner-paul { background: rgba(0,127,126,0.2); border-color: rgba(0,127,126,0.3); }
+    .es-owner-paul:hover { background: rgba(0,127,126,0.3); }
+    .es-owner-rajitha { background: rgba(67,192,190,0.15); border-color: rgba(67,192,190,0.25); }
+    .es-owner-rajitha:hover { background: rgba(67,192,190,0.25); }
+    .es-owner-mariia { background: rgba(44,76,121,0.3); border-color: rgba(44,76,121,0.4); }
+    .es-owner-mariia:hover { background: rgba(44,76,121,0.45); }
+    .es-owner-alisha { background: rgba(100,188,234,0.15); border-color: rgba(100,188,234,0.25); }
+    .es-owner-alisha:hover { background: rgba(100,188,234,0.25); }
+    .es-matrix-legend { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .es-legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+    .es-legend-swatch { width: 12px; height: 12px; border-radius: 4px; }
+    .es-swatch-paul { background: #007F7E; }
+    .es-swatch-rajitha { background: #43C0BE; }
+    .es-swatch-mariia { background: #2c4c79; }
+    .es-swatch-alisha { background: #64BCEA; }
+    .es-absorbed {
+      max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem 2.25rem;
+      position: relative; overflow: hidden; opacity: 0; transform: translateY(20px);
+    }
+    .es-absorbed.visible { animation: esAbsorbedFade 0.8s ease-out forwards; }
+    .es-absorbed::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, #2c4c79, #007F7E, #43C0BE, #64BCEA);
+    }
+    .es-absorbed-title {
+      font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4); margin: 0 0 1.5rem; display: flex; align-items: center; gap: 0.6rem;
+    }
+    .es-absorbed-title svg { width: 18px; height: 18px; opacity: 0.5; }
+    .es-absorbed-role { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .es-absorbed-role:last-child { border-bottom: none; padding-bottom: 0; }
+    .es-absorbed-arrow-icon {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 0.1rem;
+    }
+    .es-absorbed-arrow-icon svg { width: 16px; height: 16px; color: #43C0BE; }
+    .es-absorbed-from { font-weight: 700; color: #fff; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .es-absorbed-to { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .es-absorbed-to strong { color: #43C0BE; font-weight: 600; }
+
+    /* ══════════════════════════════════════
+       TIMELINE
+       ══════════════════════════════════════ */
+    .section-timeline { background: var(--bg-dark); padding: 6rem 2rem; color: var(--text); overflow: hidden; }
+    .section-timeline .section-header { text-align: center; margin-bottom: 5rem; }
+    .section-timeline .section-header h2 {
+      font-size: 2.75rem; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 0.5rem;
+      background: linear-gradient(135deg, var(--light-blue), var(--light-teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .section-timeline .section-header p { font-size: 1.15rem; color: var(--text-secondary); margin: 0; }
+    .timeline { position: relative; max-width: 960px; margin: 0 auto; padding: 2rem 0; }
+    .timeline::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, transparent 0%, var(--teal) 5%, var(--light-teal) 50%, var(--blue) 95%, transparent 100%);
+      transform: translateX(-50%);
+    }
+    .timeline::after {
+      content: ''; position: absolute; left: 50%; top: 0; width: 2px; height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--light-teal), transparent);
+      transform: translateX(-50%); animation: timeline-pulse 4s ease-in-out infinite;
+    }
+    .timeline-item {
+      position: relative; width: 50%; padding: 0 3rem 4rem; box-sizing: border-box;
+      opacity: 0;
+    }
+    .timeline-item.visible { animation: timeline-fadeIn 0.6s ease forwards; }
+    .timeline-item:nth-child(odd) { left: 0; text-align: right; padding-right: 3.5rem; padding-left: 1rem; }
+    .timeline-item:nth-child(even) { left: 50%; text-align: left; padding-left: 3.5rem; padding-right: 1rem; }
+    .timeline-dot {
+      position: absolute; top: 0.5rem; width: 16px; height: 16px; border-radius: 50%;
+      border: 3px solid var(--teal); background: var(--bg-dark); z-index: 2;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .timeline-dot.active { background: var(--light-teal); border-color: var(--light-teal); box-shadow: 0 0 20px rgba(67,192,190,0.5); }
+    .timeline-dot.future { border-color: var(--blue); background: var(--bg-dark); }
+    .timeline-item:nth-child(odd) .timeline-dot { right: -8px; }
+    .timeline-item:nth-child(even) .timeline-dot { left: -8px; }
+    .timeline-item:hover .timeline-dot { transform: scale(1.3); box-shadow: 0 0 24px rgba(67,192,190,0.6); }
+    .timeline-card {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px;
+      padding: 1.5rem; backdrop-filter: blur(12px); transition: all 0.3s ease; position: relative;
+    }
+    .timeline-card:hover { background: var(--card-hover); border-color: rgba(67,192,190,0.25); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+    .timeline-item:nth-child(odd) .timeline-card::after {
+      content: ''; position: absolute; top: 1rem; right: -8px; width: 0; height: 0;
+      border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 8px solid var(--card-border);
+    }
+    .timeline-item:nth-child(even) .timeline-card::after {
+      content: ''; position: absolute; top: 1rem; left: -8px; width: 0; height: 0;
+      border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-right: 8px solid var(--card-border);
+    }
+    .timeline-date { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light-teal); margin-bottom: 0.5rem; }
+    .timeline-card h3 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.5rem; color: var(--text); }
+    .timeline-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0 0 0.75rem; line-height: 1.5; }
+    .headcount-badge {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: rgba(44,76,121,0.35); border: 1px solid rgba(100,188,234,0.2);
+      border-radius: 20px; padding: 0.3rem 0.75rem; font-size: 0.78rem; font-weight: 600; color: var(--light-blue);
+    }
+    .headcount-badge svg { width: 14px; height: 14px; fill: currentColor; opacity: 0.8; }
+    .headcount-badge.reduction { background: rgba(127,29,29,0.25); border-color: rgba(248,113,113,0.2); color: #fca5a5; }
+
+    /* ══════════════════════════════════════
+       KPIs
+       ══════════════════════════════════════ */
+    .section-kpis { background: var(--bg-kpis); padding: 6rem 2rem; color: var(--text); }
+    .section-kpis .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-kpis .section-header h2 {
+      font-size: 2.75rem; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 0.5rem;
+      background: linear-gradient(135deg, var(--light-blue), var(--light-teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .section-kpis .section-header p { font-size: 1.15rem; color: var(--text-secondary); margin: 0; }
+    .kpi-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+    .kpi-group-title {
+      font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .kpi-group-title .count { font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.55rem; border-radius: 10px; background: rgba(255,255,255,0.08); }
+    .kpi-group.mid-stage .kpi-group-title { color: var(--light-teal); border-color: var(--teal); }
+    .kpi-group.end-state .kpi-group-title { color: var(--light-blue); border-color: var(--blue); }
+    .kpi-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+    .kpi-card {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px;
+      padding: 1.1rem 1.25rem; transition: all 0.25s ease; cursor: default;
+    }
+    .kpi-card:hover { background: var(--card-hover); border-color: rgba(100,188,234,0.2); transform: translateX(4px); }
+    .kpi-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem; }
+    .kpi-role { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+    .kpi-person { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
+    .kpi-weight {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; padding: 0.2rem 0.6rem;
+      border-radius: 6px; white-space: nowrap; flex-shrink: 0; margin-left: 1rem;
+    }
+    .kpi-group.mid-stage .kpi-weight { background: rgba(0,127,126,0.2); color: var(--light-teal); }
+    .kpi-group.end-state .kpi-weight { background: rgba(44,76,121,0.3); color: var(--light-blue); }
+    .kpi-bar-track { height: 4px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; }
+    .kpi-bar-fill { height: 100%; border-radius: 4px; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+    .kpi-bar-fill.animate { animation: kpi-bar-grow 1.5s ease forwards; }
+    .kpi-group.mid-stage .kpi-bar-fill { background: linear-gradient(90deg, var(--teal), var(--light-teal)); }
+    .kpi-group.end-state .kpi-bar-fill { background: linear-gradient(90deg, var(--blue), var(--light-blue)); }
+
+    /* ══════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════ */
+    .section-footer {
+      background: #0b1120; border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2.5rem 2rem; text-align: center; color: var(--text-muted);
+    }
+    .footer-title { font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); margin: 0 0 0.5rem; letter-spacing: 0.02em; }
+    .footer-meta { font-size: 0.78rem; margin: 0; line-height: 1.8; }
+    .footer-meta span { display: inline-block; margin: 0 0.75rem; }
+    .footer-meta span::before { content: ''; display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: var(--text-muted); margin-right: 0.75rem; vertical-align: middle; }
+    .footer-meta span:first-child::before { display: none; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .org-level-1 { gap: 12px; }
+      .org-level-1::before { display: none; }
+      .org-branch::before { display: none; }
+      .org-level-0::after { display: none; }
+      .org-level-1 { margin-top: 16px; }
+      .disciplines-grid { grid-template-columns: repeat(3, 1fr); }
+      .cs-title { font-size: 32px; }
+      .ms-two-col { grid-template-columns: 1fr; }
+      .ms-title { font-size: 2rem; }
+      #mid-stage { padding: 60px 20px; }
+    }
+    @media (max-width: 768px) {
+      .timeline::before, .timeline::after { left: 2rem; }
+      .timeline-item, .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {
+        left: 0; width: 100%; text-align: left; padding-left: 4.5rem; padding-right: 1rem;
+      }
+      .timeline-item:nth-child(odd) .timeline-dot, .timeline-item:nth-child(even) .timeline-dot { left: calc(2rem - 8px); right: auto; }
+      .timeline-item:nth-child(odd) .timeline-card::after { right: auto; left: -8px; border-left: none; border-right: 8px solid var(--card-border); }
+      .kpi-columns { grid-template-columns: 1fr; gap: 2rem; }
+      .section-timeline .section-header h2, .section-kpis .section-header h2 { font-size: 2rem; }
+      .es-org-level-1 { flex-direction: column; gap: 0; align-items: center; }
+      .es-org-level-1::before { display: none; }
+      .es-cards-grid { grid-template-columns: 1fr; }
+      .es-matrix-grid { grid-template-columns: repeat(2, 1fr); }
+      .es-absorbed { padding: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      #current { padding: 60px 20px 80px; }
+      .disciplines-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-title { font-size: 26px; }
+      .org-level-1 { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="tc-navbar">
+  <a href="#vision" class="tc-navbar__logo">
+    <span class="tc-navbar__logo-mark">TC</span>
+    Trilogy Care
+  </a>
+  <ul class="tc-navbar__links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#current">Current State</a></li>
+    <li><a href="#mid-stage">Mid-Stage</a></li>
+    <li><a href="#end-state">End-State</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#kpis">KPIs</a></li>
+  </ul>
+  <button class="tc-navbar__hamburger" onclick="this.classList.toggle('active'); document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<ul class="tc-navbar__mobile-menu" id="mobileMenu">
+  <li><a href="#vision" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Vision</a></li>
+  <li><a href="#current" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Current State</a></li>
+  <li><a href="#mid-stage" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Mid-Stage</a></li>
+  <li><a href="#end-state" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">End-State</a></li>
+  <li><a href="#timeline" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Timeline</a></li>
+  <li><a href="#kpis" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">KPIs</a></li>
+</ul>
+
+<!-- ========== HERO #vision ========== -->
+<section class="tc-hero" id="vision">
+  <div class="tc-hero__content">
+    <div class="tc-hero__badge">Confidential — CGO Strategy</div>
+    <h1 class="tc-hero__heading">Marketing<br><span>Target Operating Model</span></h1>
+    <p class="tc-hero__sub">From <strong>12 people to 5</strong> — powered by AI agents<br>delivering <strong>3-5x output</strong></p>
+    <div class="tc-hero__stats">
+      <div class="tc-hero__stat">
+        <div class="tc-hero__stat-value">12 <span class="tc-arrow">&rarr;</span> 5</div>
+        <div class="tc-hero__stat-label">People</div>
+      </div>
+      <div class="tc-hero__stat">
+        <div class="tc-hero__stat-value">30&ndash;45</div>
+        <div class="tc-hero__stat-label">AI Agents</div>
+      </div>
+    </div>
+  </div>
+  <div class="tc-hero__scroll">
+    <div class="tc-hero__scroll-line"></div>
+    <div class="tc-hero__scroll-dot"></div>
+    <div class="tc-hero__scroll-text">Scroll</div>
+  </div>
+</section>
+
+<!-- ========== CURRENT STATE #current ========== -->
+<section id="current">
+  <div class="cs-header fade-in-up">
+    <div class="cs-label">Where We Are</div>
+    <h2 class="cs-title">Current State — <span>12 People</span></h2>
+    <p class="cs-subtitle">A traditional marketing team with specialist silos</p>
+  </div>
+
+  <div class="org-chart fade-in-up delay-2">
+    <div class="org-tree">
+      <div class="org-level-0">
+        <div class="org-card leadership">
+          <div class="name">Stephen Danckert</div>
+          <div class="role">GM Marketing</div>
+        </div>
+      </div>
+      <div class="org-level-1">
+        <!-- Paul Phare branch -->
+        <div class="org-branch">
+          <div class="org-card performance">
+            <div class="name">Paul Phare</div>
+            <div class="role">Head of Digital Marketing</div>
+          </div>
+          <div class="org-level-2">
+            <div class="org-card performance">
+              <div class="name">Rajitha Jayathunga</div>
+              <div class="role">Digital Marketing Lead</div>
+            </div>
+            <div class="org-card performance absorbed">
+              <div class="name">Michael Coffey</div>
+              <div class="role">Campaign &amp; Automation Specialist</div>
+            </div>
+            <div class="org-card performance">
+              <div class="name">Miranda Partridge</div>
+              <div class="role">Social Media Executive</div>
+            </div>
+          </div>
+        </div>
+        <!-- Mariia Branch -->
+        <div class="org-branch">
+          <div class="org-card performance">
+            <div class="name">Mariia Branch</div>
+            <div class="role">Marketing Operations TL</div>
+          </div>
+        </div>
+        <!-- Matthew Hart -->
+        <div class="org-branch">
+          <div class="org-card creative">
+            <div class="name">Matthew Hart</div>
+            <div class="role">Communications Executive</div>
+          </div>
+        </div>
+        <!-- Alisha Van Bone -->
+        <div class="org-branch">
+          <div class="org-card creative">
+            <div class="name">Alisha Van Bone</div>
+            <div class="role">Lead Graphic Designer</div>
+          </div>
+          <div class="org-level-2">
+            <div class="org-card creative absorbed">
+              <div class="name">Junior Graphic Designer</div>
+              <div class="role">TBH</div>
+            </div>
+          </div>
+        </div>
+        <!-- Kayla Williams -->
+        <div class="org-branch">
+          <div class="org-card creative absorbed">
+            <div class="name">Kayla Williams</div>
+            <div class="role">Events &amp; Marketing Coordinator</div>
+          </div>
+        </div>
+        <!-- Marilyn Tang -->
+        <div class="org-branch">
+          <div class="org-card creative absorbed">
+            <div class="name">Marilyn Tang</div>
+            <div class="role">Marketing Coordinator</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="org-cgo-report fade-in-up delay-4">
+      <div class="org-card leadership" style="border-style: dashed; border-color: rgba(100,188,234,0.35);">
+        <div class="name">Imran Mehmood</div>
+        <div class="role">AI Innovation Lead</div>
+      </div>
+    </div>
+
+    <div class="org-legend fade-in delay-5">
+      <div class="org-legend-item"><div class="org-legend-swatch swatch-leadership"></div>Leadership</div>
+      <div class="org-legend-item"><div class="org-legend-swatch swatch-performance"></div>Performance / Revenue</div>
+      <div class="org-legend-item"><div class="org-legend-swatch swatch-creative"></div>Brand / Creative</div>
+      <div class="org-legend-item"><div class="org-legend-swatch swatch-absorbed"></div>Role Absorbed</div>
+    </div>
+  </div>
+
+  <div class="disciplines-section">
+    <h3 class="disciplines-title fade-in-up delay-3">12 Disciplines</h3>
+    <p class="disciplines-subtitle fade-in-up delay-4">Every function the team must deliver — two have critical gaps today</p>
+    <div class="disciplines-grid">
+      <div class="disc-card scale-in delay-1"><div class="disc-num">01</div><div class="disc-name">Ads (Paid Media)</div></div>
+      <div class="disc-card scale-in delay-2"><div class="disc-num">02</div><div class="disc-name">SEO</div></div>
+      <div class="disc-card scale-in delay-3"><div class="disc-num">03</div><div class="disc-name">CRO</div></div>
+      <div class="disc-card scale-in delay-4"><div class="disc-num">04</div><div class="disc-name">Email Marketing</div></div>
+      <div class="disc-card gap scale-in delay-5"><div class="disc-num">05</div><div class="disc-name">Web Dev</div></div>
+      <div class="disc-card gap scale-in delay-6"><div class="disc-num">06</div><div class="disc-name">Competitor Intel</div></div>
+      <div class="disc-card scale-in delay-7"><div class="disc-num">07</div><div class="disc-name">Internal Requests</div></div>
+      <div class="disc-card scale-in delay-8"><div class="disc-num">08</div><div class="disc-name">Social Media</div></div>
+      <div class="disc-card scale-in delay-9"><div class="disc-num">09</div><div class="disc-name">Content &amp; Copy</div></div>
+      <div class="disc-card scale-in delay-10"><div class="disc-num">10</div><div class="disc-name">Design</div></div>
+      <div class="disc-card scale-in delay-11"><div class="disc-num">11</div><div class="disc-name">Rep / ORM</div></div>
+      <div class="disc-card scale-in delay-12"><div class="disc-num">12</div><div class="disc-name">Events</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MID-STAGE #mid-stage ========== -->
+<section id="mid-stage">
+  <div class="ms-container">
+    <div class="ms-fade-up">
+      <span class="ms-phase-label">Restructure</span>
+      <h2 class="ms-title">Phase 1 &mdash; Mid-Stage (8 People)</h2>
+      <p class="ms-subtitle">Restructure, cross-train, and build the first wave of AI agents</p>
+    </div>
+
+    <div class="ms-two-col">
+      <div class="ms-org-chart ms-fade-up ms-delay-2">
+        <h3 class="ms-org-chart-title">Org Structure</h3>
+        <div class="ms-org-gm">
+          <span class="ms-org-dot ms-dot-navy"></span>
+          <div>
+            <div class="ms-org-person-name">Stephen Danckert</div>
+            <div class="ms-org-person-role">GM Marketing</div>
+          </div>
+        </div>
+        <span class="ms-org-badge ms-badge-perf">Performance</span>
+        <ul class="ms-org-tree">
+          <li>
+            <div class="ms-org-person">
+              <span class="ms-org-dot ms-dot-blue"></span>
+              <span class="ms-org-person-name">Paul Phare</span>
+              <span class="ms-org-person-role">&mdash; Head of Performance</span>
+            </div>
+            <ul class="ms-org-tree">
+              <li>
+                <div class="ms-org-person">
+                  <span class="ms-org-dot ms-dot-blue"></span>
+                  <span class="ms-org-person-name">Rajitha Jayathunga</span>
+                  <span class="ms-org-person-role">&mdash; Digital &amp; Automation Lead</span>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <span class="ms-org-badge ms-badge-ops">Marketing Ops</span>
+        <ul class="ms-org-tree">
+          <li>
+            <div class="ms-org-person">
+              <span class="ms-org-dot ms-dot-teal"></span>
+              <span class="ms-org-person-name">Mariia Branch</span>
+              <span class="ms-org-person-role">&mdash; Marketing Ops Manager</span>
+            </div>
+            <ul class="ms-org-tree">
+              <li>
+                <div class="ms-org-person">
+                  <span class="ms-org-dot ms-dot-teal"></span>
+                  <span class="ms-org-person-name">Matthew Hart</span>
+                  <span class="ms-org-person-role">&mdash; Content &amp; Comms Executive</span>
+                </div>
+              </li>
+              <li>
+                <div class="ms-org-person">
+                  <span class="ms-org-dot ms-dot-teal"></span>
+                  <span class="ms-org-person-name">Miranda Partridge</span>
+                  <span class="ms-org-person-role">&mdash; Social &amp; ORM Executive</span>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <span class="ms-org-badge ms-badge-creative">Creative</span>
+        <ul class="ms-org-tree">
+          <li>
+            <div class="ms-org-person">
+              <span class="ms-org-dot ms-dot-blue"></span>
+              <span class="ms-org-person-name">Alisha Van Bone</span>
+              <span class="ms-org-person-role">&mdash; Creative Lead</span>
+            </div>
+          </li>
+        </ul>
+        <div class="ms-org-divider"></div>
+        <div class="ms-org-standalone">
+          <span class="ms-org-dot ms-dot-teal"></span>
+          <div>
+            <div class="ms-org-person-name">Imran Mehmood</div>
+            <div class="ms-org-person-role">AI Innovation Lead</div>
+          </div>
+          <span class="ms-org-reports-to">Reports to CGO</span>
+        </div>
+      </div>
+
+      <div class="ms-absorbed ms-fade-up ms-delay-3">
+        <div class="ms-absorbed-header">
+          <div class="ms-absorbed-count">4</div>
+          <div>
+            <p class="ms-absorbed-label">Roles Absorbed</p>
+            <p class="ms-absorbed-sublabel">Replaced by AI agents &amp; redistribution</p>
+          </div>
+        </div>
+        <div class="ms-absorbed-cards">
+          <div class="ms-absorbed-card ms-fade-in ms-delay-4">
+            <div class="ms-absorbed-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <p class="ms-absorbed-card-name">Marilyn Tang</p>
+              <p class="ms-absorbed-card-old-role">Marketing Coordinator</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> AI agents handle admin, notes, and scheduling</p>
+            </div>
+          </div>
+          <div class="ms-absorbed-card ms-fade-in ms-delay-5">
+            <div class="ms-absorbed-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <p class="ms-absorbed-card-name">Kayla Williams</p>
+              <p class="ms-absorbed-card-old-role">Events Coordinator</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Events on hold, coordination automated</p>
+            </div>
+          </div>
+          <div class="ms-absorbed-card ms-fade-in ms-delay-6">
+            <div class="ms-absorbed-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="ms-absorbed-card-name">Michael Coffey</p>
+              <p class="ms-absorbed-card-old-role">Campaigns</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Email/automation absorbed by Rajitha + AI</p>
+            </div>
+          </div>
+          <div class="ms-absorbed-card ms-fade-in ms-delay-7">
+            <div class="ms-absorbed-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <div>
+              <p class="ms-absorbed-card-name">Junior Designer</p>
+              <p class="ms-absorbed-card-old-role">Design</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Volume design work replaced by AI agents</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ms-matrix-section ms-fade-up ms-delay-8">
+      <div class="ms-matrix-header">
+        <h3 class="ms-matrix-title">Cross-Training Matrix</h3>
+        <p class="ms-matrix-subtitle">Upskilling plan to close capability gaps across the team</p>
+      </div>
+      <table class="ms-matrix-grid">
+        <thead><tr><th>Person</th><th>Must Develop</th><th>How</th></tr></thead>
+        <tbody>
+          <tr class="ms-slide-right ms-delay-5">
+            <td><span class="ms-matrix-person">Rajitha</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Email / Automation</span><span class="ms-matrix-skill-tag">Web Dev</span></div></td>
+            <td><p class="ms-matrix-how">Takes over Klaviyo ownership, starts Claude Code for web development</p></td>
+          </tr>
+          <tr class="ms-slide-right ms-delay-6">
+            <td><span class="ms-matrix-person">Mariia</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Content Strategy</span><span class="ms-matrix-skill-tag">Brand</span><span class="ms-matrix-skill-tag">Performance Literacy</span></div></td>
+            <td><p class="ms-matrix-how">Oversees Matthew &amp; Miranda, builds strategic layer across content and ops</p></td>
+          </tr>
+          <tr class="ms-slide-right ms-delay-7">
+            <td><span class="ms-matrix-person">Alisha</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Social Content</span><span class="ms-matrix-skill-tag">Content Writing</span></div></td>
+            <td><p class="ms-matrix-how">Paired with Miranda for 4 weeks to build social and written content muscle</p></td>
+          </tr>
+          <tr class="ms-slide-right ms-delay-8">
+            <td><span class="ms-matrix-person">Matthew</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">AI Content Workflows</span></div></td>
+            <td><p class="ms-matrix-how">Target 50%+ output generated via AI agents, focus on editing and quality</p></td>
+          </tr>
+          <tr class="ms-slide-right ms-delay-9">
+            <td><span class="ms-matrix-person">Miranda</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Content Writing</span><span class="ms-matrix-skill-tag">Basic Design</span></div></td>
+            <td><p class="ms-matrix-how">Expands into longer-form content, picks up Canva and AI design tools</p></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========== END-STATE #end-state ========== -->
+<section id="end-state">
+  <div class="es-container">
+    <div class="es-header">
+      <div class="es-phase-badge">End-State</div>
+      <h2 class="es-title">Phase 2 — End-State (5 People)</h2>
+      <p class="es-subtitle">Five multi-skilled humans managing <strong>30-45 AI agents</strong> across <strong>12 disciplines</strong></p>
+    </div>
+
+    <div class="es-org-chart">
+      <div class="es-section-title">Organisation Structure</div>
+      <div class="es-org-tree">
+        <div class="es-org-level-0">
+          <div class="es-org-node"><span class="es-org-node-dot es-dot-blue"></span><div><div class="es-org-node-name">Stephen</div><div class="es-org-node-role">GM Marketing</div></div></div>
+        </div>
+        <div class="es-org-connector"></div>
+        <div class="es-org-level-1">
+          <div class="es-org-branch">
+            <div class="es-org-node"><span class="es-org-node-dot es-dot-teal"></span><div><div class="es-org-node-name">Paul</div><div class="es-org-node-role">Head of Performance</div></div></div>
+            <div class="es-org-connector"></div>
+            <div class="es-org-level-2">
+              <div class="es-org-node"><span class="es-org-node-dot es-dot-lteal"></span><div><div class="es-org-node-name">Rajitha</div><div class="es-org-node-role">Digital Lead</div></div></div>
+            </div>
+          </div>
+          <div class="es-org-branch">
+            <div class="es-org-node"><span class="es-org-node-dot es-dot-blue"></span><div><div class="es-org-node-name">Mariia</div><div class="es-org-node-role">Marketing Ops Manager</div></div></div>
+            <div class="es-org-connector"></div>
+            <div class="es-org-level-2">
+              <div class="es-org-node"><span class="es-org-node-dot es-dot-lblue"></span><div><div class="es-org-node-name">Alisha</div><div class="es-org-node-role">Creative &amp; Social Lead</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="es-org-standalone">
+          <div class="es-org-node"><span class="es-org-node-dot es-dot-lteal"></span><div><div class="es-org-node-name">Imran <span class="es-org-report-tag">reports to CGO</span></div><div class="es-org-node-role">AI Innovation Lead</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="es-role-cards">
+      <div class="es-section-title">Roles &amp; AI Agent Load</div>
+      <div class="es-cards-grid">
+        <div class="es-role-card" data-owner="stephen">
+          <div class="es-card-header"><div><div class="es-card-person">Stephen</div><div class="es-card-role-title">GM Marketing</div></div>
+            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>3-5</span></div></div>
+          <ul class="es-card-disciplines"><li>Strategy</li><li>Budget</li><li>Stakeholders</li></ul>
+        </div>
+        <div class="es-role-card" data-owner="paul">
+          <div class="es-card-header"><div><div class="es-card-person">Paul</div><div class="es-card-role-title">Head of Performance</div></div>
+            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>8-12</span></div></div>
+          <ul class="es-card-disciplines"><li>Ads</li><li>SEO</li><li>CRO</li><li>Email</li><li>Competitor Intel</li></ul>
+        </div>
+        <div class="es-role-card" data-owner="rajitha">
+          <div class="es-card-header"><div><div class="es-card-person">Rajitha</div><div class="es-card-role-title">Digital Lead</div></div>
+            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>6-10</span></div></div>
+          <ul class="es-card-disciplines"><li>Ads Exec</li><li>Email Exec</li><li>CRO Exec</li><li>Web Dev</li><li>Attribution</li></ul>
+        </div>
+        <div class="es-role-card" data-owner="mariia">
+          <div class="es-card-header"><div><div class="es-card-person">Mariia</div><div class="es-card-role-title">MktOps Manager</div></div>
+            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>6-10</span></div></div>
+          <ul class="es-card-disciplines"><li>Internal Requests</li><li>Content Strategy</li><li>Ops</li><li>Brand</li><li>Events</li></ul>
+        </div>
+        <div class="es-role-card" data-owner="alisha">
+          <div class="es-card-header"><div><div class="es-card-person">Alisha</div><div class="es-card-role-title">Creative &amp; Social Lead</div></div>
+            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>6-10</span></div></div>
+          <ul class="es-card-disciplines"><li>Design</li><li>Social</li><li>Content Exec</li><li>ORM</li><li>Video</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="es-matrix">
+      <div class="es-section-title">12 Disciplines — Ownership Map</div>
+      <div class="es-matrix-grid">
+        <div class="es-matrix-cell es-owner-paul">Paid Ads<span class="es-cell-owner">Paul</span></div>
+        <div class="es-matrix-cell es-owner-paul">SEO<span class="es-cell-owner">Paul</span></div>
+        <div class="es-matrix-cell es-owner-paul">CRO<span class="es-cell-owner">Paul</span></div>
+        <div class="es-matrix-cell es-owner-paul">Email Marketing<span class="es-cell-owner">Paul</span></div>
+        <div class="es-matrix-cell es-owner-rajitha">Web Dev<span class="es-cell-owner">Rajitha</span></div>
+        <div class="es-matrix-cell es-owner-rajitha">Attribution<span class="es-cell-owner">Rajitha</span></div>
+        <div class="es-matrix-cell es-owner-mariia">Content Strategy<span class="es-cell-owner">Mariia</span></div>
+        <div class="es-matrix-cell es-owner-mariia">Brand<span class="es-cell-owner">Mariia</span></div>
+        <div class="es-matrix-cell es-owner-mariia">Events<span class="es-cell-owner">Mariia</span></div>
+        <div class="es-matrix-cell es-owner-alisha">Design<span class="es-cell-owner">Alisha</span></div>
+        <div class="es-matrix-cell es-owner-alisha">Social Media<span class="es-cell-owner">Alisha</span></div>
+        <div class="es-matrix-cell es-owner-alisha">Video<span class="es-cell-owner">Alisha</span></div>
+      </div>
+      <div class="es-matrix-legend">
+        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-paul"></span>Paul</div>
+        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-rajitha"></span>Rajitha</div>
+        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-mariia"></span>Mariia</div>
+        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-alisha"></span>Alisha</div>
+      </div>
+    </div>
+
+    <div class="es-absorbed">
+      <div class="es-absorbed-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+        2 Roles Absorbed
+      </div>
+      <div class="es-absorbed-role">
+        <div class="es-absorbed-arrow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
+        <div><div class="es-absorbed-from">Matthew Hart</div><div class="es-absorbed-to">Content work absorbed by <strong>Mariia</strong> (strategy) + <strong>Alisha</strong> (execution) + AI agents</div></div>
+      </div>
+      <div class="es-absorbed-role">
+        <div class="es-absorbed-arrow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
+        <div><div class="es-absorbed-from">Miranda Partridge</div><div class="es-absorbed-to">Social work absorbed by <strong>Alisha</strong> + AI agents</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TIMELINE #timeline ========== -->
+<section class="section-timeline" id="timeline">
+  <div class="section-header">
+    <h2>6-Month Execution Plan</h2>
+    <p>April to September 2026</p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot active"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Apr W1</span>
+        <h3>Own the Vision</h3>
+        <p>Stephen reviews TOM, assesses team fit against target roles. Alignment on structure and sequencing.</p>
+        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot active"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Apr W2 &ndash; W4</span>
+        <h3>Build Mid-Stage</h3>
+        <p>New reporting lines activated. Handovers started across performance, content and ops streams.</p>
+        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">May</span>
+        <h3>Cross-Train + Build Agents</h3>
+        <p>Skills developing across consolidated roles. Phase 1 AI agents built to absorb repeatable workflows.</p>
+        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Jun</span>
+        <h3>Phase 1 Exits</h3>
+        <p>4 roles absorbed into mid-stage structure. Mid-stage model fully operational and measured.</p>
+        <span class="headcount-badge reduction"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12 &rarr; 8</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Jul &ndash; Aug</span>
+        <h3>Operate + Prove</h3>
+        <p>Model proven against KPIs. Phase 2 AI agents built to automate remaining manual work.</p>
+        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>8</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Sep</span>
+        <h3>Phase 2 Exits</h3>
+        <p>End-state achieved. 5-person team delivering 3&ndash;5x the output of the original 12.</p>
+        <span class="headcount-badge reduction"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>8 &rarr; 5</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== KPIs #kpis ========== -->
+<section class="section-kpis" id="kpis">
+  <div class="section-header">
+    <h2>KPI Scorecards</h2>
+    <p>Linked scorecards for every role across both phases</p>
+  </div>
+  <div class="kpi-columns">
+    <!-- Mid-Stage KPIs -->
+    <div class="kpi-group mid-stage">
+      <div class="kpi-group-title">Mid-Stage KPIs <span class="count">8 roles</span></div>
+      <div class="kpi-cards">
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">GM Marketing</div><div class="kpi-person">Stephen Danckert</div></div><span class="kpi-weight">Lead Gen 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Head of Performance</div><div class="kpi-person">Paul Phare</div></div><span class="kpi-weight">Paid Perf 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Digital &amp; Automation Lead</div><div class="kpi-person">Rajitha Jayathunga</div></div><span class="kpi-weight">Paid Perf 35%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops Manager</div><div class="kpi-person">Mariia Branch</div></div><span class="kpi-weight">Stakeholder SLA 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Content &amp; Comms Exec</div><div class="kpi-person">Matthew Hart</div></div><span class="kpi-weight">Content Prod 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Social &amp; ORM Exec</div><div class="kpi-person">Miranda Partridge</div></div><span class="kpi-weight">Social &amp; ORM 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Creative Lead</div><div class="kpi-person">Alisha Van Bone</div></div><span class="kpi-weight">Design SLA 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">AI Innovation Lead</div><div class="kpi-person">Imran Mehmood</div></div><span class="kpi-weight">Phase 1 Agents 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- End-State KPIs -->
+    <div class="kpi-group end-state">
+      <div class="kpi-group-title">End-State KPIs <span class="count">5+1 roles</span></div>
+      <div class="kpi-cards">
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">GM Marketing</div><div class="kpi-person">Stephen Danckert</div></div><span class="kpi-weight">Lead Gen 45%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 45%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Head of Performance</div><div class="kpi-person">Paul Phare</div></div><span class="kpi-weight">Lead Volume 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Digital Lead</div><div class="kpi-person">Rajitha Jayathunga</div></div><span class="kpi-weight">Paid Perf 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops Manager</div><div class="kpi-person">Mariia Branch</div></div><span class="kpi-weight">Stakeholder SLA 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Creative &amp; Social Lead</div><div class="kpi-person">Alisha Van Bone</div></div><span class="kpi-weight">Design Prod 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">AI Innovation Lead</div><div class="kpi-person">Imran Mehmood</div></div><span class="kpi-weight">Agent Portfolio 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="section-footer">
+  <p class="footer-title">Trilogy Care &mdash; Marketing Target Operating Model</p>
+  <p class="footer-meta">
+    <span>Confidential &mdash; March 2026</span>
+    <span>Owner: Nick Lunn, Chief Growth Officer</span>
+  </p>
+</footer>
+
+<!-- ========== INTERSECTION OBSERVER ========== -->
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  // Current state
+  document.querySelectorAll('#current .fade-in-up, #current .fade-in, #current .scale-in').forEach(function(el) { observer.observe(el); });
+  // Mid-stage
+  document.querySelectorAll('#mid-stage .ms-fade-up, #mid-stage .ms-fade-in, #mid-stage .ms-slide-right').forEach(function(el) { observer.observe(el); });
+  // End-state
+  document.querySelectorAll('#end-state .es-role-card, #end-state .es-matrix-cell, #end-state .es-absorbed').forEach(function(el) { observer.observe(el); });
+  // Timeline
+  document.querySelectorAll('.timeline-item').forEach(function(el, i) {
+    el.style.animationDelay = (0.2 + i * 0.2) + 's';
+    observer.observe(el);
+  });
+  // KPI bars
+  document.querySelectorAll('.kpi-bar-fill').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>
