@@ -26,6 +26,72 @@
       --card-hover: rgba(255, 255, 255, 0.08);
     }
 
+    /* ── Interactive Elements ── */
+    .clickable { cursor: pointer; position: relative; }
+    .click-hint { display: block; font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-top: 0.5rem; letter-spacing: 0.05em; }
+    .expand-icon { display: inline-block; width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); text-align: center; line-height: 14px; font-size: 10px; color: rgba(255,255,255,0.4); transition: all 0.3s; margin-left: 0.5rem; vertical-align: middle; }
+    .expand-icon.open { transform: rotate(45deg); }
+    .kpi-detail { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.3s; opacity: 0; }
+    .kpi-detail.open { max-height: 600px; opacity: 1; margin-top: 0.75rem; }
+    .kpi-detail-inner { padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; font-size: 0.82rem; }
+    .kpi-detail-area { margin-bottom: 0.75rem; }
+    .kpi-detail-area:last-child { margin-bottom: 0; }
+    .kpi-detail-area-title { font-weight: 700; color: var(--light-teal); font-size: 0.78rem; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .kpi-detail-measure { display: flex; justify-content: space-between; gap: 1rem; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); color: rgba(255,255,255,0.6); font-size: 0.78rem; }
+    .kpi-detail-measure:last-child { border-bottom: none; }
+    .kpi-detail-target { color: var(--light-teal); font-weight: 600; white-space: nowrap; text-align: right; min-width: 100px; }
+    .role-panel-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(4px); }
+    .role-panel-overlay.open { opacity: 1; pointer-events: all; }
+    .role-panel { position: fixed; top: 0; right: 0; bottom: 0; width: 520px; max-width: 100vw; background: #1a2332; z-index: 2001; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; padding: 2rem; }
+    .role-panel.open { transform: translateX(0); }
+    .role-panel-close { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 36px; height: 36px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
+    .role-panel h3 { font-size: 1.4rem; font-weight: 700; margin: 0 0 0.25rem; color: #fff; }
+    .role-panel .rp-sub { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+    .role-panel h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light-teal); margin: 1.5rem 0 0.75rem; }
+    .role-panel p, .role-panel li { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+    .role-panel ul { padding-left: 1.25rem; margin: 0; }
+    .rp-ditl { background: rgba(67,192,190,0.06); border: 1px solid rgba(67,192,190,0.15); border-radius: 10px; padding: 1.25rem; margin-top: 0.75rem; font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.7); }
+    .rp-ditl strong { color: var(--light-teal); }
+    .strategy-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; color: var(--light-teal); background: rgba(67,192,190,0.08); border: 1px solid rgba(67,192,190,0.2); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 1.5rem; }
+    .strategy-btn:hover { background: rgba(67,192,190,0.15); }
+    .strategy-overlay { position: fixed; inset: 0; background: rgba(10,17,30,0.97); z-index: 3000; opacity: 0; pointer-events: none; transition: opacity 0.3s; overflow-y: auto; padding: 4rem 2rem; }
+    .strategy-overlay.open { opacity: 1; pointer-events: all; }
+    .strategy-overlay-inner { max-width: 800px; margin: 0 auto; }
+    .strategy-overlay-close { position: fixed; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; z-index: 3001; display: flex; align-items: center; justify-content: center; }
+    .strategy-overlay h3 { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+    .strategy-overlay h4 { font-size: 1rem; font-weight: 700; color: var(--light-teal); margin: 1.5rem 0 0.5rem; }
+    .strategy-overlay p, .strategy-overlay li { font-size: 0.92rem; color: rgba(255,255,255,0.7); line-height: 1.7; }
+    #ai-gains { background: #0f172a; padding: 6rem 2rem; position: relative; overflow: hidden; }
+    #ai-gains::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(67,192,190,0.3), transparent); }
+    .ag-container { max-width: 1200px; margin: 0 auto; }
+    .ag-header { text-align: center; margin-bottom: 4rem; }
+    .ag-header h2 { font-size: 2.75rem; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 0.5rem; background: linear-gradient(135deg, var(--light-blue), var(--light-teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .ag-header p { font-size: 1.15rem; color: var(--text-secondary); margin: 0; }
+    .ag-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .ag-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 1.5rem; cursor: pointer; transition: all 0.3s; overflow: hidden; }
+    .ag-card:hover { border-color: rgba(67,192,190,0.25); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .ag-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+    .ag-card-fn { font-size: 1.05rem; font-weight: 700; color: #fff; }
+    .ag-multiplier { font-size: 0.75rem; font-weight: 800; color: #0f172a; background: linear-gradient(135deg, var(--light-teal), var(--teal)); padding: 0.25rem 0.65rem; border-radius: 20px; }
+    .ag-card-current { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 0.2rem; }
+    .ag-card-future { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+    .ag-detail { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.3s; opacity: 0; }
+    .ag-detail.open { max-height: 500px; opacity: 1; margin-top: 1rem; }
+    .ag-detail-inner { padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .ag-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .ag-before { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.12); border-radius: 8px; padding: 0.75rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+    .ag-before b { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: #ef4444; margin-bottom: 0.25rem; font-weight: 700; }
+    .ag-after { background: rgba(67,192,190,0.06); border: 1px solid rgba(67,192,190,0.12); border-radius: 8px; padding: 0.75rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+    .ag-after b { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--light-teal); margin-bottom: 0.25rem; font-weight: 700; }
+    .ag-agents { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+    .ag-tag { font-size: 0.7rem; background: rgba(67,192,190,0.1); border: 1px solid rgba(67,192,190,0.15); color: var(--light-teal); padding: 0.2rem 0.5rem; border-radius: 5px; }
+    .ag-why { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--light-teal)); z-index: 1001; width: 0%; transition: width 0.1s; pointer-events: none; }
+    .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; border-radius: 12px; background: rgba(0,127,126,0.3); border: 1px solid rgba(67,192,190,0.3); color: #fff; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: all 0.3s; backdrop-filter: blur(10px); }
+    .back-to-top.visible { opacity: 1; pointer-events: all; }
+    .back-to-top:hover { background: rgba(0,127,126,0.5); }
+    @media (max-width: 768px) { .role-panel { width: 100vw; } .ag-grid { grid-template-columns: 1fr; } .ag-ba { grid-template-columns: 1fr; } }
+
     /* ── Shared Animations ── */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(32px); }
@@ -831,6 +897,7 @@
     <li><a href="#current">Current State</a></li>
     <li><a href="#mid-stage">Mid-Stage</a></li>
     <li><a href="#end-state">End-State</a></li>
+    <li><a href="#ai-gains">AI Gains</a></li>
     <li><a href="#timeline">Timeline</a></li>
     <li><a href="#kpis">KPIs</a></li>
   </ul>
@@ -843,6 +910,7 @@
   <li><a href="#current" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Current State</a></li>
   <li><a href="#mid-stage" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Mid-Stage</a></li>
   <li><a href="#end-state" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">End-State</a></li>
+  <li><a href="#ai-gains" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">AI Gains</a></li>
   <li><a href="#timeline" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Timeline</a></li>
   <li><a href="#kpis" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">KPIs</a></li>
 </ul>
@@ -1275,6 +1343,115 @@
   </div>
 </section>
 
+<!-- ========== AI EFFICIENCY GAINS #ai-gains ========== -->
+<section id="ai-gains">
+  <div class="ag-container">
+    <div class="ag-header">
+      <h2>AI Efficiency Gains</h2>
+      <p>How 5 people deliver 3-5x the output of 12 — function by function</p>
+    </div>
+    <div class="ag-grid">
+
+      <div class="ag-card" onclick="toggleAg(this)">
+        <div class="ag-card-top"><span class="ag-card-fn">Paid Ads</span><span class="ag-multiplier">3-4x</span></div>
+        <div class="ag-card-current">Now: 1 person managing campaigns manually</div>
+        <div class="ag-card-future">AI generates ad copy, variants, manages bids &mdash; human approves</div>
+        <span class="click-hint">Click to explore &darr;</span>
+        <div class="ag-detail"><div class="ag-detail-inner">
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>1 person writes copy, builds audiences, manages bids across Google Ads + Meta. ~10 campaigns/month.</div><div class="ag-after"><b>After</b>AI agents draft 3+ ad variants per campaign, auto-manage bids, build audience segments. Human sets strategy and approves. ~35 campaigns/month.</div></div>
+          <div class="ag-agents"><span class="ag-tag">Google Ads Agent</span><span class="ag-tag">Meta Agent</span><span class="ag-tag">Ad Copy Agent</span><span class="ag-tag">Audience Builder</span></div>
+          <p class="ag-why"><strong>Why it works:</strong> Ad copy generation and bid management are pattern-based tasks. AI agents produce variants at 10x speed; the human's value is strategic judgement on channel mix and ROAS targets, not copy production.</p>
+        </div></div>
+      </div>
+
+      <div class="ag-card" onclick="toggleAg(this)">
+        <div class="ag-card-top"><span class="ag-card-fn">SEO</span><span class="ag-multiplier">5x</span></div>
+        <div class="ag-card-current">Now: Secondary focus, ad hoc content</div>
+        <div class="ag-card-future">AI handles keyword research, content drafts, technical audits, rank tracking</div>
+        <span class="click-hint">Click to explore &darr;</span>
+        <div class="ag-detail"><div class="ag-detail-inner">
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>SEO is a secondary task for the Digital Lead. ~2 optimised pieces/month. No systematic keyword tracking or technical audits.</div><div class="ag-after"><b>After</b>AI agents produce keyword research, draft content briefs, run technical audits, and track rankings weekly. Human sets SEO strategy and reviews output. ~10+ optimised pieces/month.</div></div>
+          <div class="ag-agents"><span class="ag-tag">Keyword Agent</span><span class="ag-tag">Content Brief Agent</span><span class="ag-tag">Technical Audit Agent</span><span class="ag-tag">Rank Tracker</span></div>
+          <p class="ag-why"><strong>Why it works:</strong> Keyword research and content brief generation are data-intensive tasks perfectly suited to AI. The 5x comes from turning a part-time activity into a systematic, agent-driven program.</p>
+        </div></div>
+      </div>
+
+      <div class="ag-card" onclick="toggleAg(this)">
+        <div class="ag-card-top"><span class="ag-card-fn">Email &amp; Automation</span><span class="ag-multiplier">3x</span></div>
+        <div class="ag-card-current">Now: 1 dedicated person (Michael &mdash; absorbed)</div>
+        <div class="ag-card-future">AI builds flows, drafts copy, tests subject lines, optimises sends</div>
+        <span class="click-hint">Click to explore &darr;</span>
+        <div class="ag-detail"><div class="ag-detail-inner">
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Michael manually builds Klaviyo flows, writes email copy, sets up A/B tests. ~4 active journeys, 1 test/month.</div><div class="ag-after"><b>After</b>Rajitha manages strategy; AI agents build flows, draft copy, generate subject line variants, optimise send times. ~12 active journeys, 2+ tests/month. Speed-to-lead under 1 hour.</div></div>
+          <div class="ag-agents"><span class="ag-tag">Klaviyo Flow Agent</span><span class="ag-tag">Email Copy Agent</span><span class="ag-tag">A/B Test Agent</span><span class="ag-tag">Send Optimiser</span></div>
+          <p class="ag-why"><strong>Why it works:</strong> Email automation is inherently AI-friendly &mdash; templates, triggers, and copy variants are systematic. The human value is journey strategy and segmentation decisions, not flow building.</p>
+        </div></div>
+      </div>
+
+      <div class="ag-card" onclick="toggleAg(this)">
+        <div class="ag-card-top"><span class="ag-card-fn">CRO</span><span class="ag-multiplier">4x</span></div>
+        <div class="ag-card-current">Now: Ad hoc testing, no systematic program</div>
+        <div class="ag-card-future">AI generates landing page variants, analyses heatmaps, reports results</div>
+        <span class="click-hint">Click to explore &darr;</span>
+        <div class="ag-detail"><div class="ag-detail-inner">
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>CRO happens when someone has time. ~1 test every 2 months. No systematic heatmap analysis. Landing pages take days to build.</div><div class="ag-after"><b>After</b>AI agents generate page variants via Claude Code, analyse heatmaps, extract analytics, and report results. Rajitha sets hypotheses and implements winners. 2+ tests/month, landing pages in &lt;2 days.</div></div>
+          <div class="ag-agents"><span class="ag-tag">Landing Page Agent</span><span class="ag-tag">CRO Analysis Agent</span><span class="ag-tag">Heatmap Agent</span></div>
+          <p class="ag-why"><strong>Why it works:</strong> CRO was bottlenecked by capacity, not strategy. AI removes the build constraint &mdash; generating variants is fast, so the team can test 4x more hypotheses.</p>
+        </div></div>
+      </div>
+
+      <div class="ag-card" onclick="toggleAg(this)">
+        <div class="ag-card-top"><span class="ag-card-fn">Content &amp; Copy</span><span class="ag-multiplier">3x</span></div>
+        <div class="ag-card-current">Now: 10 articles/month, 1 dedicated writer (Matthew)</div>
+        <div class="ag-card-future">AI drafts 75%+, human edits and QA. 15+ articles/month</div>
+        <span class="click-hint">Click to explore &darr;</span>
+        <div class="ag-detail"><div class="ag-detail-inner">
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Matthew writes everything from scratch: blogs, newsletters, PR pitches, case studies, internal comms. ~10 articles/month, often behind schedule.</div><div class="ag-after"><b>After</b>AI agents draft 75%+ of content from briefs. Mariia sets strategy and QA, Alisha handles visual content. Newsletter, PR pitches, and blog production all agent-assisted. 15+ articles/month, zero factual errors.</div></div>
+          <div class="ag-agents"><span class="ag-tag">Blog Draft Agent</span><span class="ag-tag">Newsletter Agent</span><span class="ag-tag">PR Pitch Agent</span><span class="ag-tag">Brand QA Agent</span></div>
+          <p class="ag-why"><strong>Why it works:</strong> AI writing agents have matured to the point where first drafts are 80% ready. The human value shifts from writing to editing, QA, and strategic direction &mdash; one person can oversee 3x the output.</p>
+        </div></div>
+      </div>
+
+      <div class="ag-card" onclick="toggleAg(this)">
+        <div class="ag-card-top"><span class="ag-card-fn">Design</span><span class="ag-multiplier">2-3x</span></div>
+        <div class="ag-card-current">Now: 2 designers (lead + junior)</div>
+        <div class="ag-card-future">AI handles templates, resizing, variants. Alisha focuses on creative direction</div>
+        <span class="click-hint">Click to explore &darr;</span>
+        <div class="ag-detail"><div class="ag-detail-inner">
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Alisha + Junior Designer handle all design requests. Junior does resizing, templates, variants. ~15 assets/week total. SLA pressure.</div><div class="ag-after"><b>After</b>AI agents handle 60%+ of production work (templates, resizing, variant generation, mockups). Alisha focuses on creative direction, campaign assets, and brand design. ~35+ assets/week. 100% SLA compliance.</div></div>
+          <div class="ag-agents"><span class="ag-tag">Design Production Agent</span><span class="ag-tag">Resize Agent</span><span class="ag-tag">Variant Generator</span><span class="ag-tag">Mockup Agent</span></div>
+          <p class="ag-why"><strong>Why it works:</strong> 60% of design work is repetitive production (resizing for platforms, template variants, format conversions). AI handles this at speed, freeing the designer for work that requires genuine creative judgement.</p>
+        </div></div>
+      </div>
+
+      <div class="ag-card" onclick="toggleAg(this)">
+        <div class="ag-card-top"><span class="ag-card-fn">Social Media</span><span class="ag-multiplier">2-3x</span></div>
+        <div class="ag-card-current">Now: 5 posts/week, 1 dedicated person (Miranda)</div>
+        <div class="ag-card-future">AI drafts posts, schedules, monitors ORM. 7+ posts/week</div>
+        <span class="click-hint">Click to explore &darr;</span>
+        <div class="ag-detail"><div class="ag-detail-inner">
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Miranda writes all social copy, schedules posts, monitors reviews, responds to comments. 5 posts/week, 20 reviews/month. ORM response times variable.</div><div class="ag-after"><b>After</b>AI agents draft 70%+ of posts, auto-schedule across platforms, monitor ORM 24/7, and draft review responses for human approval. Alisha manages calendar and creative direction. 7+ posts/week, 30+ reviews/month, same-day response guaranteed.</div></div>
+          <div class="ag-agents"><span class="ag-tag">Social Scheduling Agent</span><span class="ag-tag">ORM Response Agent</span><span class="ag-tag">Content Draft Agent</span><span class="ag-tag">Engagement Monitor</span></div>
+          <p class="ag-why"><strong>Why it works:</strong> Social content creation and scheduling is highly templatable. AI agents handle the volume; the human provides brand voice, community judgement, and escalation management for sensitive reviews.</p>
+        </div></div>
+      </div>
+
+      <div class="ag-card" onclick="toggleAg(this)">
+        <div class="ag-card-top"><span class="ag-card-fn">Marketing Ops</span><span class="ag-multiplier">Near-full automation</span></div>
+        <div class="ag-card-current">Now: 2 coordinators + manual Asana, reporting, scheduling</div>
+        <div class="ag-card-future">AI handles routing, SLA tracking, reporting, meeting notes</div>
+        <span class="click-hint">Click to explore &darr;</span>
+        <div class="ag-detail"><div class="ag-detail-inner">
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Marilyn and Kayla manually manage Asana tasks, schedule meetings, take notes, track SLAs, route requests, compile reports. 2 full-time coordination roles.</div><div class="ag-after"><b>After</b>AI agents auto-log briefs from email/Slack, route requests in Asana, track SLAs with automated escalation, generate meeting notes, and compile dashboards. Mariia focuses on strategic coordination and stakeholder management. Zero coordination headcount.</div></div>
+          <div class="ag-agents"><span class="ag-tag">Asana Automation Agent</span><span class="ag-tag">SLA Tracking Agent</span><span class="ag-tag">Report Generation Agent</span><span class="ag-tag">Brief Intake Agent</span><span class="ag-tag">Meeting Notes Agent</span></div>
+          <p class="ag-why"><strong>Why it works:</strong> Coordination is the most automatable marketing function. Task routing, SLA monitoring, and report generation are rule-based processes that AI agents handle with higher consistency than manual tracking.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ========== TIMELINE #timeline ========== -->
 <section class="section-timeline" id="timeline">
   <div class="section-header">
@@ -1385,8 +1562,157 @@
   </p>
 </footer>
 
-<!-- ========== INTERSECTION OBSERVER ========== -->
+<!-- Progress bar + back to top -->
+<div class="scroll-progress" id="scrollProgress"></div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+
+<!-- Role detail panel -->
+<div class="role-panel-overlay" id="rolePanelOverlay" onclick="closeRolePanel()"></div>
+<div class="role-panel" id="rolePanel">
+  <button class="role-panel-close" onclick="closeRolePanel()">&times;</button>
+  <div id="rolePanelContent"></div>
+</div>
+
+<!-- Strategy overlays -->
+<div class="strategy-overlay" id="strategyOverlay">
+  <button class="strategy-overlay-close" onclick="closeStrategy()">&times;</button>
+  <div class="strategy-overlay-inner" id="strategyContent"></div>
+</div>
+
+<!-- ========== ALL JAVASCRIPT ========== -->
 <script>
+// ── KPI Detail Data ──
+var kpiData = {
+  'mid-GM Marketing': {areas:[{t:'Lead Gen & Revenue (40%)',m:[{n:'SQL volume vs budget',v:'Hit budget; 100% attributed'},{n:'Marketing contribution',v:'>=40% of new clients'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'}]},{t:'TOM Transition (25%)',m:[{n:'Phase 1 exits on time',v:'4 roles by Jun 2026'},{n:'AI agents operational',v:'>=8 agents in production'},{n:'Cross-training progress',v:'5 people competent by month 4'}]},{t:'Brand & Reputation (15%)',m:[{n:'PR placements',v:'>=1/month'},{n:'Online reputation',v:'>=4.0 stars; >=20 reviews/month'}]},{t:'Leadership & CSAT (20%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Team engagement',v:'>=3.5/5'},{n:'AI adoption',v:'>=3 agents/member'}]}]},
+  'mid-Head of Performance': {areas:[{t:'Paid Performance (40%)',m:[{n:'SQL lead volume',v:'>=plan target'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'},{n:'Lead-to-deal conversion',v:'>=20%'}]},{t:'Expanded Disciplines (25%)',m:[{n:'Email strategy owned',v:'By month 2'},{n:'CRO program',v:'>=1 test/month; >=5% uplift QoQ'},{n:'Competitor intelligence',v:'Monthly report to GM & CGO'}]},{t:'AI Agent Adoption (15%)',m:[{n:'Performance agents',v:'>=5 in production'},{n:'Agent-assisted output',v:'>=40% of campaigns'}]},{t:'Stakeholder CSAT (20%)',m:[{n:'CSAT (Sales, BD)',v:'>=4.0/5'},{n:'Funnel insights shared',v:'Monthly to Sales & BD'}]}]},
+  'mid-Digital & Automation Lead': {areas:[{t:'Paid Performance (35%)',m:[{n:'SQL from paid',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Audience segments',v:'NDIS + SaH live by month 3'}]},{t:'Email & Automation (25%)',m:[{n:'Flow ownership',v:'Independent by month 2'},{n:'Speed to lead',v:'<1 hour automated'},{n:'Email open rate',v:'>=40%; CTR >=15%'}]},{t:'CRO & Web Dev (20%)',m:[{n:'CRO tests',v:'>=1/month'},{n:'Landing pages via Claude Code',v:'>=2 by month 3'},{n:'UTM compliance',v:'100%'}]},{t:'AI Efficiency (20%)',m:[{n:'AI agents in daily use',v:'>=4'},{n:'Time savings',v:'>=25%'}]}]},
+  'mid-Marketing Ops Manager': {areas:[{t:'Stakeholder SLA (25%)',m:[{n:'Requests within SLA',v:'>=90%'},{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Coordination absorbed',v:'Zero SLA drop post-exits'}]},{t:'Content & Brand (25%)',m:[{n:'Editorial calendar',v:'>=90% adherence'},{n:'Content QA',v:'>=90% first-pass'},{n:'Brand compliance',v:'100%'}]},{t:'Ops & Reporting (20%)',m:[{n:'Monthly KPI report',v:'On time'},{n:'Budget variance',v:'<=5%'},{n:'Asana utilisation',v:'>=90%'}]},{t:'AI & Cross-Training (30%)',m:[{n:'AI agents (ops)',v:'>=4 in production'},{n:'Matthew multi-skilling',v:'>=50% AI output'},{n:'Miranda multi-skilling',v:'Longer-form content'},{n:'Alisha social training',v:'Producing social content'}]}]},
+  'mid-Content & Comms Exec': {areas:[{t:'Content Production (30%)',m:[{n:'Articles/month',v:'>=10; >=3 formats'},{n:'QA pass rate',v:'>=90%; zero errors'},{n:'SEO optimisation',v:'100% articles'}]},{t:'ORM & Support (20%)',m:[{n:'Review response',v:'Same-day; <1hr escalation'},{n:'Cross-dept SLA',v:'>=90%'}]},{t:'AI Workflows (30%)',m:[{n:'AI-drafted content',v:'>=75%'},{n:'Time savings',v:'>=30%'},{n:'Volume increase',v:'>=50% vs baseline'}]},{t:'Knowledge Transfer (20%)',m:[{n:'Processes documented',v:'100% for AI replication'},{n:'Train Mariia on QA',v:'Independent by month 4'},{n:'Collab with Alisha',v:'>=2 projects/month'}]}]},
+  'mid-Social & ORM Exec': {areas:[{t:'Social & ORM (30%)',m:[{n:'Posts/platform/week',v:'>=5; >=50% AI-drafted'},{n:'Reviews generated',v:'>=20/month; same-day response'},{n:'Stars',v:'>=4.0'}]},{t:'Audience Growth (20%)',m:[{n:'Follower growth QoQ',v:'>=5%'},{n:'Engagement rate',v:'>=3%'}]},{t:'AI Automation (25%)',m:[{n:'AI-drafted posts',v:'>=50%'},{n:'Scheduling automated',v:'>=80%'},{n:'Time savings',v:'>=30%'}]},{t:'Knowledge Transfer (25%)',m:[{n:'Train Alisha on social',v:'Independent by month 4'},{n:'Pair with Alisha',v:'>=4 weeks'},{n:'Content writing dev',v:'>=2 long-form/month'}]}]},
+  'mid-Creative Lead': {areas:[{t:'Design SLA (30%)',m:[{n:'SLA compliance',v:'100%'},{n:'Revisions/project',v:'<=2'},{n:'Volume maintained',v:'No decline post-junior exit'}]},{t:'AI Design (20%)',m:[{n:'Routine AI-assisted',v:'>=50%'},{n:'AI agents in use',v:'>=3'},{n:'Time savings',v:'>=30%'}]},{t:'Social Cross-Training (25%)',m:[{n:'Social assets/week',v:'>=3 independently'},{n:'Paired work with Miranda',v:'>=4 weeks'},{n:'Video/motion',v:'>=1/month'}]},{t:'Stakeholder CSAT (25%)',m:[{n:'Cross-functional CSAT',v:'>=4.0/5'},{n:'Assets to Sales/BD',v:'>=2/month'}]}]},
+  'mid-AI Innovation Lead': {areas:[{t:'Phase 1 Agents (40%)',m:[{n:'Coordination agents',v:'Live by month 2'},{n:'Email flow agent',v:'Live by month 2'},{n:'Design production agents',v:'Live by month 2'},{n:'Total Phase 1',v:'>=8 by month 3'}]},{t:'Reliability (20%)',m:[{n:'Agent uptime',v:'>=95%'},{n:'Time-to-deploy',v:'<=2 weeks'},{n:'Error rate',v:'<5%'}]},{t:'Enablement (20%)',m:[{n:'Team adoption',v:'>=80% using daily by month 3'},{n:'AI confidence score',v:'>=4.0/5'}]},{t:'Phase 2 Pipeline (20%)',m:[{n:'Phase 2 roadmap',v:'Scoped by month 3'},{n:'Time savings',v:'>=20 hrs/month'},{n:'Commercial impact',v:'$ savings quantified'}]}]},
+  'end-GM Marketing': {areas:[{t:'Lead Gen & Revenue (45%)',m:[{n:'SQL volume vs budget',v:'Hit budget; 100% attributed'},{n:'Marketing contribution',v:'>=40% of new clients'},{n:'Output vs baseline',v:'>=3x pre-TOM'}]},{t:'Brand & Reputation (15%)',m:[{n:'PR placements',v:'>=2/month'},{n:'Online reputation',v:'>=4.5 stars; >=30 reviews/month'}]},{t:'AI-First Operations (20%)',m:[{n:'Agents in production',v:'>=30'},{n:'AI-assisted execution',v:'>=60%'},{n:'Output per FTE',v:'>=3x baseline'}]},{t:'Leadership & CSAT (20%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Internal supplier score',v:'>=4.5/5'},{n:'Team attrition',v:'0%'}]}]},
+  'end-Head of Performance': {areas:[{t:'Lead Volume (40%)',m:[{n:'SQL lead volume',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Campaign volume',v:'>=2x pre-TOM'}]},{t:'Full-Funnel (25%)',m:[{n:'SEO organic growth',v:'>=5% MoM'},{n:'CRO test cadence',v:'>=2/month; >=5% uplift'},{n:'Email lifecycle',v:'>=80% clients in journeys'}]},{t:'AI Effectiveness (15%)',m:[{n:'Agents in production',v:'>=10'},{n:'Agent-assisted output',v:'>=70%'},{n:'Campaign launch speed',v:'<=3 days'}]},{t:'Stakeholder CSAT (20%)',m:[{n:'CSAT (Sales, BD)',v:'>=4.0/5'},{n:'Digital Lead development',v:'No single-point-of-failure'}]}]},
+  'end-Digital Lead': {areas:[{t:'Paid Performance (30%)',m:[{n:'SQL from paid',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Ad variants/campaign',v:'>=3 AI-generated'}]},{t:'Email & CRO (25%)',m:[{n:'Speed to lead',v:'<1 hour'},{n:'CRO tests',v:'>=2/month'},{n:'A/B tests',v:'>=2/month'}]},{t:'Web Dev & Attribution (20%)',m:[{n:'Landing page turnaround',v:'<=2 business days'},{n:'Attribution coverage',v:'>=95%'},{n:'Full-funnel dashboard',v:'Live and weekly'}]},{t:'AI & CSAT (25%)',m:[{n:'Agents in daily use',v:'>=6'},{n:'AI-assisted execution',v:'>=70%'},{n:'Time savings',v:'>=30%'}]}]},
+  'end-Marketing Ops Manager': {areas:[{t:'Stakeholder SLA (25%)',m:[{n:'Requests within SLA',v:'>=95%'},{n:'Request turnaround',v:'<=2 days standard'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]},{t:'Content & Brand (25%)',m:[{n:'Content volume',v:'>=15 articles/month'},{n:'QA pass rate',v:'>=95%'},{n:'PR placements',v:'>=2/month'}]},{t:'Ops & Events (20%)',m:[{n:'Budget variance',v:'<=5%'},{n:'Asana utilisation',v:'>=95%'},{n:'Dashboards',v:'100% auto-updated'}]},{t:'AI Output (30%)',m:[{n:'AI agents (ops+content)',v:'>=8'},{n:'AI content output',v:'>=75% AI-drafted'},{n:'Output per FTE',v:'>=3x baseline'}]}]},
+  'end-Creative & Social Lead': {areas:[{t:'Design Production (25%)',m:[{n:'SLA compliance',v:'100%'},{n:'Design volume',v:'>=2x pre-TOM'},{n:'Assets to Sales/BD',v:'>=4/month'}]},{t:'Social & ORM (25%)',m:[{n:'Posts/platform/week',v:'>=7'},{n:'Reviews generated',v:'>=30/month'},{n:'Stars',v:'>=4.5'}]},{t:'Content & Brand (20%)',m:[{n:'Short-form content',v:'>=5 pieces/week'},{n:'Video/motion',v:'>=4/month'},{n:'Brand consistency',v:'100%'}]},{t:'AI Creative (30%)',m:[{n:'Agents in daily use',v:'>=6'},{n:'AI social posts',v:'>=70%'},{n:'Total output',v:'>=3x baseline'}]}]},
+  'end-AI Innovation Lead': {areas:[{t:'Agent Portfolio (30%)',m:[{n:'Total agents',v:'>=30'},{n:'Agent uptime',v:'>=97%'},{n:'Time-to-deploy',v:'<=1 week'}]},{t:'Commercial Impact (30%)',m:[{n:'Annualised savings',v:'>=$750K'},{n:'Output per FTE',v:'>=3x sustained'},{n:'Time saved',v:'>=40 hrs/month'}]},{t:'Enablement (20%)',m:[{n:'Team agent usage',v:'100% using >=5 daily'},{n:'AI confidence',v:'>=4.5/5'}]},{t:'Innovation (20%)',m:[{n:'Cross-functional agents',v:'>=2/quarter outside marketing'},{n:'Tool evaluations',v:'>=3/quarter'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]}]}
+};
+
+// ── Role Detail Data ──
+var roleData = {
+  stephen: {name:'Stephen Danckert',title:'GM Marketing',level:'L4 — Functional Leadership',reports:'CGO (Nick Lunn)',desc:'Owns the marketing function end-to-end. Strategy, budget, stakeholder management, team performance. Deep enough across performance AND brand to challenge both sides.',disciplines:[['Strategy & Planning','Sets marketing direction, annual plans, resource allocation','AI generates strategy briefs, competitive landscape reports'],['Stakeholder Mgmt','Manages Sales, BD, Care, Exec relationships','AI compiles stakeholder reports, meeting prep'],['Brand Positioning','Brand strategy, market positioning, PR direction','AI drafts PR pitches, monitors brand sentiment']],agents:'3-5 agents: Executive reporting, competitive landscape, strategy briefs',ditl:'<strong>8:00am:</strong> Review overnight output dashboards — all 12 disciplines tracked. AI reporting agent has compiled the weekly summary. <strong>9:00am:</strong> 1:1 with Paul (Head of Performance) — ROAS trending above target, competitor agent flagged new entrant in the Sydney market. Agree to increase spend on high-performing Google Ads segments. <strong>10:00am:</strong> Stakeholder call with GM Sales (Jacqueline) — review marketing-sourced SQLs for the month, discuss lead quality feedback from the sales floor. <strong>11:00am:</strong> Brand strategy session — AI agent has drafted 3 PR pitch angles for the Support at Home reform anniversary. Review and approve 1 for outreach. <strong>1:00pm:</strong> 1:1 with Mariia (MktOps Manager) — editorial calendar on track, stakeholder CSAT at 4.2/5. Discuss upcoming event logistics for aged care expo. <strong>2:30pm:</strong> Monthly budget review — AI dashboard shows spend tracking within 3% variance. <strong>3:30pm:</strong> Cross-functional meeting with Care division — align on client comms messaging for Support at Home changes. <strong>4:30pm:</strong> Review Imran\'s agent deployment pipeline — 2 new agents ready for production next week.'},
+  paul: {name:'Paul Phare',title:'Head of Performance',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Owns the revenue engine — paid ads, SEO, CRO, email marketing strategy, and competitor intelligence. Sets strategy across all 5 performance disciplines; AI agents handle execution volume.',disciplines:[['Paid Ads','Strategy, budget allocation, channel mix, ROAS targets','Campaign builds, bid management, ad copy, A/B variants'],['SEO','Strategy, content briefs, technical priorities','Keyword research, content drafts, technical audits, rank tracking'],['CRO','Test hypotheses, prioritisation, conversion strategy','Landing page variants, heatmap analysis, test reporting'],['Email Marketing','Journey strategy, segmentation, lifecycle design','Flow builds, copy drafts, send optimisation'],['Competitor Intel','Strategic interpretation, action plans','Monitoring, alerts, positioning analysis, ad scraping']],agents:'8-12 agents: Google Ads, Meta, SEO content, keyword, CRO test, email flow, competitor alerts, attribution',ditl:'<strong>8:30am:</strong> Review overnight campaign dashboards — AI agents flagged 2 campaigns with CPL above threshold on Google Ads. Review the agent\'s recommended bid adjustments for the aged care keyword group. Approve both. <strong>9:00am:</strong> SEO agent has drafted 3 content briefs based on keyword gap analysis — "Support at Home eligibility", "home care package levels explained", "choosing a home care provider". Review and approve 2, send 1 back for more depth on NDIS crossover. <strong>9:30am:</strong> Weekly standup with Rajitha — email automation showing 42% open rate on the welcome sequence. New A/B test variants ready for the pre-onboarding flow. Approve test launch. <strong>10:00am:</strong> Competitor intelligence agent flagged a major competitor running new Meta campaigns targeting self-managed clients. Review the positioning analysis and update the monthly competitor report. <strong>11:00am:</strong> CRO review — landing page agent ran 4 variant tests this week on the "Get Started" page. One variant showing 12% conversion uplift — approve for full rollout. <strong>1:00pm:</strong> Monthly funnel insights meeting with Sales and BD — present conversion data by channel, recommend shifting budget from display to search. <strong>2:30pm:</strong> Review email lifecycle coverage — 8 of 12 journey stages now automated. Brief Rajitha on building the remaining 4 with the Klaviyo agent. <strong>4:00pm:</strong> Post-campaign debrief for the March brand awareness campaign — document learnings, share with Stephen.'},
+  rajitha: {name:'Rajitha Jayathunga',title:'Digital Lead',level:'L2 — Revenue Driver',reports:'Head of Performance (Paul)',desc:'Hands-on execution across paid media, email/automation, CRO, web dev, and attribution. The person in the platforms every day, using AI agents to multiply output.',disciplines:[['Ads Execution','Platform management, optimisation, QA','Ad copy variants, audience builds, reporting'],['Email Execution','Flow implementation, Klaviyo/CRM builds','Sequence drafts, subject line testing, trigger logic'],['CRO Execution','Test implementation, landing pages','Page builds, copy variants, analytics'],['Web Dev','Website management via Claude Code, CMS','Page builds, template creation'],['Attribution','UTM frameworks, GA4, dashboards','Dashboard updates, anomaly detection']],agents:'6-10 agents: Ad copy, landing pages, email sequences, UTM tracking, web dev, reporting',ditl:'<strong>8:00am:</strong> Open Google Ads dashboard — review yesterday\'s performance across 15 active campaigns targeting aged care keywords. AI ad copy agent has generated overnight variants for 3 underperforming ad groups. Review copy, approve 2, tweak 1. <strong>8:45am:</strong> Switch to Meta — check the Support at Home awareness campaign. Audience builder agent suggests a new lookalike segment based on recent converters. Approve and launch. <strong>9:30am:</strong> Klaviyo check — email flow agent has built a new 4-step nurture sequence for clients who downloaded the home care guide. Review triggers, timing, and copy. Adjust the Day 3 email subject line using the A/B test agent\'s suggestions. Approve. <strong>10:30am:</strong> Standup with Paul — report on weekly metrics, discuss CRO test results. <strong>11:00am:</strong> CRO work — landing page agent built 2 new variants for the "Compare Home Care Packages" page using Claude Code. Review in browser, request one mobile layout fix, approve the other for testing. <strong>1:00pm:</strong> UTM audit — attribution agent flags 3 campaigns with missing UTM parameters. Fix in 10 minutes. Run GA4 verification. <strong>2:00pm:</strong> Build a new landing page for the NDIS crossover campaign using Claude Code — AI generates the template, add TC brand elements and content. Live in 90 minutes. <strong>3:30pm:</strong> Email performance review — open rates at 43%, CTR at 16%. Speed-to-lead at 47 minutes average. Update the funnel dashboard. <strong>4:30pm:</strong> Queue tomorrow\'s campaign launches — 2 new Google Ads campaigns and 1 Meta campaign. AI agents have pre-built everything; final QA and approve.'},
+  mariia: {name:'Mariia Branch',title:'Marketing Ops Manager',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Runs the operational engine AND owns content strategy, brand governance, internal requests, and events logistics. The bridge between performance and creative.',disciplines:[['Internal Requests','Brief intake, triage, SLA management','Request routing, status updates, SLA monitoring'],['Content Strategy','Editorial calendar, brand voice, PR, comms','Blog drafts, newsletter, PR pitches'],['Marketing Ops','Asana workflows, budget, reporting','Task automation, dashboards'],['Brand Governance','Brand standards, QA, compliance','Brand audit checks, consistency reviews'],['Events','Vendor coordination, budgets, scheduling','Logistics checklists, vendor comms']],agents:'8-10 agents: Asana automation, blog drafts, newsletter, PR pitches, brand QA, dashboards, SLA tracking',ditl:'<strong>8:00am:</strong> Open Asana — AI brief intake agent has auto-logged 4 overnight requests from Sales and BD. Two are collateral updates, one is a campaign asset request, one is a client case study. Auto-routed: design requests to Alisha, content to the blog draft agent. <strong>8:30am:</strong> SLA dashboard check — 94% of requests within SLA this week. One Sales request approaching deadline — escalate to Alisha with priority flag. <strong>9:00am:</strong> Editorial calendar review — AI blog draft agent has produced 3 first drafts overnight: "Understanding Support at Home fees", "How to choose a home care provider", "What\'s new in aged care 2026". QA the first one — check brand voice, factual accuracy against TC policies, SEO keywords. Approve with minor edits. <strong>10:00am:</strong> Newsletter production — AI newsletter agent has compiled this week\'s content (2 blog articles, 1 client story, 1 event promo). Review layout and approve for send. <strong>11:00am:</strong> PR outreach — AI pitch agent drafted 2 angles for Aged Care Today magazine. Review, approve the Support at Home reform piece, park the other. <strong>1:00pm:</strong> Quarterly planning session with BD team — review their marketing request pipeline for Q4. Align on priorities. <strong>2:00pm:</strong> Brand audit — AI brand QA agent flagged 2 social posts with off-brand imagery. Review and send corrections to Alisha. <strong>3:00pm:</strong> Budget tracking — AI dashboard shows marketing spend at 97% of plan. Flag one overrun on event costs to Stephen. <strong>4:00pm:</strong> Check in with Alisha — review her social calendar for next week, discuss upcoming event creative needs for the Melbourne aged care expo.'},
+  alisha: {name:'Alisha Van Bone',title:'Creative & Social Lead',level:'L2 — Brand & Creative',reports:'Marketing Ops Manager (Mariia)',desc:'Owns all visual output and social presence. A designer who writes — produces across visual AND written formats, using AI agents to scale production 3-5x.',disciplines:[['Design','Brand design, campaign assets, sales collateral','Template production, resizing, variants, mockups'],['Social Media','Content calendar, platform management','Post drafts, scheduling, engagement monitoring'],['Content Execution','Social copy, ad copy, short-form','Copy drafts, hashtag research, captions'],['Rep/ORM','Review responses, reputation monitoring','Draft responses, alerts, sentiment tracking'],['Video/Motion','Short-form content, social video','Video edits, captions, thumbnails']],agents:'6-10 agents: Design production, social scheduling, ORM responses, content drafts, video edits, resize/format',ditl:'<strong>8:00am:</strong> Check ORM dashboard — AI agent has flagged 3 new Google Reviews overnight. Two positive (auto-drafted thank you responses — review and approve). One negative about service wait times — draft a personalised response referencing TC\'s commitment to timely care, escalate to Mariia. <strong>8:30am:</strong> Social media — AI scheduling agent has queued 7 posts for the week across LinkedIn, Facebook, Instagram. Review content and imagery for brand voice. Swap one image on the Instagram post for better visual impact. Approve schedule. <strong>9:00am:</strong> Design request queue in Asana — 6 items. AI design production agent has already completed 3 routine ones (brochure resize for A5, social banner variants, email header template). Review quality — all on-brand. Approve. <strong>9:30am:</strong> Focus on creative work — campaign assets for the new "Your Care, Your Choice" brand campaign. Design hero banner, supporting social cards, email header. AI variant agent generates 4 colour/layout options. Select 2 for A/B testing. <strong>11:00am:</strong> Short-form video production — AI video agent has cut a 30-second testimonial clip from a recent client interview. Add TC branding overlay, review captions. Approve for social. <strong>1:00pm:</strong> Content execution — write 5 social captions for the week\'s posts. AI content agent has drafted all 5; edit 3 for tone, approve 2 as-is. <strong>2:00pm:</strong> Sales collateral — BD team needs updated partnership one-pager. AI agent generates from template with latest stats. Review, adjust layout, approve. <strong>3:00pm:</strong> Blog support — Mariia\'s editorial calendar has 4 articles this week. Create header images and in-article graphics for 2 of them using AI design tools. <strong>4:00pm:</strong> Weekly social analytics review — engagement at 3.2%, follower growth on track at 6% QoQ. Plan next week\'s content themes with Mariia.'}
+};
+
+// ── Strategy Overlay Content ──
+var strategyData = {
+  current: '<h3>Current State Strategy</h3><h4>The Problem</h4><p>12 people covering 12 disciplines — but with critical gaps in CRO, competitor intelligence, and web dev. Specialist silos mean a campaign touches 4-5 people before it ships. Single points of failure across email, content, and design.</p><h4>Key Issues</h4><ul><li>Designer can\'t write, writer can\'t design, social can\'t do ads — no cross-functional flexibility</li><li>Two coordinators managing admin that AI can automate tomorrow</li><li>Performance marketing carrying the revenue load with too few people</li><li>Brand and creative side disconnected from performance metrics</li></ul><h4>What Needs to Change</h4><p>The team needs to shift from specialist silos to multi-skilled humans who manage AI agents. The bottleneck is no longer capacity — it\'s judgement. We need fewer people who can each do more, supported by agents that handle the volume.</p>',
+  'mid-stage': '<h3>Mid-Stage Strategy (12 &rarr; 8)</h3><h4>The Approach</h4><p>Restructure into two clear pillars — Performance (Paul + Rajitha) and Marketing Ops (Mariia + Matthew + Miranda + Alisha). Absorb the 4 most automatable roles first: 2 coordinators, 1 campaigns specialist, 1 junior designer.</p><h4>Why These 4 First</h4><ul><li><strong>Coordinators (Marilyn, Kayla):</strong> Admin, scheduling, Asana management — highest AI automation potential</li><li><strong>Campaigns & Automation (Michael):</strong> Email flows and nurture sequences are exactly what AI agents excel at</li><li><strong>Junior Designer:</strong> Volume design work (resizing, templates) is the most AI-automatable design task</li></ul><h4>Critical Success Factors</h4><ul><li>AI agents must be operational BEFORE people exit — Imran\'s Phase 1 delivery is the critical path</li><li>Cross-training must be genuine, not just shadowing — Rajitha needs to independently run email by month 2</li><li>Mariia\'s expansion into content oversight is the biggest stretch — needs coaching from Stephen</li><li>Output must not decline during transition — monitored weekly</li></ul><h4>Exit Criteria for Moving to End-State</h4><ul><li>Output maintained or increased across all 12 disciplines</li><li>Internal stakeholder CSAT >= 4.0/5</li><li>AI agents handling >= 40% of execution</li><li>All 5 end-state people competent in expanded scope</li></ul>',
+  'end-state': '<h3>End-State Strategy (8 &rarr; 5)</h3><h4>The Model</h4><p>Five multi-skilled humans, each managing 6-12 AI agents, covering all 12 disciplines at 3-5x the output of the original 12-person team. The new bottleneck is judgement, not capacity.</p><h4>Phase 2 Absorptions</h4><ul><li><strong>Matthew Hart:</strong> Content work splits to Mariia (strategy) + Alisha (execution) + AI blog/newsletter/PR agents</li><li><strong>Miranda Partridge:</strong> Social work moves to Alisha + AI social scheduling and ORM agents</li></ul><h4>What Makes It Work</h4><ul><li>Each person is the quality gate — AI agents draft, humans approve</li><li>Multi-skilling means fewer handoffs — one person can brief, review, and ship</li><li>AI Innovation Lead (Imran) is the enabler — builds agents, maintains them, trains the team</li><li>The model scales by adding agents, not people</li></ul><h4>End-State Targets</h4><ul><li>30-45 AI agents in production managed by 5 humans</li><li>>=60% of marketing execution AI-driven</li><li>>=3x output per FTE vs pre-TOM baseline</li><li>>=$750K annualised savings from headcount reduction</li><li>0% attrition — every person is critical</li></ul>'
+};
+
+// ── Toggle Functions ──
+function toggleKpiDetail(el) {
+  var d = el.querySelector('.kpi-detail');
+  if (d) { d.classList.toggle('open'); }
+}
+function toggleAg(el) {
+  var d = el.querySelector('.ag-detail');
+  if (d) { d.classList.toggle('open'); var h = el.querySelector('.click-hint'); if(h) h.style.display = d.classList.contains('open') ? 'none' : 'block'; }
+}
+function openRolePanel(key) {
+  var r = roleData[key]; if (!r) return;
+  var h = '<h3>' + r.name + '</h3><p class="rp-sub">' + r.title + ' &bull; ' + r.level + ' &bull; Reports to: ' + r.reports + '</p>';
+  h += '<h4>Role Overview</h4><p>' + r.desc + '</p>';
+  h += '<h4>Disciplines — Human vs AI</h4><table style="width:100%;border-collapse:collapse;font-size:0.8rem"><tr style="border-bottom:1px solid rgba(255,255,255,0.08)"><th style="text-align:left;padding:0.4rem;color:rgba(255,255,255,0.4);font-size:0.7rem">Discipline</th><th style="text-align:left;padding:0.4rem;color:rgba(255,255,255,0.4);font-size:0.7rem">Human Owns</th><th style="text-align:left;padding:0.4rem;color:rgba(255,255,255,0.4);font-size:0.7rem">AI Agents Do</th></tr>';
+  r.disciplines.forEach(function(d) { h += '<tr style="border-bottom:1px solid rgba(255,255,255,0.03)"><td style="padding:0.4rem;color:#fff;font-weight:600">' + d[0] + '</td><td style="padding:0.4rem;color:rgba(255,255,255,0.6)">' + d[1] + '</td><td style="padding:0.4rem;color:rgba(255,255,255,0.6)">' + d[2] + '</td></tr>'; });
+  h += '</table>';
+  h += '<h4>AI Agent Portfolio</h4><p style="color:var(--light-teal);font-weight:600">' + r.agents + '</p>';
+  h += '<h4>A Day in the Life</h4><div class="rp-ditl">' + r.ditl + '</div>';
+  document.getElementById('rolePanelContent').innerHTML = h;
+  document.getElementById('rolePanelOverlay').classList.add('open');
+  document.getElementById('rolePanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeRolePanel() {
+  document.getElementById('rolePanelOverlay').classList.remove('open');
+  document.getElementById('rolePanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function openStrategy(key) {
+  document.getElementById('strategyContent').innerHTML = strategyData[key] || '';
+  document.getElementById('strategyOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeStrategy() {
+  document.getElementById('strategyOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── Inject KPI detail panels ──
+document.querySelectorAll('.kpi-card').forEach(function(card) {
+  var role = card.querySelector('.kpi-role');
+  var person = card.querySelector('.kpi-person');
+  if (!role) return;
+  var group = card.closest('.kpi-group');
+  var prefix = group && group.classList.contains('mid-stage') ? 'mid-' : 'end-';
+  var key = prefix + role.textContent.trim();
+  var data = kpiData[key];
+  if (!data) return;
+  card.style.cursor = 'pointer';
+  var detail = document.createElement('div');
+  detail.className = 'kpi-detail';
+  var inner = '<div class="kpi-detail-inner">';
+  data.areas.forEach(function(a) {
+    inner += '<div class="kpi-detail-area"><div class="kpi-detail-area-title">' + a.t + '</div>';
+    a.m.forEach(function(m) { inner += '<div class="kpi-detail-measure"><span>' + m.n + '</span><span class="kpi-detail-target">' + m.v + '</span></div>'; });
+    inner += '</div>';
+  });
+  inner += '</div>';
+  detail.innerHTML = inner;
+  card.appendChild(detail);
+  card.addEventListener('click', function() { toggleKpiDetail(card); });
+  // Add hint
+  var hint = document.createElement('span');
+  hint.className = 'click-hint';
+  hint.textContent = 'Click for detail';
+  card.querySelector('.kpi-bar-track').insertAdjacentElement('afterend', hint);
+});
+
+// ── Make role cards clickable ──
+document.querySelectorAll('.es-role-card').forEach(function(card) {
+  card.style.cursor = 'pointer';
+  var owner = card.getAttribute('data-owner');
+  card.addEventListener('click', function() { openRolePanel(owner); });
+  var hint = document.createElement('span');
+  hint.className = 'click-hint';
+  hint.textContent = 'Click for role detail';
+  card.appendChild(hint);
+});
+
+// ── Add strategy buttons to sections ──
+['current','mid-stage','end-state'].forEach(function(id) {
+  var section = document.getElementById(id);
+  if (!section || !strategyData[id]) return;
+  var btn = document.createElement('div');
+  btn.style.textAlign = 'center';
+  btn.innerHTML = '<button class="strategy-btn" onclick="openStrategy(\'' + id + '\')">View Strategy Detail &rarr;</button>';
+  section.appendChild(btn);
+});
+
+// ── Scroll progress + back to top ──
+window.addEventListener('scroll', function() {
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = h > 0 ? (window.scrollY / h * 100) : 0;
+  document.getElementById('scrollProgress').style.width = pct + '%';
+  document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 600);
+});
+
+// ── Intersection Observer ──
 (function() {
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {

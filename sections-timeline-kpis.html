@@ -1,0 +1,814 @@
+<style>
+/* ============================================
+   SHARED VARIABLES & BASE
+   ============================================ */
+:root {
+  --primary-blue: #2c4c79;
+  --teal: #007F7E;
+  --light-blue: #64BCEA;
+  --light-teal: #43C0BE;
+  --bg-timeline: #0f172a;
+  --bg-kpis: #1e293b;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================
+   SECTION: TIMELINE
+   ============================================ */
+.section-timeline {
+  background: var(--bg-timeline);
+  padding: 6rem 2rem;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.section-timeline .section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.section-timeline .section-header h2 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(135deg, var(--light-blue), var(--light-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-timeline .section-header p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Timeline container */
+.timeline {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Central vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--teal) 5%,
+    var(--light-teal) 50%,
+    var(--primary-blue) 95%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+}
+
+/* Animated pulse along the line */
+.timeline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--light-teal), transparent);
+  transform: translateX(-50%);
+  animation: timeline-pulse 4s ease-in-out infinite;
+}
+
+@keyframes timeline-pulse {
+  0%   { top: -80px; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: calc(100% + 80px); opacity: 0; }
+}
+
+/* Timeline item wrapper */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 3rem 4rem;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: timeline-fadeIn 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+.timeline-item:nth-child(4) { animation-delay: 0.8s; }
+.timeline-item:nth-child(5) { animation-delay: 1.0s; }
+.timeline-item:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes timeline-fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Left-aligned items (odd) */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+  padding-right: 3.5rem;
+  padding-left: 1rem;
+}
+
+/* Right-aligned items (even) */
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+  padding-left: 3.5rem;
+  padding-right: 1rem;
+}
+
+/* Dot on the line */
+.timeline-dot {
+  position: absolute;
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--teal);
+  background: var(--bg-timeline);
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-dot.active {
+  background: var(--light-teal);
+  border-color: var(--light-teal);
+  box-shadow: 0 0 20px rgba(67, 192, 190, 0.5);
+}
+
+.timeline-dot.future {
+  border-color: var(--primary-blue);
+  background: var(--bg-timeline);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -8px;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 24px rgba(67, 192, 190, 0.6);
+}
+
+/* Timeline card */
+.timeline-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-card:hover {
+  background: var(--card-hover);
+  border-color: rgba(67, 192, 190, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Arrow connector from card to dot */
+.timeline-item:nth-child(odd) .timeline-card::after {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  right: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid var(--card-border);
+}
+
+.timeline-item:nth-child(even) .timeline-card::after {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid var(--card-border);
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--light-teal);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+}
+
+.timeline-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.headcount-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(44, 76, 121, 0.35);
+  border: 1px solid rgba(100, 188, 234, 0.2);
+  border-radius: 20px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--light-blue);
+}
+
+.headcount-badge svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  opacity: 0.8;
+}
+
+.headcount-badge.reduction {
+  background: rgba(127, 29, 29, 0.25);
+  border-color: rgba(248, 113, 113, 0.2);
+  color: #fca5a5;
+}
+
+/* ============================================
+   SECTION: KPIs
+   ============================================ */
+.section-kpis {
+  background: var(--bg-kpis);
+  padding: 6rem 2rem;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.section-kpis .section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-kpis .section-header h2 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(135deg, var(--light-blue), var(--light-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-kpis .section-header p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.kpi-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.kpi-group-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kpi-group-title .count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+}
+
+.kpi-group.mid-stage .kpi-group-title {
+  color: var(--light-teal);
+  border-color: var(--teal);
+}
+
+.kpi-group.end-state .kpi-group-title {
+  color: var(--light-blue);
+  border-color: var(--primary-blue);
+}
+
+.kpi-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kpi-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.kpi-card:hover {
+  background: var(--card-hover);
+  border-color: rgba(100, 188, 234, 0.2);
+  transform: translateX(4px);
+}
+
+.kpi-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.6rem;
+}
+
+.kpi-role {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.kpi-person {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.kpi-weight {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.kpi-group.mid-stage .kpi-weight {
+  background: rgba(0, 127, 126, 0.2);
+  color: var(--light-teal);
+}
+
+.kpi-group.end-state .kpi-weight {
+  background: rgba(44, 76, 121, 0.3);
+  color: var(--light-blue);
+}
+
+/* KPI Progress bar */
+.kpi-bar-track {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.kpi-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: kpi-bar-grow 1.5s ease forwards;
+}
+
+@keyframes kpi-bar-grow {
+  from { width: 0 !important; }
+}
+
+.kpi-group.mid-stage .kpi-bar-fill {
+  background: linear-gradient(90deg, var(--teal), var(--light-teal));
+}
+
+.kpi-group.end-state .kpi-bar-fill {
+  background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.section-footer {
+  background: #0b1120;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-muted);
+}
+
+.footer-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-meta {
+  font-size: 0.78rem;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.footer-meta span {
+  display: inline-block;
+  margin: 0 0.75rem;
+}
+
+.footer-meta span::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  margin-right: 0.75rem;
+  vertical-align: middle;
+}
+
+.footer-meta span:first-child::before {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .timeline::before,
+  .timeline::after {
+    left: 2rem;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0;
+    width: 100%;
+    text-align: left;
+    padding-left: 4.5rem;
+    padding-right: 1rem;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: calc(2rem - 8px);
+    right: auto;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-card::after {
+    right: auto;
+    left: -8px;
+    border-left: none;
+    border-right: 8px solid var(--card-border);
+  }
+
+  .kpi-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section-timeline .section-header h2,
+  .section-kpis .section-header h2 {
+    font-size: 2rem;
+  }
+}
+</style>
+
+
+<!-- =============================================
+     SECTION 1: TIMELINE
+     ============================================= -->
+<section class="section-timeline" id="timeline">
+  <div class="section-header">
+    <h2>6-Month Execution Plan</h2>
+    <p>April to September 2026</p>
+  </div>
+
+  <div class="timeline">
+
+    <!-- Milestone 1 — Apr W1 -->
+    <div class="timeline-item">
+      <div class="timeline-dot active"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Apr W1</span>
+        <h3>Own the Vision</h3>
+        <p>Stephen reviews TOM, assesses team fit against target roles. Alignment on structure and sequencing.</p>
+        <span class="headcount-badge">
+          <svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
+          12
+        </span>
+      </div>
+    </div>
+
+    <!-- Milestone 2 — Apr W2-W4 -->
+    <div class="timeline-item">
+      <div class="timeline-dot active"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Apr W2 &ndash; W4</span>
+        <h3>Build Mid-Stage</h3>
+        <p>New reporting lines activated. Handovers started across performance, content and ops streams.</p>
+        <span class="headcount-badge">
+          <svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
+          12
+        </span>
+      </div>
+    </div>
+
+    <!-- Milestone 3 — May -->
+    <div class="timeline-item">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">May</span>
+        <h3>Cross-Train + Build Agents</h3>
+        <p>Skills developing across consolidated roles. Phase 1 AI agents built to absorb repeatable workflows.</p>
+        <span class="headcount-badge">
+          <svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
+          12
+        </span>
+      </div>
+    </div>
+
+    <!-- Milestone 4 — Jun -->
+    <div class="timeline-item">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Jun</span>
+        <h3>Phase 1 Exits</h3>
+        <p>4 roles absorbed into mid-stage structure. Mid-stage model fully operational and measured.</p>
+        <span class="headcount-badge reduction">
+          <svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
+          12 &rarr; 8
+        </span>
+      </div>
+    </div>
+
+    <!-- Milestone 5 — Jul-Aug -->
+    <div class="timeline-item">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Jul &ndash; Aug</span>
+        <h3>Operate + Prove</h3>
+        <p>Model proven against KPIs. Phase 2 AI agents built to automate remaining manual work.</p>
+        <span class="headcount-badge">
+          <svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
+          8
+        </span>
+      </div>
+    </div>
+
+    <!-- Milestone 6 — Sep -->
+    <div class="timeline-item">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Sep</span>
+        <h3>Phase 2 Exits</h3>
+        <p>End-state achieved. 5-person team delivering 3&ndash;5x the output of the original 12.</p>
+        <span class="headcount-badge reduction">
+          <svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
+          8 &rarr; 5
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     SECTION 2: KPIs
+     ============================================= -->
+<section class="section-kpis" id="kpis">
+  <div class="section-header">
+    <h2>KPI Scorecards</h2>
+    <p>Linked scorecards for every role across both phases</p>
+  </div>
+
+  <div class="kpi-columns">
+
+    <!-- Mid-Stage KPIs -->
+    <div class="kpi-group mid-stage">
+      <div class="kpi-group-title">
+        Mid-Stage KPIs <span class="count">8 roles</span>
+      </div>
+      <div class="kpi-cards">
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">GM Marketing</div>
+              <div class="kpi-person">Stephen Danckert</div>
+            </div>
+            <span class="kpi-weight">Lead Gen 35%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Head of Performance</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">ROAS 40%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Digital &amp; Automation Lead</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Automation 40%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Marketing Ops Manager</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Ops Efficiency 35%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Content &amp; Comms Exec</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Content Output 40%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Social &amp; ORM Exec</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Engagement 35%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Creative Lead</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Brand Quality 40%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">AI Innovation Lead</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Agent Delivery 45%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 45%"></div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- End-State KPIs -->
+    <div class="kpi-group end-state">
+      <div class="kpi-group-title">
+        End-State KPIs <span class="count">5+1 roles</span>
+      </div>
+      <div class="kpi-cards">
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">GM Marketing</div>
+              <div class="kpi-person">Stephen Danckert</div>
+            </div>
+            <span class="kpi-weight">Lead Gen 40%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Head of Performance</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">ROAS 40%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Digital Lead</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Digital Revenue 40%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Marketing Ops Manager</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Ops Efficiency 40%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">Creative &amp; Social Lead</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Brand + Engagement 40%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-card-top">
+            <div>
+              <div class="kpi-role">AI Innovation Lead</div>
+              <div class="kpi-person">TBC</div>
+            </div>
+            <span class="kpi-weight">Agent Delivery 50%</span>
+          </div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 50%"></div></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="section-footer">
+  <p class="footer-title">Trilogy Care &mdash; Marketing Target Operating Model</p>
+  <p class="footer-meta">
+    <span>Confidential &mdash; March 2026</span>
+    <span>Owner: Nick Lunn, Chief Growth Officer</span>
+  </p>
+</footer>

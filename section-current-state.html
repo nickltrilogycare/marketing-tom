@@ -1,0 +1,713 @@
+<!-- ============================================
+     SECTION: Current State (#current)
+     Marketing TOM Strategy Presentation
+     ============================================ -->
+
+<style>
+  /* --- Current State Section --- */
+  #current {
+    background: #1e293b;
+    padding: 100px 40px 120px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #current::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100,188,234,0.3), transparent);
+  }
+
+  /* Fade-in animation system */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: none;
+  }
+
+  .fade-in-up.visible {
+    animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .fade-in {
+    opacity: 0;
+  }
+
+  .fade-in.visible {
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  .scale-in {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  .scale-in.visible {
+    animation: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* Stagger delays */
+  .delay-1 { animation-delay: 0.08s !important; }
+  .delay-2 { animation-delay: 0.16s !important; }
+  .delay-3 { animation-delay: 0.24s !important; }
+  .delay-4 { animation-delay: 0.32s !important; }
+  .delay-5 { animation-delay: 0.40s !important; }
+  .delay-6 { animation-delay: 0.48s !important; }
+  .delay-7 { animation-delay: 0.56s !important; }
+  .delay-8 { animation-delay: 0.64s !important; }
+  .delay-9 { animation-delay: 0.72s !important; }
+  .delay-10 { animation-delay: 0.80s !important; }
+  .delay-11 { animation-delay: 0.88s !important; }
+  .delay-12 { animation-delay: 0.96s !important; }
+
+  /* Section header */
+  .cs-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .cs-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #64BCEA;
+    margin-bottom: 16px;
+    padding: 6px 16px;
+    border: 1px solid rgba(100,188,234,0.25);
+    border-radius: 100px;
+    background: rgba(100,188,234,0.06);
+  }
+
+  .cs-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .cs-title span {
+    color: #64BCEA;
+  }
+
+  .cs-subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+    font-weight: 400;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* =========== ORG CHART =========== */
+  .org-chart {
+    max-width: 1100px;
+    margin: 0 auto 80px;
+  }
+
+  /* Person card base */
+  .org-card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 14px 20px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(8px);
+    min-width: 150px;
+    max-width: 192px;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .org-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .org-card .name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+
+  .org-card .role {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.35;
+  }
+
+  /* Card type: Leadership (blue) */
+  .org-card.leadership {
+    background: linear-gradient(135deg, rgba(44,76,121,0.55), rgba(44,76,121,0.25));
+    border-color: rgba(44,76,121,0.7);
+    box-shadow: 0 2px 12px rgba(44,76,121,0.2);
+  }
+
+  .org-card.leadership .role {
+    color: rgba(100,188,234,0.75);
+  }
+
+  /* Card type: Performance / Revenue (teal) */
+  .org-card.performance {
+    background: linear-gradient(135deg, rgba(0,127,126,0.45), rgba(0,127,126,0.18));
+    border-color: rgba(0,127,126,0.6);
+    box-shadow: 0 2px 12px rgba(0,127,126,0.15);
+  }
+
+  .org-card.performance .role {
+    color: rgba(67,192,190,0.8);
+  }
+
+  /* Card type: Brand / Creative (slate) */
+  .org-card.creative {
+    background: linear-gradient(135deg, rgba(71,85,105,0.5), rgba(71,85,105,0.2));
+    border-color: rgba(71,85,105,0.6);
+    box-shadow: 0 2px 12px rgba(71,85,105,0.15);
+  }
+
+  .org-card.creative .role {
+    color: rgba(148,163,184,0.85);
+  }
+
+  /* Absorbed indicator */
+  .org-card.absorbed::after {
+    content: 'ABSORBED';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #fbbf24;
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.4);
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  .org-card.absorbed {
+    border-color: rgba(245,158,11,0.35);
+  }
+
+  /* ---- Tree layout using flexbox ---- */
+  .org-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* Level 0: GM */
+  .org-level-0 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  /* Vertical connector from GM down */
+  .org-level-0::after {
+    content: '';
+    position: absolute;
+    bottom: -36px;
+    left: 50%;
+    width: 1px;
+    height: 36px;
+    background: rgba(100,188,234,0.2);
+  }
+
+  /* Level 1: Direct reports row */
+  .org-level-1 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 36px;
+    position: relative;
+    flex-wrap: wrap;
+    padding: 0 8px;
+  }
+
+  /* Horizontal connector bar across L1 */
+  .org-level-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 380px);
+    width: 760px;
+    height: 1px;
+    background: rgba(100,188,234,0.2);
+  }
+
+  /* Each L1 branch */
+  .org-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Vertical stub into each L1 card */
+  .org-branch::before {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    width: 1px;
+    height: 18px;
+    background: rgba(100,188,234,0.2);
+  }
+
+  /* L2: Sub-reports */
+  .org-level-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* Vertical line from L1 card down to L2 group */
+  .org-level-2::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    width: 1px;
+    height: 16px;
+    background: rgba(100,188,234,0.12);
+  }
+
+  .org-level-2 .org-card {
+    min-width: 140px;
+    max-width: 170px;
+    padding: 10px 14px 8px;
+  }
+
+  .org-level-2 .org-card .name {
+    font-size: 11.5px;
+  }
+
+  .org-level-2 .org-card .role {
+    font-size: 9.5px;
+  }
+
+  /* Separate "reports to CGO" block */
+  .org-cgo-report {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+    position: relative;
+  }
+
+  .org-cgo-report::before {
+    content: 'Reports to CGO';
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #64BCEA;
+    opacity: 0.5;
+    white-space: nowrap;
+  }
+
+  .org-cgo-report .org-card {
+    border-style: dashed;
+  }
+
+  /* =========== LEGEND =========== */
+  .org-legend {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .org-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #94a3b8;
+    font-weight: 500;
+  }
+
+  .org-legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+
+  .org-legend-swatch.swatch-leadership {
+    background: #2c4c79;
+    border: 1px solid rgba(44,76,121,0.8);
+  }
+
+  .org-legend-swatch.swatch-performance {
+    background: #007F7E;
+    border: 1px solid rgba(0,127,126,0.8);
+  }
+
+  .org-legend-swatch.swatch-creative {
+    background: #475569;
+    border: 1px solid rgba(71,85,105,0.8);
+  }
+
+  .org-legend-swatch.swatch-absorbed {
+    background: transparent;
+    border: 1px dashed rgba(245,158,11,0.6);
+    position: relative;
+  }
+
+  /* =========== 12 DISCIPLINES GRID =========== */
+  .disciplines-section {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .disciplines-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .disciplines-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 36px;
+    font-weight: 400;
+  }
+
+  .disciplines-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .disc-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .disc-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    border-color: rgba(255,255,255,0.14);
+  }
+
+  .disc-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(100,188,234,0.4);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .disc-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+    line-height: 1.3;
+  }
+
+  /* GAP variant */
+  .disc-card.gap {
+    border-color: rgba(239,68,68,0.45);
+    background: rgba(239,68,68,0.04);
+  }
+
+  .disc-card.gap:hover {
+    border-color: rgba(239,68,68,0.65);
+  }
+
+  .disc-card.gap::after {
+    content: 'GAP';
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #ef4444;
+    background: rgba(239,68,68,0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .org-level-1 { gap: 12px; }
+    .org-level-1::before { display: none; }
+    .org-branch::before { display: none; }
+    .org-level-0::after { display: none; }
+    .org-level-1 { margin-top: 16px; }
+    .disciplines-grid { grid-template-columns: repeat(3, 1fr); }
+    .cs-title { font-size: 32px; }
+  }
+
+  @media (max-width: 600px) {
+    #current { padding: 60px 20px 80px; }
+    .disciplines-grid { grid-template-columns: repeat(2, 1fr); }
+    .cs-title { font-size: 26px; }
+    .org-level-1 { flex-direction: column; align-items: center; }
+  }
+</style>
+
+<section id="current">
+
+  <!-- Section Header -->
+  <div class="cs-header fade-in-up">
+    <div class="cs-label">Where We Are</div>
+    <h2 class="cs-title">Current State — <span>12 People</span></h2>
+    <p class="cs-subtitle">A traditional marketing team with specialist silos</p>
+  </div>
+
+  <!-- Org Chart -->
+  <div class="org-chart fade-in-up delay-2">
+    <div class="org-tree">
+
+      <!-- Level 0: GM -->
+      <div class="org-level-0">
+        <div class="org-card leadership">
+          <div class="name">Stephen Danckert</div>
+          <div class="role">GM Marketing</div>
+        </div>
+      </div>
+
+      <!-- Level 1: Direct Reports -->
+      <div class="org-level-1">
+
+        <!-- Branch: Paul Phare -->
+        <div class="org-branch">
+          <div class="org-card performance">
+            <div class="name">Paul Phare</div>
+            <div class="role">Head of Digital Marketing</div>
+          </div>
+          <div class="org-level-2">
+            <div class="org-card performance">
+              <div class="name">Rajitha Jayathunga</div>
+              <div class="role">Digital Marketing Lead</div>
+            </div>
+            <div class="org-card performance">
+              <div class="name">Michael Coffey</div>
+              <div class="role">Campaign &amp; Automation Specialist</div>
+            </div>
+            <div class="org-card performance absorbed">
+              <div class="name">Miranda Partridge</div>
+              <div class="role">Social Media Executive</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch: Mariia Branch -->
+        <div class="org-branch">
+          <div class="org-card performance absorbed">
+            <div class="name">Mariia Branch</div>
+            <div class="role">Marketing Operations TL</div>
+          </div>
+        </div>
+
+        <!-- Branch: Matthew Hart -->
+        <div class="org-branch">
+          <div class="org-card creative">
+            <div class="name">Matthew Hart</div>
+            <div class="role">Communications Executive</div>
+          </div>
+        </div>
+
+        <!-- Branch: Alisha Van Bone -->
+        <div class="org-branch">
+          <div class="org-card creative">
+            <div class="name">Alisha Van Bone</div>
+            <div class="role">Lead Graphic Designer</div>
+          </div>
+          <div class="org-level-2">
+            <div class="org-card creative absorbed">
+              <div class="name">Junior Graphic Designer</div>
+              <div class="role">TBH</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branch: Kayla Williams -->
+        <div class="org-branch">
+          <div class="org-card creative absorbed">
+            <div class="name">Kayla Williams</div>
+            <div class="role">Events &amp; Marketing Coordinator</div>
+          </div>
+        </div>
+
+        <!-- Branch: Marilyn Tang -->
+        <div class="org-branch">
+          <div class="org-card creative absorbed">
+            <div class="name">Marilyn Tang</div>
+            <div class="role">Marketing Coordinator</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CGO Direct Report -->
+    <div class="org-cgo-report fade-in-up delay-4">
+      <div class="org-card leadership" style="border-style: dashed; border-color: rgba(100,188,234,0.35);">
+        <div class="name">Imran Mehmood</div>
+        <div class="role">AI Innovation Lead</div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="org-legend fade-in delay-5">
+      <div class="org-legend-item">
+        <div class="org-legend-swatch swatch-leadership"></div>
+        Leadership
+      </div>
+      <div class="org-legend-item">
+        <div class="org-legend-swatch swatch-performance"></div>
+        Performance / Revenue
+      </div>
+      <div class="org-legend-item">
+        <div class="org-legend-swatch swatch-creative"></div>
+        Brand / Creative
+      </div>
+      <div class="org-legend-item">
+        <div class="org-legend-swatch swatch-absorbed"></div>
+        Role Absorbed
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 Disciplines Grid -->
+  <div class="disciplines-section">
+    <h3 class="disciplines-title fade-in-up delay-3">12 Disciplines</h3>
+    <p class="disciplines-subtitle fade-in-up delay-4">Every function the team must deliver — two have critical gaps today</p>
+
+    <div class="disciplines-grid">
+      <div class="disc-card scale-in delay-1">
+        <div class="disc-num">01</div>
+        <div class="disc-name">Ads (Paid Media)</div>
+      </div>
+      <div class="disc-card scale-in delay-2">
+        <div class="disc-num">02</div>
+        <div class="disc-name">SEO</div>
+      </div>
+      <div class="disc-card scale-in delay-3">
+        <div class="disc-num">03</div>
+        <div class="disc-name">CRO</div>
+      </div>
+      <div class="disc-card scale-in delay-4">
+        <div class="disc-num">04</div>
+        <div class="disc-name">Email Marketing</div>
+      </div>
+      <div class="disc-card gap scale-in delay-5">
+        <div class="disc-num">05</div>
+        <div class="disc-name">Web Dev</div>
+      </div>
+      <div class="disc-card gap scale-in delay-6">
+        <div class="disc-num">06</div>
+        <div class="disc-name">Competitor Intel</div>
+      </div>
+      <div class="disc-card scale-in delay-7">
+        <div class="disc-num">07</div>
+        <div class="disc-name">Internal Requests</div>
+      </div>
+      <div class="disc-card scale-in delay-8">
+        <div class="disc-num">08</div>
+        <div class="disc-name">Social Media</div>
+      </div>
+      <div class="disc-card scale-in delay-9">
+        <div class="disc-num">09</div>
+        <div class="disc-name">Content &amp; Copy</div>
+      </div>
+      <div class="disc-card scale-in delay-10">
+        <div class="disc-num">10</div>
+        <div class="disc-name">Design</div>
+      </div>
+      <div class="disc-card scale-in delay-11">
+        <div class="disc-num">11</div>
+        <div class="disc-name">Rep / ORM</div>
+      </div>
+      <div class="disc-card scale-in delay-12">
+        <div class="disc-num">12</div>
+        <div class="disc-name">Events</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Intersection Observer for scroll-triggered animations -->
+<script>
+  (function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('#current .fade-in-up, #current .fade-in, #current .scale-in').forEach(el => {
+      observer.observe(el);
+    });
+  })();
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current State — Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f172a;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Spacer to allow scroll-trigger testing */
+  .scroll-spacer { height: 60vh; display: flex; align-items: center; justify-content: center; color: #334155; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="scroll-spacer">Scroll down</div>
+
+<!-- Include the section -->
+<div id="section-include"></div>
+
+<div class="scroll-spacer" style="height:40vh"></div>
+
+<script>
+  fetch('section-current-state.html')
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById('section-include').innerHTML = html;
+      // Re-run any inline scripts
+      document.getElementById('section-include').querySelectorAll('script').forEach(old => {
+        const s = document.createElement('script');
+        s.textContent = old.textContent;
+        old.parentNode.replaceChild(s, old);
+      });
+    });
+</script>
+</body>
+</html>
