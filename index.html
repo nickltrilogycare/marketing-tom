@@ -405,6 +405,27 @@
       padding: 2px 7px; border-radius: 4px;
     }
     .org-card.absorbed { border-color: rgba(245,158,11,0.35); }
+    .org-card.redundant::after {
+      content: 'REDUNDANT'; position: absolute; top: -8px; right: -8px;
+      font-size: 8px; font-weight: 800; letter-spacing: 1px; color: #ef4444;
+      background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4);
+      padding: 2px 7px; border-radius: 4px;
+    }
+    .org-card.redundant { border-color: rgba(239,68,68,0.35); }
+    .org-card.resigns::after {
+      content: 'RESIGNS'; position: absolute; top: -8px; right: -8px;
+      font-size: 8px; font-weight: 800; letter-spacing: 1px; color: #f59e0b;
+      background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4);
+      padding: 2px 7px; border-radius: 4px;
+    }
+    .org-card.resigns { border-color: rgba(245,158,11,0.35); }
+    .org-card.stays::after {
+      content: 'STAYS'; position: absolute; top: -8px; right: -8px;
+      font-size: 8px; font-weight: 800; letter-spacing: 1px; color: #22c55e;
+      background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.3);
+      padding: 2px 7px; border-radius: 4px;
+    }
+    .org-card.stays { border-color: rgba(34,197,94,0.2); }
     .org-tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
     .org-level-0 { display: flex; justify-content: center; margin-bottom: 0; position: relative; }
     .org-level-0::after {
@@ -446,6 +467,9 @@
     .org-legend-swatch.swatch-performance { background: #007F7E; border: 1px solid rgba(0,127,126,0.8); }
     .org-legend-swatch.swatch-creative { background: #475569; border: 1px solid rgba(71,85,105,0.8); }
     .org-legend-swatch.swatch-absorbed { background: transparent; border: 1px dashed rgba(245,158,11,0.6); }
+    .org-legend-swatch.swatch-redundant { background: rgba(239,68,68,0.25); border: 1px solid rgba(239,68,68,0.6); }
+    .org-legend-swatch.swatch-resigns { background: rgba(245,158,11,0.25); border: 1px solid rgba(245,158,11,0.6); }
+    .org-legend-swatch.swatch-stays { background: rgba(34,197,94,0.25); border: 1px solid rgba(34,197,94,0.6); }
     .disciplines-section { max-width: 900px; margin: 0 auto; }
     .disciplines-title { text-align: center; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 8px; letter-spacing: -0.01em; }
     .disciplines-subtitle { text-align: center; font-size: 14px; color: #64748b; margin-bottom: 36px; font-weight: 400; }
@@ -545,6 +569,19 @@
     .ms-absorbed-card-old-role { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin: 0 0 6px 0; }
     .ms-absorbed-card-reason { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.45; }
     .ms-absorbed-arrow { color: #43C0BE; font-weight: 600; font-size: 0.78rem; }
+    .ms-absorbed-card.ms-card-redundant { border-color: rgba(239,68,68,0.2); background: linear-gradient(145deg, rgba(239,68,68,0.08), rgba(239,68,68,0.02)); }
+    .ms-absorbed-card.ms-card-redundant:hover { border-color: rgba(239,68,68,0.3); background: linear-gradient(145deg, rgba(239,68,68,0.12), rgba(239,68,68,0.04)); }
+    .ms-absorbed-card.ms-card-redundant .ms-absorbed-icon { color: #ef4444; }
+    .ms-absorbed-card.ms-card-resigns { border-color: rgba(245,158,11,0.2); background: linear-gradient(145deg, rgba(245,158,11,0.08), rgba(245,158,11,0.02)); }
+    .ms-absorbed-card.ms-card-resigns:hover { border-color: rgba(245,158,11,0.3); background: linear-gradient(145deg, rgba(245,158,11,0.12), rgba(245,158,11,0.04)); }
+    .ms-absorbed-card.ms-card-resigns .ms-absorbed-icon { color: #f59e0b; }
+    .ms-absorbed-card.ms-card-newhire { border-color: rgba(34,197,94,0.2); background: linear-gradient(145deg, rgba(34,197,94,0.08), rgba(34,197,94,0.02)); }
+    .ms-absorbed-card.ms-card-newhire:hover { border-color: rgba(34,197,94,0.3); background: linear-gradient(145deg, rgba(34,197,94,0.12), rgba(34,197,94,0.04)); }
+    .ms-absorbed-card.ms-card-newhire .ms-absorbed-icon { color: #22c55e; }
+    .ms-change-type-label { display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 1px 6px; border-radius: 3px; margin-bottom: 4px; }
+    .ms-change-type-label.ms-label-redundant { color: #ef4444; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); }
+    .ms-change-type-label.ms-label-resigns { color: #f59e0b; background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3); }
+    .ms-change-type-label.ms-label-newhire { color: #22c55e; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3); }
     .ms-matrix-section { margin-top: 12px; }
     .ms-matrix-header { text-align: center; margin-bottom: 40px; }
     .ms-matrix-title { font-size: 1.75rem; font-weight: 800; color: #fff; margin: 0 0 10px 0; }
@@ -656,7 +693,9 @@
     .es-role-card[data-owner="stephen"]::before { background: linear-gradient(90deg, #2c4c79, #3d6299); }
     .es-role-card[data-owner="paul"]::before { background: linear-gradient(90deg, #007F7E, #00a09e); }
     .es-role-card[data-owner="rajitha"]::before { background: linear-gradient(90deg, #43C0BE, #5fd4d2); }
+    .es-role-card[data-owner="digauto"]::before { background: linear-gradient(90deg, #43C0BE, #5fd4d2); }
     .es-role-card[data-owner="mariia"]::before { background: linear-gradient(90deg, #2c4c79, #3d6299); }
+    .es-role-card[data-owner="opsbrand"]::before { background: linear-gradient(90deg, #2c4c79, #3d6299); }
     .es-role-card[data-owner="alisha"]::before { background: linear-gradient(90deg, #64BCEA, #82cbef); }
     .es-role-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); background: rgba(255,255,255,0.05); }
     .es-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
@@ -853,6 +892,18 @@
     .vh-person { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 0.85rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; }
     .vh-person-lead { font-weight: 700; color: #fff; }
     .vh-person-role { font-size: 0.72rem; color: rgba(255,255,255,0.35); font-weight: 400; }
+    .vh-new-tag {
+      display: inline-block; font-size: 0.55rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: #22c55e; background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.3); padding: 1px 6px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle;
+    }
+    .ms-new-hire-tag {
+      display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: #22c55e; background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3); padding: 1px 6px; border-radius: 3px;
+      margin-left: 6px; vertical-align: middle;
+    }
     .vh-transitioning { color: rgba(255,255,255,0.25); }
     .vh-phase2-tag {
       display: inline-block; font-size: 0.55rem; font-weight: 700; letter-spacing: 1px;
@@ -1094,10 +1145,10 @@
   <div class="tc-hero__content">
     <div class="tc-hero__badge">Confidential — CGO Strategy</div>
     <h1 class="tc-hero__heading">Marketing<br><span>Target Operating Model</span></h1>
-    <p class="tc-hero__sub">An AI-powered operating model — from <strong>12 to 5</strong><br>delivering <strong>3-5x output</strong> across <strong>12 disciplines</strong></p>
+    <p class="tc-hero__sub">An AI-powered operating model — from <strong>12 to 5+1</strong><br>delivering <strong>3-5x output</strong> across <strong>12 disciplines</strong></p>
     <div class="tc-hero__stats">
       <div class="tc-hero__stat">
-        <div class="tc-hero__stat-value">12 <span class="tc-arrow">&rarr;</span> 5</div>
+        <div class="tc-hero__stat-value">12 <span class="tc-arrow">&rarr;</span> 5+1</div>
         <div class="tc-hero__stat-label">People</div>
       </div>
       <div class="tc-hero__stat">
@@ -1124,55 +1175,55 @@
   <div class="org-chart fade-in-up delay-2">
     <div class="org-tree">
       <div class="org-level-0">
-        <div class="org-card leadership">
-          <div class="name">Stephen Danckert</div>
-          <div class="role">GM Marketing</div>
+        <div class="org-card leadership stays">
+          <div class="name">GM Marketing</div>
+          <div class="role">Stephen Danckert</div>
         </div>
       </div>
       <div class="org-level-1">
         <!-- Paul Phare branch -->
         <div class="org-branch">
-          <div class="org-card performance">
-            <div class="name">Paul Phare</div>
-            <div class="role">Head of Digital Marketing</div>
+          <div class="org-card performance stays">
+            <div class="name">Head of Digital Marketing</div>
+            <div class="role">Paul Phare</div>
           </div>
           <div class="org-level-2">
-            <div class="org-card performance">
-              <div class="name">Rajitha Jayathunga</div>
-              <div class="role">Digital Marketing Lead</div>
+            <div class="org-card performance redundant">
+              <div class="name">Digital Marketing Lead</div>
+              <div class="role">Rajitha Jayathunga</div>
             </div>
-            <div class="org-card performance absorbed">
-              <div class="name">Michael Coffey</div>
-              <div class="role">Campaign &amp; Automation Specialist</div>
+            <div class="org-card performance redundant">
+              <div class="name">Campaign &amp; Automation Specialist</div>
+              <div class="role">Michael Coffey</div>
             </div>
-            <div class="org-card performance">
-              <div class="name">Miranda Partridge</div>
-              <div class="role">Social Media Executive</div>
+            <div class="org-card performance stays">
+              <div class="name">Social Media Executive</div>
+              <div class="role">Miranda Partridge</div>
             </div>
           </div>
         </div>
         <!-- Mariia Branch -->
         <div class="org-branch">
-          <div class="org-card performance">
-            <div class="name">Mariia Branch</div>
-            <div class="role">Marketing Operations TL</div>
+          <div class="org-card performance resigns">
+            <div class="name">Marketing Operations TL</div>
+            <div class="role">Mariia Branch</div>
           </div>
         </div>
         <!-- Matthew Hart -->
         <div class="org-branch">
-          <div class="org-card creative">
-            <div class="name">Matthew Hart</div>
-            <div class="role">Communications Executive</div>
+          <div class="org-card creative stays">
+            <div class="name">Communications Executive</div>
+            <div class="role">Matthew Hart</div>
           </div>
         </div>
         <!-- Alisha Van Bone -->
         <div class="org-branch">
-          <div class="org-card creative">
-            <div class="name">Alisha Van Bone</div>
-            <div class="role">Lead Graphic Designer</div>
+          <div class="org-card creative stays">
+            <div class="name">Lead Graphic Designer</div>
+            <div class="role">Alisha Van Bone</div>
           </div>
           <div class="org-level-2">
-            <div class="org-card creative absorbed">
+            <div class="org-card creative redundant">
               <div class="name">Junior Graphic Designer</div>
               <div class="role">TBH</div>
             </div>
@@ -1180,25 +1231,25 @@
         </div>
         <!-- Kayla Williams -->
         <div class="org-branch">
-          <div class="org-card creative absorbed">
-            <div class="name">Kayla Williams</div>
-            <div class="role">Events &amp; Marketing Coordinator</div>
+          <div class="org-card creative redundant">
+            <div class="name">Events &amp; Marketing Coordinator</div>
+            <div class="role">Kayla Williams</div>
           </div>
         </div>
         <!-- Marilyn Tang -->
         <div class="org-branch">
-          <div class="org-card creative absorbed">
-            <div class="name">Marilyn Tang</div>
-            <div class="role">Marketing Coordinator</div>
+          <div class="org-card creative redundant">
+            <div class="name">Marketing Coordinator</div>
+            <div class="role">Marilyn Tang</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="org-cgo-report fade-in-up delay-4">
-      <div class="org-card leadership" style="border-style: dashed; border-color: rgba(100,188,234,0.35);">
-        <div class="name">Imran Mehmood</div>
-        <div class="role">AI Innovation Lead</div>
+      <div class="org-card leadership stays" style="border-style: dashed; border-color: rgba(100,188,234,0.35);">
+        <div class="name">AI Innovation Lead</div>
+        <div class="role">Imran Mehmood</div>
       </div>
     </div>
 
@@ -1206,7 +1257,9 @@
       <div class="org-legend-item"><div class="org-legend-swatch swatch-leadership"></div>Leadership</div>
       <div class="org-legend-item"><div class="org-legend-swatch swatch-performance"></div>Performance / Revenue</div>
       <div class="org-legend-item"><div class="org-legend-swatch swatch-creative"></div>Brand / Creative</div>
-      <div class="org-legend-item"><div class="org-legend-swatch swatch-absorbed"></div>Role Absorbed</div>
+      <div class="org-legend-item"><div class="org-legend-swatch swatch-stays"></div>Stays</div>
+      <div class="org-legend-item"><div class="org-legend-swatch swatch-redundant"></div>Redundant</div>
+      <div class="org-legend-item"><div class="org-legend-swatch swatch-resigns"></div>Resigns</div>
     </div>
   </div>
 
@@ -1236,7 +1289,7 @@
     <div class="bp-header vh-fade-up">
       <div class="bp-label">The Operating Model</div>
       <h2 class="bp-title">The Operating Model</h2>
-      <p class="bp-subtitle">Two operational pillars, two enabling layers — five people, twelve disciplines</p>
+      <p class="bp-subtitle">Two operational pillars, two enabling layers — five people + Imran, twelve disciplines</p>
     </div>
 
     <div class="bp-model-visual vh-fade-up vh-delay-2">
@@ -1301,8 +1354,8 @@
   <div class="ms-container">
     <div class="ms-fade-up">
       <span class="ms-phase-label">Restructure</span>
-      <h2 class="ms-title">Phase 1 &mdash; Mid-Stage (8 People)</h2>
-      <p class="ms-subtitle">Restructure, cross-train, and build the first wave of AI agents</p>
+      <h2 class="ms-title">Phase 1 &mdash; Mid-Stage (6 People + Imran)</h2>
+      <p class="ms-subtitle">Redundancies, new hires, and the first wave of AI agents</p>
     </div>
 
     <div class="ms-two-col">
@@ -1311,8 +1364,8 @@
         <div class="ms-org-gm">
           <span class="ms-org-dot ms-dot-navy"></span>
           <div>
-            <div class="ms-org-person-name">Stephen Danckert</div>
-            <div class="ms-org-person-role">GM Marketing</div>
+            <div class="ms-org-person-name">GM Marketing</div>
+            <div class="ms-org-person-role">Stephen Danckert</div>
           </div>
         </div>
         <span class="ms-org-badge ms-badge-perf">Performance</span>
@@ -1320,62 +1373,61 @@
           <li>
             <div class="ms-org-person">
               <span class="ms-org-dot ms-dot-blue"></span>
-              <span class="ms-org-person-name">Paul Phare</span>
-              <span class="ms-org-person-role">&mdash; Head of Performance</span>
+              <span class="ms-org-person-name">Head of Performance</span>
+              <span class="ms-org-person-role">&mdash; Paul Phare</span>
             </div>
             <ul class="ms-org-tree">
               <li>
                 <div class="ms-org-person">
                   <span class="ms-org-dot ms-dot-blue"></span>
-                  <span class="ms-org-person-name">Rajitha Jayathunga</span>
-                  <span class="ms-org-person-role">&mdash; Digital &amp; Automation Lead</span>
+                  <span class="ms-org-person-name">Digital &amp; Automation Lead</span>
+                  <span class="ms-org-person-role">&mdash; New Hire</span>
+                  <span class="ms-new-hire-tag">NEW HIRE</span>
                 </div>
               </li>
             </ul>
           </li>
         </ul>
-        <span class="ms-org-badge ms-badge-ops">Marketing Ops</span>
+        <span class="ms-org-badge ms-badge-ops">Brand &amp; Creative</span>
         <ul class="ms-org-tree">
           <li>
             <div class="ms-org-person">
               <span class="ms-org-dot ms-dot-teal"></span>
-              <span class="ms-org-person-name">Mariia Branch</span>
-              <span class="ms-org-person-role">&mdash; Marketing Ops Manager</span>
+              <span class="ms-org-person-name">Marketing Ops &amp; Brand Manager</span>
+              <span class="ms-org-person-role">&mdash; New Hire</span>
+              <span class="ms-new-hire-tag">NEW HIRE</span>
             </div>
             <ul class="ms-org-tree">
               <li>
                 <div class="ms-org-person">
                   <span class="ms-org-dot ms-dot-teal"></span>
-                  <span class="ms-org-person-name">Matthew Hart</span>
-                  <span class="ms-org-person-role">&mdash; Content &amp; Comms Executive</span>
+                  <span class="ms-org-person-name">Content &amp; Comms Executive</span>
+                  <span class="ms-org-person-role">&mdash; Matthew Hart</span>
                 </div>
               </li>
               <li>
                 <div class="ms-org-person">
                   <span class="ms-org-dot ms-dot-teal"></span>
-                  <span class="ms-org-person-name">Miranda Partridge</span>
-                  <span class="ms-org-person-role">&mdash; Social &amp; ORM Executive</span>
+                  <span class="ms-org-person-name">Social, ORM &amp; Design Executive</span>
+                  <span class="ms-org-person-role">&mdash; Miranda Partridge</span>
+                </div>
+              </li>
+              <li>
+                <div class="ms-org-person">
+                  <span class="ms-org-dot ms-dot-teal"></span>
+                  <span class="ms-org-person-name">Creative Lead</span>
+                  <span class="ms-org-person-role">&mdash; Alisha Van Bone</span>
                 </div>
               </li>
             </ul>
-          </li>
-        </ul>
-        <span class="ms-org-badge ms-badge-creative">Creative</span>
-        <ul class="ms-org-tree">
-          <li>
-            <div class="ms-org-person">
-              <span class="ms-org-dot ms-dot-blue"></span>
-              <span class="ms-org-person-name">Alisha Van Bone</span>
-              <span class="ms-org-person-role">&mdash; Creative Lead</span>
-            </div>
           </li>
         </ul>
         <div class="ms-org-divider"></div>
         <div class="ms-org-standalone">
           <span class="ms-org-dot ms-dot-teal"></span>
           <div>
-            <div class="ms-org-person-name">Imran Mehmood</div>
-            <div class="ms-org-person-role">AI Innovation Lead</div>
+            <div class="ms-org-person-name">AI Innovation Lead</div>
+            <div class="ms-org-person-role">Imran Mehmood</div>
           </div>
           <span class="ms-org-reports-to">Reports to CGO</span>
         </div>
@@ -1383,51 +1435,99 @@
 
       <div class="ms-absorbed ms-fade-up ms-delay-3">
         <div class="ms-absorbed-header">
-          <div class="ms-absorbed-count">4</div>
+          <div class="ms-absorbed-count">8</div>
           <div>
-            <p class="ms-absorbed-label">Roles Absorbed</p>
-            <p class="ms-absorbed-sublabel">Replaced by AI agents &amp; redistribution</p>
+            <p class="ms-absorbed-label">Team Changes</p>
+            <p class="ms-absorbed-sublabel">5 redundant &middot; 1 resigns &middot; 2 new hires</p>
           </div>
         </div>
         <div class="ms-absorbed-cards">
-          <div class="ms-absorbed-card ms-fade-in ms-delay-4">
+          <div class="ms-absorbed-card ms-card-redundant ms-fade-in ms-delay-4">
             <div class="ms-absorbed-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
             </div>
             <div>
+              <span class="ms-change-type-label ms-label-redundant">REDUNDANT</span>
+              <p class="ms-absorbed-card-name">Rajitha Jayathunga</p>
+              <p class="ms-absorbed-card-old-role">Digital Marketing Lead</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaced by new Digital &amp; Automation Lead hire</p>
+            </div>
+          </div>
+          <div class="ms-absorbed-card ms-card-redundant ms-fade-in ms-delay-5">
+            <div class="ms-absorbed-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <span class="ms-change-type-label ms-label-redundant">REDUNDANT</span>
+              <p class="ms-absorbed-card-name">Michael Coffey</p>
+              <p class="ms-absorbed-card-old-role">Campaign &amp; Automation Specialist</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Email/automation scope absorbed into new Digital &amp; Automation Lead</p>
+            </div>
+          </div>
+          <div class="ms-absorbed-card ms-card-redundant ms-fade-in ms-delay-5">
+            <div class="ms-absorbed-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <span class="ms-change-type-label ms-label-redundant">REDUNDANT</span>
               <p class="ms-absorbed-card-name">Marilyn Tang</p>
               <p class="ms-absorbed-card-old-role">Marketing Coordinator</p>
               <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> AI agents handle admin, notes, and scheduling</p>
             </div>
           </div>
-          <div class="ms-absorbed-card ms-fade-in ms-delay-5">
+          <div class="ms-absorbed-card ms-card-redundant ms-fade-in ms-delay-6">
             <div class="ms-absorbed-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             </div>
             <div>
+              <span class="ms-change-type-label ms-label-redundant">REDUNDANT</span>
               <p class="ms-absorbed-card-name">Kayla Williams</p>
-              <p class="ms-absorbed-card-old-role">Events Coordinator</p>
+              <p class="ms-absorbed-card-old-role">Events &amp; Marketing Coordinator</p>
               <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Events on hold, coordination automated</p>
             </div>
           </div>
-          <div class="ms-absorbed-card ms-fade-in ms-delay-6">
-            <div class="ms-absorbed-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <p class="ms-absorbed-card-name">Michael Coffey</p>
-              <p class="ms-absorbed-card-old-role">Campaigns</p>
-              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Email/automation absorbed by Rajitha + AI</p>
-            </div>
-          </div>
-          <div class="ms-absorbed-card ms-fade-in ms-delay-7">
+          <div class="ms-absorbed-card ms-card-redundant ms-fade-in ms-delay-6">
             <div class="ms-absorbed-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
             </div>
             <div>
+              <span class="ms-change-type-label ms-label-redundant">REDUNDANT</span>
               <p class="ms-absorbed-card-name">Junior Designer</p>
-              <p class="ms-absorbed-card-old-role">Design</p>
+              <p class="ms-absorbed-card-old-role">Graphic Design</p>
               <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Volume design work replaced by AI agents</p>
+            </div>
+          </div>
+          <div class="ms-absorbed-card ms-card-resigns ms-fade-in ms-delay-7">
+            <div class="ms-absorbed-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <span class="ms-change-type-label ms-label-resigns">RESIGNS</span>
+              <p class="ms-absorbed-card-name">Mariia Branch</p>
+              <p class="ms-absorbed-card-old-role">Marketing Operations TL</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaced by new Marketing Ops &amp; Brand Manager hire</p>
+            </div>
+          </div>
+          <div class="ms-absorbed-card ms-card-newhire ms-fade-in ms-delay-8">
+            <div class="ms-absorbed-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            </div>
+            <div>
+              <span class="ms-change-type-label ms-label-newhire">NEW HIRE</span>
+              <p class="ms-absorbed-card-name">Digital &amp; Automation Lead</p>
+              <p class="ms-absorbed-card-old-role">Reports to Head of Performance</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaces Rajitha + Michael scope. Ads execution, email, CRO, web dev, attribution</p>
+            </div>
+          </div>
+          <div class="ms-absorbed-card ms-card-newhire ms-fade-in ms-delay-9">
+            <div class="ms-absorbed-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            </div>
+            <div>
+              <span class="ms-change-type-label ms-label-newhire">NEW HIRE</span>
+              <p class="ms-absorbed-card-name">Marketing Ops &amp; Brand Manager</p>
+              <p class="ms-absorbed-card-old-role">Reports to GM Marketing</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaces Mariia. Agency background, multi-skilled, AI-native. Owns brand, ops, content strategy</p>
             </div>
           </div>
         </div>
@@ -1435,14 +1535,14 @@
     </div>
 
     <div class="vh-grid-wrapper ms-fade-up ms-delay-5">
-      <h3 class="vh-grid-title">Operating Structure — 8 People</h3>
+      <h3 class="vh-grid-title">Operating Structure — 6 People + Imran</h3>
       <p class="vh-grid-subtitle">Two operational pillars, two enabling layers</p>
       <div class="vh-grid">
         <div class="vh-h-band vh-h-top">
           <div class="vh-h-band-icon">&#9473;</div>
           <div>
             <div class="vh-h-band-name">Strategy &amp; Leadership</div>
-            <div class="vh-h-band-person">Stephen Danckert — GM Marketing</div>
+            <div class="vh-h-band-person"><strong>GM Marketing</strong> &mdash; Stephen Danckert</div>
             <div class="vh-h-band-scope">Budget &middot; Stakeholders &middot; Brand Positioning &middot; Quality Standards</div>
           </div>
         </div>
@@ -1453,14 +1553,14 @@
               <div class="vh-col-desc">Revenue Engine</div>
             </div>
             <div class="vh-col-people">
-              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-teal"></span>Paul Phare <span class="vh-person-role">Head of Performance</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lteal"></span>Rajitha Jayathunga <span class="vh-person-role">Digital &amp; Automation Lead</span></div>
+              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-teal"></span><strong>Head of Performance</strong> <span class="vh-person-role">Paul Phare</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lteal"></span><strong>Digital &amp; Automation Lead</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
             </div>
             <div class="vh-col-disciplines">
               <span class="vh-disc">Ads</span>
               <span class="vh-disc">SEO</span>
               <span class="vh-disc">CRO</span>
-              <span class="vh-disc vh-disc-new">Email Marketing</span>
+              <span class="vh-disc">Email Marketing</span>
               <span class="vh-disc">Web Dev</span>
               <span class="vh-disc">Competitor Intel</span>
             </div>
@@ -1471,10 +1571,10 @@
               <div class="vh-col-desc">Awareness Engine</div>
             </div>
             <div class="vh-col-people">
-              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-blue"></span>Mariia Branch <span class="vh-person-role">Marketing Ops Manager</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span>Matthew Hart <span class="vh-person-role vh-transitioning">Content &amp; Comms <span class="vh-phase2-tag">Phase 2</span></span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span>Miranda Partridge <span class="vh-person-role vh-transitioning">Social &amp; ORM <span class="vh-phase2-tag">Phase 2</span></span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span>Alisha Van Bone <span class="vh-person-role">Creative Lead</span></div>
+              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-blue"></span><strong>Marketing Ops &amp; Brand Manager</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Content &amp; Comms Executive</strong> <span class="vh-person-role">Matthew Hart</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Social, ORM &amp; Design Executive</strong> <span class="vh-person-role">Miranda Partridge</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Creative Lead</strong> <span class="vh-person-role">Alisha Van Bone</span></div>
             </div>
             <div class="vh-col-disciplines">
               <span class="vh-disc">Content &amp; Copy</span>
@@ -1490,7 +1590,7 @@
           <div class="vh-h-band-icon">&#9473;</div>
           <div>
             <div class="vh-h-band-name">AI Innovation &amp; Enablement</div>
-            <div class="vh-h-band-person">Imran Mehmood — AI Innovation Lead <span class="vh-reports-tag">reports to CGO</span></div>
+            <div class="vh-h-band-person"><strong>AI Innovation Lead</strong> &mdash; Imran Mehmood <span class="vh-reports-tag">reports to CGO</span></div>
             <div class="vh-h-band-scope">Agent Builds &middot; Tech Bridge &middot; Automation &middot; Efficiency</div>
           </div>
         </div>
@@ -1506,29 +1606,29 @@
         <thead><tr><th>Person</th><th>Must Develop</th><th>How</th></tr></thead>
         <tbody>
           <tr class="ms-slide-right ms-delay-5">
-            <td><span class="ms-matrix-person">Rajitha</span></td>
-            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Email / Automation</span><span class="ms-matrix-skill-tag">Web Dev</span></div></td>
-            <td><p class="ms-matrix-how">Takes over Klaviyo ownership, starts Claude Code for web development</p></td>
+            <td><span class="ms-matrix-person">Matthew Hart</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">AI Content Workflows</span><span class="ms-matrix-skill-tag">Brand Awareness</span></div></td>
+            <td><p class="ms-matrix-how">Target 50%+ output generated via AI agents, focus on editing and quality. Build brand awareness muscle</p></td>
           </tr>
           <tr class="ms-slide-right ms-delay-6">
-            <td><span class="ms-matrix-person">Mariia</span></td>
-            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Content Strategy</span><span class="ms-matrix-skill-tag">Brand</span><span class="ms-matrix-skill-tag">Performance Literacy</span></div></td>
-            <td><p class="ms-matrix-how">Oversees Matthew &amp; Miranda, builds strategic layer across content and ops</p></td>
+            <td><span class="ms-matrix-person">Miranda Partridge</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Design Skills</span><span class="ms-matrix-skill-tag">Content Writing</span></div></td>
+            <td><p class="ms-matrix-how">Expands into design via Canva and AI tools, builds longer-form content capability</p></td>
           </tr>
           <tr class="ms-slide-right ms-delay-7">
-            <td><span class="ms-matrix-person">Alisha</span></td>
+            <td><span class="ms-matrix-person">Alisha Van Bone</span></td>
             <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Social Content</span><span class="ms-matrix-skill-tag">Content Writing</span></div></td>
             <td><p class="ms-matrix-how">Paired with Miranda for 4 weeks to build social and written content muscle</p></td>
           </tr>
           <tr class="ms-slide-right ms-delay-8">
-            <td><span class="ms-matrix-person">Matthew</span></td>
-            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">AI Content Workflows</span></div></td>
-            <td><p class="ms-matrix-how">Target 50%+ output generated via AI agents, focus on editing and quality</p></td>
+            <td><span class="ms-matrix-person">New Hire (Dig &amp; Auto Lead)</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">TC Systems</span><span class="ms-matrix-skill-tag">Klaviyo</span><span class="ms-matrix-skill-tag">Claude Code</span><span class="ms-matrix-skill-tag">Platform Onboarding</span></div></td>
+            <td><p class="ms-matrix-how">Onboard into TC platforms, Klaviyo, Google Ads, Meta, and Claude Code for web dev</p></td>
           </tr>
           <tr class="ms-slide-right ms-delay-9">
-            <td><span class="ms-matrix-person">Miranda</span></td>
-            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Content Writing</span><span class="ms-matrix-skill-tag">Basic Design</span></div></td>
-            <td><p class="ms-matrix-how">Expands into longer-form content, picks up Canva and AI design tools</p></td>
+            <td><span class="ms-matrix-person">New Hire (Ops &amp; Brand Mgr)</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">TC Brand Standards</span><span class="ms-matrix-skill-tag">Stakeholder Relationships</span><span class="ms-matrix-skill-tag">AI Agent Adoption</span></div></td>
+            <td><p class="ms-matrix-how">Onboard into TC brand guidelines, stakeholder relationships, and AI agent workflows</p></td>
           </tr>
         </tbody>
       </table>
@@ -1541,7 +1641,7 @@
   <div class="es-container">
     <div class="es-header">
       <div class="es-phase-badge">End-State</div>
-      <h2 class="es-title">Phase 2 — End-State (5 People)</h2>
+      <h2 class="es-title">End-State (5 People + Imran)</h2>
       <p class="es-subtitle">Five multi-skilled humans managing <strong>30-45 AI agents</strong> across <strong>12 disciplines</strong></p>
     </div>
 
@@ -1549,40 +1649,42 @@
       <div class="es-section-title">Organisation Structure</div>
       <div class="es-org-tree">
         <div class="es-org-level-0">
-          <div class="es-org-node"><span class="es-org-node-dot es-dot-blue"></span><div><div class="es-org-node-name">Stephen</div><div class="es-org-node-role">GM Marketing</div></div></div>
+          <div class="es-org-node"><span class="es-org-node-dot es-dot-blue"></span><div><div class="es-org-node-name">GM Marketing</div><div class="es-org-node-role">Stephen Danckert</div></div></div>
         </div>
         <div class="es-org-connector"></div>
         <div class="es-org-level-1">
           <div class="es-org-branch">
-            <div class="es-org-node"><span class="es-org-node-dot es-dot-teal"></span><div><div class="es-org-node-name">Paul</div><div class="es-org-node-role">Head of Performance</div></div></div>
+            <div class="es-org-node"><span class="es-org-node-dot es-dot-teal"></span><div><div class="es-org-node-name">Head of Performance</div><div class="es-org-node-role">Paul Phare</div></div></div>
             <div class="es-org-connector"></div>
             <div class="es-org-level-2">
-              <div class="es-org-node"><span class="es-org-node-dot es-dot-lteal"></span><div><div class="es-org-node-name">Rajitha</div><div class="es-org-node-role">Digital Lead</div></div></div>
+              <div class="es-org-node"><span class="es-org-node-dot es-dot-lteal"></span><div><div class="es-org-node-name">Digital &amp; Automation Lead</div><div class="es-org-node-role">New Hire</div></div></div>
             </div>
           </div>
           <div class="es-org-branch">
-            <div class="es-org-node"><span class="es-org-node-dot es-dot-blue"></span><div><div class="es-org-node-name">Mariia</div><div class="es-org-node-role">Marketing Ops Manager</div></div></div>
+            <div class="es-org-node"><span class="es-org-node-dot es-dot-blue"></span><div><div class="es-org-node-name">Mktg Ops &amp; Brand Mgr</div><div class="es-org-node-role">New Hire</div></div></div>
             <div class="es-org-connector"></div>
             <div class="es-org-level-2">
-              <div class="es-org-node"><span class="es-org-node-dot es-dot-lblue"></span><div><div class="es-org-node-name">Alisha</div><div class="es-org-node-role">Creative &amp; Social Lead</div></div></div>
+              <div class="es-org-node"><span class="es-org-node-dot es-dot-lblue"></span><div><div class="es-org-node-name">Content &amp; Comms Exec</div><div class="es-org-node-role">Matthew Hart</div></div></div>
+              <div class="es-org-node"><span class="es-org-node-dot es-dot-lblue"></span><div><div class="es-org-node-name">Social, ORM &amp; Design Exec</div><div class="es-org-node-role">Miranda Partridge</div></div></div>
+              <div class="es-org-node"><span class="es-org-node-dot es-dot-lblue"></span><div><div class="es-org-node-name">Creative Lead</div><div class="es-org-node-role">Alisha Van Bone</div></div></div>
             </div>
           </div>
         </div>
         <div class="es-org-standalone">
-          <div class="es-org-node"><span class="es-org-node-dot es-dot-lteal"></span><div><div class="es-org-node-name">Imran <span class="es-org-report-tag">reports to CGO</span></div><div class="es-org-node-role">AI Innovation Lead</div></div></div>
+          <div class="es-org-node"><span class="es-org-node-dot es-dot-lteal"></span><div><div class="es-org-node-name">AI Innovation Lead <span class="es-org-report-tag">reports to CGO</span></div><div class="es-org-node-role">Imran Mehmood</div></div></div>
         </div>
       </div>
     </div>
 
     <div class="vh-grid-wrapper es-fade-up">
-      <h3 class="vh-grid-title">Operating Structure — 5 People</h3>
+      <h3 class="vh-grid-title">Operating Structure — 5 People + Imran</h3>
       <p class="vh-grid-subtitle">Clean, final structure — two pillars, two enabling layers, twelve disciplines</p>
       <div class="vh-grid vh-grid-final">
         <div class="vh-h-band vh-h-top">
           <div class="vh-h-band-icon">&#9473;</div>
           <div>
             <div class="vh-h-band-name">Strategy &amp; Leadership</div>
-            <div class="vh-h-band-person">Stephen Danckert — GM Marketing</div>
+            <div class="vh-h-band-person"><strong>GM Marketing</strong> &mdash; Stephen Danckert</div>
             <div class="vh-h-band-scope">Budget &middot; Stakeholders &middot; Brand Positioning &middot; Quality Standards</div>
           </div>
         </div>
@@ -1593,8 +1695,8 @@
               <div class="vh-col-desc">Revenue Engine</div>
             </div>
             <div class="vh-col-people">
-              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-teal"></span>Paul Phare <span class="vh-person-role">Head of Performance</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lteal"></span>Rajitha Jayathunga <span class="vh-person-role">Digital Lead</span></div>
+              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-teal"></span><strong>Head of Performance</strong> <span class="vh-person-role">Paul Phare</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lteal"></span><strong>Digital &amp; Automation Lead</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
             </div>
             <div class="vh-col-disciplines">
               <span class="vh-disc">Ads</span>
@@ -1614,8 +1716,10 @@
               <div class="vh-col-desc">Awareness Engine</div>
             </div>
             <div class="vh-col-people">
-              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-blue"></span>Mariia Branch <span class="vh-person-role">Marketing Ops Manager</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span>Alisha Van Bone <span class="vh-person-role">Creative &amp; Social Lead</span></div>
+              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-blue"></span><strong>Marketing Ops &amp; Brand Manager</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Content &amp; Comms Executive</strong> <span class="vh-person-role">Matthew Hart</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Social, ORM &amp; Design Executive</strong> <span class="vh-person-role">Miranda Partridge</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Creative Lead</strong> <span class="vh-person-role">Alisha Van Bone</span></div>
             </div>
             <div class="vh-col-disciplines">
               <span class="vh-disc">Content &amp; Copy</span>
@@ -1634,7 +1738,7 @@
           <div class="vh-h-band-icon">&#9473;</div>
           <div>
             <div class="vh-h-band-name">AI Innovation &amp; Enablement</div>
-            <div class="vh-h-band-person">Imran Mehmood — AI Innovation Lead <span class="vh-reports-tag">reports to CGO</span></div>
+            <div class="vh-h-band-person"><strong>AI Innovation Lead</strong> &mdash; Imran Mehmood <span class="vh-reports-tag">reports to CGO</span></div>
             <div class="vh-h-band-scope">30-45 Agents &middot; Tech Bridge &middot; Automation &middot; Training</div>
           </div>
         </div>
@@ -1654,29 +1758,29 @@
       <div class="es-section-title">Roles &amp; AI Agent Load</div>
       <div class="es-cards-grid">
         <div class="es-role-card" data-owner="stephen">
-          <div class="es-card-header"><div><div class="es-card-person">Stephen</div><div class="es-card-role-title">GM Marketing</div></div>
+          <div class="es-card-header"><div><div class="es-card-person">GM Marketing</div><div class="es-card-role-title">Stephen Danckert</div></div>
             <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>3-5</span></div></div>
           <ul class="es-card-disciplines"><li>Strategy</li><li>Budget</li><li>Stakeholders</li></ul>
         </div>
         <div class="es-role-card" data-owner="paul">
-          <div class="es-card-header"><div><div class="es-card-person">Paul</div><div class="es-card-role-title">Head of Performance</div></div>
+          <div class="es-card-header"><div><div class="es-card-person">Head of Performance</div><div class="es-card-role-title">Paul Phare</div></div>
             <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>8-12</span></div></div>
           <ul class="es-card-disciplines"><li>Ads</li><li>SEO</li><li>CRO</li><li>Email</li><li>Competitor Intel</li></ul>
         </div>
-        <div class="es-role-card" data-owner="rajitha">
-          <div class="es-card-header"><div><div class="es-card-person">Rajitha</div><div class="es-card-role-title">Digital Lead</div></div>
+        <div class="es-role-card" data-owner="digauto">
+          <div class="es-card-header"><div><div class="es-card-person">Digital &amp; Automation Lead</div><div class="es-card-role-title">New Hire</div></div>
             <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>6-10</span></div></div>
           <ul class="es-card-disciplines"><li>Ads Exec</li><li>Email Exec</li><li>CRO Exec</li><li>Web Dev</li><li>Attribution</li></ul>
         </div>
-        <div class="es-role-card" data-owner="mariia">
-          <div class="es-card-header"><div><div class="es-card-person">Mariia</div><div class="es-card-role-title">MktOps Manager</div></div>
+        <div class="es-role-card" data-owner="opsbrand">
+          <div class="es-card-header"><div><div class="es-card-person">Mktg Ops &amp; Brand Mgr</div><div class="es-card-role-title">New Hire</div></div>
             <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>6-10</span></div></div>
           <ul class="es-card-disciplines"><li>Internal Requests</li><li>Content Strategy</li><li>Ops</li><li>Brand</li><li>Events</li></ul>
         </div>
         <div class="es-role-card" data-owner="alisha">
-          <div class="es-card-header"><div><div class="es-card-person">Alisha</div><div class="es-card-role-title">Creative &amp; Social Lead</div></div>
+          <div class="es-card-header"><div><div class="es-card-person">Creative Lead</div><div class="es-card-role-title">Alisha Van Bone</div></div>
             <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>6-10</span></div></div>
-          <ul class="es-card-disciplines"><li>Design</li><li>Social</li><li>Content Exec</li><li>ORM</li><li>Video</li></ul>
+          <ul class="es-card-disciplines"><li>Design</li><li>Video</li></ul>
         </div>
       </div>
     </div>
@@ -1684,41 +1788,28 @@
     <div class="es-matrix">
       <div class="es-section-title">12 Disciplines — Ownership Map</div>
       <div class="es-matrix-grid">
-        <div class="es-matrix-cell es-owner-paul">Paid Ads<span class="es-cell-owner">Paul</span></div>
-        <div class="es-matrix-cell es-owner-paul">SEO<span class="es-cell-owner">Paul</span></div>
-        <div class="es-matrix-cell es-owner-paul">CRO<span class="es-cell-owner">Paul</span></div>
-        <div class="es-matrix-cell es-owner-paul">Email Marketing<span class="es-cell-owner">Paul</span></div>
-        <div class="es-matrix-cell es-owner-rajitha">Web Dev<span class="es-cell-owner">Rajitha</span></div>
-        <div class="es-matrix-cell es-owner-rajitha">Attribution<span class="es-cell-owner">Rajitha</span></div>
-        <div class="es-matrix-cell es-owner-mariia">Content Strategy<span class="es-cell-owner">Mariia</span></div>
-        <div class="es-matrix-cell es-owner-mariia">Brand<span class="es-cell-owner">Mariia</span></div>
-        <div class="es-matrix-cell es-owner-mariia">Events<span class="es-cell-owner">Mariia</span></div>
-        <div class="es-matrix-cell es-owner-alisha">Design<span class="es-cell-owner">Alisha</span></div>
-        <div class="es-matrix-cell es-owner-alisha">Social Media<span class="es-cell-owner">Alisha</span></div>
-        <div class="es-matrix-cell es-owner-alisha">Video<span class="es-cell-owner">Alisha</span></div>
+        <div class="es-matrix-cell es-owner-paul">Paid Ads<span class="es-cell-owner">Head of Perf</span></div>
+        <div class="es-matrix-cell es-owner-paul">SEO<span class="es-cell-owner">Head of Perf</span></div>
+        <div class="es-matrix-cell es-owner-paul">CRO<span class="es-cell-owner">Head of Perf</span></div>
+        <div class="es-matrix-cell es-owner-paul">Email Marketing<span class="es-cell-owner">Head of Perf</span></div>
+        <div class="es-matrix-cell es-owner-rajitha">Web Dev<span class="es-cell-owner">Dig &amp; Auto Lead</span></div>
+        <div class="es-matrix-cell es-owner-rajitha">Attribution<span class="es-cell-owner">Dig &amp; Auto Lead</span></div>
+        <div class="es-matrix-cell es-owner-mariia">Content Strategy<span class="es-cell-owner">Ops &amp; Brand Mgr</span></div>
+        <div class="es-matrix-cell es-owner-mariia">Brand<span class="es-cell-owner">Ops &amp; Brand Mgr</span></div>
+        <div class="es-matrix-cell es-owner-mariia">Events<span class="es-cell-owner">Ops &amp; Brand Mgr</span></div>
+        <div class="es-matrix-cell es-owner-alisha">Design<span class="es-cell-owner">Creative Lead</span></div>
+        <div class="es-matrix-cell es-owner-alisha">Social Media<span class="es-cell-owner">Creative Lead</span></div>
+        <div class="es-matrix-cell es-owner-alisha">Video<span class="es-cell-owner">Creative Lead</span></div>
       </div>
       <div class="es-matrix-legend">
-        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-paul"></span>Paul</div>
-        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-rajitha"></span>Rajitha</div>
-        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-mariia"></span>Mariia</div>
-        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-alisha"></span>Alisha</div>
+        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-paul"></span>Head of Performance</div>
+        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-rajitha"></span>Digital &amp; Automation Lead</div>
+        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-mariia"></span>Ops &amp; Brand Manager</div>
+        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-alisha"></span>Creative Lead</div>
       </div>
     </div>
 
-    <div class="es-absorbed">
-      <div class="es-absorbed-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
-        2 Roles Absorbed
-      </div>
-      <div class="es-absorbed-role">
-        <div class="es-absorbed-arrow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
-        <div><div class="es-absorbed-from">Matthew Hart</div><div class="es-absorbed-to">Content work absorbed by <strong>Mariia</strong> (strategy) + <strong>Alisha</strong> (execution) + AI agents</div></div>
-      </div>
-      <div class="es-absorbed-role">
-        <div class="es-absorbed-arrow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
-        <div><div class="es-absorbed-from">Miranda Partridge</div><div class="es-absorbed-to">Social work absorbed by <strong>Alisha</strong> + AI agents</div></div>
-      </div>
-    </div>
+    <!-- No Phase 2 absorptions — this IS the end-state from the start -->
   </div>
 </section>
 
@@ -1727,7 +1818,7 @@
   <div class="ag-container">
     <div class="ag-header">
       <h2>AI Efficiency Gains</h2>
-      <p>How 5 people deliver 3-5x the output of 12 — function by function</p>
+      <p>How 5 people + Imran deliver 3-5x the output of 12 — function by function</p>
     </div>
     <div class="ag-grid">
 
@@ -1757,11 +1848,11 @@
 
       <div class="ag-card" onclick="toggleAg(this)">
         <div class="ag-card-top"><span class="ag-card-fn">Email &amp; Automation</span><span class="ag-multiplier">3x</span></div>
-        <div class="ag-card-current">Now: 1 dedicated person (Michael &mdash; absorbed)</div>
+        <div class="ag-card-current">Now: 1 dedicated person (Michael &mdash; redundant)</div>
         <div class="ag-card-future">AI builds flows, drafts copy, tests subject lines, optimises sends</div>
         <span class="click-hint">Click to explore &darr;</span>
         <div class="ag-detail"><div class="ag-detail-inner">
-          <div class="ag-ba"><div class="ag-before"><b>Before</b>Michael manually builds Klaviyo flows, writes email copy, sets up A/B tests. ~4 active journeys, 1 test/month.</div><div class="ag-after"><b>After</b>Rajitha manages strategy; AI agents build flows, draft copy, generate subject line variants, optimise send times. ~12 active journeys, 2+ tests/month. Speed-to-lead under 1 hour.</div></div>
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Michael manually builds Klaviyo flows, writes email copy, sets up A/B tests. ~4 active journeys, 1 test/month.</div><div class="ag-after"><b>After</b>Digital &amp; Automation Lead manages strategy; AI agents build flows, draft copy, generate subject line variants, optimise send times. ~12 active journeys, 2+ tests/month. Speed-to-lead under 1 hour.</div></div>
           <div class="ag-agents"><span class="ag-tag">Klaviyo Flow Agent</span><span class="ag-tag">Email Copy Agent</span><span class="ag-tag">A/B Test Agent</span><span class="ag-tag">Send Optimiser</span></div>
           <p class="ag-why"><strong>Why it works:</strong> Email automation is inherently AI-friendly &mdash; templates, triggers, and copy variants are systematic. The human value is journey strategy and segmentation decisions, not flow building.</p>
         </div></div>
@@ -1773,7 +1864,7 @@
         <div class="ag-card-future">AI generates landing page variants, analyses heatmaps, reports results</div>
         <span class="click-hint">Click to explore &darr;</span>
         <div class="ag-detail"><div class="ag-detail-inner">
-          <div class="ag-ba"><div class="ag-before"><b>Before</b>CRO happens when someone has time. ~1 test every 2 months. No systematic heatmap analysis. Landing pages take days to build.</div><div class="ag-after"><b>After</b>AI agents generate page variants via Claude Code, analyse heatmaps, extract analytics, and report results. Rajitha sets hypotheses and implements winners. 2+ tests/month, landing pages in &lt;2 days.</div></div>
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>CRO happens when someone has time. ~1 test every 2 months. No systematic heatmap analysis. Landing pages take days to build.</div><div class="ag-after"><b>After</b>AI agents generate page variants via Claude Code, analyse heatmaps, extract analytics, and report results. Digital &amp; Automation Lead sets hypotheses and implements winners. 2+ tests/month, landing pages in &lt;2 days.</div></div>
           <div class="ag-agents"><span class="ag-tag">Landing Page Agent</span><span class="ag-tag">CRO Analysis Agent</span><span class="ag-tag">Heatmap Agent</span></div>
           <p class="ag-why"><strong>Why it works:</strong> CRO was bottlenecked by capacity, not strategy. AI removes the build constraint &mdash; generating variants is fast, so the team can test 4x more hypotheses.</p>
         </div></div>
@@ -1785,7 +1876,7 @@
         <div class="ag-card-future">AI drafts 75%+, human edits and QA. 15+ articles/month</div>
         <span class="click-hint">Click to explore &darr;</span>
         <div class="ag-detail"><div class="ag-detail-inner">
-          <div class="ag-ba"><div class="ag-before"><b>Before</b>Matthew writes everything from scratch: blogs, newsletters, PR pitches, case studies, internal comms. ~10 articles/month, often behind schedule.</div><div class="ag-after"><b>After</b>AI agents draft 75%+ of content from briefs. Mariia sets strategy and QA, Alisha handles visual content. Newsletter, PR pitches, and blog production all agent-assisted. 15+ articles/month, zero factual errors.</div></div>
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Matthew writes everything from scratch: blogs, newsletters, PR pitches, case studies, internal comms. ~10 articles/month, often behind schedule.</div><div class="ag-after"><b>After</b>AI agents draft 75%+ of content from briefs. Ops &amp; Brand Manager sets strategy and QA, Alisha handles visual content. Newsletter, PR pitches, and blog production all agent-assisted. 15+ articles/month, zero factual errors.</div></div>
           <div class="ag-agents"><span class="ag-tag">Blog Draft Agent</span><span class="ag-tag">Newsletter Agent</span><span class="ag-tag">PR Pitch Agent</span><span class="ag-tag">Brand QA Agent</span></div>
           <p class="ag-why"><strong>Why it works:</strong> AI writing agents have matured to the point where first drafts are 80% ready. The human value shifts from writing to editing, QA, and strategic direction &mdash; one person can oversee 3x the output.</p>
         </div></div>
@@ -1809,7 +1900,7 @@
         <div class="ag-card-future">AI drafts posts, schedules, monitors ORM. 7+ posts/week</div>
         <span class="click-hint">Click to explore &darr;</span>
         <div class="ag-detail"><div class="ag-detail-inner">
-          <div class="ag-ba"><div class="ag-before"><b>Before</b>Miranda writes all social copy, schedules posts, monitors reviews, responds to comments. 5 posts/week, 20 reviews/month. ORM response times variable.</div><div class="ag-after"><b>After</b>AI agents draft 70%+ of posts, auto-schedule across platforms, monitor ORM 24/7, and draft review responses for human approval. Alisha manages calendar and creative direction. 7+ posts/week, 30+ reviews/month, same-day response guaranteed.</div></div>
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Miranda writes all social copy, schedules posts, monitors reviews, responds to comments. 5 posts/week, 20 reviews/month. ORM response times variable.</div><div class="ag-after"><b>After</b>AI agents draft 70%+ of posts, auto-schedule across platforms, monitor ORM 24/7, and draft review responses for human approval. Miranda manages calendar and creative direction. 7+ posts/week, 30+ reviews/month, same-day response guaranteed.</div></div>
           <div class="ag-agents"><span class="ag-tag">Social Scheduling Agent</span><span class="ag-tag">ORM Response Agent</span><span class="ag-tag">Content Draft Agent</span><span class="ag-tag">Engagement Monitor</span></div>
           <p class="ag-why"><strong>Why it works:</strong> Social content creation and scheduling is highly templatable. AI agents handle the volume; the human provides brand voice, community judgement, and escalation management for sensitive reviews.</p>
         </div></div>
@@ -1821,7 +1912,7 @@
         <div class="ag-card-future">AI handles routing, SLA tracking, reporting, meeting notes</div>
         <span class="click-hint">Click to explore &darr;</span>
         <div class="ag-detail"><div class="ag-detail-inner">
-          <div class="ag-ba"><div class="ag-before"><b>Before</b>Marilyn and Kayla manually manage Asana tasks, schedule meetings, take notes, track SLAs, route requests, compile reports. 2 full-time coordination roles.</div><div class="ag-after"><b>After</b>AI agents auto-log briefs from email/Slack, route requests in Asana, track SLAs with automated escalation, generate meeting notes, and compile dashboards. Mariia focuses on strategic coordination and stakeholder management. Zero coordination headcount.</div></div>
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Marilyn and Kayla manually manage Asana tasks, schedule meetings, take notes, track SLAs, route requests, compile reports. 2 full-time coordination roles.</div><div class="ag-after"><b>After</b>AI agents auto-log briefs from email/Slack, route requests in Asana, track SLAs with automated escalation, generate meeting notes, and compile dashboards. Ops &amp; Brand Manager focuses on strategic coordination and stakeholder management. Zero coordination headcount.</div></div>
           <div class="ag-agents"><span class="ag-tag">Asana Automation Agent</span><span class="ag-tag">SLA Tracking Agent</span><span class="ag-tag">Report Generation Agent</span><span class="ag-tag">Brief Intake Agent</span><span class="ag-tag">Meeting Notes Agent</span></div>
           <p class="ag-why"><strong>Why it works:</strong> Coordination is the most automatable marketing function. Task routing, SLA monitoring, and report generation are rule-based processes that AI agents handle with higher consistency than manual tracking.</p>
         </div></div>
@@ -1870,8 +1961,8 @@
       <div class="timeline-card">
         <span class="timeline-date">Jun</span>
         <h3>Phase 1 Exits</h3>
-        <p>4 roles absorbed into mid-stage structure. Mid-stage model fully operational and measured.</p>
-        <span class="headcount-badge reduction"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12 &rarr; 8</span>
+        <p>5 redundancies processed, Mariia departs. 2 new hires onboarded. End-state structure operational.</p>
+        <span class="headcount-badge reduction"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12 &rarr; 6+1</span>
       </div>
     </div>
     <div class="timeline-item">
@@ -1879,17 +1970,17 @@
       <div class="timeline-card">
         <span class="timeline-date">Jul &ndash; Aug</span>
         <h3>Operate + Prove</h3>
-        <p>Model proven against KPIs. Phase 2 AI agents built to automate remaining manual work.</p>
-        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>8</span>
+        <p>Model proven against KPIs. AI agents scaled to automate remaining manual work.</p>
+        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>5+1</span>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot future"></div>
       <div class="timeline-card">
         <span class="timeline-date">Sep</span>
-        <h3>Phase 2 Exits</h3>
-        <p>End-state achieved. 5-person team delivering 3&ndash;5x the output of the original 12.</p>
-        <span class="headcount-badge reduction"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>8 &rarr; 5</span>
+        <h3>Steady State</h3>
+        <p>End-state proven. 5-person team + Imran delivering 3&ndash;5x the output of the original 12.</p>
+        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>5+1</span>
       </div>
     </div>
   </div>
@@ -1904,14 +1995,14 @@
   <div class="kpi-columns">
     <!-- Mid-Stage KPIs -->
     <div class="kpi-group mid-stage">
-      <div class="kpi-group-title">Mid-Stage KPIs <span class="count">8 roles</span></div>
+      <div class="kpi-group-title">Mid-Stage KPIs <span class="count">7 roles</span></div>
       <div class="kpi-cards">
         <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">GM Marketing</div><div class="kpi-person">Stephen Danckert</div></div><span class="kpi-weight">Lead Gen 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
         <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Head of Performance</div><div class="kpi-person">Paul Phare</div></div><span class="kpi-weight">Paid Perf 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Digital &amp; Automation Lead</div><div class="kpi-person">Rajitha Jayathunga</div></div><span class="kpi-weight">Paid Perf 35%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops Manager</div><div class="kpi-person">Mariia Branch</div></div><span class="kpi-weight">Stakeholder SLA 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Digital &amp; Automation Lead</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Paid Perf 35%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops &amp; Brand Manager</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Stakeholder SLA 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
         <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Content &amp; Comms Exec</div><div class="kpi-person">Matthew Hart</div></div><span class="kpi-weight">Content Prod 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Social &amp; ORM Exec</div><div class="kpi-person">Miranda Partridge</div></div><span class="kpi-weight">Social &amp; ORM 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Social, ORM &amp; Design Exec</div><div class="kpi-person">Miranda Partridge</div></div><span class="kpi-weight">Social &amp; ORM 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
         <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Creative Lead</div><div class="kpi-person">Alisha Van Bone</div></div><span class="kpi-weight">Design SLA 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
         <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">AI Innovation Lead</div><div class="kpi-person">Imran Mehmood</div></div><span class="kpi-weight">Phase 1 Agents 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
       </div>
@@ -1923,9 +2014,9 @@
       <div class="kpi-cards">
         <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">GM Marketing</div><div class="kpi-person">Stephen Danckert</div></div><span class="kpi-weight">Lead Gen 45%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 45%"></div></div></div>
         <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Head of Performance</div><div class="kpi-person">Paul Phare</div></div><span class="kpi-weight">Lead Volume 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Digital Lead</div><div class="kpi-person">Rajitha Jayathunga</div></div><span class="kpi-weight">Paid Perf 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops Manager</div><div class="kpi-person">Mariia Branch</div></div><span class="kpi-weight">Stakeholder SLA 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Creative &amp; Social Lead</div><div class="kpi-person">Alisha Van Bone</div></div><span class="kpi-weight">Design Prod 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Digital &amp; Automation Lead</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Paid Perf 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops &amp; Brand Manager</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Stakeholder SLA 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Creative Lead</div><div class="kpi-person">Alisha Van Bone</div></div><span class="kpi-weight">Design Prod 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
         <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">AI Innovation Lead</div><div class="kpi-person">Imran Mehmood</div></div><span class="kpi-weight">Agent Portfolio 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
       </div>
     </div>
@@ -1962,36 +2053,36 @@
 <script>
 // ── KPI Detail Data ──
 var kpiData = {
-  'mid-GM Marketing': {areas:[{t:'Lead Gen & Revenue (40%)',m:[{n:'SQL volume vs budget',v:'Hit budget; 100% attributed'},{n:'Marketing contribution',v:'>=40% of new clients'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'}]},{t:'TOM Transition (25%)',m:[{n:'Phase 1 exits on time',v:'4 roles by Jun 2026'},{n:'AI agents operational',v:'>=8 agents in production'},{n:'Cross-training progress',v:'5 people competent by month 4'}]},{t:'Brand & Reputation (15%)',m:[{n:'PR placements',v:'>=1/month'},{n:'Online reputation',v:'>=4.0 stars; >=20 reviews/month'}]},{t:'Leadership & CSAT (20%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Team engagement',v:'>=3.5/5'},{n:'AI adoption',v:'>=3 agents/member'}]}]},
+  'mid-GM Marketing': {areas:[{t:'Lead Gen & Revenue (40%)',m:[{n:'SQL volume vs budget',v:'Hit budget; 100% attributed'},{n:'Marketing contribution',v:'>=40% of new clients'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'}]},{t:'TOM Transition (25%)',m:[{n:'Redundancies + resignation processed',v:'6 exits by Jun 2026'},{n:'New hires onboarded',v:'2 new hires by May 2026'},{n:'AI agents operational',v:'>=8 agents in production'}]},{t:'Brand & Reputation (15%)',m:[{n:'PR placements',v:'>=1/month'},{n:'Online reputation',v:'>=4.0 stars; >=20 reviews/month'}]},{t:'Leadership & CSAT (20%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Team engagement',v:'>=3.5/5'},{n:'AI adoption',v:'>=3 agents/member'}]}]},
   'mid-Head of Performance': {areas:[{t:'Paid Performance (40%)',m:[{n:'SQL lead volume',v:'>=plan target'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'},{n:'Lead-to-deal conversion',v:'>=20%'}]},{t:'Expanded Disciplines (25%)',m:[{n:'Email strategy owned',v:'By month 2'},{n:'CRO program',v:'>=1 test/month; >=5% uplift QoQ'},{n:'Competitor intelligence',v:'Monthly report to GM & CGO'}]},{t:'AI Agent Adoption (15%)',m:[{n:'Performance agents',v:'>=5 in production'},{n:'Agent-assisted output',v:'>=40% of campaigns'}]},{t:'Stakeholder CSAT (20%)',m:[{n:'CSAT (Sales, BD)',v:'>=4.0/5'},{n:'Funnel insights shared',v:'Monthly to Sales & BD'}]}]},
   'mid-Digital & Automation Lead': {areas:[{t:'Paid Performance (35%)',m:[{n:'SQL from paid',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Audience segments',v:'NDIS + SaH live by month 3'}]},{t:'Email & Automation (25%)',m:[{n:'Flow ownership',v:'Independent by month 2'},{n:'Speed to lead',v:'<1 hour automated'},{n:'Email open rate',v:'>=40%; CTR >=15%'}]},{t:'CRO & Web Dev (20%)',m:[{n:'CRO tests',v:'>=1/month'},{n:'Landing pages via Claude Code',v:'>=2 by month 3'},{n:'UTM compliance',v:'100%'}]},{t:'AI Efficiency (20%)',m:[{n:'AI agents in daily use',v:'>=4'},{n:'Time savings',v:'>=25%'}]}]},
-  'mid-Marketing Ops Manager': {areas:[{t:'Stakeholder SLA (25%)',m:[{n:'Requests within SLA',v:'>=90%'},{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Coordination absorbed',v:'Zero SLA drop post-exits'}]},{t:'Content & Brand (25%)',m:[{n:'Editorial calendar',v:'>=90% adherence'},{n:'Content QA',v:'>=90% first-pass'},{n:'Brand compliance',v:'100%'}]},{t:'Ops & Reporting (20%)',m:[{n:'Monthly KPI report',v:'On time'},{n:'Budget variance',v:'<=5%'},{n:'Asana utilisation',v:'>=90%'}]},{t:'AI & Cross-Training (30%)',m:[{n:'AI agents (ops)',v:'>=4 in production'},{n:'Matthew multi-skilling',v:'>=50% AI output'},{n:'Miranda multi-skilling',v:'Longer-form content'},{n:'Alisha social training',v:'Producing social content'}]}]},
-  'mid-Content & Comms Exec': {areas:[{t:'Content Production (30%)',m:[{n:'Articles/month',v:'>=10; >=3 formats'},{n:'QA pass rate',v:'>=90%; zero errors'},{n:'SEO optimisation',v:'100% articles'}]},{t:'ORM & Support (20%)',m:[{n:'Review response',v:'Same-day; <1hr escalation'},{n:'Cross-dept SLA',v:'>=90%'}]},{t:'AI Workflows (30%)',m:[{n:'AI-drafted content',v:'>=75%'},{n:'Time savings',v:'>=30%'},{n:'Volume increase',v:'>=50% vs baseline'}]},{t:'Knowledge Transfer (20%)',m:[{n:'Processes documented',v:'100% for AI replication'},{n:'Train Mariia on QA',v:'Independent by month 4'},{n:'Collab with Alisha',v:'>=2 projects/month'}]}]},
-  'mid-Social & ORM Exec': {areas:[{t:'Social & ORM (30%)',m:[{n:'Posts/platform/week',v:'>=5; >=50% AI-drafted'},{n:'Reviews generated',v:'>=20/month; same-day response'},{n:'Stars',v:'>=4.0'}]},{t:'Audience Growth (20%)',m:[{n:'Follower growth QoQ',v:'>=5%'},{n:'Engagement rate',v:'>=3%'}]},{t:'AI Automation (25%)',m:[{n:'AI-drafted posts',v:'>=50%'},{n:'Scheduling automated',v:'>=80%'},{n:'Time savings',v:'>=30%'}]},{t:'Knowledge Transfer (25%)',m:[{n:'Train Alisha on social',v:'Independent by month 4'},{n:'Pair with Alisha',v:'>=4 weeks'},{n:'Content writing dev',v:'>=2 long-form/month'}]}]},
+  'mid-Marketing Ops & Brand Manager': {areas:[{t:'Stakeholder SLA (25%)',m:[{n:'Requests within SLA',v:'>=90%'},{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Coordination absorbed',v:'Zero SLA drop post-exits'}]},{t:'Content & Brand (25%)',m:[{n:'Editorial calendar',v:'>=90% adherence'},{n:'Content QA',v:'>=90% first-pass'},{n:'Brand compliance',v:'100%'}]},{t:'Ops & Reporting (20%)',m:[{n:'Monthly KPI report',v:'On time'},{n:'Budget variance',v:'<=5%'},{n:'Asana utilisation',v:'>=90%'}]},{t:'AI & Team Development (30%)',m:[{n:'AI agents (ops)',v:'>=4 in production'},{n:'Matthew multi-skilling',v:'>=50% AI output'},{n:'Miranda design skills',v:'Using Canva + AI design tools'},{n:'Alisha video output',v:'>=1/month'}]}]},
+  'mid-Content & Comms Exec': {areas:[{t:'Content Production (30%)',m:[{n:'Articles/month',v:'>=10; >=3 formats'},{n:'QA pass rate',v:'>=90%; zero errors'},{n:'SEO optimisation',v:'100% articles'}]},{t:'ORM & Support (20%)',m:[{n:'Review response',v:'Same-day; <1hr escalation'},{n:'Cross-dept SLA',v:'>=90%'}]},{t:'AI Workflows (30%)',m:[{n:'AI-drafted content',v:'>=75%'},{n:'Time savings',v:'>=30%'},{n:'Volume increase',v:'>=50% vs baseline'}]},{t:'Brand & Collaboration (20%)',m:[{n:'Brand awareness skills',v:'Building by month 3'},{n:'Collab with Creative Lead',v:'>=2 projects/month'},{n:'Support Ops & Brand Mgr onboarding',v:'Handover TC knowledge'}]}]},
+  'mid-Social, ORM & Design Exec': {areas:[{t:'Social & ORM (30%)',m:[{n:'Posts/platform/week',v:'>=5; >=50% AI-drafted'},{n:'Reviews generated',v:'>=20/month; same-day response'},{n:'Stars',v:'>=4.0'}]},{t:'Audience Growth (20%)',m:[{n:'Follower growth QoQ',v:'>=5%'},{n:'Engagement rate',v:'>=3%'}]},{t:'AI Automation (25%)',m:[{n:'AI-drafted posts',v:'>=50%'},{n:'Scheduling automated',v:'>=80%'},{n:'Time savings',v:'>=30%'}]},{t:'Design & Content (25%)',m:[{n:'Design skills (Canva, AI)',v:'Producing independently by month 3'},{n:'Content writing',v:'>=2 long-form/month'},{n:'Paired work with Creative Lead',v:'>=4 weeks'}]}]},
   'mid-Creative Lead': {areas:[{t:'Design SLA (30%)',m:[{n:'SLA compliance',v:'100%'},{n:'Revisions/project',v:'<=2'},{n:'Volume maintained',v:'No decline post-junior exit'}]},{t:'AI Design (20%)',m:[{n:'Routine AI-assisted',v:'>=50%'},{n:'AI agents in use',v:'>=3'},{n:'Time savings',v:'>=30%'}]},{t:'Social Cross-Training (25%)',m:[{n:'Social assets/week',v:'>=3 independently'},{n:'Paired work with Miranda',v:'>=4 weeks'},{n:'Video/motion',v:'>=1/month'}]},{t:'Stakeholder CSAT (25%)',m:[{n:'Cross-functional CSAT',v:'>=4.0/5'},{n:'Assets to Sales/BD',v:'>=2/month'}]}]},
   'mid-AI Innovation Lead': {areas:[{t:'Phase 1 Agents (40%)',m:[{n:'Coordination agents',v:'Live by month 2'},{n:'Email flow agent',v:'Live by month 2'},{n:'Design production agents',v:'Live by month 2'},{n:'Total Phase 1',v:'>=8 by month 3'}]},{t:'Reliability (20%)',m:[{n:'Agent uptime',v:'>=95%'},{n:'Time-to-deploy',v:'<=2 weeks'},{n:'Error rate',v:'<5%'}]},{t:'Enablement (20%)',m:[{n:'Team adoption',v:'>=80% using daily by month 3'},{n:'AI confidence score',v:'>=4.0/5'}]},{t:'Phase 2 Pipeline (20%)',m:[{n:'Phase 2 roadmap',v:'Scoped by month 3'},{n:'Time savings',v:'>=20 hrs/month'},{n:'Commercial impact',v:'$ savings quantified'}]}]},
   'end-GM Marketing': {areas:[{t:'Lead Gen & Revenue (45%)',m:[{n:'SQL volume vs budget',v:'Hit budget; 100% attributed'},{n:'Marketing contribution',v:'>=40% of new clients'},{n:'Output vs baseline',v:'>=3x pre-TOM'}]},{t:'Brand & Reputation (15%)',m:[{n:'PR placements',v:'>=2/month'},{n:'Online reputation',v:'>=4.5 stars; >=30 reviews/month'}]},{t:'AI-First Operations (20%)',m:[{n:'Agents in production',v:'>=30'},{n:'AI-assisted execution',v:'>=60%'},{n:'Output per FTE',v:'>=3x baseline'}]},{t:'Leadership & CSAT (20%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Internal supplier score',v:'>=4.5/5'},{n:'Team attrition',v:'0%'}]}]},
-  'end-Head of Performance': {areas:[{t:'Lead Volume (40%)',m:[{n:'SQL lead volume',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Campaign volume',v:'>=2x pre-TOM'}]},{t:'Full-Funnel (25%)',m:[{n:'SEO organic growth',v:'>=5% MoM'},{n:'CRO test cadence',v:'>=2/month; >=5% uplift'},{n:'Email lifecycle',v:'>=80% clients in journeys'}]},{t:'AI Effectiveness (15%)',m:[{n:'Agents in production',v:'>=10'},{n:'Agent-assisted output',v:'>=70%'},{n:'Campaign launch speed',v:'<=3 days'}]},{t:'Stakeholder CSAT (20%)',m:[{n:'CSAT (Sales, BD)',v:'>=4.0/5'},{n:'Digital Lead development',v:'No single-point-of-failure'}]}]},
-  'end-Digital Lead': {areas:[{t:'Paid Performance (30%)',m:[{n:'SQL from paid',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Ad variants/campaign',v:'>=3 AI-generated'}]},{t:'Email & CRO (25%)',m:[{n:'Speed to lead',v:'<1 hour'},{n:'CRO tests',v:'>=2/month'},{n:'A/B tests',v:'>=2/month'}]},{t:'Web Dev & Attribution (20%)',m:[{n:'Landing page turnaround',v:'<=2 business days'},{n:'Attribution coverage',v:'>=95%'},{n:'Full-funnel dashboard',v:'Live and weekly'}]},{t:'AI & CSAT (25%)',m:[{n:'Agents in daily use',v:'>=6'},{n:'AI-assisted execution',v:'>=70%'},{n:'Time savings',v:'>=30%'}]}]},
-  'end-Marketing Ops Manager': {areas:[{t:'Stakeholder SLA (25%)',m:[{n:'Requests within SLA',v:'>=95%'},{n:'Request turnaround',v:'<=2 days standard'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]},{t:'Content & Brand (25%)',m:[{n:'Content volume',v:'>=15 articles/month'},{n:'QA pass rate',v:'>=95%'},{n:'PR placements',v:'>=2/month'}]},{t:'Ops & Events (20%)',m:[{n:'Budget variance',v:'<=5%'},{n:'Asana utilisation',v:'>=95%'},{n:'Dashboards',v:'100% auto-updated'}]},{t:'AI Output (30%)',m:[{n:'AI agents (ops+content)',v:'>=8'},{n:'AI content output',v:'>=75% AI-drafted'},{n:'Output per FTE',v:'>=3x baseline'}]}]},
-  'end-Creative & Social Lead': {areas:[{t:'Design Production (25%)',m:[{n:'SLA compliance',v:'100%'},{n:'Design volume',v:'>=2x pre-TOM'},{n:'Assets to Sales/BD',v:'>=4/month'}]},{t:'Social & ORM (25%)',m:[{n:'Posts/platform/week',v:'>=7'},{n:'Reviews generated',v:'>=30/month'},{n:'Stars',v:'>=4.5'}]},{t:'Content & Brand (20%)',m:[{n:'Short-form content',v:'>=5 pieces/week'},{n:'Video/motion',v:'>=4/month'},{n:'Brand consistency',v:'100%'}]},{t:'AI Creative (30%)',m:[{n:'Agents in daily use',v:'>=6'},{n:'AI social posts',v:'>=70%'},{n:'Total output',v:'>=3x baseline'}]}]},
+  'end-Head of Performance': {areas:[{t:'Lead Volume (40%)',m:[{n:'SQL lead volume',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Campaign volume',v:'>=2x pre-TOM'}]},{t:'Full-Funnel (25%)',m:[{n:'SEO organic growth',v:'>=5% MoM'},{n:'CRO test cadence',v:'>=2/month; >=5% uplift'},{n:'Email lifecycle',v:'>=80% clients in journeys'}]},{t:'AI Effectiveness (15%)',m:[{n:'Agents in production',v:'>=10'},{n:'Agent-assisted output',v:'>=70%'},{n:'Campaign launch speed',v:'<=3 days'}]},{t:'Stakeholder CSAT (20%)',m:[{n:'CSAT (Sales, BD)',v:'>=4.0/5'},{n:'Digital & Auto Lead development',v:'No single-point-of-failure'}]}]},
+  'end-Digital & Automation Lead': {areas:[{t:'Paid Performance (30%)',m:[{n:'SQL from paid',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Ad variants/campaign',v:'>=3 AI-generated'}]},{t:'Email & CRO (25%)',m:[{n:'Speed to lead',v:'<1 hour'},{n:'CRO tests',v:'>=2/month'},{n:'A/B tests',v:'>=2/month'}]},{t:'Web Dev & Attribution (20%)',m:[{n:'Landing page turnaround',v:'<=2 business days'},{n:'Attribution coverage',v:'>=95%'},{n:'Full-funnel dashboard',v:'Live and weekly'}]},{t:'AI & CSAT (25%)',m:[{n:'Agents in daily use',v:'>=6'},{n:'AI-assisted execution',v:'>=70%'},{n:'Time savings',v:'>=30%'}]}]},
+  'end-Marketing Ops & Brand Manager': {areas:[{t:'Stakeholder SLA (25%)',m:[{n:'Requests within SLA',v:'>=95%'},{n:'Request turnaround',v:'<=2 days standard'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]},{t:'Content & Brand (25%)',m:[{n:'Content volume',v:'>=15 articles/month'},{n:'QA pass rate',v:'>=95%'},{n:'PR placements',v:'>=2/month'}]},{t:'Ops & Events (20%)',m:[{n:'Budget variance',v:'<=5%'},{n:'Asana utilisation',v:'>=95%'},{n:'Dashboards',v:'100% auto-updated'}]},{t:'AI Output (30%)',m:[{n:'AI agents (ops+content)',v:'>=8'},{n:'AI content output',v:'>=75% AI-drafted'},{n:'Output per FTE',v:'>=3x baseline'}]}]},
+  'end-Creative Lead': {areas:[{t:'Design Production (40%)',m:[{n:'SLA compliance',v:'100%'},{n:'Design volume',v:'>=2x pre-TOM'},{n:'Assets to Sales/BD',v:'>=4/month'}]},{t:'Video & Motion (20%)',m:[{n:'Video/motion',v:'>=4/month'},{n:'Brand consistency',v:'100%'}]},{t:'AI Creative (40%)',m:[{n:'Agents in daily use',v:'>=6'},{n:'AI-assisted design',v:'>=60%'},{n:'Total output',v:'>=3x baseline'}]}]},
   'end-AI Innovation Lead': {areas:[{t:'Agent Portfolio (30%)',m:[{n:'Total agents',v:'>=30'},{n:'Agent uptime',v:'>=97%'},{n:'Time-to-deploy',v:'<=1 week'}]},{t:'Commercial Impact (30%)',m:[{n:'Annualised savings',v:'>=$750K'},{n:'Output per FTE',v:'>=3x sustained'},{n:'Time saved',v:'>=40 hrs/month'}]},{t:'Enablement (20%)',m:[{n:'Team agent usage',v:'100% using >=5 daily'},{n:'AI confidence',v:'>=4.5/5'}]},{t:'Innovation (20%)',m:[{n:'Cross-functional agents',v:'>=2/quarter outside marketing'},{n:'Tool evaluations',v:'>=3/quarter'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]}]}
 };
 
 // ── Role Detail Data ──
 var roleData = {
-  stephen: {name:'Stephen Danckert',title:'GM Marketing',level:'L4 — Functional Leadership',reports:'CGO (Nick Lunn)',desc:'Owns the marketing function end-to-end. Strategy, budget, stakeholder management, team performance. Deep enough across performance AND brand to challenge both pillars.',disciplines:[['Strategy & Planning','Sets marketing direction, annual plans, resource allocation','AI generates strategy briefs, competitive landscape reports'],['Stakeholder Mgmt','Manages Sales, BD, Care, Exec relationships','AI compiles stakeholder reports, meeting prep'],['Brand Positioning','Brand strategy, market positioning, PR direction','AI drafts PR pitches, monitors brand sentiment']],agents:'3-5 agents: Executive reporting, competitive landscape, strategy briefs',ditl:'<strong>8:00am:</strong> Review overnight output dashboards — all 12 disciplines tracked. AI reporting agent has compiled the weekly summary. <strong>9:00am:</strong> 1:1 with Paul (Head of Performance) — ROAS trending above target, competitor agent flagged new entrant in the Sydney market. Agree to increase spend on high-performing Google Ads segments. <strong>10:00am:</strong> Stakeholder call with GM Sales (Jacqueline) — review marketing-sourced SQLs for the month, discuss lead quality feedback from the sales floor. <strong>11:00am:</strong> Brand strategy session — AI agent has drafted 3 PR pitch angles for the Support at Home reform anniversary. Review and approve 1 for outreach. <strong>1:00pm:</strong> 1:1 with Mariia (MktOps Manager) — editorial calendar on track, stakeholder CSAT at 4.2/5. Discuss upcoming event logistics for aged care expo. <strong>2:30pm:</strong> Monthly budget review — AI dashboard shows spend tracking within 3% variance. <strong>3:30pm:</strong> Cross-functional meeting with Care division — align on client comms messaging for Support at Home changes. <strong>4:30pm:</strong> Review Imran\'s agent deployment pipeline — 2 new agents ready for production next week.'},
-  paul: {name:'Paul Phare',title:'Head of Performance',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Owns the revenue engine — paid ads, SEO, CRO, email marketing strategy, and competitor intelligence. Sets strategy across all 5 performance disciplines; AI agents handle execution volume.',disciplines:[['Paid Ads','Strategy, budget allocation, channel mix, ROAS targets','Campaign builds, bid management, ad copy, A/B variants'],['SEO','Strategy, content briefs, technical priorities','Keyword research, content drafts, technical audits, rank tracking'],['CRO','Test hypotheses, prioritisation, conversion strategy','Landing page variants, heatmap analysis, test reporting'],['Email Marketing','Journey strategy, segmentation, lifecycle design','Flow builds, copy drafts, send optimisation'],['Competitor Intel','Strategic interpretation, action plans','Monitoring, alerts, positioning analysis, ad scraping']],agents:'8-12 agents: Google Ads, Meta, SEO content, keyword, CRO test, email flow, competitor alerts, attribution',ditl:'<strong>8:30am:</strong> Review overnight campaign dashboards — AI agents flagged 2 campaigns with CPL above threshold on Google Ads. Review the agent\'s recommended bid adjustments for the aged care keyword group. Approve both. <strong>9:00am:</strong> SEO agent has drafted 3 content briefs based on keyword gap analysis — "Support at Home eligibility", "home care package levels explained", "choosing a home care provider". Review and approve 2, send 1 back for more depth on NDIS crossover. <strong>9:30am:</strong> Weekly standup with Rajitha — email automation showing 42% open rate on the welcome sequence. New A/B test variants ready for the pre-onboarding flow. Approve test launch. <strong>10:00am:</strong> Competitor intelligence agent flagged a major competitor running new Meta campaigns targeting self-managed clients. Review the positioning analysis and update the monthly competitor report. <strong>11:00am:</strong> CRO review — landing page agent ran 4 variant tests this week on the "Get Started" page. One variant showing 12% conversion uplift — approve for full rollout. <strong>1:00pm:</strong> Monthly funnel insights meeting with Sales and BD — present conversion data by channel, recommend shifting budget from display to search. <strong>2:30pm:</strong> Review email lifecycle coverage — 8 of 12 journey stages now automated. Brief Rajitha on building the remaining 4 with the Klaviyo agent. <strong>4:00pm:</strong> Post-campaign debrief for the March brand awareness campaign — document learnings, share with Stephen.'},
-  rajitha: {name:'Rajitha Jayathunga',title:'Digital Lead',level:'L2 — Revenue Driver',reports:'Head of Performance (Paul)',desc:'Hands-on execution across paid media, email/automation, CRO, web dev, and attribution. The person in the platforms every day, using AI agents to multiply output.',disciplines:[['Ads Execution','Platform management, optimisation, QA','Ad copy variants, audience builds, reporting'],['Email Execution','Flow implementation, Klaviyo/CRM builds','Sequence drafts, subject line testing, trigger logic'],['CRO Execution','Test implementation, landing pages','Page builds, copy variants, analytics'],['Web Dev','Website management via Claude Code, CMS','Page builds, template creation'],['Attribution','UTM frameworks, GA4, dashboards','Dashboard updates, anomaly detection']],agents:'6-10 agents: Ad copy, landing pages, email sequences, UTM tracking, web dev, reporting',ditl:'<strong>8:00am:</strong> Open Google Ads dashboard — review yesterday\'s performance across 15 active campaigns targeting aged care keywords. AI ad copy agent has generated overnight variants for 3 underperforming ad groups. Review copy, approve 2, tweak 1. <strong>8:45am:</strong> Switch to Meta — check the Support at Home awareness campaign. Audience builder agent suggests a new lookalike segment based on recent converters. Approve and launch. <strong>9:30am:</strong> Klaviyo check — email flow agent has built a new 4-step nurture sequence for clients who downloaded the home care guide. Review triggers, timing, and copy. Adjust the Day 3 email subject line using the A/B test agent\'s suggestions. Approve. <strong>10:30am:</strong> Standup with Paul — report on weekly metrics, discuss CRO test results. <strong>11:00am:</strong> CRO work — landing page agent built 2 new variants for the "Compare Home Care Packages" page using Claude Code. Review in browser, request one mobile layout fix, approve the other for testing. <strong>1:00pm:</strong> UTM audit — attribution agent flags 3 campaigns with missing UTM parameters. Fix in 10 minutes. Run GA4 verification. <strong>2:00pm:</strong> Build a new landing page for the NDIS crossover campaign using Claude Code — AI generates the template, add TC brand elements and content. Live in 90 minutes. <strong>3:30pm:</strong> Email performance review — open rates at 43%, CTR at 16%. Speed-to-lead at 47 minutes average. Update the funnel dashboard. <strong>4:30pm:</strong> Queue tomorrow\'s campaign launches — 2 new Google Ads campaigns and 1 Meta campaign. AI agents have pre-built everything; final QA and approve.'},
-  mariia: {name:'Mariia Branch',title:'Marketing Ops Manager',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Runs the operational engine AND owns content strategy, brand governance, internal requests, and events logistics. The bridge between performance and creative.',disciplines:[['Internal Requests','Brief intake, triage, SLA management','Request routing, status updates, SLA monitoring'],['Content Strategy','Editorial calendar, brand voice, PR, comms','Blog drafts, newsletter, PR pitches'],['Marketing Ops','Asana workflows, budget, reporting','Task automation, dashboards'],['Brand Governance','Brand standards, QA, compliance','Brand audit checks, consistency reviews'],['Events','Vendor coordination, budgets, scheduling','Logistics checklists, vendor comms']],agents:'8-10 agents: Asana automation, blog drafts, newsletter, PR pitches, brand QA, dashboards, SLA tracking',ditl:'<strong>8:00am:</strong> Open Asana — AI brief intake agent has auto-logged 4 overnight requests from Sales and BD. Two are collateral updates, one is a campaign asset request, one is a client case study. Auto-routed: design requests to Alisha, content to the blog draft agent. <strong>8:30am:</strong> SLA dashboard check — 94% of requests within SLA this week. One Sales request approaching deadline — escalate to Alisha with priority flag. <strong>9:00am:</strong> Editorial calendar review — AI blog draft agent has produced 3 first drafts overnight: "Understanding Support at Home fees", "How to choose a home care provider", "What\'s new in aged care 2026". QA the first one — check brand voice, factual accuracy against TC policies, SEO keywords. Approve with minor edits. <strong>10:00am:</strong> Newsletter production — AI newsletter agent has compiled this week\'s content (2 blog articles, 1 client story, 1 event promo). Review layout and approve for send. <strong>11:00am:</strong> PR outreach — AI pitch agent drafted 2 angles for Aged Care Today magazine. Review, approve the Support at Home reform piece, park the other. <strong>1:00pm:</strong> Quarterly planning session with BD team — review their marketing request pipeline for Q4. Align on priorities. <strong>2:00pm:</strong> Brand audit — AI brand QA agent flagged 2 social posts with off-brand imagery. Review and send corrections to Alisha. <strong>3:00pm:</strong> Budget tracking — AI dashboard shows marketing spend at 97% of plan. Flag one overrun on event costs to Stephen. <strong>4:00pm:</strong> Check in with Alisha — review her social calendar for next week, discuss upcoming event creative needs for the Melbourne aged care expo.'},
-  alisha: {name:'Alisha Van Bone',title:'Creative & Social Lead',level:'L2 — Brand & Creative',reports:'Marketing Ops Manager (Mariia)',desc:'Owns all visual output and social presence. A designer who writes — produces across visual AND written formats, using AI agents to scale production 3-5x.',disciplines:[['Design','Brand design, campaign assets, sales collateral','Template production, resizing, variants, mockups'],['Social Media','Content calendar, platform management','Post drafts, scheduling, engagement monitoring'],['Content Execution','Social copy, ad copy, short-form','Copy drafts, hashtag research, captions'],['Rep/ORM','Review responses, reputation monitoring','Draft responses, alerts, sentiment tracking'],['Video/Motion','Short-form content, social video','Video edits, captions, thumbnails']],agents:'6-10 agents: Design production, social scheduling, ORM responses, content drafts, video edits, resize/format',ditl:'<strong>8:00am:</strong> Check ORM dashboard — AI agent has flagged 3 new Google Reviews overnight. Two positive (auto-drafted thank you responses — review and approve). One negative about service wait times — draft a personalised response referencing TC\'s commitment to timely care, escalate to Mariia. <strong>8:30am:</strong> Social media — AI scheduling agent has queued 7 posts for the week across LinkedIn, Facebook, Instagram. Review content and imagery for brand voice. Swap one image on the Instagram post for better visual impact. Approve schedule. <strong>9:00am:</strong> Design request queue in Asana — 6 items. AI design production agent has already completed 3 routine ones (brochure resize for A5, social banner variants, email header template). Review quality — all on-brand. Approve. <strong>9:30am:</strong> Focus on creative work — campaign assets for the new "Your Care, Your Choice" brand campaign. Design hero banner, supporting social cards, email header. AI variant agent generates 4 colour/layout options. Select 2 for A/B testing. <strong>11:00am:</strong> Short-form video production — AI video agent has cut a 30-second testimonial clip from a recent client interview. Add TC branding overlay, review captions. Approve for social. <strong>1:00pm:</strong> Content execution — write 5 social captions for the week\'s posts. AI content agent has drafted all 5; edit 3 for tone, approve 2 as-is. <strong>2:00pm:</strong> Sales collateral — BD team needs updated partnership one-pager. AI agent generates from template with latest stats. Review, adjust layout, approve. <strong>3:00pm:</strong> Blog support — Mariia\'s editorial calendar has 4 articles this week. Create header images and in-article graphics for 2 of them using AI design tools. <strong>4:00pm:</strong> Weekly social analytics review — engagement at 3.2%, follower growth on track at 6% QoQ. Plan next week\'s content themes with Mariia.'}
+  stephen: {name:'GM Marketing',title:'Stephen Danckert',level:'L4 — Functional Leadership',reports:'CGO (Nick Lunn)',desc:'Owns the marketing function end-to-end. Strategy, budget, stakeholder management, team performance. Deep enough across performance AND brand to challenge both pillars.',disciplines:[['Strategy & Planning','Sets marketing direction, annual plans, resource allocation','AI generates strategy briefs, competitive landscape reports'],['Stakeholder Mgmt','Manages Sales, BD, Care, Exec relationships','AI compiles stakeholder reports, meeting prep'],['Brand Positioning','Brand strategy, market positioning, PR direction','AI drafts PR pitches, monitors brand sentiment']],agents:'3-5 agents: Executive reporting, competitive landscape, strategy briefs',ditl:'<strong>8:00am:</strong> Review overnight output dashboards — all 12 disciplines tracked. AI reporting agent has compiled the weekly summary. <strong>9:00am:</strong> 1:1 with Head of Performance (Paul) — ROAS trending above target, competitor agent flagged new entrant in the Sydney market. Agree to increase spend on high-performing Google Ads segments. <strong>10:00am:</strong> Stakeholder call with GM Sales (Jacqueline) — review marketing-sourced SQLs for the month, discuss lead quality feedback from the sales floor. <strong>11:00am:</strong> Brand strategy session — AI agent has drafted 3 PR pitch angles for the Support at Home reform anniversary. Review and approve 1 for outreach. <strong>1:00pm:</strong> 1:1 with Ops & Brand Manager — editorial calendar on track, stakeholder CSAT at 4.2/5. Discuss upcoming event logistics for aged care expo. <strong>2:30pm:</strong> Monthly budget review — AI dashboard shows spend tracking within 3% variance. <strong>3:30pm:</strong> Cross-functional meeting with Care division — align on client comms messaging for Support at Home changes. <strong>4:30pm:</strong> Review Imran\'s agent deployment pipeline — 2 new agents ready for production next week.'},
+  paul: {name:'Head of Performance',title:'Paul Phare',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Owns the revenue engine — paid ads, SEO, CRO, email marketing strategy, and competitor intelligence. Sets strategy across all 5 performance disciplines; AI agents handle execution volume.',disciplines:[['Paid Ads','Strategy, budget allocation, channel mix, ROAS targets','Campaign builds, bid management, ad copy, A/B variants'],['SEO','Strategy, content briefs, technical priorities','Keyword research, content drafts, technical audits, rank tracking'],['CRO','Test hypotheses, prioritisation, conversion strategy','Landing page variants, heatmap analysis, test reporting'],['Email Marketing','Journey strategy, segmentation, lifecycle design','Flow builds, copy drafts, send optimisation'],['Competitor Intel','Strategic interpretation, action plans','Monitoring, alerts, positioning analysis, ad scraping']],agents:'8-12 agents: Google Ads, Meta, SEO content, keyword, CRO test, email flow, competitor alerts, attribution',ditl:'<strong>8:30am:</strong> Review overnight campaign dashboards — AI agents flagged 2 campaigns with CPL above threshold on Google Ads. Review the agent\'s recommended bid adjustments for the aged care keyword group. Approve both. <strong>9:00am:</strong> SEO agent has drafted 3 content briefs based on keyword gap analysis — "Support at Home eligibility", "home care package levels explained", "choosing a home care provider". Review and approve 2, send 1 back for more depth on NDIS crossover. <strong>9:30am:</strong> Weekly standup with Digital & Automation Lead — email automation showing 42% open rate on the welcome sequence. New A/B test variants ready for the pre-onboarding flow. Approve test launch. <strong>10:00am:</strong> Competitor intelligence agent flagged a major competitor running new Meta campaigns targeting self-managed clients. Review the positioning analysis and update the monthly competitor report. <strong>11:00am:</strong> CRO review — landing page agent ran 4 variant tests this week on the "Get Started" page. One variant showing 12% conversion uplift — approve for full rollout. <strong>1:00pm:</strong> Monthly funnel insights meeting with Sales and BD — present conversion data by channel, recommend shifting budget from display to search. <strong>2:30pm:</strong> Review email lifecycle coverage — 8 of 12 journey stages now automated. Brief Digital & Automation Lead on building the remaining 4 with the Klaviyo agent. <strong>4:00pm:</strong> Post-campaign debrief for the March brand awareness campaign — document learnings, share with Stephen.'},
+  digauto: {name:'Digital & Automation Lead',title:'New Hire',level:'L2 — Revenue Driver',reports:'Head of Performance (Paul)',desc:'Hands-on execution across paid media, email/automation, CRO, web dev, and attribution. The person in the platforms every day, using AI agents to multiply output. New hire replacing Rajitha + Michael scope.',disciplines:[['Ads Execution','Platform management, optimisation, QA','Ad copy variants, audience builds, reporting'],['Email Execution','Flow implementation, Klaviyo/CRM builds','Sequence drafts, subject line testing, trigger logic'],['CRO Execution','Test implementation, landing pages','Page builds, copy variants, analytics'],['Web Dev','Website management via Claude Code, CMS','Page builds, template creation'],['Attribution','UTM frameworks, GA4, dashboards','Dashboard updates, anomaly detection']],agents:'6-10 agents: Ad copy, landing pages, email sequences, UTM tracking, web dev, reporting',ditl:'<strong>8:00am:</strong> Open Google Ads dashboard — review yesterday\'s performance across 15 active campaigns targeting aged care keywords. AI ad copy agent has generated overnight variants for 3 underperforming ad groups. Review copy, approve 2, tweak 1. <strong>8:45am:</strong> Switch to Meta — check the Support at Home awareness campaign. Audience builder agent suggests a new lookalike segment based on recent converters. Approve and launch. <strong>9:30am:</strong> Klaviyo check — email flow agent has built a new 4-step nurture sequence for clients who downloaded the home care guide. Review triggers, timing, and copy. Adjust the Day 3 email subject line using the A/B test agent\'s suggestions. Approve. <strong>10:30am:</strong> Standup with Paul — report on weekly metrics, discuss CRO test results. <strong>11:00am:</strong> CRO work — landing page agent built 2 new variants for the "Compare Home Care Packages" page using Claude Code. Review in browser, request one mobile layout fix, approve the other for testing. <strong>1:00pm:</strong> UTM audit — attribution agent flags 3 campaigns with missing UTM parameters. Fix in 10 minutes. Run GA4 verification. <strong>2:00pm:</strong> Build a new landing page for the NDIS crossover campaign using Claude Code — AI generates the template, add TC brand elements and content. Live in 90 minutes. <strong>3:30pm:</strong> Email performance review — open rates at 43%, CTR at 16%. Speed-to-lead at 47 minutes average. Update the funnel dashboard. <strong>4:30pm:</strong> Queue tomorrow\'s campaign launches — 2 new Google Ads campaigns and 1 Meta campaign. AI agents have pre-built everything; final QA and approve.'},
+  opsbrand: {name:'Marketing Ops & Brand Manager',title:'New Hire',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Runs the operational engine AND owns content strategy, brand governance, internal requests, and events logistics. Agency background, multi-skilled, AI-native. The bridge between performance and creative. Replaces Mariia Branch.',disciplines:[['Internal Requests','Brief intake, triage, SLA management','Request routing, status updates, SLA monitoring'],['Content Strategy','Editorial calendar, brand voice, PR, comms','Blog drafts, newsletter, PR pitches'],['Marketing Ops','Asana workflows, budget, reporting','Task automation, dashboards'],['Brand Governance','Brand standards, QA, compliance','Brand audit checks, consistency reviews'],['Events','Vendor coordination, budgets, scheduling','Logistics checklists, vendor comms']],agents:'8-10 agents: Asana automation, blog drafts, newsletter, PR pitches, brand QA, dashboards, SLA tracking',ditl:'<strong>8:00am:</strong> Open Asana — AI brief intake agent has auto-logged 4 overnight requests from Sales and BD. Two are collateral updates, one is a campaign asset request, one is a client case study. Auto-routed: design requests to Alisha, content to the blog draft agent. <strong>8:30am:</strong> SLA dashboard check — 94% of requests within SLA this week. One Sales request approaching deadline — escalate to Alisha with priority flag. <strong>9:00am:</strong> Editorial calendar review — AI blog draft agent has produced 3 first drafts overnight: "Understanding Support at Home fees", "How to choose a home care provider", "What\'s new in aged care 2026". QA the first one — check brand voice, factual accuracy against TC policies, SEO keywords. Approve with minor edits. <strong>10:00am:</strong> Newsletter production — AI newsletter agent has compiled this week\'s content (2 blog articles, 1 client story, 1 event promo). Review layout and approve for send. <strong>11:00am:</strong> PR outreach — AI pitch agent drafted 2 angles for Aged Care Today magazine. Review, approve the Support at Home reform piece, park the other. <strong>1:00pm:</strong> Quarterly planning session with BD team — review their marketing request pipeline for Q4. Align on priorities. <strong>2:00pm:</strong> Brand audit — AI brand QA agent flagged 2 social posts with off-brand imagery. Review and send corrections to Creative Lead. <strong>3:00pm:</strong> Budget tracking — AI dashboard shows marketing spend at 97% of plan. Flag one overrun on event costs to Stephen. <strong>4:00pm:</strong> Check in with team — review social calendar for next week, discuss upcoming event creative needs for the Melbourne aged care expo.'},
+  alisha: {name:'Creative Lead',title:'Alisha Van Bone',level:'L2 — Brand & Creative',reports:'Marketing Ops & Brand Manager',desc:'Owns all visual output. A designer who focuses on creative direction, campaign assets, and brand design, using AI agents to scale production 3-5x.',disciplines:[['Design','Brand design, campaign assets, sales collateral','Template production, resizing, variants, mockups'],['Video/Motion','Short-form content, social video','Video edits, captions, thumbnails']],agents:'6-10 agents: Design production, video edits, resize/format, mockups, variant generator',ditl:'<strong>8:00am:</strong> Design request queue in Asana — 6 items. AI design production agent has already completed 3 routine ones (brochure resize for A5, social banner variants, email header template). Review quality — all on-brand. Approve. <strong>9:00am:</strong> Focus on creative work — campaign assets for the new "Your Care, Your Choice" brand campaign. Design hero banner, supporting social cards, email header. AI variant agent generates 4 colour/layout options. Select 2 for A/B testing. <strong>11:00am:</strong> Short-form video production — AI video agent has cut a 30-second testimonial clip from a recent client interview. Add TC branding overlay, review captions. Approve for social. <strong>1:00pm:</strong> Sales collateral — BD team needs updated partnership one-pager. AI agent generates from template with latest stats. Review, adjust layout, approve. <strong>3:00pm:</strong> Blog support — editorial calendar has 4 articles this week. Create header images and in-article graphics for 2 of them using AI design tools. <strong>4:00pm:</strong> Review upcoming campaign creative briefs with Ops & Brand Manager.'}
 };
 
 // ── Strategy Overlay Content ──
 var strategyData = {
   current: '<h3>Current State Strategy</h3><h4>The Problem</h4><p>12 people covering 12 disciplines — but with critical gaps in CRO, competitor intelligence, and web dev. Specialist silos mean a campaign touches 4-5 people before it ships. Single points of failure across email, content, and design.</p><h4>Key Issues</h4><ul><li>Designer can\'t write, writer can\'t design, social can\'t do ads — no cross-functional flexibility</li><li>Two coordinators managing admin that AI can automate tomorrow</li><li>Performance marketing carrying the revenue load with too few people</li><li>Brand and creative side disconnected from performance metrics</li></ul><h4>What Needs to Change</h4><p>The team needs to shift from specialist silos to multi-skilled humans who manage AI agents. The bottleneck is no longer capacity — it\'s judgement. We need fewer people who can each do more, supported by agents that handle the volume.</p>',
-  'mid-stage': '<h3>Mid-Stage Strategy (12 &rarr; 8)</h3><h4>The Approach</h4><p>Restructure into a <strong>pillar + layer</strong> operating model. Two operational pillars run execution: <strong>Performance</strong> (Paul + Rajitha) and <strong>Brand &amp; Creative</strong> (Mariia + Matthew + Miranda + Alisha). Two enabling layers support them: <strong>Strategy &amp; Leadership</strong> (Stephen) across the top, <strong>AI Innovation</strong> (Imran) across the bottom. Absorb the 4 most automatable roles first: 2 coordinators, 1 campaigns specialist, 1 junior designer.</p><h4>Why These 4 First</h4><ul><li><strong>Coordinators (Marilyn, Kayla):</strong> Admin, scheduling, Asana management — highest AI automation potential</li><li><strong>Campaigns & Automation (Michael):</strong> Email flows and nurture sequences are exactly what AI agents excel at</li><li><strong>Junior Designer:</strong> Volume design work (resizing, templates) is the most AI-automatable design task</li></ul><h4>Critical Success Factors</h4><ul><li>AI agents must be operational BEFORE people exit — Imran\'s Phase 1 delivery is the critical path</li><li>Cross-training must be genuine, not just shadowing — Rajitha needs to independently run email by month 2</li><li>Mariia\'s expansion into content oversight is the biggest stretch — needs coaching from Stephen</li><li>Output must not decline during transition — monitored weekly</li></ul><h4>Exit Criteria for Moving to End-State</h4><ul><li>Output maintained or increased across all 12 disciplines</li><li>Internal stakeholder CSAT >= 4.0/5</li><li>AI agents handling >= 40% of execution</li><li>All 5 end-state people competent in expanded scope</li></ul>',
-  'end-state': '<h3>End-State Strategy (8 &rarr; 5)</h3><h4>The Model</h4><p>The <strong>pillar + layer</strong> structure reaches its cleanest form. Two operational pillars — <strong>Performance</strong> (Paul + Rajitha) and <strong>Brand &amp; Creative</strong> (Mariia + Alisha) — each manage 14-22 AI agents across 6 disciplines. Two enabling layers — <strong>Stephen</strong> (strategy, standards) and <strong>Imran</strong> (AI enablement) — ensure both pillars operate to the same quality bar. Five humans, 30-45 agents, 12 disciplines, 3-5x output.</p><h4>Phase 2 Absorptions</h4><ul><li><strong>Matthew Hart:</strong> Content work splits to Mariia (strategy) + Alisha (execution) + AI blog/newsletter/PR agents</li><li><strong>Miranda Partridge:</strong> Social work moves to Alisha + AI social scheduling and ORM agents</li></ul><h4>What Makes It Work</h4><ul><li>Each person is the quality gate — AI agents draft, humans approve</li><li>Multi-skilling means fewer handoffs — one person can brief, review, and ship</li><li>AI Innovation Lead (Imran) is the enabler — builds agents, maintains them, trains the team</li><li>The model scales by adding agents, not people</li></ul><h4>End-State Targets</h4><ul><li>30-45 AI agents in production managed by 5 humans</li><li>>=60% of marketing execution AI-driven</li><li>>=3x output per FTE vs pre-TOM baseline</li><li>>=$750K annualised savings from headcount reduction</li><li>0% attrition — every person is critical</li></ul>'
+  'mid-stage': '<h3>Mid-Stage Strategy (12 &rarr; 6+1)</h3><h4>The Approach</h4><p>Restructure into a <strong>pillar + layer</strong> operating model. Two operational pillars run execution: <strong>Performance</strong> (Paul + new Digital &amp; Automation Lead) and <strong>Brand &amp; Creative</strong> (new Marketing Ops &amp; Brand Manager + Matthew + Miranda + Alisha). Two enabling layers support them: <strong>Strategy &amp; Leadership</strong> (Stephen) across the top, <strong>AI Innovation</strong> (Imran) across the bottom.</p><h4>Redundancies (5 people)</h4><ul><li><strong>Rajitha Jayathunga</strong> (Digital Marketing Lead) — replaced by new Digital &amp; Automation Lead hire</li><li><strong>Michael Coffey</strong> (Campaign &amp; Automation Specialist) — scope absorbed into new hire</li><li><strong>Marilyn Tang</strong> (Marketing Coordinator) — admin automated by AI agents</li><li><strong>Kayla Williams</strong> (Events Coordinator) — events on hold, coordination automated</li><li><strong>Junior Graphic Designer</strong> — volume design work replaced by AI agents</li></ul><h4>Resignation</h4><ul><li><strong>Mariia Branch</strong> (Marketing Operations TL) — will resign, replaced by new Marketing Ops &amp; Brand Manager</li></ul><h4>New Hires (2 people)</h4><ul><li><strong>Digital &amp; Automation Lead</strong> — reports to Head of Performance. Replaces Rajitha + Michael scope across ads execution, email, CRO, web dev, attribution</li><li><strong>Marketing Ops &amp; Brand Manager</strong> — reports to GM Marketing. Agency background, multi-skilled, AI-native. Replaces Mariia across ops, brand, content strategy, events</li></ul><h4>Critical Success Factors</h4><ul><li>New hires must be AI-native — comfort with Claude Code, AI agents, and automation from day one</li><li>Miranda\'s role expands to include design (Social, ORM &amp; Design Executive)</li><li>Output must not decline during transition — monitored weekly</li></ul>',
+  'end-state': '<h3>End-State Strategy (5 People + Imran)</h3><h4>The Model</h4><p>The <strong>pillar + layer</strong> structure is the end-state from the start. Two operational pillars — <strong>Performance</strong> (Head of Performance + Digital &amp; Automation Lead) and <strong>Brand &amp; Creative</strong> (Marketing Ops &amp; Brand Manager + Content &amp; Comms Exec + Social, ORM &amp; Design Exec + Creative Lead) — each manage 14-22 AI agents across 6 disciplines. Two enabling layers — <strong>GM Marketing</strong> (strategy, standards) and <strong>AI Innovation Lead</strong> (AI enablement) — ensure both pillars operate to the same quality bar. Five humans plus Imran, 30-45 agents, 12 disciplines, 3-5x output.</p><h4>What Makes It Work</h4><ul><li>Each person is the quality gate — AI agents draft, humans approve</li><li>Multi-skilling means fewer handoffs — one person can brief, review, and ship</li><li>AI Innovation Lead (Imran) is the enabler — builds agents, maintains them, trains the team</li><li>The model scales by adding agents, not people</li><li>Matthew Hart stays as Content &amp; Comms Executive</li><li>Miranda Partridge stays as Social, ORM &amp; Design Executive (expanded to include design)</li></ul><h4>End-State Targets</h4><ul><li>30-45 AI agents in production managed by 5 humans + Imran</li><li>>=60% of marketing execution AI-driven</li><li>>=3x output per FTE vs pre-TOM baseline</li><li>>=$750K annualised savings from headcount reduction</li><li>0% attrition — every person is critical</li></ul>'
 };
 
 // ── Toggle Functions ──
