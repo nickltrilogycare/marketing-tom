@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marketing TOM — Trilogy Care</title>
+  <title>Marketing Target Operating Model</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* ── Reset & Base ── */
@@ -730,6 +730,178 @@
     .es-absorbed-to strong { color: #43C0BE; font-weight: 600; }
 
     /* ══════════════════════════════════════
+       BLUEPRINT (V+H Model)
+       ══════════════════════════════════════ */
+    #blueprint { background: #0f172a; padding: 100px 40px; position: relative; overflow: hidden; }
+    #blueprint::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(67,192,190,0.3), transparent); }
+    .bp-container { max-width: 1200px; margin: 0 auto; }
+    .bp-header { text-align: center; margin-bottom: 64px; }
+    .bp-label {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #43C0BE; margin-bottom: 16px;
+      padding: 6px 16px; border: 1px solid rgba(67,192,190,0.25); border-radius: 100px;
+      background: rgba(67,192,190,0.06);
+    }
+    .bp-title {
+      font-size: 42px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em;
+      line-height: 1.15; margin-bottom: 12px;
+      background: linear-gradient(135deg, #fff 0%, #43C0BE 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .bp-subtitle { font-size: 18px; color: #94a3b8; font-weight: 400; max-width: 600px; margin: 0 auto; line-height: 1.5; }
+    .bp-compare { display: flex; align-items: center; gap: 32px; margin-bottom: 72px; }
+    .bp-side { flex: 1; }
+    .bp-arrow { flex-shrink: 0; color: rgba(255,255,255,0.2); }
+    .bp-side-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 16px; text-align: center;
+    }
+    .bp-mini-grid {
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; overflow: hidden;
+    }
+    .bp-mini-h-band {
+      padding: 14px 20px; font-size: 0.78rem; font-weight: 600; text-align: center;
+      letter-spacing: 0.02em; line-height: 1.5;
+    }
+    .bp-care-h { background: rgba(100,116,139,0.2); color: rgba(255,255,255,0.5); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .bp-mkt-h { background: rgba(0,127,126,0.15); color: #43C0BE; border-bottom: 1px solid rgba(67,192,190,0.2); }
+    .bp-mini-cols { display: grid; grid-template-columns: 1fr 1fr; }
+    .bp-mini-col { padding: 20px; text-align: center; }
+    .bp-mini-col:first-child { border-right: 1px solid rgba(255,255,255,0.08); }
+    .bp-care-v { background: rgba(100,116,139,0.08); }
+    .bp-mkt-v1 { background: rgba(0,127,126,0.06); }
+    .bp-mkt-v2 { background: rgba(100,188,234,0.06); }
+    .bp-mini-col-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .bp-mini-col-desc { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+    .bp-principle { text-align: center; margin-top: 14px; font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    .bp-principle strong { color: #43C0BE; }
+    .bp-principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .bp-principle-card {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px; padding: 28px 24px; text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .bp-principle-card:hover { border-color: rgba(67,192,190,0.25); transform: translateY(-3px); }
+    .bp-principle-icon { font-size: 1.8rem; color: #43C0BE; margin-bottom: 12px; line-height: 1; }
+    .bp-principle-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .bp-principle-text { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+    .bp-model-visual { margin-bottom: 72px; }
+    .bp-model-grid { max-width: 720px; margin: 0 auto; border: 2px solid rgba(255,255,255,0.1); border-radius: 18px; overflow: hidden; background: rgba(255,255,255,0.02); }
+    .bp-layer { display: flex; align-items: center; gap: 16px; padding: 22px 28px; }
+    .bp-layer-top { background: linear-gradient(135deg, rgba(44,76,121,0.3), rgba(44,76,121,0.15)); border-bottom: 1px solid rgba(100,188,234,0.15); }
+    .bp-layer-bottom { background: linear-gradient(135deg, rgba(0,127,126,0.2), rgba(67,192,190,0.08)); border-top: 1px solid rgba(67,192,190,0.15); }
+    .bp-layer-icon { flex-shrink: 0; color: rgba(255,255,255,0.4); }
+    .bp-layer-name { font-size: 0.95rem; font-weight: 700; color: #fff; }
+    .bp-layer-desc { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+    .bp-pillars { display: grid; grid-template-columns: 1fr 1fr; }
+    .bp-pillar { padding: 32px 28px; text-align: center; }
+    .bp-pillar-perf { border-right: 1px solid rgba(255,255,255,0.06); background: rgba(0,127,126,0.04); }
+    .bp-pillar-brand { background: rgba(100,188,234,0.03); }
+    .bp-pillar-name { font-size: 1.25rem; font-weight: 800; margin-bottom: 4px; }
+    .bp-pillar-perf .bp-pillar-name { color: #43C0BE; }
+    .bp-pillar-brand .bp-pillar-name { color: #64BCEA; }
+    .bp-pillar-desc { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .bp-pillar-discs { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .bp-pillar-discs span { font-size: 0.72rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
+
+    /* ── V+H animation classes ── */
+    .vh-fade-up { opacity: 0; transform: translateY(30px); }
+    .vh-fade-up.visible { animation: msFadeUp 0.7s ease-out forwards; }
+    .vh-delay-2 { animation-delay: 0.2s !important; }
+    .vh-delay-4 { animation-delay: 0.4s !important; }
+
+    /* ══════════════════════════════════════
+       V+H GRID (shared by mid-stage & end-state)
+       ══════════════════════════════════════ */
+    .vh-grid-wrapper { margin: 48px 0 60px; }
+    .vh-grid-title { text-align: center; font-size: 1.75rem; font-weight: 800; color: #fff; margin: 0 0 10px; }
+    .vh-grid-subtitle { text-align: center; font-size: 1rem; color: rgba(255,255,255,0.45); margin: 0 0 36px; }
+    .vh-grid {
+      max-width: 900px; margin: 0 auto;
+      border: 2px solid rgba(255,255,255,0.1); border-radius: 18px; overflow: hidden;
+      background: rgba(255,255,255,0.02);
+    }
+    .vh-grid-final { border-color: rgba(67,192,190,0.3); box-shadow: 0 0 40px rgba(0,127,126,0.08); }
+    .vh-h-band {
+      display: flex; align-items: center; gap: 16px; padding: 20px 28px;
+    }
+    .vh-h-top {
+      background: linear-gradient(135deg, rgba(44,76,121,0.3), rgba(44,76,121,0.15));
+      border-bottom: 1px solid rgba(100,188,234,0.15);
+    }
+    .vh-h-bottom {
+      background: linear-gradient(135deg, rgba(0,127,126,0.2), rgba(67,192,190,0.08));
+      border-top: 1px solid rgba(67,192,190,0.15);
+    }
+    .vh-h-band-icon { font-size: 1.2rem; color: rgba(255,255,255,0.3); flex-shrink: 0; }
+    .vh-h-band-name { font-size: 0.95rem; font-weight: 700; color: #fff; }
+    .vh-h-band-person { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .vh-h-band-scope { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 4px; letter-spacing: 0.02em; }
+    .vh-reports-tag { font-size: 0.65rem; color: rgba(67,192,190,0.7); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+    .vh-cols { display: grid; grid-template-columns: 1fr 1fr; }
+    .vh-col { padding: 24px; }
+    .vh-col-perf { border-right: 1px solid rgba(255,255,255,0.06); background: rgba(0,127,126,0.04); }
+    .vh-col-brand { background: rgba(100,188,234,0.03); }
+    .vh-col-header { margin-bottom: 20px; }
+    .vh-col-label { font-size: 0.6rem; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 4px; }
+    .vh-col-name { font-size: 1.3rem; font-weight: 800; margin-bottom: 2px; }
+    .vh-col-perf .vh-col-name { color: #43C0BE; }
+    .vh-col-brand .vh-col-name { color: #64BCEA; }
+    .vh-col-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+    .vh-col-people { margin-bottom: 20px; }
+    .vh-person { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 0.85rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; }
+    .vh-person-lead { font-weight: 700; color: #fff; }
+    .vh-person-role { font-size: 0.72rem; color: rgba(255,255,255,0.35); font-weight: 400; }
+    .vh-transitioning { color: rgba(255,255,255,0.25); }
+    .vh-phase2-tag {
+      display: inline-block; font-size: 0.55rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: #fbbf24; background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.3); padding: 1px 6px; border-radius: 3px;
+      margin-left: 4px; vertical-align: middle;
+    }
+    .vh-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .vh-dot-teal { background: #007F7E; }
+    .vh-dot-lteal { background: #43C0BE; }
+    .vh-dot-blue { background: #2c4c79; }
+    .vh-dot-lblue { background: #64BCEA; }
+    .vh-col-disciplines { display: flex; flex-wrap: wrap; gap: 6px; }
+    .vh-disc {
+      display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 4px 10px;
+      border-radius: 6px; color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
+    }
+    .vh-disc-new {
+      border-color: rgba(67,192,190,0.3); color: #43C0BE; background: rgba(67,192,190,0.08);
+    }
+    .vh-col-agents {
+      margin-top: 16px; font-size: 0.82rem; color: rgba(255,255,255,0.4);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .vh-agent-count { font-size: 1.1rem; font-weight: 800; color: #43C0BE; }
+    .vh-decision-rights { max-width: 900px; margin: 36px auto 0; }
+    .vh-dr-title {
+      text-align: center; font-size: 0.85rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px;
+    }
+    .vh-dr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .vh-dr-item {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px; padding: 16px; text-align: center;
+    }
+    .vh-dr-domain { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.55); margin-bottom: 6px; }
+    .vh-dr-owner { font-size: 0.75rem; color: #43C0BE; font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .bp-compare { flex-direction: column; }
+      .bp-arrow { transform: rotate(90deg); }
+      .bp-principles { grid-template-columns: 1fr; }
+      .vh-cols { grid-template-columns: 1fr; }
+      .vh-col-perf { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .vh-dr-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ══════════════════════════════════════
        TIMELINE
        ══════════════════════════════════════ */
     .section-timeline { background: var(--bg-dark); padding: 6rem 2rem; color: var(--text); overflow: hidden; }
@@ -890,11 +1062,12 @@
 <nav class="tc-navbar">
   <a href="#vision" class="tc-navbar__logo">
     <span class="tc-navbar__logo-mark">TC</span>
-    Trilogy Care
+    Marketing TOM
   </a>
   <ul class="tc-navbar__links">
     <li><a href="#vision">Vision</a></li>
     <li><a href="#current">Current State</a></li>
+    <li><a href="#blueprint">The Model</a></li>
     <li><a href="#mid-stage">Mid-Stage</a></li>
     <li><a href="#end-state">End-State</a></li>
     <li><a href="#ai-gains">AI Gains</a></li>
@@ -908,6 +1081,7 @@
 <ul class="tc-navbar__mobile-menu" id="mobileMenu">
   <li><a href="#vision" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Vision</a></li>
   <li><a href="#current" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Current State</a></li>
+  <li><a href="#blueprint" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">The Model</a></li>
   <li><a href="#mid-stage" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Mid-Stage</a></li>
   <li><a href="#end-state" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">End-State</a></li>
   <li><a href="#ai-gains" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">AI Gains</a></li>
@@ -920,7 +1094,7 @@
   <div class="tc-hero__content">
     <div class="tc-hero__badge">Confidential — CGO Strategy</div>
     <h1 class="tc-hero__heading">Marketing<br><span>Target Operating Model</span></h1>
-    <p class="tc-hero__sub">From <strong>12 people to 5</strong> — powered by AI agents<br>delivering <strong>3-5x output</strong></p>
+    <p class="tc-hero__sub">An AI-powered operating model — from <strong>12 to 5</strong><br>delivering <strong>3-5x output</strong> across <strong>12 disciplines</strong></p>
     <div class="tc-hero__stats">
       <div class="tc-hero__stat">
         <div class="tc-hero__stat-value">12 <span class="tc-arrow">&rarr;</span> 5</div>
@@ -1052,6 +1226,72 @@
       <div class="disc-card scale-in delay-10"><div class="disc-num">10</div><div class="disc-name">Design</div></div>
       <div class="disc-card scale-in delay-11"><div class="disc-num">11</div><div class="disc-name">Rep / ORM</div></div>
       <div class="disc-card scale-in delay-12"><div class="disc-num">12</div><div class="disc-name">Events</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THE OPERATING MODEL #blueprint ========== -->
+<section id="blueprint">
+  <div class="bp-container">
+    <div class="bp-header vh-fade-up">
+      <div class="bp-label">The Operating Model</div>
+      <h2 class="bp-title">The Operating Model</h2>
+      <p class="bp-subtitle">Two operational pillars, two enabling layers — five people, twelve disciplines</p>
+    </div>
+
+    <div class="bp-model-visual vh-fade-up vh-delay-2">
+      <div class="bp-model-grid">
+        <div class="bp-layer bp-layer-top">
+          <div class="bp-layer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="bp-layer-content">
+            <div class="bp-layer-name">Strategy &amp; Leadership</div>
+            <div class="bp-layer-desc">Direction, standards, quality bar across all disciplines</div>
+          </div>
+        </div>
+        <div class="bp-pillars">
+          <div class="bp-pillar bp-pillar-perf">
+            <div class="bp-pillar-name">Performance</div>
+            <div class="bp-pillar-desc">Revenue Engine</div>
+            <div class="bp-pillar-discs">
+              <span>Ads</span><span>SEO</span><span>CRO</span>
+              <span>Email</span><span>Web Dev</span><span>Competitor Intel</span>
+            </div>
+          </div>
+          <div class="bp-pillar bp-pillar-brand">
+            <div class="bp-pillar-name">Brand &amp; Creative</div>
+            <div class="bp-pillar-desc">Awareness Engine</div>
+            <div class="bp-pillar-discs">
+              <span>Content</span><span>Social</span><span>Design</span>
+              <span>Rep/ORM</span><span>Internal Requests</span><span>Events</span>
+            </div>
+          </div>
+        </div>
+        <div class="bp-layer bp-layer-bottom">
+          <div class="bp-layer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m-7-9.5l5.2 3m1.6-9l5.2 3M5 19.5l5.2-3m1.6 9l5.2-3"/></svg></div>
+          <div class="bp-layer-content">
+            <div class="bp-layer-name">AI Innovation &amp; Enablement</div>
+            <div class="bp-layer-desc">Agents, automation, technology enabling both pillars</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bp-principles vh-fade-up vh-delay-4">
+      <div class="bp-principle-card">
+        <div class="bp-principle-icon">&#9475;</div>
+        <div class="bp-principle-title">Operational Pillars</div>
+        <div class="bp-principle-text">Each pillar owns a product of marketing. Performance runs the revenue engine (ads, SEO, CRO, email). Brand &amp; Creative runs the awareness engine (content, social, design). They own KPIs, output, and daily execution.</div>
+      </div>
+      <div class="bp-principle-card">
+        <div class="bp-principle-icon">&#9473;</div>
+        <div class="bp-principle-title">Enabling Layers</div>
+        <div class="bp-principle-text">Strategy &amp; Leadership (Stephen) sets direction and standards across both pillars. AI Innovation (Imran) enables both with agents, automation, and technology. They don't run operations — they make operations better.</div>
+      </div>
+      <div class="bp-principle-card">
+        <div class="bp-principle-icon">&#10710;</div>
+        <div class="bp-principle-title">Clean Decision Rights</div>
+        <div class="bp-principle-text">Execution decisions — pillar leaders decide. Strategy and standards — enabling layers. Technology and agent design — AI Innovation. Conflicts escalate to CGO. No overlap, no ambiguity.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1194,6 +1434,69 @@
       </div>
     </div>
 
+    <div class="vh-grid-wrapper ms-fade-up ms-delay-5">
+      <h3 class="vh-grid-title">Operating Structure — 8 People</h3>
+      <p class="vh-grid-subtitle">Two operational pillars, two enabling layers</p>
+      <div class="vh-grid">
+        <div class="vh-h-band vh-h-top">
+          <div class="vh-h-band-icon">&#9473;</div>
+          <div>
+            <div class="vh-h-band-name">Strategy &amp; Leadership</div>
+            <div class="vh-h-band-person">Stephen Danckert — GM Marketing</div>
+            <div class="vh-h-band-scope">Budget &middot; Stakeholders &middot; Brand Positioning &middot; Quality Standards</div>
+          </div>
+        </div>
+        <div class="vh-cols">
+          <div class="vh-col vh-col-perf">
+            <div class="vh-col-header">
+              <div class="vh-col-name">Performance</div>
+              <div class="vh-col-desc">Revenue Engine</div>
+            </div>
+            <div class="vh-col-people">
+              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-teal"></span>Paul Phare <span class="vh-person-role">Head of Performance</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lteal"></span>Rajitha Jayathunga <span class="vh-person-role">Digital &amp; Automation Lead</span></div>
+            </div>
+            <div class="vh-col-disciplines">
+              <span class="vh-disc">Ads</span>
+              <span class="vh-disc">SEO</span>
+              <span class="vh-disc">CRO</span>
+              <span class="vh-disc vh-disc-new">Email Marketing</span>
+              <span class="vh-disc">Web Dev</span>
+              <span class="vh-disc">Competitor Intel</span>
+            </div>
+          </div>
+          <div class="vh-col vh-col-brand">
+            <div class="vh-col-header">
+              <div class="vh-col-name">Brand &amp; Creative</div>
+              <div class="vh-col-desc">Awareness Engine</div>
+            </div>
+            <div class="vh-col-people">
+              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-blue"></span>Mariia Branch <span class="vh-person-role">Marketing Ops Manager</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span>Matthew Hart <span class="vh-person-role vh-transitioning">Content &amp; Comms <span class="vh-phase2-tag">Phase 2</span></span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span>Miranda Partridge <span class="vh-person-role vh-transitioning">Social &amp; ORM <span class="vh-phase2-tag">Phase 2</span></span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span>Alisha Van Bone <span class="vh-person-role">Creative Lead</span></div>
+            </div>
+            <div class="vh-col-disciplines">
+              <span class="vh-disc">Content &amp; Copy</span>
+              <span class="vh-disc">Social Media</span>
+              <span class="vh-disc">Design</span>
+              <span class="vh-disc">Rep/ORM</span>
+              <span class="vh-disc">Internal Requests</span>
+              <span class="vh-disc">Events</span>
+            </div>
+          </div>
+        </div>
+        <div class="vh-h-band vh-h-bottom">
+          <div class="vh-h-band-icon">&#9473;</div>
+          <div>
+            <div class="vh-h-band-name">AI Innovation &amp; Enablement</div>
+            <div class="vh-h-band-person">Imran Mehmood — AI Innovation Lead <span class="vh-reports-tag">reports to CGO</span></div>
+            <div class="vh-h-band-scope">Agent Builds &middot; Tech Bridge &middot; Automation &middot; Efficiency</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="ms-matrix-section ms-fade-up ms-delay-8">
       <div class="ms-matrix-header">
         <h3 class="ms-matrix-title">Cross-Training Matrix</h3>
@@ -1267,6 +1570,82 @@
         </div>
         <div class="es-org-standalone">
           <div class="es-org-node"><span class="es-org-node-dot es-dot-lteal"></span><div><div class="es-org-node-name">Imran <span class="es-org-report-tag">reports to CGO</span></div><div class="es-org-node-role">AI Innovation Lead</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vh-grid-wrapper es-fade-up">
+      <h3 class="vh-grid-title">Operating Structure — 5 People</h3>
+      <p class="vh-grid-subtitle">Clean, final structure — two pillars, two enabling layers, twelve disciplines</p>
+      <div class="vh-grid vh-grid-final">
+        <div class="vh-h-band vh-h-top">
+          <div class="vh-h-band-icon">&#9473;</div>
+          <div>
+            <div class="vh-h-band-name">Strategy &amp; Leadership</div>
+            <div class="vh-h-band-person">Stephen Danckert — GM Marketing</div>
+            <div class="vh-h-band-scope">Budget &middot; Stakeholders &middot; Brand Positioning &middot; Quality Standards</div>
+          </div>
+        </div>
+        <div class="vh-cols">
+          <div class="vh-col vh-col-perf">
+            <div class="vh-col-header">
+              <div class="vh-col-name">Performance</div>
+              <div class="vh-col-desc">Revenue Engine</div>
+            </div>
+            <div class="vh-col-people">
+              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-teal"></span>Paul Phare <span class="vh-person-role">Head of Performance</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lteal"></span>Rajitha Jayathunga <span class="vh-person-role">Digital Lead</span></div>
+            </div>
+            <div class="vh-col-disciplines">
+              <span class="vh-disc">Ads</span>
+              <span class="vh-disc">SEO</span>
+              <span class="vh-disc">CRO</span>
+              <span class="vh-disc">Email Marketing</span>
+              <span class="vh-disc">Web Dev</span>
+              <span class="vh-disc">Competitor Intel</span>
+            </div>
+            <div class="vh-col-agents">
+              <span class="vh-agent-count">14-22</span> AI Agents
+            </div>
+          </div>
+          <div class="vh-col vh-col-brand">
+            <div class="vh-col-header">
+              <div class="vh-col-name">Brand &amp; Creative</div>
+              <div class="vh-col-desc">Awareness Engine</div>
+            </div>
+            <div class="vh-col-people">
+              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-blue"></span>Mariia Branch <span class="vh-person-role">Marketing Ops Manager</span></div>
+              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span>Alisha Van Bone <span class="vh-person-role">Creative &amp; Social Lead</span></div>
+            </div>
+            <div class="vh-col-disciplines">
+              <span class="vh-disc">Content &amp; Copy</span>
+              <span class="vh-disc">Social Media</span>
+              <span class="vh-disc">Design</span>
+              <span class="vh-disc">Rep/ORM</span>
+              <span class="vh-disc">Internal Requests</span>
+              <span class="vh-disc">Events</span>
+            </div>
+            <div class="vh-col-agents">
+              <span class="vh-agent-count">14-18</span> AI Agents
+            </div>
+          </div>
+        </div>
+        <div class="vh-h-band vh-h-bottom">
+          <div class="vh-h-band-icon">&#9473;</div>
+          <div>
+            <div class="vh-h-band-name">AI Innovation &amp; Enablement</div>
+            <div class="vh-h-band-person">Imran Mehmood — AI Innovation Lead <span class="vh-reports-tag">reports to CGO</span></div>
+            <div class="vh-h-band-scope">30-45 Agents &middot; Tech Bridge &middot; Automation &middot; Training</div>
+          </div>
+        </div>
+      </div>
+      <div class="vh-decision-rights es-fade-up">
+        <div class="vh-dr-title">Decision Rights</div>
+        <div class="vh-dr-grid">
+          <div class="vh-dr-item"><div class="vh-dr-domain">Execution decisions</div><div class="vh-dr-owner">Pillar leaders decide</div></div>
+          <div class="vh-dr-item"><div class="vh-dr-domain">Strategy &amp; standards</div><div class="vh-dr-owner">GM Marketing decides</div></div>
+          <div class="vh-dr-item"><div class="vh-dr-domain">Technology &amp; agent design</div><div class="vh-dr-owner">AI Innovation Lead decides</div></div>
+          <div class="vh-dr-item"><div class="vh-dr-domain">Conflicts or overlaps</div><div class="vh-dr-owner">Escalated to CGO</div></div>
         </div>
       </div>
     </div>
@@ -1555,7 +1934,7 @@
 
 <!-- ========== FOOTER ========== -->
 <footer class="section-footer">
-  <p class="footer-title">Trilogy Care &mdash; Marketing Target Operating Model</p>
+  <p class="footer-title">Marketing Target Operating Model</p>
   <p class="footer-meta">
     <span>Confidential &mdash; March 2026</span>
     <span>Owner: Nick Lunn, Chief Growth Officer</span>
@@ -1601,7 +1980,7 @@ var kpiData = {
 
 // ── Role Detail Data ──
 var roleData = {
-  stephen: {name:'Stephen Danckert',title:'GM Marketing',level:'L4 — Functional Leadership',reports:'CGO (Nick Lunn)',desc:'Owns the marketing function end-to-end. Strategy, budget, stakeholder management, team performance. Deep enough across performance AND brand to challenge both sides.',disciplines:[['Strategy & Planning','Sets marketing direction, annual plans, resource allocation','AI generates strategy briefs, competitive landscape reports'],['Stakeholder Mgmt','Manages Sales, BD, Care, Exec relationships','AI compiles stakeholder reports, meeting prep'],['Brand Positioning','Brand strategy, market positioning, PR direction','AI drafts PR pitches, monitors brand sentiment']],agents:'3-5 agents: Executive reporting, competitive landscape, strategy briefs',ditl:'<strong>8:00am:</strong> Review overnight output dashboards — all 12 disciplines tracked. AI reporting agent has compiled the weekly summary. <strong>9:00am:</strong> 1:1 with Paul (Head of Performance) — ROAS trending above target, competitor agent flagged new entrant in the Sydney market. Agree to increase spend on high-performing Google Ads segments. <strong>10:00am:</strong> Stakeholder call with GM Sales (Jacqueline) — review marketing-sourced SQLs for the month, discuss lead quality feedback from the sales floor. <strong>11:00am:</strong> Brand strategy session — AI agent has drafted 3 PR pitch angles for the Support at Home reform anniversary. Review and approve 1 for outreach. <strong>1:00pm:</strong> 1:1 with Mariia (MktOps Manager) — editorial calendar on track, stakeholder CSAT at 4.2/5. Discuss upcoming event logistics for aged care expo. <strong>2:30pm:</strong> Monthly budget review — AI dashboard shows spend tracking within 3% variance. <strong>3:30pm:</strong> Cross-functional meeting with Care division — align on client comms messaging for Support at Home changes. <strong>4:30pm:</strong> Review Imran\'s agent deployment pipeline — 2 new agents ready for production next week.'},
+  stephen: {name:'Stephen Danckert',title:'GM Marketing',level:'L4 — Functional Leadership',reports:'CGO (Nick Lunn)',desc:'Owns the marketing function end-to-end. Strategy, budget, stakeholder management, team performance. Deep enough across performance AND brand to challenge both pillars.',disciplines:[['Strategy & Planning','Sets marketing direction, annual plans, resource allocation','AI generates strategy briefs, competitive landscape reports'],['Stakeholder Mgmt','Manages Sales, BD, Care, Exec relationships','AI compiles stakeholder reports, meeting prep'],['Brand Positioning','Brand strategy, market positioning, PR direction','AI drafts PR pitches, monitors brand sentiment']],agents:'3-5 agents: Executive reporting, competitive landscape, strategy briefs',ditl:'<strong>8:00am:</strong> Review overnight output dashboards — all 12 disciplines tracked. AI reporting agent has compiled the weekly summary. <strong>9:00am:</strong> 1:1 with Paul (Head of Performance) — ROAS trending above target, competitor agent flagged new entrant in the Sydney market. Agree to increase spend on high-performing Google Ads segments. <strong>10:00am:</strong> Stakeholder call with GM Sales (Jacqueline) — review marketing-sourced SQLs for the month, discuss lead quality feedback from the sales floor. <strong>11:00am:</strong> Brand strategy session — AI agent has drafted 3 PR pitch angles for the Support at Home reform anniversary. Review and approve 1 for outreach. <strong>1:00pm:</strong> 1:1 with Mariia (MktOps Manager) — editorial calendar on track, stakeholder CSAT at 4.2/5. Discuss upcoming event logistics for aged care expo. <strong>2:30pm:</strong> Monthly budget review — AI dashboard shows spend tracking within 3% variance. <strong>3:30pm:</strong> Cross-functional meeting with Care division — align on client comms messaging for Support at Home changes. <strong>4:30pm:</strong> Review Imran\'s agent deployment pipeline — 2 new agents ready for production next week.'},
   paul: {name:'Paul Phare',title:'Head of Performance',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Owns the revenue engine — paid ads, SEO, CRO, email marketing strategy, and competitor intelligence. Sets strategy across all 5 performance disciplines; AI agents handle execution volume.',disciplines:[['Paid Ads','Strategy, budget allocation, channel mix, ROAS targets','Campaign builds, bid management, ad copy, A/B variants'],['SEO','Strategy, content briefs, technical priorities','Keyword research, content drafts, technical audits, rank tracking'],['CRO','Test hypotheses, prioritisation, conversion strategy','Landing page variants, heatmap analysis, test reporting'],['Email Marketing','Journey strategy, segmentation, lifecycle design','Flow builds, copy drafts, send optimisation'],['Competitor Intel','Strategic interpretation, action plans','Monitoring, alerts, positioning analysis, ad scraping']],agents:'8-12 agents: Google Ads, Meta, SEO content, keyword, CRO test, email flow, competitor alerts, attribution',ditl:'<strong>8:30am:</strong> Review overnight campaign dashboards — AI agents flagged 2 campaigns with CPL above threshold on Google Ads. Review the agent\'s recommended bid adjustments for the aged care keyword group. Approve both. <strong>9:00am:</strong> SEO agent has drafted 3 content briefs based on keyword gap analysis — "Support at Home eligibility", "home care package levels explained", "choosing a home care provider". Review and approve 2, send 1 back for more depth on NDIS crossover. <strong>9:30am:</strong> Weekly standup with Rajitha — email automation showing 42% open rate on the welcome sequence. New A/B test variants ready for the pre-onboarding flow. Approve test launch. <strong>10:00am:</strong> Competitor intelligence agent flagged a major competitor running new Meta campaigns targeting self-managed clients. Review the positioning analysis and update the monthly competitor report. <strong>11:00am:</strong> CRO review — landing page agent ran 4 variant tests this week on the "Get Started" page. One variant showing 12% conversion uplift — approve for full rollout. <strong>1:00pm:</strong> Monthly funnel insights meeting with Sales and BD — present conversion data by channel, recommend shifting budget from display to search. <strong>2:30pm:</strong> Review email lifecycle coverage — 8 of 12 journey stages now automated. Brief Rajitha on building the remaining 4 with the Klaviyo agent. <strong>4:00pm:</strong> Post-campaign debrief for the March brand awareness campaign — document learnings, share with Stephen.'},
   rajitha: {name:'Rajitha Jayathunga',title:'Digital Lead',level:'L2 — Revenue Driver',reports:'Head of Performance (Paul)',desc:'Hands-on execution across paid media, email/automation, CRO, web dev, and attribution. The person in the platforms every day, using AI agents to multiply output.',disciplines:[['Ads Execution','Platform management, optimisation, QA','Ad copy variants, audience builds, reporting'],['Email Execution','Flow implementation, Klaviyo/CRM builds','Sequence drafts, subject line testing, trigger logic'],['CRO Execution','Test implementation, landing pages','Page builds, copy variants, analytics'],['Web Dev','Website management via Claude Code, CMS','Page builds, template creation'],['Attribution','UTM frameworks, GA4, dashboards','Dashboard updates, anomaly detection']],agents:'6-10 agents: Ad copy, landing pages, email sequences, UTM tracking, web dev, reporting',ditl:'<strong>8:00am:</strong> Open Google Ads dashboard — review yesterday\'s performance across 15 active campaigns targeting aged care keywords. AI ad copy agent has generated overnight variants for 3 underperforming ad groups. Review copy, approve 2, tweak 1. <strong>8:45am:</strong> Switch to Meta — check the Support at Home awareness campaign. Audience builder agent suggests a new lookalike segment based on recent converters. Approve and launch. <strong>9:30am:</strong> Klaviyo check — email flow agent has built a new 4-step nurture sequence for clients who downloaded the home care guide. Review triggers, timing, and copy. Adjust the Day 3 email subject line using the A/B test agent\'s suggestions. Approve. <strong>10:30am:</strong> Standup with Paul — report on weekly metrics, discuss CRO test results. <strong>11:00am:</strong> CRO work — landing page agent built 2 new variants for the "Compare Home Care Packages" page using Claude Code. Review in browser, request one mobile layout fix, approve the other for testing. <strong>1:00pm:</strong> UTM audit — attribution agent flags 3 campaigns with missing UTM parameters. Fix in 10 minutes. Run GA4 verification. <strong>2:00pm:</strong> Build a new landing page for the NDIS crossover campaign using Claude Code — AI generates the template, add TC brand elements and content. Live in 90 minutes. <strong>3:30pm:</strong> Email performance review — open rates at 43%, CTR at 16%. Speed-to-lead at 47 minutes average. Update the funnel dashboard. <strong>4:30pm:</strong> Queue tomorrow\'s campaign launches — 2 new Google Ads campaigns and 1 Meta campaign. AI agents have pre-built everything; final QA and approve.'},
   mariia: {name:'Mariia Branch',title:'Marketing Ops Manager',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Runs the operational engine AND owns content strategy, brand governance, internal requests, and events logistics. The bridge between performance and creative.',disciplines:[['Internal Requests','Brief intake, triage, SLA management','Request routing, status updates, SLA monitoring'],['Content Strategy','Editorial calendar, brand voice, PR, comms','Blog drafts, newsletter, PR pitches'],['Marketing Ops','Asana workflows, budget, reporting','Task automation, dashboards'],['Brand Governance','Brand standards, QA, compliance','Brand audit checks, consistency reviews'],['Events','Vendor coordination, budgets, scheduling','Logistics checklists, vendor comms']],agents:'8-10 agents: Asana automation, blog drafts, newsletter, PR pitches, brand QA, dashboards, SLA tracking',ditl:'<strong>8:00am:</strong> Open Asana — AI brief intake agent has auto-logged 4 overnight requests from Sales and BD. Two are collateral updates, one is a campaign asset request, one is a client case study. Auto-routed: design requests to Alisha, content to the blog draft agent. <strong>8:30am:</strong> SLA dashboard check — 94% of requests within SLA this week. One Sales request approaching deadline — escalate to Alisha with priority flag. <strong>9:00am:</strong> Editorial calendar review — AI blog draft agent has produced 3 first drafts overnight: "Understanding Support at Home fees", "How to choose a home care provider", "What\'s new in aged care 2026". QA the first one — check brand voice, factual accuracy against TC policies, SEO keywords. Approve with minor edits. <strong>10:00am:</strong> Newsletter production — AI newsletter agent has compiled this week\'s content (2 blog articles, 1 client story, 1 event promo). Review layout and approve for send. <strong>11:00am:</strong> PR outreach — AI pitch agent drafted 2 angles for Aged Care Today magazine. Review, approve the Support at Home reform piece, park the other. <strong>1:00pm:</strong> Quarterly planning session with BD team — review their marketing request pipeline for Q4. Align on priorities. <strong>2:00pm:</strong> Brand audit — AI brand QA agent flagged 2 social posts with off-brand imagery. Review and send corrections to Alisha. <strong>3:00pm:</strong> Budget tracking — AI dashboard shows marketing spend at 97% of plan. Flag one overrun on event costs to Stephen. <strong>4:00pm:</strong> Check in with Alisha — review her social calendar for next week, discuss upcoming event creative needs for the Melbourne aged care expo.'},
@@ -1611,8 +1990,8 @@ var roleData = {
 // ── Strategy Overlay Content ──
 var strategyData = {
   current: '<h3>Current State Strategy</h3><h4>The Problem</h4><p>12 people covering 12 disciplines — but with critical gaps in CRO, competitor intelligence, and web dev. Specialist silos mean a campaign touches 4-5 people before it ships. Single points of failure across email, content, and design.</p><h4>Key Issues</h4><ul><li>Designer can\'t write, writer can\'t design, social can\'t do ads — no cross-functional flexibility</li><li>Two coordinators managing admin that AI can automate tomorrow</li><li>Performance marketing carrying the revenue load with too few people</li><li>Brand and creative side disconnected from performance metrics</li></ul><h4>What Needs to Change</h4><p>The team needs to shift from specialist silos to multi-skilled humans who manage AI agents. The bottleneck is no longer capacity — it\'s judgement. We need fewer people who can each do more, supported by agents that handle the volume.</p>',
-  'mid-stage': '<h3>Mid-Stage Strategy (12 &rarr; 8)</h3><h4>The Approach</h4><p>Restructure into two clear pillars — Performance (Paul + Rajitha) and Marketing Ops (Mariia + Matthew + Miranda + Alisha). Absorb the 4 most automatable roles first: 2 coordinators, 1 campaigns specialist, 1 junior designer.</p><h4>Why These 4 First</h4><ul><li><strong>Coordinators (Marilyn, Kayla):</strong> Admin, scheduling, Asana management — highest AI automation potential</li><li><strong>Campaigns & Automation (Michael):</strong> Email flows and nurture sequences are exactly what AI agents excel at</li><li><strong>Junior Designer:</strong> Volume design work (resizing, templates) is the most AI-automatable design task</li></ul><h4>Critical Success Factors</h4><ul><li>AI agents must be operational BEFORE people exit — Imran\'s Phase 1 delivery is the critical path</li><li>Cross-training must be genuine, not just shadowing — Rajitha needs to independently run email by month 2</li><li>Mariia\'s expansion into content oversight is the biggest stretch — needs coaching from Stephen</li><li>Output must not decline during transition — monitored weekly</li></ul><h4>Exit Criteria for Moving to End-State</h4><ul><li>Output maintained or increased across all 12 disciplines</li><li>Internal stakeholder CSAT >= 4.0/5</li><li>AI agents handling >= 40% of execution</li><li>All 5 end-state people competent in expanded scope</li></ul>',
-  'end-state': '<h3>End-State Strategy (8 &rarr; 5)</h3><h4>The Model</h4><p>Five multi-skilled humans, each managing 6-12 AI agents, covering all 12 disciplines at 3-5x the output of the original 12-person team. The new bottleneck is judgement, not capacity.</p><h4>Phase 2 Absorptions</h4><ul><li><strong>Matthew Hart:</strong> Content work splits to Mariia (strategy) + Alisha (execution) + AI blog/newsletter/PR agents</li><li><strong>Miranda Partridge:</strong> Social work moves to Alisha + AI social scheduling and ORM agents</li></ul><h4>What Makes It Work</h4><ul><li>Each person is the quality gate — AI agents draft, humans approve</li><li>Multi-skilling means fewer handoffs — one person can brief, review, and ship</li><li>AI Innovation Lead (Imran) is the enabler — builds agents, maintains them, trains the team</li><li>The model scales by adding agents, not people</li></ul><h4>End-State Targets</h4><ul><li>30-45 AI agents in production managed by 5 humans</li><li>>=60% of marketing execution AI-driven</li><li>>=3x output per FTE vs pre-TOM baseline</li><li>>=$750K annualised savings from headcount reduction</li><li>0% attrition — every person is critical</li></ul>'
+  'mid-stage': '<h3>Mid-Stage Strategy (12 &rarr; 8)</h3><h4>The Approach</h4><p>Restructure into a <strong>pillar + layer</strong> operating model. Two operational pillars run execution: <strong>Performance</strong> (Paul + Rajitha) and <strong>Brand &amp; Creative</strong> (Mariia + Matthew + Miranda + Alisha). Two enabling layers support them: <strong>Strategy &amp; Leadership</strong> (Stephen) across the top, <strong>AI Innovation</strong> (Imran) across the bottom. Absorb the 4 most automatable roles first: 2 coordinators, 1 campaigns specialist, 1 junior designer.</p><h4>Why These 4 First</h4><ul><li><strong>Coordinators (Marilyn, Kayla):</strong> Admin, scheduling, Asana management — highest AI automation potential</li><li><strong>Campaigns & Automation (Michael):</strong> Email flows and nurture sequences are exactly what AI agents excel at</li><li><strong>Junior Designer:</strong> Volume design work (resizing, templates) is the most AI-automatable design task</li></ul><h4>Critical Success Factors</h4><ul><li>AI agents must be operational BEFORE people exit — Imran\'s Phase 1 delivery is the critical path</li><li>Cross-training must be genuine, not just shadowing — Rajitha needs to independently run email by month 2</li><li>Mariia\'s expansion into content oversight is the biggest stretch — needs coaching from Stephen</li><li>Output must not decline during transition — monitored weekly</li></ul><h4>Exit Criteria for Moving to End-State</h4><ul><li>Output maintained or increased across all 12 disciplines</li><li>Internal stakeholder CSAT >= 4.0/5</li><li>AI agents handling >= 40% of execution</li><li>All 5 end-state people competent in expanded scope</li></ul>',
+  'end-state': '<h3>End-State Strategy (8 &rarr; 5)</h3><h4>The Model</h4><p>The <strong>pillar + layer</strong> structure reaches its cleanest form. Two operational pillars — <strong>Performance</strong> (Paul + Rajitha) and <strong>Brand &amp; Creative</strong> (Mariia + Alisha) — each manage 14-22 AI agents across 6 disciplines. Two enabling layers — <strong>Stephen</strong> (strategy, standards) and <strong>Imran</strong> (AI enablement) — ensure both pillars operate to the same quality bar. Five humans, 30-45 agents, 12 disciplines, 3-5x output.</p><h4>Phase 2 Absorptions</h4><ul><li><strong>Matthew Hart:</strong> Content work splits to Mariia (strategy) + Alisha (execution) + AI blog/newsletter/PR agents</li><li><strong>Miranda Partridge:</strong> Social work moves to Alisha + AI social scheduling and ORM agents</li></ul><h4>What Makes It Work</h4><ul><li>Each person is the quality gate — AI agents draft, humans approve</li><li>Multi-skilling means fewer handoffs — one person can brief, review, and ship</li><li>AI Innovation Lead (Imran) is the enabler — builds agents, maintains them, trains the team</li><li>The model scales by adding agents, not people</li></ul><h4>End-State Targets</h4><ul><li>30-45 AI agents in production managed by 5 humans</li><li>>=60% of marketing execution AI-driven</li><li>>=3x output per FTE vs pre-TOM baseline</li><li>>=$750K annualised savings from headcount reduction</li><li>0% attrition — every person is critical</li></ul>'
 };
 
 // ── Toggle Functions ──
@@ -1734,6 +2113,11 @@ window.addEventListener('scroll', function() {
     el.style.animationDelay = (0.2 + i * 0.2) + 's';
     observer.observe(el);
   });
+  // Blueprint
+  document.querySelectorAll('#blueprint .vh-fade-up').forEach(function(el) { observer.observe(el); });
+  // VH grids
+  document.querySelectorAll('.vh-grid-wrapper.ms-fade-up').forEach(function(el) { observer.observe(el); });
+  document.querySelectorAll('.vh-grid-wrapper.es-fade-up, .vh-decision-rights.es-fade-up').forEach(function(el) { observer.observe(el); });
   // KPI bars
   document.querySelectorAll('.kpi-bar-fill').forEach(function(el) { observer.observe(el); });
 })();
