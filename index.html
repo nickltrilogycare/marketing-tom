@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marketing Target Operating Model</title>
+  <title>Marketing Builder Model</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* ── Reset & Base ── */
@@ -692,11 +692,12 @@
     .es-role-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 16px 16px 0 0; opacity: 0.8; }
     .es-role-card[data-owner="stephen"]::before { background: linear-gradient(90deg, #2c4c79, #3d6299); }
     .es-role-card[data-owner="paul"]::before { background: linear-gradient(90deg, #007F7E, #00a09e); }
-    .es-role-card[data-owner="rajitha"]::before { background: linear-gradient(90deg, #43C0BE, #5fd4d2); }
-    .es-role-card[data-owner="digauto"]::before { background: linear-gradient(90deg, #43C0BE, #5fd4d2); }
-    .es-role-card[data-owner="mariia"]::before { background: linear-gradient(90deg, #2c4c79, #3d6299); }
-    .es-role-card[data-owner="opsbrand"]::before { background: linear-gradient(90deg, #2c4c79, #3d6299); }
+    .es-role-card[data-owner="perfbuilder"]::before { background: linear-gradient(90deg, #43C0BE, #5fd4d2); }
+    .es-role-card[data-owner="opsmanager"]::before { background: linear-gradient(90deg, #2c4c79, #3d6299); }
+    .es-role-card[data-owner="matthew"]::before { background: linear-gradient(90deg, #475569, #64748b); }
+    .es-role-card[data-owner="miranda"]::before { background: linear-gradient(90deg, #475569, #64748b); }
     .es-role-card[data-owner="alisha"]::before { background: linear-gradient(90deg, #64BCEA, #82cbef); }
+    .es-role-card[data-owner="imran"]::before { background: linear-gradient(90deg, #43C0BE, #5fd4d2); }
     .es-role-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); background: rgba(255,255,255,0.05); }
     .es-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
     .es-card-person { font-size: 1.1rem; font-weight: 700; color: #fff; margin: 0 0 0.2rem; }
@@ -1118,9 +1119,9 @@
   <ul class="tc-navbar__links">
     <li><a href="#vision">Vision</a></li>
     <li><a href="#current">Current State</a></li>
-    <li><a href="#blueprint">The Model</a></li>
-    <li><a href="#mid-stage">Mid-Stage</a></li>
-    <li><a href="#end-state">End-State</a></li>
+    <li><a href="#blueprint">Builders</a></li>
+    <li><a href="#mid-stage">Structure</a></li>
+    <li><a href="#end-state">Considerations</a></li>
     <li><a href="#ai-gains">AI Gains</a></li>
     <li><a href="#timeline">Timeline</a></li>
     <li><a href="#kpis">KPIs</a></li>
@@ -1132,9 +1133,9 @@
 <ul class="tc-navbar__mobile-menu" id="mobileMenu">
   <li><a href="#vision" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Vision</a></li>
   <li><a href="#current" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Current State</a></li>
-  <li><a href="#blueprint" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">The Model</a></li>
-  <li><a href="#mid-stage" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Mid-Stage</a></li>
-  <li><a href="#end-state" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">End-State</a></li>
+  <li><a href="#blueprint" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Builders</a></li>
+  <li><a href="#mid-stage" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Structure</a></li>
+  <li><a href="#end-state" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Considerations</a></li>
   <li><a href="#ai-gains" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">AI Gains</a></li>
   <li><a href="#timeline" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">Timeline</a></li>
   <li><a href="#kpis" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.tc-navbar__hamburger').classList.remove('active')">KPIs</a></li>
@@ -1144,15 +1145,15 @@
 <section class="tc-hero" id="vision">
   <div class="tc-hero__content">
     <div class="tc-hero__badge">Confidential — CGO Strategy</div>
-    <h1 class="tc-hero__heading">Marketing<br><span>Target Operating Model</span></h1>
-    <p class="tc-hero__sub">An AI-powered operating model — from <strong>12 to 5+1</strong><br>delivering <strong>3-5x output</strong> across <strong>12 disciplines</strong></p>
+    <h1 class="tc-hero__heading">Marketing<br><span>Builder Model</span></h1>
+    <p class="tc-hero__sub">A team of <strong>builders</strong> — multi-skilled, AI-native, shipping end-to-end<br>from <strong>12 to 7</strong> with <strong>70% AI execution</strong></p>
     <div class="tc-hero__stats">
       <div class="tc-hero__stat">
-        <div class="tc-hero__stat-value">12 <span class="tc-arrow">&rarr;</span> 5+1</div>
+        <div class="tc-hero__stat-value">12 <span class="tc-arrow">&rarr;</span> 7</div>
         <div class="tc-hero__stat-label">People</div>
       </div>
       <div class="tc-hero__stat">
-        <div class="tc-hero__stat-value">30&ndash;45</div>
+        <div class="tc-hero__stat-value">30&ndash;40</div>
         <div class="tc-hero__stat-label">AI Agents</div>
       </div>
     </div>
@@ -1283,67 +1284,48 @@
   </div>
 </section>
 
-<!-- ========== THE OPERATING MODEL #blueprint ========== -->
+<!-- ========== THE BUILDER MODEL #blueprint ========== -->
 <section id="blueprint">
   <div class="bp-container">
     <div class="bp-header vh-fade-up">
-      <div class="bp-label">The Operating Model</div>
-      <h2 class="bp-title">The Operating Model</h2>
-      <p class="bp-subtitle">Two operational pillars, two enabling layers — five people + Imran, twelve disciplines</p>
+      <div class="bp-label">The Approach</div>
+      <h2 class="bp-title">The Builder Model</h2>
+      <p class="bp-subtitle">Multi-skilled people who ship end-to-end — AI handles 70% of execution, builders handle judgment</p>
     </div>
 
-    <div class="bp-model-visual vh-fade-up vh-delay-2">
-      <div class="bp-model-grid">
-        <div class="bp-layer bp-layer-top">
-          <div class="bp-layer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <div class="bp-layer-content">
-            <div class="bp-layer-name">Strategy &amp; Leadership</div>
-            <div class="bp-layer-desc">Direction, standards, quality bar across all disciplines</div>
-          </div>
+    <div class="bp-compare vh-fade-up vh-delay-2" style="flex-direction: column; gap: 48px;">
+      <div style="display: grid; grid-template-columns: 1fr 40px 1fr; gap: 24px; align-items: center; max-width: 900px; margin: 0 auto;">
+        <div style="background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); border-radius: 14px; padding: 28px; text-align: center;">
+          <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #ef4444; margin-bottom: 16px;">Specialist Model (Before)</div>
+          <div style="font-size: 2rem; font-weight: 800; color: rgba(255,255,255,0.8); margin-bottom: 8px;">12 People</div>
+          <div style="font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.6;">One person = one discipline<br>4-5 handoffs per campaign<br>Bottleneck: capacity<br>Single points of failure</div>
         </div>
-        <div class="bp-pillars">
-          <div class="bp-pillar bp-pillar-perf">
-            <div class="bp-pillar-name">Performance</div>
-            <div class="bp-pillar-desc">Revenue Engine</div>
-            <div class="bp-pillar-discs">
-              <span>Ads</span><span>SEO</span><span>CRO</span>
-              <span>Email</span><span>Web Dev</span><span>Competitor Intel</span>
-            </div>
-          </div>
-          <div class="bp-pillar bp-pillar-brand">
-            <div class="bp-pillar-name">Brand &amp; Creative</div>
-            <div class="bp-pillar-desc">Awareness Engine</div>
-            <div class="bp-pillar-discs">
-              <span>Content</span><span>Social</span><span>Design</span>
-              <span>Rep/ORM</span><span>Internal Requests</span><span>Events</span>
-            </div>
-          </div>
+        <div style="color: rgba(255,255,255,0.2); text-align: center;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
         </div>
-        <div class="bp-layer bp-layer-bottom">
-          <div class="bp-layer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m-7-9.5l5.2 3m1.6-9l5.2 3M5 19.5l5.2-3m1.6 9l5.2-3"/></svg></div>
-          <div class="bp-layer-content">
-            <div class="bp-layer-name">AI Innovation &amp; Enablement</div>
-            <div class="bp-layer-desc">Agents, automation, technology enabling both pillars</div>
-          </div>
+        <div style="background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.15); border-radius: 14px; padding: 28px; text-align: center;">
+          <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #22c55e; margin-bottom: 16px;">Builder Model (After)</div>
+          <div style="font-size: 2rem; font-weight: 800; color: rgba(255,255,255,0.8); margin-bottom: 8px;">7 People</div>
+          <div style="font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.6;">One builder = multiple disciplines<br>Brief in, output out<br>Bottleneck: judgment<br>Builders cross-cover</div>
         </div>
       </div>
     </div>
 
     <div class="bp-principles vh-fade-up vh-delay-4">
       <div class="bp-principle-card">
-        <div class="bp-principle-icon">&#9475;</div>
-        <div class="bp-principle-title">Operational Pillars</div>
-        <div class="bp-principle-text">Each pillar owns a product of marketing. Performance runs the revenue engine (ads, SEO, CRO, email). Brand &amp; Creative runs the awareness engine (content, social, design). They own KPIs, output, and daily execution.</div>
+        <div class="bp-principle-icon" style="font-size: 1.5rem;">&#128736;</div>
+        <div class="bp-principle-title">Builders Ship End-to-End</div>
+        <div class="bp-principle-text">A builder takes a brief and delivers the finished output — no handoffs to a designer, writer, or developer. They direct AI agents for 70% of execution and apply human judgment for the remaining 30%.</div>
       </div>
       <div class="bp-principle-card">
-        <div class="bp-principle-icon">&#9473;</div>
-        <div class="bp-principle-title">Enabling Layers</div>
-        <div class="bp-principle-text">Strategy &amp; Leadership (Stephen) sets direction and standards across both pillars. AI Innovation (Imran) enables both with agents, automation, and technology. They don't run operations — they make operations better.</div>
+        <div class="bp-principle-icon" style="font-size: 1.5rem;">&#960;</div>
+        <div class="bp-principle-title">Pi-Shaped Skills</div>
+        <div class="bp-principle-text">Each builder is deep in 1-2 disciplines and competent across their pod's full scope. AI fills the gaps between breadth and depth. Miranda doesn't need to be a great designer — she needs to know when AI design output is good enough to ship.</div>
       </div>
       <div class="bp-principle-card">
-        <div class="bp-principle-icon">&#10710;</div>
-        <div class="bp-principle-title">Clean Decision Rights</div>
-        <div class="bp-principle-text">Execution decisions — pillar leaders decide. Strategy and standards — enabling layers. Technology and agent design — AI Innovation. Conflicts escalate to CGO. No overlap, no ambiguity.</div>
+        <div class="bp-principle-icon" style="font-size: 1.5rem;">&#9881;</div>
+        <div class="bp-principle-title">Two Pods, Clean Ownership</div>
+        <div class="bp-principle-text">Performance Pod runs the revenue engine. Internal Agency Pod runs brand, creative, and stakeholder service. Each pod is self-contained — the Marketing Ops Manager runs the agency, Paul runs performance. Stephen sets strategy across both.</div>
       </div>
     </div>
   </div>
@@ -1353,69 +1335,67 @@
 <section id="mid-stage">
   <div class="ms-container">
     <div class="ms-fade-up">
-      <span class="ms-phase-label">Restructure</span>
-      <h2 class="ms-title">Phase 1 &mdash; Mid-Stage (6 People + Imran)</h2>
-      <p class="ms-subtitle">Redundancies, new hires, and the first wave of AI agents</p>
+      <span class="ms-phase-label">The Structure</span>
+      <h2 class="ms-title">The Builder Team &mdash; 7 People</h2>
+      <p class="ms-subtitle">Two pods, two leaders, five builders — powered by 30-40 AI agents</p>
     </div>
 
     <div class="ms-two-col">
       <div class="ms-org-chart ms-fade-up ms-delay-2">
-        <h3 class="ms-org-chart-title">Org Structure</h3>
-        <div class="ms-org-gm">
+        <h3 class="ms-org-chart-title">The Builder Structure</h3>
+        <div class="ms-org-gm clickable" data-owner="stephen" onclick="openRolePanel('stephen')">
           <span class="ms-org-dot ms-dot-navy"></span>
           <div>
             <div class="ms-org-person-name">GM Marketing</div>
             <div class="ms-org-person-role">Stephen Danckert</div>
           </div>
         </div>
-        <span class="ms-org-badge ms-badge-perf">Performance</span>
+        <span class="ms-org-badge ms-badge-perf">Performance Pod</span>
         <ul class="ms-org-tree">
           <li>
-            <div class="ms-org-person">
+            <div class="ms-org-person clickable" data-owner="paul" onclick="openRolePanel('paul')">
               <span class="ms-org-dot ms-dot-blue"></span>
               <span class="ms-org-person-name">Head of Performance</span>
               <span class="ms-org-person-role">&mdash; Paul Phare</span>
             </div>
             <ul class="ms-org-tree">
               <li>
-                <div class="ms-org-person">
+                <div class="ms-org-person clickable" data-owner="perfbuilder" onclick="openRolePanel('perfbuilder')">
                   <span class="ms-org-dot ms-dot-blue"></span>
-                  <span class="ms-org-person-name">Digital &amp; Automation Lead</span>
-                  <span class="ms-org-person-role">&mdash; New Hire</span>
-                  <span class="ms-new-hire-tag">NEW HIRE</span>
+                  <span class="ms-org-person-name">Performance Builder</span>
+                  <span class="ms-org-person-role">&mdash; New Hire <span class="ms-new-hire-tag">NEW</span></span>
                 </div>
               </li>
             </ul>
           </li>
         </ul>
-        <span class="ms-org-badge ms-badge-ops">Brand &amp; Creative</span>
+        <span class="ms-org-badge ms-badge-ops">Internal Agency Pod</span>
         <ul class="ms-org-tree">
           <li>
-            <div class="ms-org-person">
+            <div class="ms-org-person clickable" data-owner="opsmanager" onclick="openRolePanel('opsmanager')">
               <span class="ms-org-dot ms-dot-teal"></span>
-              <span class="ms-org-person-name">Marketing Ops &amp; Brand Manager</span>
-              <span class="ms-org-person-role">&mdash; New Hire</span>
-              <span class="ms-new-hire-tag">NEW HIRE</span>
+              <span class="ms-org-person-name">Marketing Ops Manager</span>
+              <span class="ms-org-person-role">&mdash; New Hire <span class="ms-new-hire-tag">NEW</span></span>
             </div>
             <ul class="ms-org-tree">
               <li>
-                <div class="ms-org-person">
+                <div class="ms-org-person clickable" data-owner="matthew" onclick="openRolePanel('matthew')">
                   <span class="ms-org-dot ms-dot-teal"></span>
-                  <span class="ms-org-person-name">Content &amp; Comms Executive</span>
+                  <span class="ms-org-person-name">Content &amp; Comms Builder</span>
                   <span class="ms-org-person-role">&mdash; Matthew Hart</span>
                 </div>
               </li>
               <li>
-                <div class="ms-org-person">
+                <div class="ms-org-person clickable" data-owner="miranda" onclick="openRolePanel('miranda')">
                   <span class="ms-org-dot ms-dot-teal"></span>
-                  <span class="ms-org-person-name">Social, ORM &amp; Design Executive</span>
+                  <span class="ms-org-person-name">Social, ORM &amp; Design Builder</span>
                   <span class="ms-org-person-role">&mdash; Miranda Partridge</span>
                 </div>
               </li>
               <li>
-                <div class="ms-org-person">
+                <div class="ms-org-person clickable" data-owner="alisha" onclick="openRolePanel('alisha')">
                   <span class="ms-org-dot ms-dot-teal"></span>
-                  <span class="ms-org-person-name">Creative Lead</span>
+                  <span class="ms-org-person-name">Creative &amp; Campaign Builder</span>
                   <span class="ms-org-person-role">&mdash; Alisha Van Bone</span>
                 </div>
               </li>
@@ -1423,7 +1403,7 @@
           </li>
         </ul>
         <div class="ms-org-divider"></div>
-        <div class="ms-org-standalone">
+        <div class="ms-org-standalone clickable" data-owner="imran" onclick="openRolePanel('imran')">
           <span class="ms-org-dot ms-dot-teal"></span>
           <div>
             <div class="ms-org-person-name">AI Innovation Lead</div>
@@ -1450,7 +1430,7 @@
               <span class="ms-change-type-label ms-label-redundant">REDUNDANT</span>
               <p class="ms-absorbed-card-name">Rajitha Jayathunga</p>
               <p class="ms-absorbed-card-old-role">Digital Marketing Lead</p>
-              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaced by new Digital &amp; Automation Lead hire</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaced by new Performance Builder hire</p>
             </div>
           </div>
           <div class="ms-absorbed-card ms-card-redundant ms-fade-in ms-delay-5">
@@ -1461,7 +1441,7 @@
               <span class="ms-change-type-label ms-label-redundant">REDUNDANT</span>
               <p class="ms-absorbed-card-name">Michael Coffey</p>
               <p class="ms-absorbed-card-old-role">Campaign &amp; Automation Specialist</p>
-              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Email/automation scope absorbed into new Digital &amp; Automation Lead</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Email/automation scope absorbed into Performance Builder</p>
             </div>
           </div>
           <div class="ms-absorbed-card ms-card-redundant ms-fade-in ms-delay-5">
@@ -1505,7 +1485,7 @@
               <span class="ms-change-type-label ms-label-resigns">RESIGNS</span>
               <p class="ms-absorbed-card-name">Mariia Branch</p>
               <p class="ms-absorbed-card-old-role">Marketing Operations TL</p>
-              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaced by new Marketing Ops &amp; Brand Manager hire</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaced by new Marketing Ops Manager hire</p>
             </div>
           </div>
           <div class="ms-absorbed-card ms-card-newhire ms-fade-in ms-delay-8">
@@ -1514,9 +1494,9 @@
             </div>
             <div>
               <span class="ms-change-type-label ms-label-newhire">NEW HIRE</span>
-              <p class="ms-absorbed-card-name">Digital &amp; Automation Lead</p>
+              <p class="ms-absorbed-card-name">Performance Builder</p>
               <p class="ms-absorbed-card-old-role">Reports to Head of Performance</p>
-              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaces Rajitha + Michael scope. Ads execution, email, CRO, web dev, attribution</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaces Rajitha + Michael scope. Ads, SEO, CRO, email, web dev, competitor intel, attribution</p>
             </div>
           </div>
           <div class="ms-absorbed-card ms-card-newhire ms-fade-in ms-delay-9">
@@ -1525,9 +1505,9 @@
             </div>
             <div>
               <span class="ms-change-type-label ms-label-newhire">NEW HIRE</span>
-              <p class="ms-absorbed-card-name">Marketing Ops &amp; Brand Manager</p>
+              <p class="ms-absorbed-card-name">Marketing Ops Manager</p>
               <p class="ms-absorbed-card-old-role">Reports to GM Marketing</p>
-              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaces Mariia. Agency background, multi-skilled, AI-native. Owns brand, ops, content strategy</p>
+              <p class="ms-absorbed-card-reason"><span class="ms-absorbed-arrow">&#8594;</span> Replaces Mariia. Agency background, AI-native. Runs internal agency pod — brand, creative, stakeholder service</p>
             </div>
           </div>
         </div>
@@ -1535,46 +1515,52 @@
     </div>
 
     <div class="vh-grid-wrapper ms-fade-up ms-delay-5">
-      <h3 class="vh-grid-title">Operating Structure — 6 People + Imran</h3>
-      <p class="vh-grid-subtitle">Two operational pillars, two enabling layers</p>
+      <h3 class="vh-grid-title">Builder Pods</h3>
+      <p class="vh-grid-subtitle">Two self-contained pods — each builder ships end-to-end with AI agents</p>
       <div class="vh-grid">
-        <div class="vh-h-band vh-h-top">
-          <div class="vh-h-band-icon">&#9473;</div>
+        <div class="vh-h-band vh-h-top clickable" onclick="openRolePanel('stephen')">
+          <div class="vh-h-band-icon">&#9733;</div>
           <div>
-            <div class="vh-h-band-name">Strategy &amp; Leadership</div>
-            <div class="vh-h-band-person"><strong>GM Marketing</strong> &mdash; Stephen Danckert</div>
-            <div class="vh-h-band-scope">Budget &middot; Stakeholders &middot; Brand Positioning &middot; Quality Standards</div>
+            <div class="vh-h-band-name">Strategy &amp; Standards</div>
+            <div class="vh-h-band-person">GM Marketing — Stephen Danckert</div>
+            <div class="vh-h-band-scope">Sets direction across both pods &middot; Budget &middot; Stakeholders &middot; Quality bar</div>
           </div>
         </div>
         <div class="vh-cols">
           <div class="vh-col vh-col-perf">
             <div class="vh-col-header">
+              <div class="vh-col-label">POD</div>
               <div class="vh-col-name">Performance</div>
               <div class="vh-col-desc">Revenue Engine</div>
             </div>
             <div class="vh-col-people">
-              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-teal"></span><strong>Head of Performance</strong> <span class="vh-person-role">Paul Phare</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lteal"></span><strong>Digital &amp; Automation Lead</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
+              <div class="vh-person vh-person-lead clickable" onclick="openRolePanel('paul')"><span class="vh-dot vh-dot-teal"></span><strong>Head of Performance</strong> <span class="vh-person-role">Paul Phare</span></div>
+              <div class="vh-person clickable" onclick="openRolePanel('perfbuilder')"><span class="vh-dot vh-dot-lteal"></span><strong>Performance Builder</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
             </div>
             <div class="vh-col-disciplines">
               <span class="vh-disc">Ads</span>
               <span class="vh-disc">SEO</span>
               <span class="vh-disc">CRO</span>
-              <span class="vh-disc">Email Marketing</span>
+              <span class="vh-disc">Email</span>
               <span class="vh-disc">Web Dev</span>
               <span class="vh-disc">Competitor Intel</span>
+              <span class="vh-disc">Attribution</span>
+            </div>
+            <div class="vh-col-agents">
+              <span class="vh-agent-count">15-20</span> AI Agents
             </div>
           </div>
           <div class="vh-col vh-col-brand">
             <div class="vh-col-header">
-              <div class="vh-col-name">Brand &amp; Creative</div>
-              <div class="vh-col-desc">Awareness Engine</div>
+              <div class="vh-col-label">POD</div>
+              <div class="vh-col-name">Internal Agency</div>
+              <div class="vh-col-desc">Brand &amp; Creative Engine</div>
             </div>
             <div class="vh-col-people">
-              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-blue"></span><strong>Marketing Ops &amp; Brand Manager</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Content &amp; Comms Executive</strong> <span class="vh-person-role">Matthew Hart</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Social, ORM &amp; Design Executive</strong> <span class="vh-person-role">Miranda Partridge</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Creative Lead</strong> <span class="vh-person-role">Alisha Van Bone</span></div>
+              <div class="vh-person vh-person-lead clickable" onclick="openRolePanel('opsmanager')"><span class="vh-dot vh-dot-blue"></span><strong>Marketing Ops Manager</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
+              <div class="vh-person clickable" onclick="openRolePanel('matthew')"><span class="vh-dot vh-dot-lblue"></span><strong>Content &amp; Comms Builder</strong> <span class="vh-person-role">Matthew Hart</span></div>
+              <div class="vh-person clickable" onclick="openRolePanel('miranda')"><span class="vh-dot vh-dot-lblue"></span><strong>Social, ORM &amp; Design Builder</strong> <span class="vh-person-role">Miranda Partridge</span></div>
+              <div class="vh-person clickable" onclick="openRolePanel('alisha')"><span class="vh-dot vh-dot-lblue"></span><strong>Creative &amp; Campaign Builder</strong> <span class="vh-person-role">Alisha Van Bone</span></div>
             </div>
             <div class="vh-col-disciplines">
               <span class="vh-disc">Content &amp; Copy</span>
@@ -1583,15 +1569,19 @@
               <span class="vh-disc">Rep/ORM</span>
               <span class="vh-disc">Internal Requests</span>
               <span class="vh-disc">Events</span>
+              <span class="vh-disc">Video</span>
+            </div>
+            <div class="vh-col-agents">
+              <span class="vh-agent-count">15-20</span> AI Agents
             </div>
           </div>
         </div>
-        <div class="vh-h-band vh-h-bottom">
-          <div class="vh-h-band-icon">&#9473;</div>
+        <div class="vh-h-band vh-h-bottom clickable" onclick="openRolePanel('imran')">
+          <div class="vh-h-band-icon">&#9881;</div>
           <div>
-            <div class="vh-h-band-name">AI Innovation &amp; Enablement</div>
-            <div class="vh-h-band-person"><strong>AI Innovation Lead</strong> &mdash; Imran Mehmood <span class="vh-reports-tag">reports to CGO</span></div>
-            <div class="vh-h-band-scope">Agent Builds &middot; Tech Bridge &middot; Automation &middot; Efficiency</div>
+            <div class="vh-h-band-name">AI Innovation &amp; Builder Enablement</div>
+            <div class="vh-h-band-person">AI Innovation Lead — Imran Mehmood <span class="vh-reports-tag">reports to CGO</span></div>
+            <div class="vh-h-band-scope">30-40 Agents &middot; Builder Tools &middot; Automation &middot; Training</div>
           </div>
         </div>
       </div>
@@ -1599,36 +1589,36 @@
 
     <div class="ms-matrix-section ms-fade-up ms-delay-8">
       <div class="ms-matrix-header">
-        <h3 class="ms-matrix-title">Cross-Training Matrix</h3>
-        <p class="ms-matrix-subtitle">Upskilling plan to close capability gaps across the team</p>
+        <h3 class="ms-matrix-title">Builder Development</h3>
+        <p class="ms-matrix-subtitle">Cross-training plan to turn specialists into builders</p>
       </div>
       <table class="ms-matrix-grid">
-        <thead><tr><th>Person</th><th>Must Develop</th><th>How</th></tr></thead>
+        <thead><tr><th>Builder</th><th>Must Develop</th><th>Target</th></tr></thead>
         <tbody>
           <tr class="ms-slide-right ms-delay-5">
             <td><span class="ms-matrix-person">Matthew Hart</span></td>
-            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">AI Content Workflows</span><span class="ms-matrix-skill-tag">Brand Awareness</span></div></td>
-            <td><p class="ms-matrix-how">Target 50%+ output generated via AI agents, focus on editing and quality. Build brand awareness muscle</p></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">AI Content Workflows</span><span class="ms-matrix-skill-tag">Design Awareness</span></div></td>
+            <td><p class="ms-matrix-how">Target 70% AI-drafted content. Knows when AI design output is good enough to ship</p></td>
           </tr>
           <tr class="ms-slide-right ms-delay-6">
             <td><span class="ms-matrix-person">Miranda Partridge</span></td>
             <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Design Skills</span><span class="ms-matrix-skill-tag">Content Writing</span></div></td>
-            <td><p class="ms-matrix-how">Expands into design via Canva and AI tools, builds longer-form content capability</p></td>
+            <td><p class="ms-matrix-how">Flex across social + design + content. Produce basic design assets independently via AI tools</p></td>
           </tr>
           <tr class="ms-slide-right ms-delay-7">
             <td><span class="ms-matrix-person">Alisha Van Bone</span></td>
             <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">Social Content</span><span class="ms-matrix-skill-tag">Content Writing</span></div></td>
-            <td><p class="ms-matrix-how">Paired with Miranda for 4 weeks to build social and written content muscle</p></td>
+            <td><p class="ms-matrix-how">Produce social assets and written content. Cross-cover Miranda on social when needed</p></td>
           </tr>
           <tr class="ms-slide-right ms-delay-8">
-            <td><span class="ms-matrix-person">New Hire (Dig &amp; Auto Lead)</span></td>
-            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">TC Systems</span><span class="ms-matrix-skill-tag">Klaviyo</span><span class="ms-matrix-skill-tag">Claude Code</span><span class="ms-matrix-skill-tag">Platform Onboarding</span></div></td>
-            <td><p class="ms-matrix-how">Onboard into TC platforms, Klaviyo, Google Ads, Meta, and Claude Code for web dev</p></td>
+            <td><span class="ms-matrix-person">New Hire (Perf Builder)</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">TC Systems</span><span class="ms-matrix-skill-tag">Klaviyo</span><span class="ms-matrix-skill-tag">Claude Code</span></div></td>
+            <td><p class="ms-matrix-how">Onboard to all performance platforms. Must be AI-native from day one</p></td>
           </tr>
           <tr class="ms-slide-right ms-delay-9">
-            <td><span class="ms-matrix-person">New Hire (Ops &amp; Brand Mgr)</span></td>
-            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">TC Brand Standards</span><span class="ms-matrix-skill-tag">Stakeholder Relationships</span><span class="ms-matrix-skill-tag">AI Agent Adoption</span></div></td>
-            <td><p class="ms-matrix-how">Onboard into TC brand guidelines, stakeholder relationships, and AI agent workflows</p></td>
+            <td><span class="ms-matrix-person">New Hire (Ops Manager)</span></td>
+            <td><div class="ms-matrix-skills"><span class="ms-matrix-skill-tag">TC Brand</span><span class="ms-matrix-skill-tag">Stakeholders</span><span class="ms-matrix-skill-tag">AI Agents</span></div></td>
+            <td><p class="ms-matrix-how">Run the agency pod. Learn TC brand, stakeholder map, and AI agent workflows</p></td>
           </tr>
         </tbody>
       </table>
@@ -1636,180 +1626,41 @@
   </div>
 </section>
 
-<!-- ========== END-STATE #end-state ========== -->
+<!-- ========== CONSIDERATIONS #end-state ========== -->
 <section id="end-state">
   <div class="es-container">
     <div class="es-header">
-      <div class="es-phase-badge">End-State</div>
-      <h2 class="es-title">End-State (5 People + Imran)</h2>
-      <p class="es-subtitle">Five multi-skilled humans managing <strong>30-45 AI agents</strong> across <strong>12 disciplines</strong></p>
+      <div class="es-phase-badge">Key Risks</div>
+      <h2 class="es-title">Considerations</h2>
+      <p class="es-subtitle">What needs to go right for the builder model to work</p>
     </div>
 
-    <div class="es-org-chart">
-      <div class="es-section-title">Organisation Structure</div>
-      <div class="es-org-tree">
-        <div class="es-org-level-0">
-          <div class="es-org-node"><span class="es-org-node-dot es-dot-blue"></span><div><div class="es-org-node-name">GM Marketing</div><div class="es-org-node-role">Stephen Danckert</div></div></div>
-        </div>
-        <div class="es-org-connector"></div>
-        <div class="es-org-level-1">
-          <div class="es-org-branch">
-            <div class="es-org-node"><span class="es-org-node-dot es-dot-teal"></span><div><div class="es-org-node-name">Head of Performance</div><div class="es-org-node-role">Paul Phare</div></div></div>
-            <div class="es-org-connector"></div>
-            <div class="es-org-level-2">
-              <div class="es-org-node"><span class="es-org-node-dot es-dot-lteal"></span><div><div class="es-org-node-name">Digital &amp; Automation Lead</div><div class="es-org-node-role">New Hire</div></div></div>
-            </div>
-          </div>
-          <div class="es-org-branch">
-            <div class="es-org-node"><span class="es-org-node-dot es-dot-blue"></span><div><div class="es-org-node-name">Mktg Ops &amp; Brand Mgr</div><div class="es-org-node-role">New Hire</div></div></div>
-            <div class="es-org-connector"></div>
-            <div class="es-org-level-2">
-              <div class="es-org-node"><span class="es-org-node-dot es-dot-lblue"></span><div><div class="es-org-node-name">Content &amp; Comms Exec</div><div class="es-org-node-role">Matthew Hart</div></div></div>
-              <div class="es-org-node"><span class="es-org-node-dot es-dot-lblue"></span><div><div class="es-org-node-name">Social, ORM &amp; Design Exec</div><div class="es-org-node-role">Miranda Partridge</div></div></div>
-              <div class="es-org-node"><span class="es-org-node-dot es-dot-lblue"></span><div><div class="es-org-node-name">Creative Lead</div><div class="es-org-node-role">Alisha Van Bone</div></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="es-org-standalone">
-          <div class="es-org-node"><span class="es-org-node-dot es-dot-lteal"></span><div><div class="es-org-node-name">AI Innovation Lead <span class="es-org-report-tag">reports to CGO</span></div><div class="es-org-node-role">Imran Mehmood</div></div></div>
-        </div>
+    <div class="es-cards-grid" style="max-width: 900px; margin: 0 auto;">
+      <div class="es-role-card" style="opacity:1;transform:none;">
+        <div class="es-card-header"><div><div class="es-card-person" style="color: #ef4444;">Unicorn Hire Risk</div><div class="es-card-role-title">Performance Builder</div></div></div>
+        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin: 0;">Finding someone genuinely multi-skilled across 7 performance disciplines AND AI-native is hard. May need 6-8 weeks and a premium salary. Paul covers execution gaps during hiring.</p>
+      </div>
+      <div class="es-role-card" style="opacity:1;transform:none;">
+        <div class="es-card-header"><div><div class="es-card-person" style="color: #f59e0b;">Bus Factor</div><div class="es-card-role-title">Performance Pod</div></div></div>
+        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin: 0;">One Performance Builder = single point of failure for the revenue engine. Mitigation: Paul can cover, AI agents retain workflows. Consider second builder long-term.</p>
+      </div>
+      <div class="es-role-card" style="opacity:1;transform:none;">
+        <div class="es-card-header"><div><div class="es-card-person" style="color: #f59e0b;">Builder vs Specialist Labels</div><div class="es-card-role-title">Agency Pod</div></div></div>
+        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin: 0;">If Matthew only writes, Miranda only does social, and Alisha only designs — they are specialists with builder labels. Cross-training must be enforced over 3-4 months.</p>
+      </div>
+      <div class="es-role-card" style="opacity:1;transform:none;">
+        <div class="es-card-header"><div><div class="es-card-person" style="color: #f59e0b;">Builder Burnout</div><div class="es-card-role-title">All Builders</div></div></div>
+        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin: 0;">Research shows 60% burnout in IT generalists. Broad scope + AI management is heavy cognitive load. Monitor actively, protect capacity. AI must reduce load, not just increase output expectations.</p>
+      </div>
+      <div class="es-role-card" style="opacity:1;transform:none;">
+        <div class="es-card-header"><div><div class="es-card-person" style="color: #22c55e;">Quality Depth</div><div class="es-card-role-title">Trade-off</div></div></div>
+        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin: 0;">Builders won't match specialists in any single discipline. The bet: AI + good-enough judgment > deep specialist + slow handoffs. May not hold for complex technical SEO or advanced attribution.</p>
+      </div>
+      <div class="es-role-card" style="opacity:1;transform:none;">
+        <div class="es-card-header"><div><div class="es-card-person" style="color: #22c55e;">Marketing Ops Manager Hire</div><div class="es-card-role-title">Critical Path</div></div></div>
+        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin: 0;">This person runs the internal agency. Agency background essential — knows how to run creative services, manage stakeholders, and operate AI-native. A bad hire here breaks the entire brand/creative side.</p>
       </div>
     </div>
-
-    <div class="vh-grid-wrapper es-fade-up">
-      <h3 class="vh-grid-title">Operating Structure — 5 People + Imran</h3>
-      <p class="vh-grid-subtitle">Clean, final structure — two pillars, two enabling layers, twelve disciplines</p>
-      <div class="vh-grid vh-grid-final">
-        <div class="vh-h-band vh-h-top">
-          <div class="vh-h-band-icon">&#9473;</div>
-          <div>
-            <div class="vh-h-band-name">Strategy &amp; Leadership</div>
-            <div class="vh-h-band-person"><strong>GM Marketing</strong> &mdash; Stephen Danckert</div>
-            <div class="vh-h-band-scope">Budget &middot; Stakeholders &middot; Brand Positioning &middot; Quality Standards</div>
-          </div>
-        </div>
-        <div class="vh-cols">
-          <div class="vh-col vh-col-perf">
-            <div class="vh-col-header">
-              <div class="vh-col-name">Performance</div>
-              <div class="vh-col-desc">Revenue Engine</div>
-            </div>
-            <div class="vh-col-people">
-              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-teal"></span><strong>Head of Performance</strong> <span class="vh-person-role">Paul Phare</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lteal"></span><strong>Digital &amp; Automation Lead</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
-            </div>
-            <div class="vh-col-disciplines">
-              <span class="vh-disc">Ads</span>
-              <span class="vh-disc">SEO</span>
-              <span class="vh-disc">CRO</span>
-              <span class="vh-disc">Email Marketing</span>
-              <span class="vh-disc">Web Dev</span>
-              <span class="vh-disc">Competitor Intel</span>
-            </div>
-            <div class="vh-col-agents">
-              <span class="vh-agent-count">14-22</span> AI Agents
-            </div>
-          </div>
-          <div class="vh-col vh-col-brand">
-            <div class="vh-col-header">
-              <div class="vh-col-name">Brand &amp; Creative</div>
-              <div class="vh-col-desc">Awareness Engine</div>
-            </div>
-            <div class="vh-col-people">
-              <div class="vh-person vh-person-lead"><span class="vh-dot vh-dot-blue"></span><strong>Marketing Ops &amp; Brand Manager</strong> <span class="vh-person-role">New Hire <span class="vh-new-tag">NEW</span></span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Content &amp; Comms Executive</strong> <span class="vh-person-role">Matthew Hart</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Social, ORM &amp; Design Executive</strong> <span class="vh-person-role">Miranda Partridge</span></div>
-              <div class="vh-person"><span class="vh-dot vh-dot-lblue"></span><strong>Creative Lead</strong> <span class="vh-person-role">Alisha Van Bone</span></div>
-            </div>
-            <div class="vh-col-disciplines">
-              <span class="vh-disc">Content &amp; Copy</span>
-              <span class="vh-disc">Social Media</span>
-              <span class="vh-disc">Design</span>
-              <span class="vh-disc">Rep/ORM</span>
-              <span class="vh-disc">Internal Requests</span>
-              <span class="vh-disc">Events</span>
-            </div>
-            <div class="vh-col-agents">
-              <span class="vh-agent-count">14-18</span> AI Agents
-            </div>
-          </div>
-        </div>
-        <div class="vh-h-band vh-h-bottom">
-          <div class="vh-h-band-icon">&#9473;</div>
-          <div>
-            <div class="vh-h-band-name">AI Innovation &amp; Enablement</div>
-            <div class="vh-h-band-person"><strong>AI Innovation Lead</strong> &mdash; Imran Mehmood <span class="vh-reports-tag">reports to CGO</span></div>
-            <div class="vh-h-band-scope">30-45 Agents &middot; Tech Bridge &middot; Automation &middot; Training</div>
-          </div>
-        </div>
-      </div>
-      <div class="vh-decision-rights es-fade-up">
-        <div class="vh-dr-title">Decision Rights</div>
-        <div class="vh-dr-grid">
-          <div class="vh-dr-item"><div class="vh-dr-domain">Execution decisions</div><div class="vh-dr-owner">Pillar leaders decide</div></div>
-          <div class="vh-dr-item"><div class="vh-dr-domain">Strategy &amp; standards</div><div class="vh-dr-owner">GM Marketing decides</div></div>
-          <div class="vh-dr-item"><div class="vh-dr-domain">Technology &amp; agent design</div><div class="vh-dr-owner">AI Innovation Lead decides</div></div>
-          <div class="vh-dr-item"><div class="vh-dr-domain">Conflicts or overlaps</div><div class="vh-dr-owner">Escalated to CGO</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="es-role-cards">
-      <div class="es-section-title">Roles &amp; AI Agent Load</div>
-      <div class="es-cards-grid">
-        <div class="es-role-card" data-owner="stephen">
-          <div class="es-card-header"><div><div class="es-card-person">GM Marketing</div><div class="es-card-role-title">Stephen Danckert</div></div>
-            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>3-5</span></div></div>
-          <ul class="es-card-disciplines"><li>Strategy</li><li>Budget</li><li>Stakeholders</li></ul>
-        </div>
-        <div class="es-role-card" data-owner="paul">
-          <div class="es-card-header"><div><div class="es-card-person">Head of Performance</div><div class="es-card-role-title">Paul Phare</div></div>
-            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>8-12</span></div></div>
-          <ul class="es-card-disciplines"><li>Ads</li><li>SEO</li><li>CRO</li><li>Email</li><li>Competitor Intel</li></ul>
-        </div>
-        <div class="es-role-card" data-owner="digauto">
-          <div class="es-card-header"><div><div class="es-card-person">Digital &amp; Automation Lead</div><div class="es-card-role-title">New Hire</div></div>
-            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>6-10</span></div></div>
-          <ul class="es-card-disciplines"><li>Ads Exec</li><li>Email Exec</li><li>CRO Exec</li><li>Web Dev</li><li>Attribution</li></ul>
-        </div>
-        <div class="es-role-card" data-owner="opsbrand">
-          <div class="es-card-header"><div><div class="es-card-person">Mktg Ops &amp; Brand Mgr</div><div class="es-card-role-title">New Hire</div></div>
-            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>6-10</span></div></div>
-          <ul class="es-card-disciplines"><li>Internal Requests</li><li>Content Strategy</li><li>Ops</li><li>Brand</li><li>Events</li></ul>
-        </div>
-        <div class="es-role-card" data-owner="alisha">
-          <div class="es-card-header"><div><div class="es-card-person">Creative Lead</div><div class="es-card-role-title">Alisha Van Bone</div></div>
-            <div class="es-agent-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#43C0BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg><span>6-10</span></div></div>
-          <ul class="es-card-disciplines"><li>Design</li><li>Video</li></ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="es-matrix">
-      <div class="es-section-title">12 Disciplines — Ownership Map</div>
-      <div class="es-matrix-grid">
-        <div class="es-matrix-cell es-owner-paul">Paid Ads<span class="es-cell-owner">Head of Perf</span></div>
-        <div class="es-matrix-cell es-owner-paul">SEO<span class="es-cell-owner">Head of Perf</span></div>
-        <div class="es-matrix-cell es-owner-paul">CRO<span class="es-cell-owner">Head of Perf</span></div>
-        <div class="es-matrix-cell es-owner-paul">Email Marketing<span class="es-cell-owner">Head of Perf</span></div>
-        <div class="es-matrix-cell es-owner-rajitha">Web Dev<span class="es-cell-owner">Dig &amp; Auto Lead</span></div>
-        <div class="es-matrix-cell es-owner-rajitha">Attribution<span class="es-cell-owner">Dig &amp; Auto Lead</span></div>
-        <div class="es-matrix-cell es-owner-mariia">Content Strategy<span class="es-cell-owner">Ops &amp; Brand Mgr</span></div>
-        <div class="es-matrix-cell es-owner-mariia">Brand<span class="es-cell-owner">Ops &amp; Brand Mgr</span></div>
-        <div class="es-matrix-cell es-owner-mariia">Events<span class="es-cell-owner">Ops &amp; Brand Mgr</span></div>
-        <div class="es-matrix-cell es-owner-alisha">Design<span class="es-cell-owner">Creative Lead</span></div>
-        <div class="es-matrix-cell es-owner-alisha">Social Media<span class="es-cell-owner">Creative Lead</span></div>
-        <div class="es-matrix-cell es-owner-alisha">Video<span class="es-cell-owner">Creative Lead</span></div>
-      </div>
-      <div class="es-matrix-legend">
-        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-paul"></span>Head of Performance</div>
-        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-rajitha"></span>Digital &amp; Automation Lead</div>
-        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-mariia"></span>Ops &amp; Brand Manager</div>
-        <div class="es-legend-item"><span class="es-legend-swatch es-swatch-alisha"></span>Creative Lead</div>
-      </div>
-    </div>
-
-    <!-- No Phase 2 absorptions — this IS the end-state from the start -->
   </div>
 </section>
 
@@ -1818,7 +1669,7 @@
   <div class="ag-container">
     <div class="ag-header">
       <h2>AI Efficiency Gains</h2>
-      <p>How 5 people + Imran deliver 3-5x the output of 12 — function by function</p>
+      <p>How 7 builders deliver 3-5x the output of 12 — function by function</p>
     </div>
     <div class="ag-grid">
 
@@ -1852,7 +1703,7 @@
         <div class="ag-card-future">AI builds flows, drafts copy, tests subject lines, optimises sends</div>
         <span class="click-hint">Click to explore &darr;</span>
         <div class="ag-detail"><div class="ag-detail-inner">
-          <div class="ag-ba"><div class="ag-before"><b>Before</b>Michael manually builds Klaviyo flows, writes email copy, sets up A/B tests. ~4 active journeys, 1 test/month.</div><div class="ag-after"><b>After</b>Digital &amp; Automation Lead manages strategy; AI agents build flows, draft copy, generate subject line variants, optimise send times. ~12 active journeys, 2+ tests/month. Speed-to-lead under 1 hour.</div></div>
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Michael manually builds Klaviyo flows, writes email copy, sets up A/B tests. ~4 active journeys, 1 test/month.</div><div class="ag-after"><b>After</b>Performance Builder manages strategy; AI agents build flows, draft copy, generate subject line variants, optimise send times. ~12 active journeys, 2+ tests/month. Speed-to-lead under 1 hour.</div></div>
           <div class="ag-agents"><span class="ag-tag">Klaviyo Flow Agent</span><span class="ag-tag">Email Copy Agent</span><span class="ag-tag">A/B Test Agent</span><span class="ag-tag">Send Optimiser</span></div>
           <p class="ag-why"><strong>Why it works:</strong> Email automation is inherently AI-friendly &mdash; templates, triggers, and copy variants are systematic. The human value is journey strategy and segmentation decisions, not flow building.</p>
         </div></div>
@@ -1864,7 +1715,7 @@
         <div class="ag-card-future">AI generates landing page variants, analyses heatmaps, reports results</div>
         <span class="click-hint">Click to explore &darr;</span>
         <div class="ag-detail"><div class="ag-detail-inner">
-          <div class="ag-ba"><div class="ag-before"><b>Before</b>CRO happens when someone has time. ~1 test every 2 months. No systematic heatmap analysis. Landing pages take days to build.</div><div class="ag-after"><b>After</b>AI agents generate page variants via Claude Code, analyse heatmaps, extract analytics, and report results. Digital &amp; Automation Lead sets hypotheses and implements winners. 2+ tests/month, landing pages in &lt;2 days.</div></div>
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>CRO happens when someone has time. ~1 test every 2 months. No systematic heatmap analysis. Landing pages take days to build.</div><div class="ag-after"><b>After</b>AI agents generate page variants via Claude Code, analyse heatmaps, extract analytics, and report results. Performance Builder sets hypotheses and implements winners. 2+ tests/month, landing pages in &lt;2 days.</div></div>
           <div class="ag-agents"><span class="ag-tag">Landing Page Agent</span><span class="ag-tag">CRO Analysis Agent</span><span class="ag-tag">Heatmap Agent</span></div>
           <p class="ag-why"><strong>Why it works:</strong> CRO was bottlenecked by capacity, not strategy. AI removes the build constraint &mdash; generating variants is fast, so the team can test 4x more hypotheses.</p>
         </div></div>
@@ -1876,7 +1727,7 @@
         <div class="ag-card-future">AI drafts 75%+, human edits and QA. 15+ articles/month</div>
         <span class="click-hint">Click to explore &darr;</span>
         <div class="ag-detail"><div class="ag-detail-inner">
-          <div class="ag-ba"><div class="ag-before"><b>Before</b>Matthew writes everything from scratch: blogs, newsletters, PR pitches, case studies, internal comms. ~10 articles/month, often behind schedule.</div><div class="ag-after"><b>After</b>AI agents draft 75%+ of content from briefs. Ops &amp; Brand Manager sets strategy and QA, Alisha handles visual content. Newsletter, PR pitches, and blog production all agent-assisted. 15+ articles/month, zero factual errors.</div></div>
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Matthew writes everything from scratch: blogs, newsletters, PR pitches, case studies, internal comms. ~10 articles/month, often behind schedule.</div><div class="ag-after"><b>After</b>AI agents draft 75%+ of content from briefs. Marketing Ops Manager sets strategy and QA, Alisha handles visual content. Newsletter, PR pitches, and blog production all agent-assisted. 15+ articles/month, zero factual errors.</div></div>
           <div class="ag-agents"><span class="ag-tag">Blog Draft Agent</span><span class="ag-tag">Newsletter Agent</span><span class="ag-tag">PR Pitch Agent</span><span class="ag-tag">Brand QA Agent</span></div>
           <p class="ag-why"><strong>Why it works:</strong> AI writing agents have matured to the point where first drafts are 80% ready. The human value shifts from writing to editing, QA, and strategic direction &mdash; one person can oversee 3x the output.</p>
         </div></div>
@@ -1912,7 +1763,7 @@
         <div class="ag-card-future">AI handles routing, SLA tracking, reporting, meeting notes</div>
         <span class="click-hint">Click to explore &darr;</span>
         <div class="ag-detail"><div class="ag-detail-inner">
-          <div class="ag-ba"><div class="ag-before"><b>Before</b>Marilyn and Kayla manually manage Asana tasks, schedule meetings, take notes, track SLAs, route requests, compile reports. 2 full-time coordination roles.</div><div class="ag-after"><b>After</b>AI agents auto-log briefs from email/Slack, route requests in Asana, track SLAs with automated escalation, generate meeting notes, and compile dashboards. Ops &amp; Brand Manager focuses on strategic coordination and stakeholder management. Zero coordination headcount.</div></div>
+          <div class="ag-ba"><div class="ag-before"><b>Before</b>Marilyn and Kayla manually manage Asana tasks, schedule meetings, take notes, track SLAs, route requests, compile reports. 2 full-time coordination roles.</div><div class="ag-after"><b>After</b>AI agents auto-log briefs from email/Slack, route requests in Asana, track SLAs with automated escalation, generate meeting notes, and compile dashboards. Marketing Ops Manager focuses on strategic coordination and stakeholder management. Zero coordination headcount.</div></div>
           <div class="ag-agents"><span class="ag-tag">Asana Automation Agent</span><span class="ag-tag">SLA Tracking Agent</span><span class="ag-tag">Report Generation Agent</span><span class="ag-tag">Brief Intake Agent</span><span class="ag-tag">Meeting Notes Agent</span></div>
           <p class="ag-why"><strong>Why it works:</strong> Coordination is the most automatable marketing function. Task routing, SLA monitoring, and report generation are rule-based processes that AI agents handle with higher consistency than manual tracking.</p>
         </div></div>
@@ -1932,55 +1783,37 @@
     <div class="timeline-item">
       <div class="timeline-dot active"></div>
       <div class="timeline-card">
-        <span class="timeline-date">Apr W1</span>
-        <h3>Own the Vision</h3>
-        <p>Stephen reviews TOM, assesses team fit against target roles. Alignment on structure and sequencing.</p>
+        <span class="timeline-date">Weeks 1-2</span>
+        <h3>Communicate &amp; Hire</h3>
+        <p>Stephen communicates builder model to team. Redundancies initiated. Hiring begins for Performance Builder and Marketing Ops Manager.</p>
         <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12</span>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot active"></div>
       <div class="timeline-card">
-        <span class="timeline-date">Apr W2 &ndash; W4</span>
-        <h3>Build Mid-Stage</h3>
-        <p>New reporting lines activated. Handovers started across performance, content and ops streams.</p>
-        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12</span>
+        <span class="timeline-date">Weeks 3-8</span>
+        <h3>Onboard, Cross-Train, Build Agents</h3>
+        <p>New hires onboard. Builder cross-training starts for Matthew, Miranda, Alisha. AI agents deployed across both pods. 5 redundancies + 1 resignation processed.</p>
+        <span class="headcount-badge reduction"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12 &rarr; 7+1</span>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot future"></div>
       <div class="timeline-card">
-        <span class="timeline-date">May</span>
-        <h3>Cross-Train + Build Agents</h3>
-        <p>Skills developing across consolidated roles. Phase 1 AI agents built to absorb repeatable workflows.</p>
-        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12</span>
+        <span class="timeline-date">Weeks 8-12</span>
+        <h3>Builder Model Goes Live</h3>
+        <p>Both pods operating as builders. 30-40 AI agents in production. Cross-training targets hit. Output measured against pre-TOM baseline.</p>
+        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>7+1</span>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-dot future"></div>
       <div class="timeline-card">
-        <span class="timeline-date">Jun</span>
-        <h3>Phase 1 Exits</h3>
-        <p>5 redundancies processed, Mariia departs. 2 new hires onboarded. End-state structure operational.</p>
-        <span class="headcount-badge reduction"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>12 &rarr; 6+1</span>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot future"></div>
-      <div class="timeline-card">
-        <span class="timeline-date">Jul &ndash; Aug</span>
-        <h3>Operate + Prove</h3>
-        <p>Model proven against KPIs. AI agents scaled to automate remaining manual work.</p>
-        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>5+1</span>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot future"></div>
-      <div class="timeline-card">
-        <span class="timeline-date">Sep</span>
-        <h3>Steady State</h3>
-        <p>End-state proven. 5-person team + Imran delivering 3&ndash;5x the output of the original 12.</p>
-        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>5+1</span>
+        <span class="timeline-date">Weeks 12-24</span>
+        <h3>Operate &amp; Prove</h3>
+        <p>Builder model proven against KPIs. 3-5x output per FTE. Builders demonstrably cross-covering. AI agents handling 70% of execution volume.</p>
+        <span class="headcount-badge"><svg viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>7+1</span>
       </div>
     </div>
   </div>
@@ -1990,34 +1823,36 @@
 <section class="section-kpis" id="kpis">
   <div class="section-header">
     <h2>KPI Scorecards</h2>
-    <p>Linked scorecards for every role across both phases</p>
+    <p>Linked scorecards for every builder role</p>
   </div>
   <div class="kpi-columns">
-    <!-- Mid-Stage KPIs -->
+    <!-- Builder Model KPIs -->
     <div class="kpi-group mid-stage">
-      <div class="kpi-group-title">Mid-Stage KPIs <span class="count">7 roles</span></div>
+      <div class="kpi-group-title">Builder KPIs <span class="count">8 roles</span></div>
       <div class="kpi-cards">
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">GM Marketing</div><div class="kpi-person">Stephen Danckert</div></div><span class="kpi-weight">Lead Gen 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Head of Performance</div><div class="kpi-person">Paul Phare</div></div><span class="kpi-weight">Paid Perf 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Digital &amp; Automation Lead</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Paid Perf 35%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops &amp; Brand Manager</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Stakeholder SLA 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Content &amp; Comms Exec</div><div class="kpi-person">Matthew Hart</div></div><span class="kpi-weight">Content Prod 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Social, ORM &amp; Design Exec</div><div class="kpi-person">Miranda Partridge</div></div><span class="kpi-weight">Social &amp; ORM 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Creative Lead</div><div class="kpi-person">Alisha Van Bone</div></div><span class="kpi-weight">Design SLA 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">AI Innovation Lead</div><div class="kpi-person">Imran Mehmood</div></div><span class="kpi-weight">Phase 1 Agents 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">GM Marketing</div><div class="kpi-person">Stephen Danckert</div></div><span class="kpi-weight">Lead Gen &amp; Revenue 50%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 50%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Head of Performance</div><div class="kpi-person">Paul Phare</div></div><span class="kpi-weight">Digital Lead Volume 45%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 45%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Performance Builder</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Paid Perf &amp; Lead Vol 60%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 60%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops Manager</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Stakeholder SLA 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Content &amp; Comms Builder</div><div class="kpi-person">Matthew Hart</div></div><span class="kpi-weight">Content &amp; ORM 35%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Social, ORM &amp; Design Builder</div><div class="kpi-person">Miranda Partridge</div></div><span class="kpi-weight">Social &amp; ORM 35%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Creative &amp; Campaign Builder</div><div class="kpi-person">Alisha Van Bone</div></div><span class="kpi-weight">Design SLA 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">AI Innovation Lead</div><div class="kpi-person">Imran Mehmood</div></div><span class="kpi-weight">Agent Delivery 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
       </div>
     </div>
 
-    <!-- End-State KPIs -->
+    <!-- Steady-State KPIs -->
     <div class="kpi-group end-state">
-      <div class="kpi-group-title">End-State KPIs <span class="count">5+1 roles</span></div>
+      <div class="kpi-group-title">Steady-State KPIs <span class="count">8 roles</span></div>
       <div class="kpi-cards">
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">GM Marketing</div><div class="kpi-person">Stephen Danckert</div></div><span class="kpi-weight">Lead Gen 45%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 45%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Head of Performance</div><div class="kpi-person">Paul Phare</div></div><span class="kpi-weight">Lead Volume 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Digital &amp; Automation Lead</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Paid Perf 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops &amp; Brand Manager</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Stakeholder SLA 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Creative Lead</div><div class="kpi-person">Alisha Van Bone</div></div><span class="kpi-weight">Design Prod 25%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 25%"></div></div></div>
-        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">AI Innovation Lead</div><div class="kpi-person">Imran Mehmood</div></div><span class="kpi-weight">Agent Portfolio 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">GM Marketing</div><div class="kpi-person">Stephen Danckert</div></div><span class="kpi-weight">Lead Gen &amp; Revenue 50%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 50%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Head of Performance</div><div class="kpi-person">Paul Phare</div></div><span class="kpi-weight">Digital Lead Volume 45%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 45%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Performance Builder</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Paid Perf &amp; Lead Vol 60%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 60%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Marketing Ops Manager</div><div class="kpi-person">New Hire</div></div><span class="kpi-weight">Stakeholder SLA 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Content &amp; Comms Builder</div><div class="kpi-person">Matthew Hart</div></div><span class="kpi-weight">Content &amp; ORM 35%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Social, ORM &amp; Design Builder</div><div class="kpi-person">Miranda Partridge</div></div><span class="kpi-weight">Social &amp; ORM 35%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 35%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">Creative &amp; Campaign Builder</div><div class="kpi-person">Alisha Van Bone</div></div><span class="kpi-weight">Design SLA 30%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 30%"></div></div></div>
+        <div class="kpi-card"><div class="kpi-card-top"><div><div class="kpi-role">AI Innovation Lead</div><div class="kpi-person">Imran Mehmood</div></div><span class="kpi-weight">Agent Delivery 40%</span></div><div class="kpi-bar-track"><div class="kpi-bar-fill" style="width: 40%"></div></div></div>
       </div>
     </div>
   </div>
@@ -2025,7 +1860,7 @@
 
 <!-- ========== FOOTER ========== -->
 <footer class="section-footer">
-  <p class="footer-title">Marketing Target Operating Model</p>
+  <p class="footer-title">Marketing Builder Model</p>
   <p class="footer-meta">
     <span>Confidential &mdash; March 2026</span>
     <span>Owner: Nick Lunn, Chief Growth Officer</span>
@@ -2053,36 +1888,41 @@
 <script>
 // ── KPI Detail Data ──
 var kpiData = {
-  'mid-GM Marketing': {areas:[{t:'Lead Gen & Revenue (40%)',m:[{n:'SQL volume vs budget',v:'Hit budget; 100% attributed'},{n:'Marketing contribution',v:'>=40% of new clients'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'}]},{t:'TOM Transition (25%)',m:[{n:'Redundancies + resignation processed',v:'6 exits by Jun 2026'},{n:'New hires onboarded',v:'2 new hires by May 2026'},{n:'AI agents operational',v:'>=8 agents in production'}]},{t:'Brand & Reputation (15%)',m:[{n:'PR placements',v:'>=1/month'},{n:'Online reputation',v:'>=4.0 stars; >=20 reviews/month'}]},{t:'Leadership & CSAT (20%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Team engagement',v:'>=3.5/5'},{n:'AI adoption',v:'>=3 agents/member'}]}]},
-  'mid-Head of Performance': {areas:[{t:'Paid Performance (40%)',m:[{n:'SQL lead volume',v:'>=plan target'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'},{n:'Lead-to-deal conversion',v:'>=20%'}]},{t:'Expanded Disciplines (25%)',m:[{n:'Email strategy owned',v:'By month 2'},{n:'CRO program',v:'>=1 test/month; >=5% uplift QoQ'},{n:'Competitor intelligence',v:'Monthly report to GM & CGO'}]},{t:'AI Agent Adoption (15%)',m:[{n:'Performance agents',v:'>=5 in production'},{n:'Agent-assisted output',v:'>=40% of campaigns'}]},{t:'Stakeholder CSAT (20%)',m:[{n:'CSAT (Sales, BD)',v:'>=4.0/5'},{n:'Funnel insights shared',v:'Monthly to Sales & BD'}]}]},
-  'mid-Digital & Automation Lead': {areas:[{t:'Paid Performance (35%)',m:[{n:'SQL from paid',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Audience segments',v:'NDIS + SaH live by month 3'}]},{t:'Email & Automation (25%)',m:[{n:'Flow ownership',v:'Independent by month 2'},{n:'Speed to lead',v:'<1 hour automated'},{n:'Email open rate',v:'>=40%; CTR >=15%'}]},{t:'CRO & Web Dev (20%)',m:[{n:'CRO tests',v:'>=1/month'},{n:'Landing pages via Claude Code',v:'>=2 by month 3'},{n:'UTM compliance',v:'100%'}]},{t:'AI Efficiency (20%)',m:[{n:'AI agents in daily use',v:'>=4'},{n:'Time savings',v:'>=25%'}]}]},
-  'mid-Marketing Ops & Brand Manager': {areas:[{t:'Stakeholder SLA (25%)',m:[{n:'Requests within SLA',v:'>=90%'},{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Coordination absorbed',v:'Zero SLA drop post-exits'}]},{t:'Content & Brand (25%)',m:[{n:'Editorial calendar',v:'>=90% adherence'},{n:'Content QA',v:'>=90% first-pass'},{n:'Brand compliance',v:'100%'}]},{t:'Ops & Reporting (20%)',m:[{n:'Monthly KPI report',v:'On time'},{n:'Budget variance',v:'<=5%'},{n:'Asana utilisation',v:'>=90%'}]},{t:'AI & Team Development (30%)',m:[{n:'AI agents (ops)',v:'>=4 in production'},{n:'Matthew multi-skilling',v:'>=50% AI output'},{n:'Miranda design skills',v:'Using Canva + AI design tools'},{n:'Alisha video output',v:'>=1/month'}]}]},
-  'mid-Content & Comms Exec': {areas:[{t:'Content Production (30%)',m:[{n:'Articles/month',v:'>=10; >=3 formats'},{n:'QA pass rate',v:'>=90%; zero errors'},{n:'SEO optimisation',v:'100% articles'}]},{t:'ORM & Support (20%)',m:[{n:'Review response',v:'Same-day; <1hr escalation'},{n:'Cross-dept SLA',v:'>=90%'}]},{t:'AI Workflows (30%)',m:[{n:'AI-drafted content',v:'>=75%'},{n:'Time savings',v:'>=30%'},{n:'Volume increase',v:'>=50% vs baseline'}]},{t:'Brand & Collaboration (20%)',m:[{n:'Brand awareness skills',v:'Building by month 3'},{n:'Collab with Creative Lead',v:'>=2 projects/month'},{n:'Support Ops & Brand Mgr onboarding',v:'Handover TC knowledge'}]}]},
-  'mid-Social, ORM & Design Exec': {areas:[{t:'Social & ORM (30%)',m:[{n:'Posts/platform/week',v:'>=5; >=50% AI-drafted'},{n:'Reviews generated',v:'>=20/month; same-day response'},{n:'Stars',v:'>=4.0'}]},{t:'Audience Growth (20%)',m:[{n:'Follower growth QoQ',v:'>=5%'},{n:'Engagement rate',v:'>=3%'}]},{t:'AI Automation (25%)',m:[{n:'AI-drafted posts',v:'>=50%'},{n:'Scheduling automated',v:'>=80%'},{n:'Time savings',v:'>=30%'}]},{t:'Design & Content (25%)',m:[{n:'Design skills (Canva, AI)',v:'Producing independently by month 3'},{n:'Content writing',v:'>=2 long-form/month'},{n:'Paired work with Creative Lead',v:'>=4 weeks'}]}]},
-  'mid-Creative Lead': {areas:[{t:'Design SLA (30%)',m:[{n:'SLA compliance',v:'100%'},{n:'Revisions/project',v:'<=2'},{n:'Volume maintained',v:'No decline post-junior exit'}]},{t:'AI Design (20%)',m:[{n:'Routine AI-assisted',v:'>=50%'},{n:'AI agents in use',v:'>=3'},{n:'Time savings',v:'>=30%'}]},{t:'Social Cross-Training (25%)',m:[{n:'Social assets/week',v:'>=3 independently'},{n:'Paired work with Miranda',v:'>=4 weeks'},{n:'Video/motion',v:'>=1/month'}]},{t:'Stakeholder CSAT (25%)',m:[{n:'Cross-functional CSAT',v:'>=4.0/5'},{n:'Assets to Sales/BD',v:'>=2/month'}]}]},
-  'mid-AI Innovation Lead': {areas:[{t:'Phase 1 Agents (40%)',m:[{n:'Coordination agents',v:'Live by month 2'},{n:'Email flow agent',v:'Live by month 2'},{n:'Design production agents',v:'Live by month 2'},{n:'Total Phase 1',v:'>=8 by month 3'}]},{t:'Reliability (20%)',m:[{n:'Agent uptime',v:'>=95%'},{n:'Time-to-deploy',v:'<=2 weeks'},{n:'Error rate',v:'<5%'}]},{t:'Enablement (20%)',m:[{n:'Team adoption',v:'>=80% using daily by month 3'},{n:'AI confidence score',v:'>=4.0/5'}]},{t:'Phase 2 Pipeline (20%)',m:[{n:'Phase 2 roadmap',v:'Scoped by month 3'},{n:'Time savings',v:'>=20 hrs/month'},{n:'Commercial impact',v:'$ savings quantified'}]}]},
-  'end-GM Marketing': {areas:[{t:'Lead Gen & Revenue (45%)',m:[{n:'SQL volume vs budget',v:'Hit budget; 100% attributed'},{n:'Marketing contribution',v:'>=40% of new clients'},{n:'Output vs baseline',v:'>=3x pre-TOM'}]},{t:'Brand & Reputation (15%)',m:[{n:'PR placements',v:'>=2/month'},{n:'Online reputation',v:'>=4.5 stars; >=30 reviews/month'}]},{t:'AI-First Operations (20%)',m:[{n:'Agents in production',v:'>=30'},{n:'AI-assisted execution',v:'>=60%'},{n:'Output per FTE',v:'>=3x baseline'}]},{t:'Leadership & CSAT (20%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Internal supplier score',v:'>=4.5/5'},{n:'Team attrition',v:'0%'}]}]},
-  'end-Head of Performance': {areas:[{t:'Lead Volume (40%)',m:[{n:'SQL lead volume',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Campaign volume',v:'>=2x pre-TOM'}]},{t:'Full-Funnel (25%)',m:[{n:'SEO organic growth',v:'>=5% MoM'},{n:'CRO test cadence',v:'>=2/month; >=5% uplift'},{n:'Email lifecycle',v:'>=80% clients in journeys'}]},{t:'AI Effectiveness (15%)',m:[{n:'Agents in production',v:'>=10'},{n:'Agent-assisted output',v:'>=70%'},{n:'Campaign launch speed',v:'<=3 days'}]},{t:'Stakeholder CSAT (20%)',m:[{n:'CSAT (Sales, BD)',v:'>=4.0/5'},{n:'Digital & Auto Lead development',v:'No single-point-of-failure'}]}]},
-  'end-Digital & Automation Lead': {areas:[{t:'Paid Performance (30%)',m:[{n:'SQL from paid',v:'>=plan target'},{n:'ROAS',v:'>=8:1'},{n:'Ad variants/campaign',v:'>=3 AI-generated'}]},{t:'Email & CRO (25%)',m:[{n:'Speed to lead',v:'<1 hour'},{n:'CRO tests',v:'>=2/month'},{n:'A/B tests',v:'>=2/month'}]},{t:'Web Dev & Attribution (20%)',m:[{n:'Landing page turnaround',v:'<=2 business days'},{n:'Attribution coverage',v:'>=95%'},{n:'Full-funnel dashboard',v:'Live and weekly'}]},{t:'AI & CSAT (25%)',m:[{n:'Agents in daily use',v:'>=6'},{n:'AI-assisted execution',v:'>=70%'},{n:'Time savings',v:'>=30%'}]}]},
-  'end-Marketing Ops & Brand Manager': {areas:[{t:'Stakeholder SLA (25%)',m:[{n:'Requests within SLA',v:'>=95%'},{n:'Request turnaround',v:'<=2 days standard'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]},{t:'Content & Brand (25%)',m:[{n:'Content volume',v:'>=15 articles/month'},{n:'QA pass rate',v:'>=95%'},{n:'PR placements',v:'>=2/month'}]},{t:'Ops & Events (20%)',m:[{n:'Budget variance',v:'<=5%'},{n:'Asana utilisation',v:'>=95%'},{n:'Dashboards',v:'100% auto-updated'}]},{t:'AI Output (30%)',m:[{n:'AI agents (ops+content)',v:'>=8'},{n:'AI content output',v:'>=75% AI-drafted'},{n:'Output per FTE',v:'>=3x baseline'}]}]},
-  'end-Creative Lead': {areas:[{t:'Design Production (40%)',m:[{n:'SLA compliance',v:'100%'},{n:'Design volume',v:'>=2x pre-TOM'},{n:'Assets to Sales/BD',v:'>=4/month'}]},{t:'Video & Motion (20%)',m:[{n:'Video/motion',v:'>=4/month'},{n:'Brand consistency',v:'100%'}]},{t:'AI Creative (40%)',m:[{n:'Agents in daily use',v:'>=6'},{n:'AI-assisted design',v:'>=60%'},{n:'Total output',v:'>=3x baseline'}]}]},
-  'end-AI Innovation Lead': {areas:[{t:'Agent Portfolio (30%)',m:[{n:'Total agents',v:'>=30'},{n:'Agent uptime',v:'>=97%'},{n:'Time-to-deploy',v:'<=1 week'}]},{t:'Commercial Impact (30%)',m:[{n:'Annualised savings',v:'>=$750K'},{n:'Output per FTE',v:'>=3x sustained'},{n:'Time saved',v:'>=40 hrs/month'}]},{t:'Enablement (20%)',m:[{n:'Team agent usage',v:'100% using >=5 daily'},{n:'AI confidence',v:'>=4.5/5'}]},{t:'Innovation (20%)',m:[{n:'Cross-functional agents',v:'>=2/quarter outside marketing'},{n:'Tool evaluations',v:'>=3/quarter'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]}]}
+  'mid-GM Marketing': {areas:[{t:'Lead Generation & Revenue Contribution (50%)',m:[{n:'SQL volume vs budget',v:'Hit budget; 100% attributed'},{n:'Marketing contribution',v:'>=40% new clients'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'},{n:'CPQL/CPA',v:'Baselined & reducing by end Q4'},{n:'Forecast accuracy',v:'+/-5%'}]},{t:'Builder Model Transition & Delivery (15%)',m:[{n:'Builder model live',v:'By Week 12'},{n:'New hires onboarded',v:'2 new hires'},{n:'Cross-training validated',v:'3 agency builders demonstrating flex'},{n:'AI agents',v:'>=20 in production'},{n:'Output maintained',v:'Through transition'}]},{t:'Brand, PR & Reputation (15%)',m:[{n:'PR placements',v:'>=1/month'},{n:'Brand voice compliance',v:'100%'},{n:'Online reputation',v:'>=4.0 stars; >=20 reviews/month'}]},{t:'Team & Stakeholder CSAT (10%)',m:[{n:'Cross-functional CSAT',v:'>=4.0/5'},{n:'SLA compliance (internal)',v:'>=90%'}]},{t:'Compliance & Culture (10%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Team engagement',v:'>=4.0/5'},{n:'Team attrition',v:'<5%'},{n:'Monthly output report',v:'On time to CGO'}]}]},
+  'mid-Head of Performance': {areas:[{t:'Digital Lead Volume & Paid Performance (45%)',m:[{n:'SQL lead volume vs target',v:'>=plan'},{n:'Lead-to-deal conversion',v:'>=20%'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'},{n:'Attribution accuracy',v:'>=90% (Unknown <15%)'},{n:'CRO program',v:'>=1 test/month; >=5% uplift QoQ'}]},{t:'Funnel Foundations & Infrastructure (20%)',m:[{n:'Website on new CMS',v:'Live by end Q4'},{n:'Landing page framework',v:'Templated'},{n:'UTM/attribution framework',v:'100% tagged'},{n:'Klaviyo integration',v:'Live with CRM'},{n:'Full-funnel dashboard',v:'Live'}]},{t:'Builder Enablement & Coaching (15%)',m:[{n:'Performance Builder onboarded',v:'Productive by month 2'},{n:'Coaching cadence',v:'100% weekly 1:1s'},{n:'Builder hitting KPIs',v:'By month 3'},{n:'Competitive intelligence',v:'Monthly report'}]},{t:'Cross-Functional Delivery & CSAT (10%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Content contribution to Sales/BD',v:'>=2 assets/month'},{n:'Monthly performance dashboard',v:'On time'}]},{t:'Compliance & Culture (10%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Team engagement',v:'>=4.0/5'},{n:'Team attrition',v:'<10%'}]}]},
+  'mid-Performance Builder': {areas:[{t:'Paid Performance & Lead Volume (60%)',m:[{n:'SQL volume from paid',v:'>=plan target'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'},{n:'Campaign execution',v:'100% on time'},{n:'Audience segmentation',v:'NDIS + SaH live by month 3'}]},{t:'Email, CRO & Automation (15%)',m:[{n:'Speed to lead',v:'<1 hour automated'},{n:'Email open rate / CTR',v:'>=40% / >=15%'},{n:'CRO tests',v:'>=1/month with measurable uplift'},{n:'Journey coverage',v:'>=80% clients in journeys'}]},{t:'SEO, Web Dev & Attribution (10%)',m:[{n:'Organic traffic',v:'>=5% MoM growth'},{n:'UTM compliance',v:'100%'},{n:'Landing pages via Claude Code',v:'>=2 by month 3'},{n:'Competitive benchmark',v:'TC top 3 on priority keywords'}]},{t:'AI Agent Adoption & Efficiency (10%)',m:[{n:'AI agents in daily use',v:'>=6'},{n:'AI-assisted execution',v:'>=70%'},{n:'Time savings',v:'>=30%'}]},{t:'Culture & Stakeholder CSAT (5%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Meeting attendance',v:'100%'}]}]},
+  'mid-Marketing Ops Manager': {areas:[{t:'Internal Stakeholder Service & SLA (30%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Briefs logged in Asana',v:'100%'},{n:'Cross-dept requests within SLA',v:'>=90%'},{n:'Quarterly planning sessions',v:'With all departments'}]},{t:'Builder Enablement & Cross-Training (25%)',m:[{n:'Agency builders cross-coverage',v:'By month 4'},{n:'Matthew AI content',v:'>=70% drafted'},{n:'Miranda producing design assets',v:'Independently'},{n:'Alisha producing social content',v:'Independently'},{n:'Builder utilisation',v:'Balanced'}]},{t:'Quality, Brand & QA (20%)',m:[{n:'First-pass quality',v:'>=85%'},{n:'Error rate',v:'<2%'},{n:'Brand compliance',v:'>=95%'}]},{t:'AI & Process Automation (15%)',m:[{n:'Automations',v:'>=2/quarter'},{n:'Time savings',v:'>=20%'},{n:'Process documentation',v:'100% current'}]},{t:'Reporting, Budget & Culture (10%)',m:[{n:'Monthly KPI report',v:'On time'},{n:'Budget variance',v:'<=5%'},{n:'Team engagement',v:'>=4.0/5'}]}]},
+  'mid-Content & Comms Builder': {areas:[{t:'Content Production & ORM (35%)',m:[{n:'Articles/month',v:'>=10; >=3 formats'},{n:'Newsletter',v:'On schedule 100%'},{n:'Review/mention response',v:'Same-day; <1hr negative escalation'},{n:'PR pitches',v:'>=1/month'}]},{t:'AI Content Workflows & Volume (20%)',m:[{n:'AI-drafted content',v:'>=70%'},{n:'Calendar adherence',v:'>=90%'},{n:'AI workflow improvements',v:'>=1/quarter'}]},{t:'Content Quality & SEO (15%)',m:[{n:'QA pass rate',v:'>=90%; zero factual errors'},{n:'SEO optimisation',v:'100% articles'},{n:'Stakeholder SLA',v:'100%'}]},{t:'Cross-Functional & Builder Flex (20%)',m:[{n:'Cross-dept requests within SLA',v:'>=90%'},{n:'Social copy contribution',v:'>=2/week (builder flex)'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]},{t:'Culture (10%)',m:[{n:'Meeting attendance',v:'100%'},{n:'Asana discipline',v:'>=90%'}]}]},
+  'mid-Social, ORM & Design Builder': {areas:[{t:'Social Content & ORM (35%)',m:[{n:'Posts/platform/week',v:'>=5; >=50% AI-drafted'},{n:'Reviews generated',v:'>=20/month; same-day response'},{n:'Stars',v:'>=4.0'},{n:'Video/motion',v:'>=2/month'}]},{t:'Design Production & Builder Flex (20%)',m:[{n:'Design assets produced',v:'>=5/week using AI tools'},{n:'Content writing (flex)',v:'>=2 longer-form pieces/month'},{n:'Cross-dept design requests',v:'Within SLA >=90%'}]},{t:'Audience Growth & Engagement (15%)',m:[{n:'Follower growth QoQ',v:'>=5%'},{n:'Engagement rate',v:'>=3%'}]},{t:'AI Agents & Automation (20%)',m:[{n:'AI agents in daily use',v:'>=4'},{n:'AI-drafted posts',v:'>=50%'},{n:'Scheduling automated',v:'>=80%'},{n:'Time savings',v:'>=30%'}]},{t:'Culture (10%)',m:[{n:'Meeting attendance',v:'100%'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]}]},
+  'mid-Creative & Campaign Builder': {areas:[{t:'Design SLA & Delivery (30%)',m:[{n:'SLA compliance',v:'100%; turnaround decreasing QoQ'},{n:'Revisions/project',v:'<=2'},{n:'First-pass on-brief',v:'>=90%'}]},{t:'AI Design Efficiency (20%)',m:[{n:'Routine tasks AI-assisted',v:'>=50%'},{n:'Time savings',v:'>=25%'},{n:'AI design workflows',v:'>=1/quarter'}]},{t:'Social & Content Flex (20%)',m:[{n:'Social assets/week independently',v:'>=3 (builder flex)'},{n:'Social copy contribution',v:'>=2/week'},{n:'Video/motion',v:'>=2/month'}]},{t:'Creative Output & Brand (15%)',m:[{n:'Quality score',v:'>=4.0/5'},{n:'Volume targets',v:'100%'},{n:'Campaign assets',v:'On-brief and on-time'}]},{t:'Stakeholder & Culture (15%)',m:[{n:'Cross-functional CSAT',v:'>=4.0/5'},{n:'Assets to Sales/BD',v:'>=2/month'},{n:'Meeting attendance',v:'100%'}]}]},
+  'mid-AI Innovation Lead': {areas:[{t:'Agent Delivery & Builder Enablement (40%)',m:[{n:'Total agents in production',v:'>=30 by end Q4'},{n:'Agents per builder',v:'>=4'},{n:'Time-to-deploy',v:'<=2 weeks'},{n:'Builder AI confidence',v:'>=4.0/5'}]},{t:'Commercial Impact & Efficiency (25%)',m:[{n:'Annualised savings',v:'>=$500K from headcount + efficiency'},{n:'Output per FTE',v:'>=2x sustained'},{n:'Time saved',v:'>=30 hrs/month across team'}]},{t:'Agent Reliability & Uptime (15%)',m:[{n:'Agent uptime',v:'>=95%'},{n:'Error rate',v:'<5%'},{n:'Builder adoption',v:'>=80% using daily by month 3'}]},{t:'Cross-Functional Innovation (10%)',m:[{n:'Cross-functional agents',v:'>=1/quarter outside marketing'},{n:'Tool evaluations',v:'>=3/quarter'}]},{t:'Culture & Stakeholder CSAT (10%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Builder feedback',v:'>=4.0/5'}]}]},
+  'end-GM Marketing': {areas:[{t:'Lead Generation & Revenue Contribution (50%)',m:[{n:'SQL volume vs budget',v:'Hit budget; 100% attributed'},{n:'Marketing contribution',v:'>=40% new clients'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'},{n:'CPQL/CPA',v:'Baselined & reducing by end Q4'},{n:'Forecast accuracy',v:'+/-5%'}]},{t:'Builder Model Transition & Delivery (15%)',m:[{n:'Builder model live',v:'By Week 12'},{n:'New hires onboarded',v:'2 new hires'},{n:'Cross-training validated',v:'3 agency builders demonstrating flex'},{n:'AI agents',v:'>=20 in production'},{n:'Output maintained',v:'Through transition'}]},{t:'Brand, PR & Reputation (15%)',m:[{n:'PR placements',v:'>=1/month'},{n:'Brand voice compliance',v:'100%'},{n:'Online reputation',v:'>=4.0 stars; >=20 reviews/month'}]},{t:'Team & Stakeholder CSAT (10%)',m:[{n:'Cross-functional CSAT',v:'>=4.0/5'},{n:'SLA compliance (internal)',v:'>=90%'}]},{t:'Compliance & Culture (10%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Team engagement',v:'>=4.0/5'},{n:'Team attrition',v:'<5%'},{n:'Monthly output report',v:'On time to CGO'}]}]},
+  'end-Head of Performance': {areas:[{t:'Digital Lead Volume & Paid Performance (45%)',m:[{n:'SQL lead volume vs target',v:'>=plan'},{n:'Lead-to-deal conversion',v:'>=20%'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'},{n:'Attribution accuracy',v:'>=90% (Unknown <15%)'},{n:'CRO program',v:'>=1 test/month; >=5% uplift QoQ'}]},{t:'Funnel Foundations & Infrastructure (20%)',m:[{n:'Website on new CMS',v:'Live by end Q4'},{n:'Landing page framework',v:'Templated'},{n:'UTM/attribution framework',v:'100% tagged'},{n:'Klaviyo integration',v:'Live with CRM'},{n:'Full-funnel dashboard',v:'Live'}]},{t:'Builder Enablement & Coaching (15%)',m:[{n:'Performance Builder onboarded',v:'Productive by month 2'},{n:'Coaching cadence',v:'100% weekly 1:1s'},{n:'Builder hitting KPIs',v:'By month 3'},{n:'Competitive intelligence',v:'Monthly report'}]},{t:'Cross-Functional Delivery & CSAT (10%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Content contribution to Sales/BD',v:'>=2 assets/month'},{n:'Monthly performance dashboard',v:'On time'}]},{t:'Compliance & Culture (10%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Team engagement',v:'>=4.0/5'},{n:'Team attrition',v:'<10%'}]}]},
+  'end-Performance Builder': {areas:[{t:'Paid Performance & Lead Volume (60%)',m:[{n:'SQL volume from paid',v:'>=plan target'},{n:'ROAS',v:'>=8:1; CPL decreasing QoQ'},{n:'Campaign execution',v:'100% on time'},{n:'Audience segmentation',v:'NDIS + SaH live by month 3'}]},{t:'Email, CRO & Automation (15%)',m:[{n:'Speed to lead',v:'<1 hour automated'},{n:'Email open rate / CTR',v:'>=40% / >=15%'},{n:'CRO tests',v:'>=1/month with measurable uplift'},{n:'Journey coverage',v:'>=80% clients in journeys'}]},{t:'SEO, Web Dev & Attribution (10%)',m:[{n:'Organic traffic',v:'>=5% MoM growth'},{n:'UTM compliance',v:'100%'},{n:'Landing pages via Claude Code',v:'>=2 by month 3'},{n:'Competitive benchmark',v:'TC top 3 on priority keywords'}]},{t:'AI Agent Adoption & Efficiency (10%)',m:[{n:'AI agents in daily use',v:'>=6'},{n:'AI-assisted execution',v:'>=70%'},{n:'Time savings',v:'>=30%'}]},{t:'Culture & Stakeholder CSAT (5%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Meeting attendance',v:'100%'}]}]},
+  'end-Marketing Ops Manager': {areas:[{t:'Internal Stakeholder Service & SLA (30%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Briefs logged in Asana',v:'100%'},{n:'Cross-dept requests within SLA',v:'>=90%'},{n:'Quarterly planning sessions',v:'With all departments'}]},{t:'Builder Enablement & Cross-Training (25%)',m:[{n:'Agency builders cross-coverage',v:'By month 4'},{n:'Matthew AI content',v:'>=70% drafted'},{n:'Miranda producing design assets',v:'Independently'},{n:'Alisha producing social content',v:'Independently'},{n:'Builder utilisation',v:'Balanced'}]},{t:'Quality, Brand & QA (20%)',m:[{n:'First-pass quality',v:'>=85%'},{n:'Error rate',v:'<2%'},{n:'Brand compliance',v:'>=95%'}]},{t:'AI & Process Automation (15%)',m:[{n:'Automations',v:'>=2/quarter'},{n:'Time savings',v:'>=20%'},{n:'Process documentation',v:'100% current'}]},{t:'Reporting, Budget & Culture (10%)',m:[{n:'Monthly KPI report',v:'On time'},{n:'Budget variance',v:'<=5%'},{n:'Team engagement',v:'>=4.0/5'}]}]},
+  'end-Content & Comms Builder': {areas:[{t:'Content Production & ORM (35%)',m:[{n:'Articles/month',v:'>=10; >=3 formats'},{n:'Newsletter',v:'On schedule 100%'},{n:'Review/mention response',v:'Same-day; <1hr negative escalation'},{n:'PR pitches',v:'>=1/month'}]},{t:'AI Content Workflows & Volume (20%)',m:[{n:'AI-drafted content',v:'>=70%'},{n:'Calendar adherence',v:'>=90%'},{n:'AI workflow improvements',v:'>=1/quarter'}]},{t:'Content Quality & SEO (15%)',m:[{n:'QA pass rate',v:'>=90%; zero factual errors'},{n:'SEO optimisation',v:'100% articles'},{n:'Stakeholder SLA',v:'100%'}]},{t:'Cross-Functional & Builder Flex (20%)',m:[{n:'Cross-dept requests within SLA',v:'>=90%'},{n:'Social copy contribution',v:'>=2/week (builder flex)'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]},{t:'Culture (10%)',m:[{n:'Meeting attendance',v:'100%'},{n:'Asana discipline',v:'>=90%'}]}]},
+  'end-Social, ORM & Design Builder': {areas:[{t:'Social Content & ORM (35%)',m:[{n:'Posts/platform/week',v:'>=5; >=50% AI-drafted'},{n:'Reviews generated',v:'>=20/month; same-day response'},{n:'Stars',v:'>=4.0'},{n:'Video/motion',v:'>=2/month'}]},{t:'Design Production & Builder Flex (20%)',m:[{n:'Design assets produced',v:'>=5/week using AI tools'},{n:'Content writing (flex)',v:'>=2 longer-form pieces/month'},{n:'Cross-dept design requests',v:'Within SLA >=90%'}]},{t:'Audience Growth & Engagement (15%)',m:[{n:'Follower growth QoQ',v:'>=5%'},{n:'Engagement rate',v:'>=3%'}]},{t:'AI Agents & Automation (20%)',m:[{n:'AI agents in daily use',v:'>=4'},{n:'AI-drafted posts',v:'>=50%'},{n:'Scheduling automated',v:'>=80%'},{n:'Time savings',v:'>=30%'}]},{t:'Culture (10%)',m:[{n:'Meeting attendance',v:'100%'},{n:'Stakeholder CSAT',v:'>=4.0/5'}]}]},
+  'end-Creative & Campaign Builder': {areas:[{t:'Design SLA & Delivery (30%)',m:[{n:'SLA compliance',v:'100%; turnaround decreasing QoQ'},{n:'Revisions/project',v:'<=2'},{n:'First-pass on-brief',v:'>=90%'}]},{t:'AI Design Efficiency (20%)',m:[{n:'Routine tasks AI-assisted',v:'>=50%'},{n:'Time savings',v:'>=25%'},{n:'AI design workflows',v:'>=1/quarter'}]},{t:'Social & Content Flex (20%)',m:[{n:'Social assets/week independently',v:'>=3 (builder flex)'},{n:'Social copy contribution',v:'>=2/week'},{n:'Video/motion',v:'>=2/month'}]},{t:'Creative Output & Brand (15%)',m:[{n:'Quality score',v:'>=4.0/5'},{n:'Volume targets',v:'100%'},{n:'Campaign assets',v:'On-brief and on-time'}]},{t:'Stakeholder & Culture (15%)',m:[{n:'Cross-functional CSAT',v:'>=4.0/5'},{n:'Assets to Sales/BD',v:'>=2/month'},{n:'Meeting attendance',v:'100%'}]}]},
+  'end-AI Innovation Lead': {areas:[{t:'Agent Delivery & Builder Enablement (40%)',m:[{n:'Total agents in production',v:'>=30 by end Q4'},{n:'Agents per builder',v:'>=4'},{n:'Time-to-deploy',v:'<=2 weeks'},{n:'Builder AI confidence',v:'>=4.0/5'}]},{t:'Commercial Impact & Efficiency (25%)',m:[{n:'Annualised savings',v:'>=$500K from headcount + efficiency'},{n:'Output per FTE',v:'>=2x sustained'},{n:'Time saved',v:'>=30 hrs/month across team'}]},{t:'Agent Reliability & Uptime (15%)',m:[{n:'Agent uptime',v:'>=95%'},{n:'Error rate',v:'<5%'},{n:'Builder adoption',v:'>=80% using daily by month 3'}]},{t:'Cross-Functional Innovation (10%)',m:[{n:'Cross-functional agents',v:'>=1/quarter outside marketing'},{n:'Tool evaluations',v:'>=3/quarter'}]},{t:'Culture & Stakeholder CSAT (10%)',m:[{n:'Stakeholder CSAT',v:'>=4.0/5'},{n:'Builder feedback',v:'>=4.0/5'}]}]}
 };
 
 // ── Role Detail Data ──
 var roleData = {
-  stephen: {name:'GM Marketing',title:'Stephen Danckert',level:'L4 — Functional Leadership',reports:'CGO (Nick Lunn)',desc:'Owns the marketing function end-to-end. Strategy, budget, stakeholder management, team performance. Deep enough across performance AND brand to challenge both pillars.',disciplines:[['Strategy & Planning','Sets marketing direction, annual plans, resource allocation','AI generates strategy briefs, competitive landscape reports'],['Stakeholder Mgmt','Manages Sales, BD, Care, Exec relationships','AI compiles stakeholder reports, meeting prep'],['Brand Positioning','Brand strategy, market positioning, PR direction','AI drafts PR pitches, monitors brand sentiment']],agents:'3-5 agents: Executive reporting, competitive landscape, strategy briefs',ditl:'<strong>8:00am:</strong> Review overnight output dashboards — all 12 disciplines tracked. AI reporting agent has compiled the weekly summary. <strong>9:00am:</strong> 1:1 with Head of Performance (Paul) — ROAS trending above target, competitor agent flagged new entrant in the Sydney market. Agree to increase spend on high-performing Google Ads segments. <strong>10:00am:</strong> Stakeholder call with GM Sales (Jacqueline) — review marketing-sourced SQLs for the month, discuss lead quality feedback from the sales floor. <strong>11:00am:</strong> Brand strategy session — AI agent has drafted 3 PR pitch angles for the Support at Home reform anniversary. Review and approve 1 for outreach. <strong>1:00pm:</strong> 1:1 with Ops & Brand Manager — editorial calendar on track, stakeholder CSAT at 4.2/5. Discuss upcoming event logistics for aged care expo. <strong>2:30pm:</strong> Monthly budget review — AI dashboard shows spend tracking within 3% variance. <strong>3:30pm:</strong> Cross-functional meeting with Care division — align on client comms messaging for Support at Home changes. <strong>4:30pm:</strong> Review Imran\'s agent deployment pipeline — 2 new agents ready for production next week.'},
-  paul: {name:'Head of Performance',title:'Paul Phare',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Owns the revenue engine — paid ads, SEO, CRO, email marketing strategy, and competitor intelligence. Sets strategy across all 5 performance disciplines; AI agents handle execution volume.',disciplines:[['Paid Ads','Strategy, budget allocation, channel mix, ROAS targets','Campaign builds, bid management, ad copy, A/B variants'],['SEO','Strategy, content briefs, technical priorities','Keyword research, content drafts, technical audits, rank tracking'],['CRO','Test hypotheses, prioritisation, conversion strategy','Landing page variants, heatmap analysis, test reporting'],['Email Marketing','Journey strategy, segmentation, lifecycle design','Flow builds, copy drafts, send optimisation'],['Competitor Intel','Strategic interpretation, action plans','Monitoring, alerts, positioning analysis, ad scraping']],agents:'8-12 agents: Google Ads, Meta, SEO content, keyword, CRO test, email flow, competitor alerts, attribution',ditl:'<strong>8:30am:</strong> Review overnight campaign dashboards — AI agents flagged 2 campaigns with CPL above threshold on Google Ads. Review the agent\'s recommended bid adjustments for the aged care keyword group. Approve both. <strong>9:00am:</strong> SEO agent has drafted 3 content briefs based on keyword gap analysis — "Support at Home eligibility", "home care package levels explained", "choosing a home care provider". Review and approve 2, send 1 back for more depth on NDIS crossover. <strong>9:30am:</strong> Weekly standup with Digital & Automation Lead — email automation showing 42% open rate on the welcome sequence. New A/B test variants ready for the pre-onboarding flow. Approve test launch. <strong>10:00am:</strong> Competitor intelligence agent flagged a major competitor running new Meta campaigns targeting self-managed clients. Review the positioning analysis and update the monthly competitor report. <strong>11:00am:</strong> CRO review — landing page agent ran 4 variant tests this week on the "Get Started" page. One variant showing 12% conversion uplift — approve for full rollout. <strong>1:00pm:</strong> Monthly funnel insights meeting with Sales and BD — present conversion data by channel, recommend shifting budget from display to search. <strong>2:30pm:</strong> Review email lifecycle coverage — 8 of 12 journey stages now automated. Brief Digital & Automation Lead on building the remaining 4 with the Klaviyo agent. <strong>4:00pm:</strong> Post-campaign debrief for the March brand awareness campaign — document learnings, share with Stephen.'},
-  digauto: {name:'Digital & Automation Lead',title:'New Hire',level:'L2 — Revenue Driver',reports:'Head of Performance (Paul)',desc:'Hands-on execution across paid media, email/automation, CRO, web dev, and attribution. The person in the platforms every day, using AI agents to multiply output. New hire replacing Rajitha + Michael scope.',disciplines:[['Ads Execution','Platform management, optimisation, QA','Ad copy variants, audience builds, reporting'],['Email Execution','Flow implementation, Klaviyo/CRM builds','Sequence drafts, subject line testing, trigger logic'],['CRO Execution','Test implementation, landing pages','Page builds, copy variants, analytics'],['Web Dev','Website management via Claude Code, CMS','Page builds, template creation'],['Attribution','UTM frameworks, GA4, dashboards','Dashboard updates, anomaly detection']],agents:'6-10 agents: Ad copy, landing pages, email sequences, UTM tracking, web dev, reporting',ditl:'<strong>8:00am:</strong> Open Google Ads dashboard — review yesterday\'s performance across 15 active campaigns targeting aged care keywords. AI ad copy agent has generated overnight variants for 3 underperforming ad groups. Review copy, approve 2, tweak 1. <strong>8:45am:</strong> Switch to Meta — check the Support at Home awareness campaign. Audience builder agent suggests a new lookalike segment based on recent converters. Approve and launch. <strong>9:30am:</strong> Klaviyo check — email flow agent has built a new 4-step nurture sequence for clients who downloaded the home care guide. Review triggers, timing, and copy. Adjust the Day 3 email subject line using the A/B test agent\'s suggestions. Approve. <strong>10:30am:</strong> Standup with Paul — report on weekly metrics, discuss CRO test results. <strong>11:00am:</strong> CRO work — landing page agent built 2 new variants for the "Compare Home Care Packages" page using Claude Code. Review in browser, request one mobile layout fix, approve the other for testing. <strong>1:00pm:</strong> UTM audit — attribution agent flags 3 campaigns with missing UTM parameters. Fix in 10 minutes. Run GA4 verification. <strong>2:00pm:</strong> Build a new landing page for the NDIS crossover campaign using Claude Code — AI generates the template, add TC brand elements and content. Live in 90 minutes. <strong>3:30pm:</strong> Email performance review — open rates at 43%, CTR at 16%. Speed-to-lead at 47 minutes average. Update the funnel dashboard. <strong>4:30pm:</strong> Queue tomorrow\'s campaign launches — 2 new Google Ads campaigns and 1 Meta campaign. AI agents have pre-built everything; final QA and approve.'},
-  opsbrand: {name:'Marketing Ops & Brand Manager',title:'New Hire',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Runs the operational engine AND owns content strategy, brand governance, internal requests, and events logistics. Agency background, multi-skilled, AI-native. The bridge between performance and creative. Replaces Mariia Branch.',disciplines:[['Internal Requests','Brief intake, triage, SLA management','Request routing, status updates, SLA monitoring'],['Content Strategy','Editorial calendar, brand voice, PR, comms','Blog drafts, newsletter, PR pitches'],['Marketing Ops','Asana workflows, budget, reporting','Task automation, dashboards'],['Brand Governance','Brand standards, QA, compliance','Brand audit checks, consistency reviews'],['Events','Vendor coordination, budgets, scheduling','Logistics checklists, vendor comms']],agents:'8-10 agents: Asana automation, blog drafts, newsletter, PR pitches, brand QA, dashboards, SLA tracking',ditl:'<strong>8:00am:</strong> Open Asana — AI brief intake agent has auto-logged 4 overnight requests from Sales and BD. Two are collateral updates, one is a campaign asset request, one is a client case study. Auto-routed: design requests to Alisha, content to the blog draft agent. <strong>8:30am:</strong> SLA dashboard check — 94% of requests within SLA this week. One Sales request approaching deadline — escalate to Alisha with priority flag. <strong>9:00am:</strong> Editorial calendar review — AI blog draft agent has produced 3 first drafts overnight: "Understanding Support at Home fees", "How to choose a home care provider", "What\'s new in aged care 2026". QA the first one — check brand voice, factual accuracy against TC policies, SEO keywords. Approve with minor edits. <strong>10:00am:</strong> Newsletter production — AI newsletter agent has compiled this week\'s content (2 blog articles, 1 client story, 1 event promo). Review layout and approve for send. <strong>11:00am:</strong> PR outreach — AI pitch agent drafted 2 angles for Aged Care Today magazine. Review, approve the Support at Home reform piece, park the other. <strong>1:00pm:</strong> Quarterly planning session with BD team — review their marketing request pipeline for Q4. Align on priorities. <strong>2:00pm:</strong> Brand audit — AI brand QA agent flagged 2 social posts with off-brand imagery. Review and send corrections to Creative Lead. <strong>3:00pm:</strong> Budget tracking — AI dashboard shows marketing spend at 97% of plan. Flag one overrun on event costs to Stephen. <strong>4:00pm:</strong> Check in with team — review social calendar for next week, discuss upcoming event creative needs for the Melbourne aged care expo.'},
-  alisha: {name:'Creative Lead',title:'Alisha Van Bone',level:'L2 — Brand & Creative',reports:'Marketing Ops & Brand Manager',desc:'Owns all visual output. A designer who focuses on creative direction, campaign assets, and brand design, using AI agents to scale production 3-5x.',disciplines:[['Design','Brand design, campaign assets, sales collateral','Template production, resizing, variants, mockups'],['Video/Motion','Short-form content, social video','Video edits, captions, thumbnails']],agents:'6-10 agents: Design production, video edits, resize/format, mockups, variant generator',ditl:'<strong>8:00am:</strong> Design request queue in Asana — 6 items. AI design production agent has already completed 3 routine ones (brochure resize for A5, social banner variants, email header template). Review quality — all on-brand. Approve. <strong>9:00am:</strong> Focus on creative work — campaign assets for the new "Your Care, Your Choice" brand campaign. Design hero banner, supporting social cards, email header. AI variant agent generates 4 colour/layout options. Select 2 for A/B testing. <strong>11:00am:</strong> Short-form video production — AI video agent has cut a 30-second testimonial clip from a recent client interview. Add TC branding overlay, review captions. Approve for social. <strong>1:00pm:</strong> Sales collateral — BD team needs updated partnership one-pager. AI agent generates from template with latest stats. Review, adjust layout, approve. <strong>3:00pm:</strong> Blog support — editorial calendar has 4 articles this week. Create header images and in-article graphics for 2 of them using AI design tools. <strong>4:00pm:</strong> Review upcoming campaign creative briefs with Ops & Brand Manager.'}
+  stephen: {name:'GM Marketing',title:'Stephen Danckert',level:'L4 — Functional Leadership',reports:'CGO (Nick Lunn)',desc:'Owns the marketing function end-to-end. Strategy, budget, stakeholder management, team performance. Accountable for marketing contribution >=40% of new clients, ROAS >=8:1, and the builder model transition. Deep enough across performance AND brand to challenge both pillars.',disciplines:[['Strategy & Planning','Sets marketing direction, annual plans, resource allocation','AI generates strategy briefs, competitive landscape reports'],['Stakeholder Mgmt','Manages Sales, BD, Care, Exec relationships','AI compiles stakeholder reports, meeting prep'],['Brand Positioning','Brand strategy, market positioning, PR direction','AI drafts PR pitches, monitors brand sentiment'],['Builder Model Oversight','Transition planning, cross-training validation, output monitoring','AI tracks builder utilisation, output dashboards'],['Budget & Compliance','Budget governance, compliance, team culture','AI dashboards, variance tracking, engagement surveys']],agents:'5-8 agents: Executive reporting, competitive landscape, strategy briefs, output dashboards, budget tracking',ditl:'<strong>8:00am:</strong> Review overnight output dashboards — all builder KPIs tracked. AI reporting agent has compiled the weekly summary showing SQL volume at 102% of target. <strong>9:00am:</strong> 1:1 with Head of Performance (Paul) — ROAS at 8.4:1, CPL down 6% QoQ. Competitor agent flagged new entrant in Sydney. Agree to increase spend on high-performing Google Ads segments. Review Performance Builder\'s month-2 progress — on track. <strong>10:00am:</strong> Stakeholder call with GM Sales (Jacqueline) — review marketing-sourced SQLs, discuss lead quality. CSAT feedback from Sales at 4.1/5. <strong>11:00am:</strong> Builder model transition check — Marketing Ops Manager reports cross-training is progressing: Matthew now drafting social copy, Miranda producing design assets independently. Review the builder utilisation dashboard — balanced workload across the agency pod. <strong>1:00pm:</strong> Brand strategy session — AI agent has drafted 3 PR pitch angles for the Support at Home reform anniversary. Review and approve 1 for outreach. Brand voice compliance at 100% this month. <strong>2:30pm:</strong> Monthly budget review — AI dashboard shows spend tracking within 3% variance. CPQL baseline established, trending down. <strong>3:30pm:</strong> Cross-functional meeting with Care division — align on client comms messaging for Support at Home changes. <strong>4:30pm:</strong> Review Imran\'s agent deployment pipeline — 22 agents in production, 8 more in the sprint. Monthly output report to CGO drafted by AI, review and send.'},
+  paul: {name:'Head of Performance',title:'Paul Phare',level:'L3 — Functional Leadership (Performance)',reports:'GM Marketing (Stephen)',desc:'Owns the revenue engine — paid ads, SEO, CRO, email marketing strategy, and competitor intelligence. Sets strategy across all performance disciplines. Coaches the Performance Builder. Accountable for attribution accuracy >=90%, funnel infrastructure, and full-funnel dashboard.',disciplines:[['Paid Ads','Strategy, budget allocation, channel mix, ROAS targets','Campaign builds, bid management, ad copy, A/B variants'],['SEO','Strategy, content briefs, technical priorities','Keyword research, content drafts, technical audits, rank tracking'],['CRO','Test hypotheses, prioritisation, conversion strategy','Landing page variants, heatmap analysis, test reporting'],['Email Marketing','Journey strategy, segmentation, lifecycle design','Flow builds, copy drafts, send optimisation'],['Competitor Intel','Strategic interpretation, action plans','Monitoring, alerts, positioning analysis, ad scraping']],agents:'8-12 agents: Google Ads, Meta, SEO content, keyword, CRO test, email flow, competitor alerts, attribution',ditl:'<strong>8:30am:</strong> Review overnight campaign dashboards — AI agents flagged 2 campaigns with CPL above threshold on Google Ads. Review the agent\'s recommended bid adjustments for the aged care keyword group. Approve both. Attribution dashboard shows 92% accuracy — Unknown at 12%, trending down. <strong>9:00am:</strong> SEO agent has drafted 3 content briefs based on keyword gap analysis — "Support at Home eligibility", "home care package levels explained", "choosing a home care provider". Review and approve 2, send 1 back for more depth on NDIS crossover. <strong>9:30am:</strong> Weekly 1:1 with Performance Builder — coaching session. Email automation showing 42% open rate on the welcome sequence. Review their CRO test results from last week — 8% uplift on the landing page variant. Approve new A/B test launch. Builder is hitting month-2 targets. <strong>10:00am:</strong> Competitor intelligence agent flagged a major competitor running new Meta campaigns targeting self-managed clients. Review the positioning analysis and update the monthly competitor report for Stephen and CGO. <strong>11:00am:</strong> CRO review — landing page agent ran 4 variant tests this week on the "Get Started" page. One variant showing 12% conversion uplift — approve for full rollout. <strong>1:00pm:</strong> Monthly funnel insights meeting with Sales and BD — present conversion data by channel, share 2 content assets for Sales enablement, recommend shifting budget from display to search. <strong>2:30pm:</strong> Funnel infrastructure check — Klaviyo integration with CRM is live. UTM framework at 100% tagged. Review full-funnel dashboard build progress with Performance Builder — on track for end Q4 launch. <strong>4:00pm:</strong> Monthly performance dashboard compiled — AI agent drafted it, review numbers and send to Stephen on time.'},
+  perfbuilder: {name:'Performance Builder',title:'New Hire',level:'L2 — Revenue Driver',reports:'Head of Performance (Paul)',desc:'Multi-skilled builder across all performance disciplines. Ships end-to-end: ads, SEO, CRO, email, web dev, competitor intel, attribution. AI handles 70% of execution; the builder applies judgment and QA. Revenue weight 80% — paid performance is king. Replaces Rajitha + Michael scope.',disciplines:[['Ads Execution','Platform management, optimisation, QA','Ad copy variants, audience builds, reporting'],['Email & CRO','Flow implementation, A/B testing, journey builds','Sequence drafts, subject line testing, trigger logic, page variants'],['SEO & Web Dev','Website management via Claude Code, content optimisation','Page builds, template creation, keyword research, technical audits'],['Attribution','UTM frameworks, GA4, dashboards','Dashboard updates, anomaly detection, tag verification'],['Competitor Intel','Market monitoring, positioning analysis','Automated alerts, ad scraping, benchmark reports']],agents:'6-10 agents: Ad copy, landing pages, email sequences, UTM tracking, web dev, reporting, competitor alerts',ditl:'<strong>8:00am:</strong> Open Google Ads dashboard — review yesterday\'s performance across 15 active campaigns targeting aged care keywords. AI ad copy agent has generated overnight variants for 3 underperforming ad groups. Review copy, approve 2, tweak 1. CPL trending down 4% this week. <strong>8:45am:</strong> Switch to Meta — check the Support at Home awareness campaign. Audience builder agent suggests a new lookalike segment based on recent converters. Approve and launch. NDIS + SaH audience segments both live and performing. <strong>9:30am:</strong> Klaviyo check — email flow agent has built a new 4-step nurture sequence for clients who downloaded the home care guide. Review triggers, timing, and copy. Speed-to-lead automated at 43 minutes. Adjust the Day 3 email subject line using the A/B test agent\'s suggestions. Open rate at 44%, CTR at 16%. Approve. <strong>10:30am:</strong> Weekly 1:1 with Paul — report on weekly metrics, discuss CRO test results showing 8% uplift. Review journey coverage — now at 82% of clients in automated journeys. <strong>11:00am:</strong> CRO work — landing page agent built 2 new variants for the "Compare Home Care Packages" page using Claude Code. Review in browser, request one mobile layout fix, approve the other for testing. This is the second Claude Code landing page this month — on target. <strong>1:00pm:</strong> UTM audit — attribution agent flags 3 campaigns with missing UTM parameters. Fix in 10 minutes. Run GA4 verification — compliance at 100%. Check competitive benchmark — TC ranking top 3 on 4 of 5 priority keywords, organic traffic up 6% MoM. <strong>2:00pm:</strong> Build a new landing page for the NDIS crossover campaign using Claude Code — AI generates the template, add TC brand elements and content. Live in 90 minutes. <strong>3:30pm:</strong> AI agent check — 7 agents in daily use today (ad copy, landing page, email flow, UTM tracker, competitor alerts, SEO content, CRO tester). AI-assisted execution running at 72%. Time savings estimate: 35% vs manual. <strong>4:30pm:</strong> Queue tomorrow\'s campaign launches — 2 new Google Ads campaigns and 1 Meta campaign. AI agents have pre-built everything; final QA and approve.'},
+  opsmanager: {name:'Marketing Ops Manager',title:'New Hire',level:'L3 — Functional Leadership',reports:'GM Marketing (Stephen)',desc:'Runs the internal agency pod. Agency background, AI-native. Manages Matthew, Miranda, and Alisha as builders. Owns stakeholder service, request triage, brand governance, cross-training validation, and pod operations. Accountable for builder enablement — ensuring each builder develops true cross-functional capability.',disciplines:[['Internal Requests','Brief intake, triage, SLA management','Request routing, status updates, SLA monitoring'],['Builder Enablement','Cross-training plans, skill gap tracking, utilisation balancing','Utilisation dashboards, skill tracking'],['Brand Governance','Brand standards, QA, compliance','Brand audit checks, consistency reviews'],['Marketing Ops','Asana workflows, budget, reporting','Task automation, dashboards'],['Process Automation','AI workflow design, process documentation','Automated workflows, process monitoring']],agents:'8-10 agents: Asana automation, SLA tracking, brand QA, dashboards, utilisation monitoring, process automation',ditl:'<strong>8:00am:</strong> Open Asana — AI brief intake agent has auto-logged 4 overnight requests from Sales and BD. Two are collateral updates, one is a campaign asset request, one is a client case study. Auto-routed: design requests to Alisha, content to Matthew. All briefs 100% logged in Asana. <strong>8:30am:</strong> SLA dashboard check — 92% of requests within SLA this week. One Sales request approaching deadline — escalate to Alisha with priority flag. Quarterly planning session with BD booked for Thursday. <strong>9:00am:</strong> Builder enablement review — check cross-training progress. Matthew\'s AI content output at 72% drafted by AI (above 70% target). Miranda produced 6 design assets last week independently. Alisha delivered 4 social posts (builder flex working). Utilisation dashboard shows balanced workload across all 3. <strong>10:00am:</strong> Quality check — AI brand QA agent flagged 1 social post with off-brand font usage. First-pass quality at 87% this week (above 85% target), error rate at 1.5%. Send correction to Miranda with brand guidelines reference. Brand compliance at 96%. <strong>11:00am:</strong> Process automation sprint — testing a new automated workflow for Sales collateral requests. This is the second automation this quarter (on target for >=2/quarter). Time savings tracking at 22%. Update process documentation in the wiki. <strong>1:00pm:</strong> Quarterly planning session with BD team — review their marketing request pipeline for Q4. Align on priorities. Stakeholder CSAT feedback at 4.1/5. <strong>2:00pm:</strong> 1:1 with Matthew — review newsletter performance, discuss his social copy contributions (builder flex). He\'s writing 3 social posts/week now alongside his content work. <strong>3:00pm:</strong> Budget tracking — AI dashboard shows marketing spend at 97% of plan. Budget variance at 3%. Flag one overrun on event costs to Stephen. Monthly KPI report compiled by AI — review numbers, on track for on-time delivery. <strong>4:00pm:</strong> Team check-in — review social calendar for next week, discuss upcoming campaign briefs. Team engagement pulse at 4.2/5.'},
+  matthew: {name:'Content & Comms Builder',title:'Matthew Hart',level:'L2 — Brand & Creative',reports:'Marketing Ops Manager',desc:'Builder who ships content, comms, newsletters, PR pitches, and ORM responses end-to-end. AI drafts 70%+ of content; Matthew applies editorial judgment, brand voice, and factual accuracy. Also flexes into social copy as part of the builder model — writing for multiple channels, not just long-form.',disciplines:[['Content & Articles','Editorial judgment, brand voice, factual QA, story angles','First drafts, SEO optimisation, format variants, research'],['Newsletter & Email','Curation, editorial direction, audience targeting','Compilation, layout, scheduling, A/B subject lines'],['PR & Comms','Pitch angles, media relationships, crisis response','Pitch drafts, media list management, sentiment monitoring'],['ORM','Escalation judgment, tone management, reputation strategy','Review response drafts, mention monitoring, sentiment tracking'],['Social Copy (Flex)','Caption writing, campaign messaging, cross-channel voice','Post drafts, hashtag research, scheduling']],agents:'6-8 agents: Blog draft, newsletter compiler, PR pitch, ORM response, social copy, SEO optimiser',ditl:'<strong>8:00am:</strong> Open content dashboard — AI blog draft agent produced 3 first drafts overnight: "Understanding Support at Home fees", "How to choose a home care provider", "NDIS to aged care transition guide". QA the first one — check brand voice, verify facts against TC policies, review SEO keyword placement. Approve with minor tone adjustments. Send the second back for more depth on pricing comparison. <strong>9:00am:</strong> Newsletter production — AI newsletter agent has compiled this week\'s edition (2 blog articles, 1 client story, 1 Support at Home update). Review layout, tweak the lead story headline, approve for send. Newsletter on schedule — 100% adherence this quarter. <strong>9:45am:</strong> Social copy flex — write 3 social captions for this week\'s blog posts. AI drafts initial versions, review and adjust for platform tone (LinkedIn more professional, Facebook more conversational). This is builder flex in action — contributing >=2 social posts/week beyond core content role. <strong>10:30am:</strong> ORM check — AI monitoring agent flags 2 new Google reviews (1 positive, 1 negative). Draft response to the negative review within 45 minutes (<1hr escalation target). Positive review gets a same-day thank-you response. <strong>11:30am:</strong> PR pitch work — AI pitch agent has drafted an angle for Aged Care Today on the Support at Home reform anniversary. Review the hook, strengthen the TC data point, approve for outreach. This is pitch #1 for the month (on target for >=1/month). <strong>1:00pm:</strong> Content planning with Marketing Ops Manager — review editorial calendar adherence (at 92%, above 90% target). Discuss next week\'s content priorities — 4 articles planned across 3 formats. <strong>2:00pm:</strong> Deep-write session — draft a long-form guide on "Choosing the Right Home Care Provider in 2026". AI provides the research base and outline; Matthew writes the narrative sections requiring empathy and nuance. QA pass rate tracking at 91% with zero factual errors. <strong>3:30pm:</strong> Cross-dept request from BD — case study needed for a partnership pitch. AI drafts the structure from the brief, Matthew interviews the client contact and writes the human-interest angle. SLA: within deadline. <strong>4:30pm:</strong> End-of-day Asana update — all tasks logged, discipline at 92%. Review tomorrow\'s content queue — AI agents will have 2 more drafts ready for morning QA.'},
+  miranda: {name:'Social, ORM & Design Builder',title:'Miranda Partridge',level:'L2 — Brand & Creative',reports:'Marketing Ops Manager',desc:'Builder who ships social content, online reputation management, and design assets end-to-end. AI handles scheduling, post drafts, review responses, and design production; Miranda applies creative judgment, community management, and brand consistency. Flexes into content writing and design as part of the builder model.',disciplines:[['Social Content','Content strategy, community management, platform voice','Post drafts, scheduling, hashtag research, analytics'],['ORM','Reputation strategy, review response, crisis escalation','Review monitoring, response drafts, sentiment tracking'],['Design Production','Visual direction, brand consistency, asset QA','Template production, resizing, AI-generated graphics'],['Video & Motion','Creative direction, storyboarding, brand overlay','Video cuts, captions, thumbnails, motion graphics'],['Content Writing (Flex)','Longer-form writing, blog contributions, campaign copy','Research, outlines, draft generation']],agents:'6-8 agents: Social scheduler, post drafter, ORM monitor, design production, video editor, content research',ditl:'<strong>8:00am:</strong> Open social dashboard — AI scheduling agent has queued 5 posts per platform for the day (>=50% AI-drafted). Review LinkedIn, Facebook, and Instagram queues. Adjust 2 captions for tone — LinkedIn needs a more professional angle on the aged care reform post. Approve the rest. <strong>8:45am:</strong> ORM check — AI monitoring agent shows 3 new Google reviews overnight (2 positive, 1 neutral). Draft same-day responses for all 3. Check monthly review count — at 18 so far, on track for >=20. Stars sitting at 4.2. <strong>9:30am:</strong> Design production session — AI design agent has generated 5 social graphics using brand templates (banner variants, story tiles, carousel slides). QA each for brand consistency — approve 4, send 1 back for colour correction. This is builder flex: producing design assets with AI tools, not just social content. 6 design assets produced this week, above the >=5/week target. <strong>10:30am:</strong> Content writing flex — write a 600-word blog post on "5 Questions to Ask Your Home Care Provider". AI provides the research outline and SEO keywords; Miranda writes the conversational draft. This is her second longer-form piece this month (hitting the >=2/month flex target). <strong>11:30am:</strong> Video content — AI video agent has cut a 45-second client testimonial from raw footage. Add TC branding overlay, review auto-generated captions for accuracy, select thumbnail. Second video this month (on target for >=2/month). Approve for social distribution. <strong>1:00pm:</strong> Engagement review — check weekly analytics. Follower growth at 6% QoQ (above 5% target), engagement rate at 3.4%. Note which content types are driving the most engagement for next week\'s planning. <strong>2:00pm:</strong> Cross-dept design request from Sales — need a one-pager for a new partnership. AI design agent generates from template with latest stats. QA brand consistency, adjust layout, deliver within SLA (93% SLA compliance this week). <strong>3:00pm:</strong> AI workflow check — 5 agents in daily use today (social scheduler, post drafter, ORM monitor, design production, video editor). Scheduling automated at 85%. Time savings running at 32%. Test a new AI workflow for automated Instagram Stories from blog content — this quarter\'s workflow improvement. <strong>4:00pm:</strong> Plan tomorrow\'s social calendar with the Ops Manager. Review upcoming campaign assets needed for the Melbourne aged care expo. Stakeholder CSAT at 4.1/5.'},
+  alisha: {name:'Creative & Campaign Builder',title:'Alisha Van Bone',level:'L2 — Brand & Creative',reports:'Marketing Ops Manager',desc:'Builder who ships brand design, campaign creative, templates, and sales collateral end-to-end. Also flexes into social content production and campaign copy. Uses AI agents for 50%+ of routine production — templates, resizing, variants, mockups. Quality and brand consistency are the primary judgment calls.',disciplines:[['Brand Design','Campaign concepts, hero assets, brand direction','Template production, resizing, variants, mockups'],['Social Assets (Flex)','Social graphics, story tiles, campaign visuals','Social post generation, variant creation, scheduling'],['Video & Motion','Short-form content, social video, motion graphics','Video cuts, captions, thumbnails, animation'],['Campaign Copy (Flex)','Campaign messaging, taglines, social captions','First draft generation, variant copy'],['Sales Collateral','Partnership decks, one-pagers, presentation design','Template generation, data population, formatting']],agents:'6-10 agents: Design production, video edits, resize/format, mockups, variant generator, social asset creator',ditl:'<strong>8:00am:</strong> Design request queue in Asana — 7 items. AI design production agent has already completed 3 routine ones (brochure resize for A5, social banner variants, email header template). Review quality — all on-brand, first-pass on-brief rate at 92%. Approve. Turnaround improving QoQ. <strong>9:00am:</strong> Focus on creative work — campaign assets for the new "Your Care, Your Choice" brand campaign. Design hero banner, supporting social cards, email header. AI variant agent generates 4 colour/layout options. Select 2 for A/B testing. Quality score from stakeholders: 4.2/5. <strong>10:00am:</strong> Social asset flex — produce 4 social graphics independently for this week\'s content calendar (builder flex). AI generates base templates from brand guidelines, Alisha refines and adds creative flair. This is the third week hitting >=3 social assets/week independently. Also write 2 social captions for the campaign posts — builder flex into copy. <strong>11:00am:</strong> Video/motion production — AI video agent has cut a 30-second testimonial clip from a recent client interview. Add TC branding overlay, review captions, create a motion-graphic intro. Second video this month (on target for >=2/month). Approve for social. <strong>1:00pm:</strong> Sales collateral — BD team needs updated partnership one-pager and a presentation deck. AI agent generates both from templates with latest stats. Review layouts, adjust design on the deck. Assets to Sales/BD: 2 this week (tracking for >=2/month). <strong>2:00pm:</strong> AI design workflow — test a new automated workflow for producing campaign asset variants at scale. This quarter\'s AI design workflow improvement. Routine tasks AI-assisted at 55% (above 50% target). Time savings at 27%. <strong>3:00pm:</strong> Campaign brief review — upcoming "Support at Home Made Simple" campaign. Review creative brief with Marketing Ops Manager. Design hero concepts, review campaign copy from Matthew, produce 3 supporting assets. All on-brief and on-time. Volume targets at 100%. <strong>4:00pm:</strong> End-of-day check — cross-functional CSAT at 4.1/5. Revisions averaging 1.5/project (below <=2 target). Meeting attendance 100%. Review tomorrow\'s queue — AI agents will have routine items pre-built for morning QA.'},
+  imran: {name:'AI Innovation Lead',title:'Imran Mehmood',level:'L3 — Revenue Driver',reports:'CGO (Nick Lunn)',desc:'Owns the AI agent portfolio for the entire marketing team. Builds, deploys, and maintains agents that power the builder model. Accountable for >=30 agents in production by end Q4, builder enablement, and commercial impact >=$500K annualised savings. Enables every builder to work at 2-3x output through AI.',disciplines:[['Agent Development','Architecture, build priorities, deployment decisions','Code generation, testing, integration builds'],['Builder Enablement','Training, confidence building, workflow design','Training materials, usage tracking, feedback collection'],['Reliability & Ops','Uptime monitoring, error resolution, performance tuning','Automated monitoring, alerting, self-healing'],['Commercial Analysis','ROI calculation, savings quantification, business cases','Data collection, report generation, benchmarking'],['Cross-Functional Innovation','Identifying AI opportunities beyond marketing','Prototyping, tool evaluation, proof of concepts']],agents:'Meta-agents: Agent monitoring, deployment pipeline, usage analytics, ROI calculator, builder confidence tracker',ditl:'<strong>8:00am:</strong> Agent operations dashboard — check overnight uptime across all 24 production agents. Uptime at 96.2% (above 95% target). One email flow agent threw errors at 3am — auto-healed after retry. Error rate at 3.8%. Review deployment pipeline — 2 new agents ready for production this week. <strong>9:00am:</strong> Builder enablement session with Miranda — walk through the new social scheduling agent. She\'s now using 5 agents daily (above the >=4 target). Builder AI confidence survey came back at 4.1/5. Note: Alisha still at 3 agents — schedule extra training session. <strong>10:00am:</strong> Deploy a new CRO testing agent for the Performance Builder. Time-to-deploy: 9 days from request (within <=2 weeks target). Run integration tests with the existing landing page agent. Agents per builder now averaging 4.2. <strong>11:00am:</strong> Commercial impact review — update the annualised savings model. Current estimate: $420K from headcount efficiency + $95K from time savings = $515K (above $500K target). Output per FTE at 2.1x baseline. Time saved: 34 hrs/month across the team. Present findings to Stephen. <strong>1:00pm:</strong> Cross-functional innovation sprint — prototype a client onboarding agent for the Care division (first cross-functional agent this quarter, on target for >=1/quarter). Meet with Care ops to scope requirements. <strong>2:00pm:</strong> Tool evaluation — assess 2 new AI design tools for the agency pod builders. This is the second tool evaluation this quarter (tracking for >=3/quarter). Document findings and recommendations. <strong>3:00pm:</strong> Agent reliability deep-dive — the content draft agent has been producing inconsistent SEO keyword density. Debug the prompt, update the agent, run regression tests. Builder adoption dashboard shows 83% of team using agents daily (above 80% target). <strong>4:00pm:</strong> Stakeholder check-in — collect feedback from Paul on performance pod agents. Stakeholder CSAT at 4.2/5. Builder feedback at 4.0/5. Update the weekly agent status report for the CGO. Total agents in production: 24, on track for >=30 by end Q4.'}
 };
 
 // ── Strategy Overlay Content ──
 var strategyData = {
-  current: '<h3>Current State Strategy</h3><h4>The Problem</h4><p>12 people covering 12 disciplines — but with critical gaps in CRO, competitor intelligence, and web dev. Specialist silos mean a campaign touches 4-5 people before it ships. Single points of failure across email, content, and design.</p><h4>Key Issues</h4><ul><li>Designer can\'t write, writer can\'t design, social can\'t do ads — no cross-functional flexibility</li><li>Two coordinators managing admin that AI can automate tomorrow</li><li>Performance marketing carrying the revenue load with too few people</li><li>Brand and creative side disconnected from performance metrics</li></ul><h4>What Needs to Change</h4><p>The team needs to shift from specialist silos to multi-skilled humans who manage AI agents. The bottleneck is no longer capacity — it\'s judgement. We need fewer people who can each do more, supported by agents that handle the volume.</p>',
-  'mid-stage': '<h3>Mid-Stage Strategy (12 &rarr; 6+1)</h3><h4>The Approach</h4><p>Restructure into a <strong>pillar + layer</strong> operating model. Two operational pillars run execution: <strong>Performance</strong> (Paul + new Digital &amp; Automation Lead) and <strong>Brand &amp; Creative</strong> (new Marketing Ops &amp; Brand Manager + Matthew + Miranda + Alisha). Two enabling layers support them: <strong>Strategy &amp; Leadership</strong> (Stephen) across the top, <strong>AI Innovation</strong> (Imran) across the bottom.</p><h4>Redundancies (5 people)</h4><ul><li><strong>Rajitha Jayathunga</strong> (Digital Marketing Lead) — replaced by new Digital &amp; Automation Lead hire</li><li><strong>Michael Coffey</strong> (Campaign &amp; Automation Specialist) — scope absorbed into new hire</li><li><strong>Marilyn Tang</strong> (Marketing Coordinator) — admin automated by AI agents</li><li><strong>Kayla Williams</strong> (Events Coordinator) — events on hold, coordination automated</li><li><strong>Junior Graphic Designer</strong> — volume design work replaced by AI agents</li></ul><h4>Resignation</h4><ul><li><strong>Mariia Branch</strong> (Marketing Operations TL) — will resign, replaced by new Marketing Ops &amp; Brand Manager</li></ul><h4>New Hires (2 people)</h4><ul><li><strong>Digital &amp; Automation Lead</strong> — reports to Head of Performance. Replaces Rajitha + Michael scope across ads execution, email, CRO, web dev, attribution</li><li><strong>Marketing Ops &amp; Brand Manager</strong> — reports to GM Marketing. Agency background, multi-skilled, AI-native. Replaces Mariia across ops, brand, content strategy, events</li></ul><h4>Critical Success Factors</h4><ul><li>New hires must be AI-native — comfort with Claude Code, AI agents, and automation from day one</li><li>Miranda\'s role expands to include design (Social, ORM &amp; Design Executive)</li><li>Output must not decline during transition — monitored weekly</li></ul>',
-  'end-state': '<h3>End-State Strategy (5 People + Imran)</h3><h4>The Model</h4><p>The <strong>pillar + layer</strong> structure is the end-state from the start. Two operational pillars — <strong>Performance</strong> (Head of Performance + Digital &amp; Automation Lead) and <strong>Brand &amp; Creative</strong> (Marketing Ops &amp; Brand Manager + Content &amp; Comms Exec + Social, ORM &amp; Design Exec + Creative Lead) — each manage 14-22 AI agents across 6 disciplines. Two enabling layers — <strong>GM Marketing</strong> (strategy, standards) and <strong>AI Innovation Lead</strong> (AI enablement) — ensure both pillars operate to the same quality bar. Five humans plus Imran, 30-45 agents, 12 disciplines, 3-5x output.</p><h4>What Makes It Work</h4><ul><li>Each person is the quality gate — AI agents draft, humans approve</li><li>Multi-skilling means fewer handoffs — one person can brief, review, and ship</li><li>AI Innovation Lead (Imran) is the enabler — builds agents, maintains them, trains the team</li><li>The model scales by adding agents, not people</li><li>Matthew Hart stays as Content &amp; Comms Executive</li><li>Miranda Partridge stays as Social, ORM &amp; Design Executive (expanded to include design)</li></ul><h4>End-State Targets</h4><ul><li>30-45 AI agents in production managed by 5 humans + Imran</li><li>>=60% of marketing execution AI-driven</li><li>>=3x output per FTE vs pre-TOM baseline</li><li>>=$750K annualised savings from headcount reduction</li><li>0% attrition — every person is critical</li></ul>'
+  current: '<h3>Current State — Specialist Model</h3><h4>The Problem</h4><p>12 people covering 12 disciplines — but with critical gaps in CRO, competitor intelligence, and web dev. Specialist silos mean a campaign touches 4-5 people before it ships. Single points of failure across email, content, and design.</p><h4>Key Issues</h4><ul><li>Designer can\'t write, writer can\'t design, social can\'t do ads — no cross-functional flexibility</li><li>Two coordinators managing admin that AI can automate tomorrow</li><li>Performance marketing carrying the revenue load with too few people</li><li>Brand and creative side disconnected from performance metrics</li></ul><h4>What Needs to Change</h4><p>The team needs to shift from specialist silos to <strong>builders</strong> — multi-skilled people who ship end-to-end with AI handling 70% of execution. The bottleneck is no longer capacity — it\'s judgement. We need fewer people who can each do more, directing AI agents that handle the volume.</p>',
+  'mid-stage': '<h3>The Builder Team (12 &rarr; 7)</h3><h4>The Approach</h4><p>Restructure into two <strong>builder pods</strong>. <strong>Performance Pod</strong> (Paul + Performance Builder) runs the revenue engine. <strong>Internal Agency Pod</strong> (Marketing Ops Manager + Matthew + Miranda + Alisha) runs brand, creative, and stakeholder service. Stephen sets strategy across both. Imran enables both with AI agents.</p><h4>Redundancies (5 people)</h4><ul><li><strong>Rajitha Jayathunga</strong> (Digital Marketing Lead) — replaced by Performance Builder</li><li><strong>Michael Coffey</strong> (Campaign &amp; Automation Specialist) — scope absorbed into Performance Builder</li><li><strong>Marilyn Tang</strong> (Marketing Coordinator) — admin automated by AI agents</li><li><strong>Kayla Williams</strong> (Events Coordinator) — events on hold, coordination automated</li><li><strong>Junior Graphic Designer</strong> — volume design work replaced by AI agents</li></ul><h4>Resignation</h4><ul><li><strong>Mariia Branch</strong> (Marketing Operations TL) — will resign, replaced by Marketing Ops Manager</li></ul><h4>New Hires (2 people)</h4><ul><li><strong>Performance Builder</strong> — reports to Head of Performance. Multi-skilled across ads, SEO, CRO, email, web dev, competitor intel, attribution. AI-native</li><li><strong>Marketing Ops Manager</strong> — reports to GM Marketing. Agency background, AI-native. Runs the internal agency pod</li></ul><h4>Builder Development</h4><ul><li>Matthew, Miranda, and Alisha must cross-train over 3-4 months to become true builders</li><li>Each builder should be able to ship a brief end-to-end with AI handling 70% of execution</li><li>Output must not decline during transition — monitored weekly</li></ul>',
+  'end-state': '<h3>Considerations &amp; Risks</h3><h4>Unicorn Hire Risk</h4><p>Finding a Performance Builder who is genuinely multi-skilled across 7 disciplines AND AI-native is hard. May need 6-8 weeks and a premium salary. Paul covers execution gaps during the hiring period.</p><h4>Bus Factor</h4><p>One Performance Builder = single point of failure for the revenue engine. Mitigation: Paul can cover, AI agents retain workflows. Consider a second builder long-term if the pod grows.</p><h4>Builder vs Specialist Labels</h4><p>If Matthew only writes, Miranda only does social, and Alisha only designs — they are specialists with builder labels. Cross-training must be enforced over 3-4 months with clear targets.</p><h4>Builder Burnout</h4><p>Research shows 60% burnout in IT generalists. Broad scope + AI management is heavy cognitive load. Monitor actively, protect capacity. AI must reduce load, not just increase output expectations.</p><h4>Quality vs Depth</h4><p>Builders won\'t match specialists in any single discipline. The bet: AI + good-enough judgment > deep specialist + slow handoffs. May not hold for complex technical SEO or advanced attribution.</p>'
 };
 
 // ── Toggle Functions ──
