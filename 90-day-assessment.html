@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>90-Day Builder Assessment Framework — Trilogy Care</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #071325; color: #d7e3fc; font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.8; padding: 0; }
+    :root {
+      --surface: #071325;
+      --card: rgba(42,53,72,0.6);
+      --border: rgba(67,71,79,0.15);
+      --secondary: #43C0BE;
+      --tertiary: #64BCEA;
+      --text: #d7e3fc;
+      --dim: #8892a4;
+      --green: #34d399;
+      --amber: #fcb647;
+      --red: #f05057;
+    }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    /* Back link */
+    .back { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--dim); font-size: 0.85rem; text-decoration: none; margin-bottom: 3rem; transition: color 0.2s; }
+    .back:hover { color: var(--secondary); }
+
+    /* Typography */
+    h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 0.5rem; }
+    h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; margin: 3rem 0 1rem; }
+    h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin: 2rem 0 0.75rem; }
+    h4 { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--secondary); margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; color: var(--dim); }
+    p strong { color: var(--text); }
+
+    .subtitle { font-size: 1.1rem; color: var(--dim); max-width: 600px; margin-bottom: 3rem; }
+    .label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--secondary); margin-bottom: 1rem; display: block; }
+
+    /* Pull quote */
+    blockquote { border-left: 3px solid var(--secondary); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; font-weight: 300; font-size: 1.15rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+    /* Glass card */
+    .glass { background: var(--card); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.75rem; margin-bottom: 1.5rem; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; }
+    th { text-align: left; padding: 0.6rem 0.75rem; color: var(--dim); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    td { padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.04); color: rgba(255,255,255,0.65); }
+    td:first-child { color: #fff; font-weight: 600; }
+
+    /* Score indicator */
+    .score { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; }
+    .score-green { background: rgba(52,211,153,0.1); color: var(--green); border: 1px solid rgba(52,211,153,0.25); }
+    .score-amber { background: rgba(252,182,71,0.1); color: var(--amber); border: 1px solid rgba(252,182,71,0.25); }
+    .score-red { background: rgba(240,80,87,0.1); color: var(--red); border: 1px solid rgba(240,80,87,0.25); }
+
+    /* Checklist */
+    .check-list { list-style: none; padding: 0; margin: 1rem 0; }
+    .check-list li { padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.9rem; color: rgba(255,255,255,0.6); display: flex; gap: 0.75rem; align-items: flex-start; }
+    .check-list li:last-child { border-bottom: none; }
+    .check-icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-top: 2px; }
+
+    /* Phase cards */
+    .phase { position: relative; padding-left: 2.5rem; margin-bottom: 2.5rem; }
+    .phase::before { content: ''; position: absolute; left: 0.6rem; top: 2rem; bottom: -2rem; width: 1px; background: rgba(255,255,255,0.08); }
+    .phase:last-child::before { display: none; }
+    .phase-dot { position: absolute; left: 0; top: 0.35rem; width: 1.25rem; height: 1.25rem; border-radius: 50%; border: 2px solid var(--secondary); background: var(--surface); }
+    .phase-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--secondary); margin-bottom: 0.25rem; }
+    .phase h3 { margin-top: 0; }
+
+    /* Person card */
+    .person-card { border-top: 3px solid; margin-bottom: 2rem; }
+    .person-card.matthew { border-color: var(--tertiary); }
+    .person-card.miranda { border-color: var(--amber); }
+    .person-card.alisha { border-color: var(--green); }
+    .person-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.15rem; }
+    .person-role { font-size: 0.85rem; color: var(--dim); margin-bottom: 1rem; }
+
+    /* Outcome badges */
+    .outcome { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; margin: 0.25rem 0.25rem 0.25rem 0; }
+    .outcome-pass { background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2); color: var(--green); }
+    .outcome-extend { background: rgba(252,182,71,0.08); border: 1px solid rgba(252,182,71,0.2); color: var(--amber); }
+    .outcome-exit { background: rgba(240,80,87,0.08); border: 1px solid rgba(240,80,87,0.2); color: var(--red); }
+
+    /* Separator */
+    hr { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 3rem 0; }
+
+    /* Footer */
+    .footer { text-align: center; font-size: 0.8rem; color: var(--dim); margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    @media (max-width: 600px) {
+      .container { padding: 2rem 1.25rem 4rem; }
+      table { font-size: 0.8rem; }
+      th, td { padding: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <a href="index.html" class="back">← Back to Builder Model</a>
+
+  <span class="label">Assessment Framework</span>
+  <h1>90-Day Builder Trial</h1>
+  <p class="subtitle">A structured assessment to determine whether Matthew, Miranda, and Alisha can transition from specialists to builders — or whether we hire externally.</p>
+
+  <blockquote>"The question isn't whether they're good at their current job. It's whether they can become something different — a builder who ships across disciplines with AI doing the heavy lifting."</blockquote>
+
+  <!-- ═══ PRINCIPLES ═══ -->
+  <h2>Assessment Principles</h2>
+
+  <div class="glass">
+    <h4>What we're testing</h4>
+    <p>The builder model requires three capabilities that specialists typically don't have. The 90-day trial tests all three:</p>
+    <table>
+      <thead><tr><th>Capability</th><th>What It Means</th><th>How We Measure</th></tr></thead>
+      <tbody>
+        <tr><td>AI-Native Execution</td><td>Uses AI agents for 70%+ of production. Doesn't just "try AI" — it's their default workflow.</td><td>AI-drafted output ratio, agent usage logs, time savings</td></tr>
+        <tr><td>Cross-Discipline Flex</td><td>Produces work outside their core discipline. A writer creating social assets. A social manager producing design. Not just "helping" — shipping.</td><td>Output count in non-core disciplines, quality at builder standard</td></tr>
+        <tr><td>Self-Directed Shipping</td><td>Takes a brief and delivers finished output without hand-holding. Doesn't wait for approval on every decision. Ships, then iterates.</td><td>Brief-to-delivery cycle time, manager intervention frequency</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass">
+    <h4>What we're NOT testing</h4>
+    <ul class="check-list">
+      <li><span class="check-icon">✕</span>Whether they're good at their current specialist role (we already know)</li>
+      <li><span class="check-icon">✕</span>Whether they "like" AI tools (irrelevant — it's a capability requirement)</li>
+      <li><span class="check-icon">✕</span>Attitude or effort (we're measuring output and capability, not intent)</li>
+      <li><span class="check-icon">✕</span>Whether they can learn in theory (we're measuring whether they perform in practice within 90 days)</li>
+    </ul>
+  </div>
+
+  <!-- ═══ TIMELINE ═══ -->
+  <h2>The 90 Days</h2>
+
+  <div class="phase">
+    <div class="phase-dot"></div>
+    <span class="phase-label">Days 1–30</span>
+    <h3>Foundation — Learn the Builder Workflow</h3>
+    <p>Each person receives their AI agent toolkit (built by Imran), a cross-training plan, and a clear brief on what "builder standard" looks like. They start producing in their core discipline using AI agents for the majority of execution.</p>
+    <div class="glass">
+      <h4>Day 30 Checkpoint</h4>
+      <table>
+        <thead><tr><th>Measure</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>AI-drafted output ratio</td><td>≥40% of total output AI-assisted</td></tr>
+          <tr><td>AI agents in daily use</td><td>≥2 agents used daily</td></tr>
+          <tr><td>Core discipline output maintained</td><td>No volume or quality drop from current baseline</td></tr>
+          <tr><td>Cross-training sessions attended</td><td>100% — no opt-outs</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.85rem;"><strong>Pass criteria:</strong> Demonstrating willingness and early capability. Not yet at builder standard — that's Day 60.</p>
+      <p style="font-size:0.85rem;"><strong>Red flag:</strong> AI agent usage below 20%, resistance to cross-training, or output quality declining.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-dot"></div>
+    <span class="phase-label">Days 31–60</span>
+    <h3>Stretch — Cross-Discipline Production</h3>
+    <p>The real test begins. Each person starts producing outside their core discipline — not "helping" or "supporting" but actually shipping finished work in adjacent areas. AI agents handle the skill gap; the person handles judgment and QA.</p>
+    <div class="glass">
+      <h4>Day 60 Checkpoint</h4>
+      <table>
+        <thead><tr><th>Measure</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>AI-drafted output ratio</td><td>≥60% of total output AI-assisted</td></tr>
+          <tr><td>Cross-discipline output</td><td>≥2 pieces/week shipped outside core discipline</td></tr>
+          <tr><td>Quality in non-core work</td><td>≥80% first-pass quality (judged by Marketing Ops Manager)</td></tr>
+          <tr><td>Brief-to-delivery cycle time</td><td>Improving vs Day 30 baseline</td></tr>
+          <tr><td>Pod cross-coverage</td><td>Can cover for one other builder for 2+ days without quality drop</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.85rem;"><strong>Pass criteria:</strong> Producing real, shippable work outside their comfort zone. Not perfect — but builder-standard (good enough to ship, not specialist-standard).</p>
+      <p style="font-size:0.85rem;"><strong>Red flag:</strong> Cross-discipline output below 1 piece/week, quality in non-core work below 60%, or still relying on other builders to finish their work.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-dot"></div>
+    <span class="phase-label">Days 61–90</span>
+    <h3>Prove — Operate as a Builder</h3>
+    <p>The final 30 days. Each person operates as a full builder — taking briefs across their pod's disciplines, directing AI agents for 70% of execution, shipping end-to-end without manager intervention. This is the standard they need to sustain.</p>
+    <div class="glass">
+      <h4>Day 90 Final Assessment</h4>
+      <table>
+        <thead><tr><th>Measure</th><th>Target</th><th>Weight</th></tr></thead>
+        <tbody>
+          <tr><td>AI-drafted output ratio</td><td>≥70%</td><td>25%</td></tr>
+          <tr><td>Cross-discipline output volume</td><td>≥3 pieces/week shipped outside core</td><td>25%</td></tr>
+          <tr><td>Quality across all disciplines</td><td>≥85% first-pass quality</td><td>20%</td></tr>
+          <tr><td>Brief-to-delivery speed</td><td>≤2 business days for standard briefs</td><td>15%</td></tr>
+          <tr><td>Pod cross-coverage demonstrated</td><td>Successfully covered another builder's full workload for 1 week</td><td>15%</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.85rem;"><strong>Scoring:</strong> Weighted average across all 5 measures. Each measure scored 0-100.</p>
+    </div>
+  </div>
+
+  <!-- ═══ OUTCOMES ═══ -->
+  <h2>Outcomes</h2>
+
+  <div class="glass">
+    <p style="margin-bottom:1rem;">The Day 90 assessment produces a weighted score. Three possible outcomes:</p>
+    <div style="margin-bottom:1.5rem;">
+      <div class="outcome outcome-pass">≥75 — Pass: Confirmed as Builder</div>
+      <p style="font-size:0.85rem; margin: 0.5rem 0 0;">Person transitions permanently into the builder role. KPIs updated to builder scorecard. Cross-training continues but person is confirmed.</p>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <div class="outcome outcome-extend">50–74 — Extend: 30-Day Extension</div>
+      <p style="font-size:0.85rem; margin: 0.5rem 0 0;">Showing progress but not yet at builder standard. One 30-day extension with specific targets. If still below 75 at Day 120 → Exit.</p>
+    </div>
+    <div style="margin-bottom:0;">
+      <div class="outcome outcome-exit">&lt;50 — Exit: Hire Externally</div>
+      <p style="font-size:0.85rem; margin: 0.5rem 0 0;">Not able to transition to builder model within the required timeframe. Managed exit with support. External hire for the builder role begins immediately.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ═══ PER-PERSON ═══ -->
+  <h2>Person-Specific Assessment</h2>
+  <p>Each builder candidate has different starting points and different gaps. The 90-day framework is the same, but the cross-discipline targets are tailored.</p>
+
+  <!-- Matthew -->
+  <div class="glass person-card matthew">
+    <div class="person-name">Matthew Hart</div>
+    <div class="person-role">Current: Communications Executive → Target: Content & Comms Builder</div>
+
+    <h4>Starting Position</h4>
+    <table>
+      <thead><tr><th>Capability</th><th>Current Level</th><th>Builder Requirement</th></tr></thead>
+      <tbody>
+        <tr><td>Content writing (long-form)</td><td><span class="score score-green">Strong</span></td><td>Maintain + increase volume via AI</td></tr>
+        <tr><td>PR & comms</td><td><span class="score score-green">Strong</span></td><td>Maintain</td></tr>
+        <tr><td>AI content production</td><td><span class="score score-red">Low</span></td><td>70% AI-drafted output</td></tr>
+        <tr><td>Social copy (flex)</td><td><span class="score score-amber">Limited</span></td><td>≥2 social copy pieces/week</td></tr>
+        <tr><td>Design awareness</td><td><span class="score score-red">Low</span></td><td>Brief designers effectively, basic Canva</td></tr>
+        <tr><td>Self-directed shipping</td><td><span class="score score-amber">Unknown</span></td><td>Brief in → output out, no hand-holding</td></tr>
+      </tbody>
+    </table>
+
+    <h4>90-Day Cross-Discipline Targets</h4>
+    <ul class="check-list">
+      <li><span class="check-icon">□</span><strong>Day 30:</strong> Producing all blog content with AI first-draft (≥40% AI-assisted). Attending social content cross-training.</li>
+      <li><span class="check-icon">□</span><strong>Day 60:</strong> Writing social copy for 2+ posts/week (builder flex). Using AI for newsletters, PR pitches, and blog drafts (≥60% AI). Can brief Alisha on design needs without Ops Manager intervention.</li>
+      <li><span class="check-icon">□</span><strong>Day 90:</strong> Operating as Content & Comms Builder — 70% AI, shipping across content/PR/social copy/newsletters without hand-holding. Covered for Miranda or Alisha for 1 full week.</li>
+    </ul>
+
+    <h4>Key Risk</h4>
+    <p>Matthew is a quality-focused writer. The builder model requires speed and volume with AI, then human QA — not hand-crafting every piece. If he can't shift from "I write everything" to "I direct AI and QA the output," the model doesn't work for him.</p>
+  </div>
+
+  <!-- Miranda -->
+  <div class="glass person-card miranda">
+    <div class="person-name">Miranda Partridge</div>
+    <div class="person-role">Current: Social Media Executive → Target: Social, ORM & Design Builder</div>
+
+    <h4>Starting Position</h4>
+    <table>
+      <thead><tr><th>Capability</th><th>Current Level</th><th>Builder Requirement</th></tr></thead>
+      <tbody>
+        <tr><td>Organic social management</td><td><span class="score score-green">Strong</span></td><td>Maintain + increase volume via AI</td></tr>
+        <tr><td>ORM / review management</td><td><span class="score score-green">Strong</span></td><td>Maintain</td></tr>
+        <tr><td>Design production</td><td><span class="score score-red">Low</span></td><td>≥5 design assets/week using AI tools</td></tr>
+        <tr><td>Video / motion</td><td><span class="score score-red">Low</span></td><td>≥2 video pieces/month</td></tr>
+        <tr><td>Content writing (long-form)</td><td><span class="score score-amber">Basic</span></td><td>≥2 longer-form pieces/month</td></tr>
+        <tr><td>AI tool proficiency</td><td><span class="score score-amber">Limited</span></td><td>Daily use of 4+ agents</td></tr>
+      </tbody>
+    </table>
+
+    <h4>90-Day Cross-Discipline Targets</h4>
+    <ul class="check-list">
+      <li><span class="check-icon">□</span><strong>Day 30:</strong> Social output maintained. Started using AI social scheduling and ORM response agents. Attended 4 design cross-training sessions with Alisha. Produced 2 basic design assets using AI tools (Canva AI, Midjourney).</li>
+      <li><span class="check-icon">□</span><strong>Day 60:</strong> Producing ≥3 design assets/week independently using AI tools. Created 1 video piece using AI editing tools. Writing 1 longer-form content piece/month. Social posts ≥50% AI-drafted.</li>
+      <li><span class="check-icon">□</span><strong>Day 90:</strong> Full builder operation — social + ORM + design + video. ≥5 design assets/week, ≥2 video/month, ≥2 content pieces/month. Covered for Alisha for 1 full week on design tasks.</li>
+    </ul>
+
+    <h4>Key Risk</h4>
+    <p><strong>This is the highest-risk assessment.</strong> The gap between Miranda's current skills (social + ORM) and the builder requirement (social + ORM + design + video + content) is the largest of the three. Design production — even with AI tools — requires visual judgment that may not develop in 90 days. If Day 30 design output is below baseline quality, consider early pivot to Option B: narrow the role to Social & ORM Builder and hire a separate design builder.</p>
+  </div>
+
+  <!-- Alisha -->
+  <div class="glass person-card alisha">
+    <div class="person-name">Alisha Van Bone</div>
+    <div class="person-role">Current: Lead Graphic Designer → Target: Creative & Campaign Builder</div>
+
+    <h4>Starting Position</h4>
+    <table>
+      <thead><tr><th>Capability</th><th>Current Level</th><th>Builder Requirement</th></tr></thead>
+      <tbody>
+        <tr><td>Graphic design (brand)</td><td><span class="score score-green">Strong</span></td><td>Maintain + increase volume via AI</td></tr>
+        <tr><td>Campaign creative</td><td><span class="score score-green">Strong</span></td><td>Maintain</td></tr>
+        <tr><td>AI design tools</td><td><span class="score score-amber">Unknown</span></td><td>50%+ production via AI tools</td></tr>
+        <tr><td>Social asset creation</td><td><span class="score score-amber">Some</span></td><td>≥3 social assets/week independently</td></tr>
+        <tr><td>Content / campaign copy</td><td><span class="score score-red">Low</span></td><td>Campaign messaging, social captions</td></tr>
+        <tr><td>Video / motion</td><td><span class="score score-amber">Basic</span></td><td>≥2 pieces/month</td></tr>
+      </tbody>
+    </table>
+
+    <h4>90-Day Cross-Discipline Targets</h4>
+    <ul class="check-list">
+      <li><span class="check-icon">□</span><strong>Day 30:</strong> Design output maintained. Started using AI design tools for resizing, variants, and template generation (≥30% AI-assisted). Producing 1-2 social assets/week. Attended content writing cross-training.</li>
+      <li><span class="check-icon">□</span><strong>Day 60:</strong> AI design production at ≥40%. Producing ≥3 social assets/week. Writing campaign copy and social captions (≥2/week). Created 1 video/motion piece using AI tools.</li>
+      <li><span class="check-icon">□</span><strong>Day 90:</strong> Full builder operation — design + social assets + campaign copy + video. AI-assisted ≥50%. Volume targets met. Covered for Miranda on social content for 1 full week.</li>
+    </ul>
+
+    <h4>Key Risk</h4>
+    <p><strong>Alisha is the strongest candidate.</strong> Design-to-content is a smaller stretch than social-to-design. Her main challenge is speed and volume — designers can be perfectionists. The builder model requires "good enough to ship, then iterate" not "perfect on first pass." If she embraces AI tools for volume and accepts campaign copy as part of her scope, she'll be a strong builder.</p>
+  </div>
+
+  <hr>
+
+  <!-- ═══ GOVERNANCE ═══ -->
+  <h2>Assessment Governance</h2>
+
+  <div class="glass">
+    <h4>Who Assesses</h4>
+    <table>
+      <thead><tr><th>Checkpoint</th><th>Assessor</th><th>Input From</th></tr></thead>
+      <tbody>
+        <tr><td>Day 30</td><td>Marketing Ops Manager</td><td>Imran (AI agent usage data), peer feedback</td></tr>
+        <tr><td>Day 60</td><td>Marketing Ops Manager + Stephen</td><td>Imran (agent data), stakeholder CSAT, quality audit</td></tr>
+        <tr><td>Day 90</td><td>Stephen (final decision)</td><td>Marketing Ops Manager (recommendation), Imran (data), peer feedback, quality audit</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass">
+    <h4>Assessment Evidence</h4>
+    <p>Each checkpoint requires documented evidence, not opinion:</p>
+    <ul class="check-list">
+      <li><span class="check-icon">1</span><strong>AI usage data</strong> — agent interaction logs, AI-drafted vs human-drafted ratio (from Imran's tracking)</li>
+      <li><span class="check-icon">2</span><strong>Output log</strong> — every piece produced, tagged by discipline (core vs cross-discipline)</li>
+      <li><span class="check-icon">3</span><strong>Quality audit</strong> — random sample of 10 pieces, scored for first-pass quality by Marketing Ops Manager</li>
+      <li><span class="check-icon">4</span><strong>Cycle time data</strong> — average brief-to-delivery time from Asana</li>
+      <li><span class="check-icon">5</span><strong>Cross-coverage test</strong> — did they successfully cover another builder's work for 2+ days?</li>
+      <li><span class="check-icon">6</span><strong>Stakeholder feedback</strong> — did internal clients notice a quality change? (CSAT data)</li>
+    </ul>
+  </div>
+
+  <div class="glass">
+    <h4>Decision Timeline</h4>
+    <table>
+      <thead><tr><th>Date</th><th>Event</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>Day 30</td><td>First checkpoint</td><td>Continue / early red flag conversation</td></tr>
+        <tr><td>Day 60</td><td>Second checkpoint</td><td>Continue / begin parallel external search if below 50</td></tr>
+        <tr><td>Day 90</td><td>Final assessment</td><td>Pass (≥75) / Extend (50-74) / Exit (&lt;50)</td></tr>
+        <tr><td>Day 120</td><td>Extension deadline (if applicable)</td><td>Pass (≥75) / Exit (&lt;75)</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.85rem;"><strong>Important:</strong> If a person scores below 50 at Day 60, begin the external hiring process in parallel. Don't wait until Day 90 — the builder model can't afford a 3-month gap in a role.</p>
+  </div>
+
+  <hr>
+
+  <!-- ═══ IF WE HIRE EXTERNALLY ═══ -->
+  <h2>If We Hire Externally</h2>
+
+  <blockquote>"The 90-day trial is honest, not hopeful. If the current person can't become a builder, we hire someone who already is one."</blockquote>
+
+  <div class="glass">
+    <h4>External Builder Profile</h4>
+    <p>If any of the three roles go to external hire, we're looking for:</p>
+    <ul class="check-list">
+      <li><span class="check-icon">→</span><strong>Content & Comms Builder:</strong> 3-5 years agency content marketing. Multi-format (blogs, social, PR, comms). Already using AI for 50%+ output. Can write AND brief design. Self-directed.</li>
+      <li><span class="check-icon">→</span><strong>Social, ORM & Design Builder:</strong> 3-5 years as a "social media creative" or content creator. Shoots, edits, designs, writes, posts. Strong with AI design and video tools. ORM experience. Agency or multi-brand background.</li>
+      <li><span class="check-icon">→</span><strong>Creative & Campaign Builder:</strong> 3-5 years agency graphic designer. Produces across print, digital, social, video. Already using AI design tools for 50%+ production. Can write campaign messaging. Fast, volume-oriented.</li>
+    </ul>
+    <p style="font-size:0.85rem;">Hiring timeline: 4-6 weeks from decision to start date. The Marketing Ops Manager leads the search with Stephen's sign-off. Imran provides AI proficiency assessment during the interview process.</p>
+  </div>
+
+  <div class="footer">
+    <p>Confidential — March 2026 · Owner: Nick Lunn, Chief Growth Officer</p>
+  </div>
+
+</div>
+</body>
+</html>
