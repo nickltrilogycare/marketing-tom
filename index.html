@@ -818,6 +818,56 @@
       color: #fff;
       white-space: nowrap;
     }
+
+    /* ── Shift Section Pills ── */
+    .pill {
+      display: inline-block;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      background: rgba(255,255,255,0.04);
+      border-left: 3px solid;
+      margin: 0;
+    }
+    .pill-old { border-color: #f05057; color: rgba(255,255,255,0.6); }
+    .pill-gap { border-color: #fcb647; color: #fcb647; }
+    .pill-stay { border-color: #34d399; color: rgba(255,255,255,0.7); }
+    .pill-new { border-color: #64BCEA; color: #64BCEA; }
+    .pill-assess { border-color: #fcb647; color: rgba(255,255,255,0.6); }
+    .pill-exit { border-color: #f05057; color: rgba(255,255,255,0.35); opacity: 0.6; }
+    .pill-resign { border-color: #fcb647; color: rgba(255,255,255,0.35); opacity: 0.6; }
+
+    .pill-tag { display: inline-block; font-size: 0.55rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+    .pill-tag-new { color: #34d399; background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.3); }
+    .pill-tag-assess { color: #fcb647; background: rgba(252,182,71,0.1); border: 1px solid rgba(252,182,71,0.3); }
+
+    .dtag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      padding: 3px 8px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .shift-item {
+      padding-left: 1rem;
+      border-left: 2px solid;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .shift-ai { border-color: rgba(67,192,190,0.4); }
+    .shift-human { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 768px) {
+      .pill { font-size: 0.7rem; padding: 0.25rem 0.6rem; }
+      div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    }
   </style>
 </head>
 <body>
@@ -1004,6 +1054,204 @@
         7 people + Imran &nbsp;&middot;&nbsp; 30-40 AI agents &nbsp;&middot;&nbsp; 12 disciplines &nbsp;&middot;&nbsp; 70% AI execution
       </div>
     </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ═══ THE SHIFT ═══ -->
+  <section class="section" id="shift">
+    <div class="anim">
+      <span class="section-label">The Shift</span>
+      <h2 style="margin-bottom: 1rem;">12 Become 7</h2>
+      <p style="max-width: 640px; margin: 0 auto 4rem; text-align: center; opacity: 0.6;">Five numbered beats that tell the whole story — from specialist silos to builder pods.</p>
+    </div>
+
+    <!-- ACT 01 -->
+    <div class="glass-card anim" style="position: relative; margin-bottom: 2rem;">
+      <span style="position:absolute;top:1.25rem;right:1.75rem;font-family:'Space Grotesk',sans-serif;font-size:4rem;font-weight:800;color:rgba(255,255,255,0.04);line-height:1;">01</span>
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin:0 0 1rem;">Twelve specialists. Twelve handoffs.</h3>
+      <p style="margin-bottom: 1.25rem;">The old team had one person per discipline. Every campaign brief touched 4-5 people before it shipped. Three disciplines had no dedicated owner at all.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.5rem;">
+        <span class="pill pill-old">Paid Media</span>
+        <span class="pill pill-old">SEO</span>
+        <span class="pill pill-old">Email</span>
+        <span class="pill pill-old">Social</span>
+        <span class="pill pill-old">Content</span>
+        <span class="pill pill-old">Design</span>
+        <span class="pill pill-old">Ops</span>
+        <span class="pill pill-old">Events</span>
+        <span class="pill pill-old">Coordination</span>
+        <span class="pill pill-old">Coordination</span>
+        <span class="pill pill-gap">CRO</span>
+        <span class="pill pill-gap">Web Dev</span>
+        <span class="pill pill-gap">Competitor Intel</span>
+      </div>
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.3);margin:0;"><span style="color:#f05057;">&#9679;</span> Filled &nbsp; <span style="color:#fcb647;">&#9679;</span> Gap — no dedicated owner</p>
+    </div>
+
+    <!-- ACT 02 -->
+    <div class="glass-card anim" style="position: relative; margin-bottom: 2rem;">
+      <span style="position:absolute;top:1.25rem;right:1.75rem;font-family:'Space Grotesk',sans-serif;font-size:4rem;font-weight:800;color:rgba(255,255,255,0.04);line-height:1;">02</span>
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin:0 0 1rem;">AI absorbed the repeatable 70%.</h3>
+      <p style="margin-bottom: 1.5rem;">Most marketing execution is pattern-based. AI agents now handle the volume work — humans focus on strategy, judgment, and quality.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div>
+          <h4 style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#43C0BE;margin:0 0 0.75rem;">AI Handles</h4>
+          <p class="shift-item shift-ai">First-draft copy &amp; variants</p>
+          <p class="shift-item shift-ai">SEO audits &amp; keyword research</p>
+          <p class="shift-item shift-ai">Social scheduling &amp; captions</p>
+          <p class="shift-item shift-ai">Email flow builds &amp; sequences</p>
+          <p class="shift-item shift-ai">Design resizing &amp; templates</p>
+          <p class="shift-item shift-ai">Reporting dashboards</p>
+          <p class="shift-item shift-ai">ORM draft responses</p>
+        </div>
+        <div>
+          <h4 style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#fff;margin:0 0 0.75rem;">Humans Own</h4>
+          <p class="shift-item shift-human">Strategy &amp; positioning</p>
+          <p class="shift-item shift-human">Creative direction</p>
+          <p class="shift-item shift-human">Stakeholder relationships</p>
+          <p class="shift-item shift-human">Judgment calls &amp; QA</p>
+          <p class="shift-item shift-human">Brand voice — final say</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 03 -->
+    <div class="glass-card anim" style="position: relative; margin-bottom: 2rem;">
+      <span style="position:absolute;top:1.25rem;right:1.75rem;font-family:'Space Grotesk',sans-serif;font-size:4rem;font-weight:800;color:rgba(255,255,255,0.04);line-height:1;">03</span>
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin:0 0 1rem;">Seven builders. Two pods.</h3>
+      <p style="margin-bottom: 1.5rem;">Each builder covers 3-7 disciplines. The disciplines fan out — fewer people, wider coverage, no gaps.</p>
+
+      <div class="pod-visual" style="border-top:3px solid #43C0BE;background:rgba(67,192,190,0.04);border-radius:12px;padding:1.5rem;margin-bottom:1rem;">
+        <h4 style="font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#43C0BE;margin:0 0 1rem;">Performance Pod</h4>
+        <div class="pod-person" style="margin-bottom:1rem;">
+          <div style="font-weight:700;color:#fff;font-size:0.95rem;margin-bottom:0.4rem;">Head of Performance <span style="font-weight:400;color:rgba(255,255,255,0.4);font-size:0.8rem;">— Paul Phare</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;">
+            <span class="dtag">Ads Strategy</span><span class="dtag">SEO Strategy</span><span class="dtag">CRO Strategy</span><span class="dtag">Email Strategy</span><span class="dtag">Competitor Intel</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1rem;">
+          <div style="font-weight:700;color:#fff;font-size:0.95rem;margin-bottom:0.4rem;">Performance Builder <span style="font-weight:400;color:rgba(255,255,255,0.4);font-size:0.8rem;">— New Hire</span> <span class="pill-tag pill-tag-new">NEW</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;">
+            <span class="dtag">Ads Execution</span><span class="dtag">SEO Execution</span><span class="dtag">CRO Execution</span><span class="dtag">Email Execution</span><span class="dtag">Web Dev</span><span class="dtag">Attribution</span><span class="dtag">Competitor Monitoring</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pod-visual" style="border-top:3px solid #64BCEA;background:rgba(100,188,234,0.04);border-radius:12px;padding:1.5rem;margin-bottom:1rem;">
+        <h4 style="font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#64BCEA;margin:0 0 1rem;">Internal Agency Pod</h4>
+        <div class="pod-person" style="margin-bottom:1rem;">
+          <div style="font-weight:700;color:#fff;font-size:0.95rem;margin-bottom:0.4rem;">Marketing Ops Manager <span style="font-weight:400;color:rgba(255,255,255,0.4);font-size:0.8rem;">— New Hire</span> <span class="pill-tag pill-tag-new">NEW</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;">
+            <span class="dtag">Internal Requests</span><span class="dtag">Brand QA</span><span class="dtag">Stakeholder Service</span><span class="dtag">Process Automation</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1rem;margin-bottom:1rem;">
+          <div style="font-weight:700;color:#fff;font-size:0.95rem;margin-bottom:0.4rem;">Content &amp; Comms Builder <span style="font-weight:400;color:rgba(255,255,255,0.4);font-size:0.8rem;">— Matthew Hart</span> <span class="pill-tag pill-tag-assess">ASSESS</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;">
+            <span class="dtag">Content &amp; Copy</span><span class="dtag">PR</span><span class="dtag">Newsletters</span><span class="dtag">Internal Comms</span><span class="dtag">Social Copy</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1rem;margin-bottom:1rem;">
+          <div style="font-weight:700;color:#fff;font-size:0.95rem;margin-bottom:0.4rem;">Social, ORM &amp; Design Builder <span style="font-weight:400;color:rgba(255,255,255,0.4);font-size:0.8rem;">— Miranda Partridge</span> <span class="pill-tag pill-tag-assess">ASSESS</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;">
+            <span class="dtag">Social Media</span><span class="dtag">ORM</span><span class="dtag">Design</span><span class="dtag">Video</span><span class="dtag">Community</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1rem;">
+          <div style="font-weight:700;color:#fff;font-size:0.95rem;margin-bottom:0.4rem;">Creative &amp; Campaign Builder <span style="font-weight:400;color:rgba(255,255,255,0.4);font-size:0.8rem;">— Alisha Van Bone</span> <span class="pill-tag pill-tag-assess">ASSESS</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;">
+            <span class="dtag">Brand Design</span><span class="dtag">Campaign Creative</span><span class="dtag">Templates</span><span class="dtag">Social Assets</span><span class="dtag">Events Visual</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align:center;margin:1.5rem 0 0;">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.2);">12</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;color:rgba(255,255,255,0.15);margin:0 0.75rem;">→</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:#43C0BE;">7</span>
+        <span style="display:block;font-size:0.8rem;color:rgba(255,255,255,0.3);margin-top:0.25rem;">disciplines covered: still 12</span>
+      </p>
+    </div>
+
+    <!-- ACT 04 -->
+    <div class="glass-card anim" style="position: relative; margin-bottom: 2rem;">
+      <span style="position:absolute;top:1.25rem;right:1.75rem;font-family:'Space Grotesk',sans-serif;font-size:4rem;font-weight:800;color:rgba(255,255,255,0.04);line-height:1;">04</span>
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin:0 0 1.25rem;">Every person has a clear path.</h3>
+
+      <div style="margin-bottom:1.25rem;">
+        <h4 style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#34d399;margin:0 0 0.5rem;">Staying &amp; Growing</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:0.35rem;">
+          <span class="pill pill-stay">Stephen Danckert — GM Marketing</span>
+          <span class="pill pill-stay">Paul Phare — Head of Performance</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.25rem;">
+        <h4 style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#64BCEA;margin:0 0 0.5rem;">New Hires</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:0.35rem;">
+          <span class="pill pill-new">Performance Builder</span>
+          <span class="pill pill-new">Marketing Ops Manager</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.25rem;">
+        <h4 style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#fcb647;margin:0 0 0.5rem;">90-Day Assessment</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:0.35rem;">
+          <span class="pill pill-assess">Matthew Hart — Content Builder</span>
+          <span class="pill pill-assess">Miranda Partridge — Social/Design Builder</span>
+          <span class="pill pill-assess">Alisha Van Bone — Creative Builder</span>
+        </div>
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.35);margin:0.5rem 0 0;">Can they shift from specialist to builder? 90 days to demonstrate AI adoption, cross-format output, and volume at builder standard. If not — hire externally.</p>
+      </div>
+
+      <div>
+        <h4 style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#f05057;margin:0 0 0.5rem;">Departing</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:0.35rem;">
+          <span class="pill pill-exit">Rajitha Jayathunga</span>
+          <span class="pill pill-exit">Michael Coffey</span>
+          <span class="pill pill-exit">Marilyn Tang</span>
+          <span class="pill pill-exit">Kayla Williams</span>
+          <span class="pill pill-exit">Junior Designer</span>
+          <span class="pill pill-resign">Mariia Branch — resigns</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACT 05 -->
+    <div class="glass-card anim" style="position: relative;">
+      <span style="position:absolute;top:1.25rem;right:1.75rem;font-family:'Space Grotesk',sans-serif;font-size:4rem;font-weight:800;color:rgba(255,255,255,0.04);line-height:1;">05</span>
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin:0 0 1.25rem;">Fewer people. Wider coverage. Faster ships.</h3>
+      <div style="display:flex;gap:3rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+        <div><span style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:#43C0BE;">42%</span><br><span style="font-size:0.8rem;color:rgba(255,255,255,0.4);">headcount reduction</span></div>
+        <div><span style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:#43C0BE;">0</span><br><span style="font-size:0.8rem;color:rgba(255,255,255,0.4);">discipline gaps</span></div>
+        <div><span style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:#43C0BE;">70%</span><br><span style="font-size:0.8rem;color:rgba(255,255,255,0.4);">AI execution</span></div>
+        <div><span style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:#43C0BE;">30-40</span><br><span style="font-size:0.8rem;color:rgba(255,255,255,0.4);">AI agents</span></div>
+      </div>
+      <details>
+        <summary>Full discipline coverage map</summary>
+        <div class="detail-content" style="margin-top:1rem;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+            <thead><tr><th style="text-align:left;padding:0.5rem;color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(255,255,255,0.08);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">Discipline</th><th style="text-align:left;padding:0.5rem;color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(255,255,255,0.08);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">Old Owner</th><th style="text-align:left;padding:0.5rem;color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(255,255,255,0.08);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;">New Coverage</th></tr></thead>
+            <tbody>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">Ads (Paid Media)</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.35);">Rajitha</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#43C0BE;">Paul (strategy) + Performance Builder (execution)</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">SEO</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.35);">Rajitha (secondary)</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#43C0BE;">Paul + Performance Builder + AI agents</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">CRO</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#f05057;">Gap</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#43C0BE;">Performance Builder + AI agents</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">Email Marketing</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.35);">Michael Coffey</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#43C0BE;">Performance Builder + AI agents</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">Web Dev</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#f05057;">Gap</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#43C0BE;">Performance Builder (Claude Code) + AI agents</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">Competitor Intel</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#f05057;">Gap</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#43C0BE;">Paul (strategy) + AI monitoring agents</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">Social Media</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.35);">Miranda Partridge</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#64BCEA;">Social/Design Builder + AI scheduling agents</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">Content &amp; Copy</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.35);">Matthew Hart</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#64BCEA;">Content Builder + AI writing agents</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">Design</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.35);">Alisha Van Bone</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#64BCEA;">Creative Builder + Social/Design Builder + AI design agents</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">Rep/ORM</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.35);">Miranda + Matthew</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#64BCEA;">Social/Design Builder + Content Builder + AI ORM agents</td></tr>
+              <tr><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.7);">Internal Requests</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.35);">Mariia Branch</td><td style="padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#64BCEA;">Marketing Ops Manager + AI routing agents</td></tr>
+              <tr><td style="padding:0.5rem;color:rgba(255,255,255,0.7);">Events</td><td style="padding:0.5rem;color:rgba(255,255,255,0.35);">Kayla Williams (on hold)</td><td style="padding:0.5rem;color:#64BCEA;">Creative Builder (visual) + Ops Manager (logistics) + AI agents</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+
   </section>
 
   <div class="section-sep"></div>
