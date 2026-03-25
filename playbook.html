@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Playbook — Marketing Builder Operational Playbook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --surface: #071325;
+      --surface-raised: rgba(42,53,72,0.6);
+      --primary: #2c4c79;
+      --secondary: #43C0BE;
+      --tertiary: #64BCEA;
+      --text: #d7e3fc;
+      --text-dim: #8892a4;
+      --border: rgba(67,71,79,0.15);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --green: #34d399;
+      --amber: #fcb647;
+      --red: #f05057;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Scroll Progress Bar ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary), var(--tertiary));
+      z-index: 9999;
+      width: 0%;
+      pointer-events: none;
+      transition: width 0.05s linear;
+    }
+
+    /* ── Container ── */
+    .container { max-width: 840px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    /* ── Back link ── */
+    .back { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-dim); font-size: 0.85rem; text-decoration: none; margin-bottom: 3rem; transition: color 0.2s; }
+    .back:hover { color: var(--secondary); }
+
+    /* ── Section label ── */
+    .section-label {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* ── Typography ── */
+    h1 { font-family: var(--font-display); font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; color: #fff; line-height: 1.12; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+    h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 700; color: #fff; margin: 4rem 0 1rem; line-height: 1.2; letter-spacing: -0.02em; }
+    h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: #fff; margin: 2rem 0 0.75rem; line-height: 1.3; }
+    h4 { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--secondary); margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; color: var(--text-dim); }
+    p strong { color: var(--text); }
+    .subtitle { font-size: 1.1rem; color: var(--text-dim); max-width: 640px; margin-bottom: 1rem; }
+    .preamble { font-style: italic; font-weight: 300; color: rgba(255,255,255,0.5); font-size: 1rem; margin-bottom: 3rem; max-width: 640px; line-height: 1.7; }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      border-left: 3px solid var(--secondary);
+      padding-left: 1.5rem;
+      margin: 2.5rem 0;
+      color: rgba(255,255,255,0.55);
+      max-width: 700px;
+    }
+
+    /* ── Glass card ── */
+    .glass {
+      background: var(--surface-raised);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Numbered constraint cards ── */
+    .constraint-card { border-top: 3px solid var(--secondary); }
+    .constraint-number {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--secondary);
+      opacity: 0.7;
+      margin-bottom: 0.25rem;
+    }
+    .constraint-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th { text-align: left; padding: 0.6rem 0.75rem; color: var(--text-dim); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
+    td { padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.04); color: rgba(255,255,255,0.65); vertical-align: top; }
+    td:first-child { color: #fff; font-weight: 600; }
+
+    /* ── Priority badges ── */
+    .priority { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; letter-spacing: 0.05em; }
+    .p1 { background: rgba(52,211,153,0.12); color: var(--green); border: 1px solid rgba(52,211,153,0.25); }
+    .p2 { background: rgba(252,182,71,0.12); color: var(--amber); border: 1px solid rgba(252,182,71,0.25); }
+    .p3 { background: rgba(100,188,234,0.12); color: var(--tertiary); border: 1px solid rgba(100,188,234,0.25); }
+
+    /* ── Details / expandable ── */
+    details { margin: 0.5rem 0; }
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text);
+      font-size: 0.92rem;
+      padding: 0.5rem 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before {
+      content: '+';
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--secondary);
+      width: 1.25rem;
+      text-align: center;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    details[open] summary::before { content: '\2212'; }
+    details .detail-content { padding: 0.5rem 0 1rem 1.75rem; }
+    details .detail-content ul { list-style: none; padding: 0; }
+    details .detail-content li { padding: 0.35rem 0; font-size: 0.88rem; color: rgba(255,255,255,0.6); display: flex; gap: 0.6rem; align-items: flex-start; }
+    details .detail-content li::before { content: '\2022'; color: var(--secondary); flex-shrink: 0; margin-top: -1px; }
+
+    /* ── Check list ── */
+    .check-list { list-style: none; padding: 0; margin: 1rem 0; }
+    .check-list li { padding: 0.45rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.88rem; color: rgba(255,255,255,0.6); display: flex; gap: 0.75rem; align-items: flex-start; }
+    .check-list li:last-child { border-bottom: none; }
+    .check-icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.35); margin-top: 2px; }
+
+    /* ── Rhythm cards ── */
+    .rhythm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin: 1.5rem 0; }
+    @media (max-width: 600px) { .rhythm-grid { grid-template-columns: 1fr; } }
+    .rhythm-card { border-top: 2px solid; }
+    .rhythm-card.daily { border-color: var(--green); }
+    .rhythm-card.weekly { border-color: var(--secondary); }
+    .rhythm-card.fortnightly { border-color: var(--tertiary); }
+    .rhythm-card.monthly { border-color: var(--amber); }
+    .rhythm-card.quarterly { border-color: #a78bfa; }
+    .rhythm-label { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+
+    /* ── QA layers ── */
+    .layer-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .layer-1 { background: rgba(67,192,190,0.12); color: var(--secondary); border: 1px solid rgba(67,192,190,0.25); }
+    .layer-2 { background: rgba(252,182,71,0.12); color: var(--amber); border: 1px solid rgba(252,182,71,0.25); }
+    .layer-3 { background: rgba(240,80,87,0.12); color: var(--red); border: 1px solid rgba(240,80,87,0.25); }
+
+    /* ── Separator ── */
+    hr { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 3.5rem 0; }
+
+    /* ── Footer ── */
+    .footer { text-align: center; font-size: 0.8rem; color: var(--text-dim); margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer a { color: var(--secondary); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .container { padding: 2rem 1.25rem 4rem; }
+      table { font-size: 0.78rem; }
+      th, td { padding: 0.4rem 0.5rem; }
+      .glass { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="container">
+
+  <a href="index.html" class="back">&larr; Back to Builder Model</a>
+
+  <span class="section-label">Operational Playbook</span>
+  <h1>The Playbook</h1>
+  <p class="subtitle">What world-class looks like &mdash; and how we get there</p>
+  <p class="preamble">This is the operational blueprint for the builder team. It defines output standards, maps constraints, prioritises AI efficiencies, and sets the weekly operating rhythm.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 1 — WHAT WORLD-CLASS LOOKS LIKE
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <h2>What World-Class Looks Like</h2>
+  <p>These are the output targets that define a world-class function for each pod. Not aspirational fluff &mdash; benchmarked against the best-performing marketing teams in the industry.</p>
+
+  <!-- Performance Pod -->
+  <div class="glass" style="border-top: 3px solid var(--secondary);">
+    <h4>Performance Pod</h4>
+    <h3>Head of Performance + Performance Builder</h3>
+    <p style="font-size:0.88rem;">The revenue engine. Paid media, SEO, email, CRO, and attribution &mdash; all running at volume with measurable ROAS.</p>
+
+    <details>
+      <summary>Paid Media &amp; Campaign Targets</summary>
+      <div class="detail-content">
+        <ul>
+          <li>3-5 always-on campaigns per platform (Google, Meta)</li>
+          <li>18-20+ new ad creatives tested per month</li>
+          <li>Creative refresh every 7-10 days on Meta</li>
+          <li>Target ROAS: &ge;8:1 (Google Search benchmarks 5.17:1)</li>
+          <li>Campaign brief-to-live: &le;5 business days (best-in-class: same-day reactive)</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>SEO &amp; Content Performance</summary>
+      <div class="detail-content">
+        <ul>
+          <li>8-12 optimised SEO articles/month (2-3/week)</li>
+          <li>Content refresh: quarterly on top performers</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Email &amp; Automation</summary>
+      <div class="detail-content">
+        <ul>
+          <li>10+ automated email flows live (welcome, abandoned, post-purchase, win-back, browse abandon, VIP, sunset, birthday, review request, cross-sell)</li>
+          <li>Email send: 9-16 campaigns/month (2-3/week) + flows</li>
+          <li>Flows generating 41% of email revenue from 5.3% of sends</li>
+          <li>A/B test every send; AI subject lines deliver 34% higher open rates</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>CRO &amp; Speed-to-Lead</summary>
+      <div class="detail-content">
+        <ul>
+          <li>CRO: &ge;1 test/month, &ge;5% conversion uplift QoQ</li>
+          <li>Speed to lead: &lt;1 hour (automated)</li>
+          <li>Landing page turnaround: &le;2 business days via Claude Code</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Attribution &amp; Reporting</summary>
+      <div class="detail-content">
+        <ul>
+          <li>Full-funnel attribution dashboard live and weekly</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <!-- Internal Agency Pod -->
+  <div class="glass" style="border-top: 3px solid var(--tertiary);">
+    <h4>Internal Agency Pod</h4>
+    <h3>Marketing Ops Manager + 3 Builders</h3>
+    <p style="font-size:0.88rem;">The brand engine. Social, content, design, video, and ORM &mdash; producing at volume with brand consistency and fast turnaround.</p>
+
+    <details>
+      <summary>Social Media Output</summary>
+      <div class="detail-content">
+        <ul>
+          <li>Instagram: 3-5/week (60-70% Reels)</li>
+          <li>Facebook: 3-5/week</li>
+          <li>LinkedIn: 2-3/week</li>
+          <li>Content mix: 60-70% video, 20-30% carousels, 10% static</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>ORM &amp; Reputation</summary>
+      <div class="detail-content">
+        <ul>
+          <li>ORM response: &lt;60 min target, &lt;15 min best-in-class</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Content &amp; PR</summary>
+      <div class="detail-content">
+        <ul>
+          <li>10+ articles/month</li>
+          <li>Newsletter: 100% on schedule</li>
+          <li>PR pitches: &ge;1/month</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Design &amp; Creative</summary>
+      <div class="detail-content">
+        <ul>
+          <li>Simple assets: same-day turnaround</li>
+          <li>Standard assets: 2-3 days</li>
+          <li>Complex assets: 5-7 days</li>
+          <li>Template:custom ratio: 60-70% templated, 30-40% custom</li>
+          <li>Revisions: &le;2 rounds max</li>
+          <li>Brand consistency audit: monthly quick checks, quarterly competitive</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Video Production</summary>
+      <div class="detail-content">
+        <ul>
+          <li>&ge;4 pieces/month (short-form)</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Operational Health</summary>
+      <div class="detail-content">
+        <ul>
+          <li>Request SLA: rush 3 hours, standard 2-5 business days, complex 1-2 weeks</li>
+          <li>Stakeholder NPS: 50+ (excellent), target 70+ (world-class)</li>
+          <li>Capacity utilisation: 70-75% (sweet spot)</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="pull-quote">"If you can't measure it at this cadence, you can't improve it at this cadence. These aren't aspirational targets &mdash; they're the operating standard for a team that ships."</div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 2 — THE CONSTRAINTS
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <h2>The Constraints</h2>
+  <p>Every marketing team hits the same bottlenecks. These are the five structural constraints that slow teams down &mdash; and the data that proves it.</p>
+
+  <!-- Constraint 01 -->
+  <div class="glass constraint-card">
+    <div class="constraint-number">01</div>
+    <div class="constraint-title">Campaign Launch &mdash; 3-4 weeks typical &rarr; target &lt;1 week</div>
+    <p style="font-size:0.88rem;">41% of teams take 3-4 weeks to launch a campaign. Only 3.6% go live in under a week.</p>
+    <h4>Root Causes</h4>
+    <ul class="check-list">
+      <li><span class="check-icon">37%</span>Revision loops between creative and stakeholders</li>
+      <li><span class="check-icon">35%</span>Feedback collection delays across departments</li>
+      <li><span class="check-icon">34%</span>Content creation bottleneck (copy + design sequential)</li>
+      <li><span class="check-icon">29%</span>Cross-functional requests requiring multiple team inputs</li>
+    </ul>
+    <p style="font-size:0.85rem; margin-top:1rem;"><strong>Constraint:</strong> Every campaign touches briefing &rarr; copy &rarr; design &rarr; QA &rarr; approval &rarr; launch. Each handoff adds 1-3 days.</p>
+  </div>
+
+  <!-- Constraint 02 -->
+  <div class="glass constraint-card">
+    <div class="constraint-number">02</div>
+    <div class="constraint-title">Content Production &mdash; 8-12 hours/article &rarr; target 1.5-2.5 hours</div>
+    <p style="font-size:0.88rem;">Average blog post: 3h48m writing alone. Full workflow including research, SEO, editing, and approvals: 8-12 hours.</p>
+    <h4>Root Causes</h4>
+    <ul class="check-list">
+      <li><span class="check-icon">&bull;</span>Research time consuming 30-40% of total production</li>
+      <li><span class="check-icon">&bull;</span>Blank-page problem &mdash; starting from zero every time</li>
+      <li><span class="check-icon">&bull;</span>SEO treated as post-production step instead of input</li>
+      <li><span class="check-icon">&bull;</span>Multiple editing cycles before publish</li>
+    </ul>
+    <p style="font-size:0.85rem; margin-top:1rem;"><strong>Constraint:</strong> Sequential process (research &rarr; write &rarr; edit &rarr; SEO &rarr; approve) instead of parallel.</p>
+  </div>
+
+  <!-- Constraint 03 -->
+  <div class="glass constraint-card">
+    <div class="constraint-number">03</div>
+    <div class="constraint-title">Design Bottleneck &mdash; 70% of designers do work below their skill level</div>
+    <p style="font-size:0.88rem;">75% of creative leaders report insufficient capacity. 76% experienced burnout. 55% of projects labelled "high priority" &mdash; meaning nothing is actually prioritised.</p>
+    <h4>Root Causes</h4>
+    <ul class="check-list">
+      <li><span class="check-icon">&bull;</span>Resizing and reformatting consuming skilled designer hours</li>
+      <li><span class="check-icon">&bull;</span>Brief interpretation &mdash; unclear briefs requiring back-and-forth</li>
+      <li><span class="check-icon">&bull;</span>Revision cycles driven by subjective feedback</li>
+      <li><span class="check-icon">&bull;</span>Priority chaos &mdash; everything marked urgent, nothing triaged</li>
+    </ul>
+  </div>
+
+  <!-- Constraint 04 -->
+  <div class="glass constraint-card">
+    <div class="constraint-number">04</div>
+    <div class="constraint-title">Approval &amp; Governance &mdash; 53% say process too burdensome</div>
+    <p style="font-size:0.88rem;">37% flag revisions/approvals as the major bottleneck. Cycles extend 40% longer when everything routes through leadership.</p>
+    <h4>Root Causes</h4>
+    <ul class="check-list">
+      <li><span class="check-icon">&bull;</span>Unclear decision rights &mdash; nobody knows who actually approves</li>
+      <li><span class="check-icon">&bull;</span>Too many "consulted" stakeholders in every workflow</li>
+      <li><span class="check-icon">&bull;</span>No tiered governance &mdash; social posts get the same review as brand campaigns</li>
+    </ul>
+    <p style="font-size:0.85rem; margin-top:1rem;"><strong>Key data point:</strong> Organisations with explicit decision rights enjoy 23% greater revenue growth.</p>
+  </div>
+
+  <!-- Constraint 05 -->
+  <div class="glass constraint-card">
+    <div class="constraint-number">05</div>
+    <div class="constraint-title">Priority Chaos &mdash; 55% of projects labelled "high priority"</div>
+    <p style="font-size:0.88rem;">38% of marketers feel stretched or overloaded. 77% report increased project volume year-over-year with no corresponding increase in capacity.</p>
+    <h4>Root Causes</h4>
+    <ul class="check-list">
+      <li><span class="check-icon">&bull;</span>No intake system &mdash; requests arrive via email, Slack, hallway conversations</li>
+      <li><span class="check-icon">&bull;</span>No scoring framework &mdash; decisions made by who shouts loudest</li>
+      <li><span class="check-icon">&bull;</span>No trade-off conversations &mdash; "yes" without asking "instead of what?"</li>
+      <li><span class="check-icon">&bull;</span>Reactive culture that rewards firefighting over planning</li>
+    </ul>
+  </div>
+
+  <div class="pull-quote">"The constraints aren't about people. They're structural. Fix the structure &mdash; with AI, governance, and rhythm &mdash; and the same team produces 3x the output."</div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 3 — AI EFFICIENCY MAP
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <h2>AI Efficiency Map</h2>
+  <p>For each constraint, the AI solution, expected impact, and rollout priority. Sequenced by speed-to-value &mdash; P1 delivers ROI in the first month.</p>
+
+  <!-- P1 -->
+  <div class="glass" style="border-top: 3px solid var(--green);">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+      <span class="priority p1">P1</span>
+      <h3 style="margin:0;">Immediate &mdash; Weeks 1-4</h3>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Constraint</th><th>AI Solution</th><th>Impact</th><th>Owner</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Content velocity</td>
+            <td>AI first-draft agents (blog, social, email, PR)</td>
+            <td>75-85% time reduction per article</td>
+            <td>Content Builder + Performance Builder</td>
+          </tr>
+          <tr>
+            <td>Design resizing / templates</td>
+            <td>AI design production (Canva AI, template auto-generation)</td>
+            <td>90% reduction in routine design turnaround</td>
+            <td>Creative Builder</td>
+          </tr>
+          <tr>
+            <td>Email flow setup</td>
+            <td>AI email flow builder (sequence builds, trigger logic)</td>
+            <td>Email production: 2+ weeks &rarr; &lt;1 day</td>
+            <td>Performance Builder</td>
+          </tr>
+          <tr>
+            <td>Social scheduling</td>
+            <td>AI social agents (draft, schedule, hashtags, captions)</td>
+            <td>50%+ posts AI-drafted, scheduling automated</td>
+            <td>Social Builder</td>
+          </tr>
+          <tr>
+            <td>Brief intake / routing</td>
+            <td>AI brief intake agent (triage, standardise, route)</td>
+            <td>Zero orphan requests, auto-SLA tracking</td>
+            <td>Marketing Ops Manager</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="glass" style="border-top: 3px solid var(--amber);">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+      <span class="priority p2">P2</span>
+      <h3 style="margin:0;">Short-term &mdash; Weeks 4-8</h3>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Constraint</th><th>AI Solution</th><th>Impact</th><th>Owner</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Campaign setup</td>
+            <td>AI campaign build agents (Google Ads, Meta)</td>
+            <td>Campaign brief-to-live: weeks &rarr; days</td>
+            <td>Performance Builder</td>
+          </tr>
+          <tr>
+            <td>Ad copy testing</td>
+            <td>AI ad copy agents (variants, headlines, A/B tests)</td>
+            <td>18-20+ creatives tested/month</td>
+            <td>Performance Builder</td>
+          </tr>
+          <tr>
+            <td>ORM responses</td>
+            <td>AI ORM response agent (draft, sentiment, alerts)</td>
+            <td>Response time: hours &rarr; &lt;60 min</td>
+            <td>Social Builder</td>
+          </tr>
+          <tr>
+            <td>Bid management</td>
+            <td>AI bid management (Smart Bidding + human oversight)</td>
+            <td>24/7 optimisation, 20-40% better performance</td>
+            <td>Performance Builder</td>
+          </tr>
+          <tr>
+            <td>Reporting dashboards</td>
+            <td>AI reporting agents (auto-generate, anomaly detection)</td>
+            <td>Weekly dashboards auto-updated</td>
+            <td>Performance Builder + Ops Manager</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="glass" style="border-top: 3px solid var(--tertiary);">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+      <span class="priority p3">P3</span>
+      <h3 style="margin:0;">Medium-term &mdash; Weeks 8-12</h3>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Constraint</th><th>AI Solution</th><th>Impact</th><th>Owner</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Competitor monitoring</td>
+            <td>AI competitor agents (ad library, positioning, alerts)</td>
+            <td>Real-time competitive intelligence</td>
+            <td>Head of Performance</td>
+          </tr>
+          <tr>
+            <td>Video production</td>
+            <td>AI video agents (short-form edits, captions, thumbnails)</td>
+            <td>&ge;4 videos/month from 0</td>
+            <td>Social Builder + Creative Builder</td>
+          </tr>
+          <tr>
+            <td>Brand QA</td>
+            <td>AI brand audit agent (consistency checks, asset review)</td>
+            <td>Monthly automated brand audits</td>
+            <td>Creative Builder</td>
+          </tr>
+          <tr>
+            <td>Landing page builds</td>
+            <td>Claude Code for web dev</td>
+            <td>Landing pages in hours, not weeks</td>
+            <td>Performance Builder</td>
+          </tr>
+          <tr>
+            <td>CRO testing</td>
+            <td>AI CRO agents (test setup, analysis, recommendations)</td>
+            <td>&ge;1 test/month systematic program</td>
+            <td>Performance Builder</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="pull-quote">"AI doesn't replace the builders. It removes the 70% of their work that's below their skill level &mdash; so they can operate at their ceiling, not their floor."</div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 4 — THE OPERATING RHYTHM
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <h2>The Operating Rhythm</h2>
+  <p>Rhythm creates accountability without bureaucracy. Every cadence exists because it solves a specific coordination problem.</p>
+
+  <!-- Daily -->
+  <div class="glass rhythm-card daily">
+    <div class="rhythm-label">Daily &mdash; 15 minutes</div>
+    <ul class="check-list">
+      <li><span class="check-icon">1</span>Async standup (Slack/Teams): priorities, blockers, KPI status</li>
+      <li><span class="check-icon">2</span>AI agent output sampling &mdash; spot-check 10-20% of AI-generated work</li>
+      <li><span class="check-icon">3</span>Dashboard review of automated campaigns</li>
+    </ul>
+  </div>
+
+  <!-- Weekly -->
+  <div class="glass rhythm-card weekly">
+    <div class="rhythm-label">Weekly</div>
+    <ul class="check-list">
+      <li><span class="check-icon">Mon</span><strong>15-min standup</strong> &mdash; priorities, blockers, KPI flags</li>
+      <li><span class="check-icon">Tue</span><strong>Maker time</strong> &mdash; no meetings for builders (protected deep work)</li>
+      <li><span class="check-icon">Wed</span><strong>Slack KPI ping</strong> &mdash; mid-week status on key metrics</li>
+      <li><span class="check-icon">Thu</span><strong>Channel clinic</strong> (if needed) &mdash; creative tweaks, test swaps &mdash; 30 min</li>
+      <li><span class="check-icon">Fri</span><strong>Retro</strong> &mdash; wins, misses, backlog re-score &mdash; 30 min</li>
+    </ul>
+  </div>
+
+  <div class="rhythm-grid">
+    <!-- Fortnightly -->
+    <div class="glass rhythm-card fortnightly">
+      <div class="rhythm-label">Fortnightly</div>
+      <ul class="check-list">
+        <li><span class="check-icon">&bull;</span>Sprint review + planning (2-week sprints for campaign work)</li>
+        <li><span class="check-icon">&bull;</span>AI agent performance review with Imran</li>
+        <li><span class="check-icon">&bull;</span>Cross-pod sync (Performance + Agency pod leads)</li>
+      </ul>
+    </div>
+
+    <!-- Monthly -->
+    <div class="glass rhythm-card monthly">
+      <div class="rhythm-label">Monthly</div>
+      <ul class="check-list">
+        <li><span class="check-icon">&bull;</span>Full retrospective</li>
+        <li><span class="check-icon">&bull;</span>Stakeholder CSAT check</li>
+        <li><span class="check-icon">&bull;</span>Builder wellbeing check-in</li>
+        <li><span class="check-icon">&bull;</span>AI agent portfolio review (what's working, what's missing)</li>
+        <li><span class="check-icon">&bull;</span>Brand consistency audit</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Quarterly -->
+  <div class="glass rhythm-card quarterly" style="border-top-color: #a78bfa;">
+    <div class="rhythm-label">Quarterly &mdash; 12-Week Cycle</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Week</th><th>Phase</th><th>Activity</th><th>Duration</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Week 1</td><td>Planning</td><td>90-min kickoff &mdash; goals, budget, KPIs locked</td><td>90 min</td></tr>
+          <tr><td>Weeks 2-10</td><td>Execution</td><td>Campaigns, content, experiments (cap at 3 active experiments)</td><td>Ongoing</td></tr>
+          <tr><td>Week 11</td><td>Review</td><td>2-hour deep-dive on data + retrospective</td><td>2 hours</td></tr>
+          <tr><td>Week 12</td><td>Reset</td><td>60-min decision call, report to CGO</td><td>60 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.85rem; margin-top:0.75rem;"><strong>Hard rule:</strong> No new projects after week 2 unless a live KPI turns red.</p>
+  </div>
+
+  <div class="pull-quote">"Rhythm isn't about more meetings. It's about fewer surprises. The team that ships on a predictable cadence outperforms the team that reacts to every fire."</div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 5 — PRIORITISATION FRAMEWORK
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <h2>Prioritisation Framework</h2>
+  <p>Every request gets scored. No exceptions. The ICE framework gives the team a shared language for trade-off conversations.</p>
+
+  <div class="glass">
+    <h3>ICE Score = (Impact + Confidence + Ease) / 3</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>Scale</th><th>What It Measures</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Impact</td><td>1-10</td><td>How much will this move a KPI?</td></tr>
+          <tr><td>Confidence</td><td>1-10</td><td>How sure are we this will work? (Data-backed = high, gut feel = low)</td></tr>
+          <tr><td>Ease</td><td>1-10</td><td>How quickly can we ship this? (Hours = 10, weeks = 2)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="glass">
+    <h4>Example: ICE Scoring in Practice</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Initiative</th><th>Impact</th><th>Confidence</th><th>Ease</th><th>ICE Score</th><th>Decision</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AI email flow setup (10 flows)</td><td>9</td><td>8</td><td>7</td><td><strong>8.0</strong></td><td style="color:var(--green);">Ship now</td></tr>
+          <tr><td>SEO content refresh (top 20)</td><td>8</td><td>9</td><td>7</td><td><strong>8.0</strong></td><td style="color:var(--green);">Ship now</td></tr>
+          <tr><td>Google Ads ROAS optimisation</td><td>9</td><td>7</td><td>6</td><td><strong>7.3</strong></td><td style="color:var(--green);">Ship now</td></tr>
+          <tr><td>Video content program launch</td><td>7</td><td>5</td><td>4</td><td><strong>5.3</strong></td><td style="color:var(--amber);">Next sprint</td></tr>
+          <tr><td>New social channel (TikTok)</td><td>5</td><td>4</td><td>5</td><td><strong>4.7</strong></td><td style="color:var(--amber);">Backlog</td></tr>
+          <tr><td>Full brand refresh</td><td>6</td><td>3</td><td>2</td><td><strong>3.7</strong></td><td style="color:var(--red);">Not now</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.85rem;">Score &ge;7: ship this sprint. Score 5-7: next sprint. Score &lt;5: backlog or decline.</p>
+  </div>
+
+  <h3>Work Intake Rules</h3>
+
+  <div class="glass">
+    <ul class="check-list">
+      <li><span class="check-icon">1</span><strong>Single channel:</strong> All requests enter through one channel (Asana form &rarr; AI brief intake agent). No Slack requests. No hallway asks.</li>
+      <li><span class="check-icon">2</span><strong>Required fields:</strong> Goal alignment, deadline, expected impact, effort estimate. Incomplete briefs returned automatically.</li>
+      <li><span class="check-icon">3</span><strong>ICE-scored:</strong> Every request ICE-scored before entering the sprint. No score = no entry.</li>
+      <li><span class="check-icon">4</span><strong>Visible backlog:</strong> All requests displayed with status &mdash; nothing hidden, nothing forgotten.</li>
+      <li><span class="check-icon">5</span><strong>Trade-off conversations:</strong> "Yes, but which of these three things should we stop?" Every new "yes" requires a "no."</li>
+      <li><span class="check-icon">6</span><strong>RACI per request type:</strong> Who Decides, who's Consulted, who's Informed &mdash; defined once, enforced always.</li>
+    </ul>
+  </div>
+
+  <h3>Tiered Governance</h3>
+  <p>Not everything needs the same level of review. Speed-forward what you can. Gate what you must.</p>
+
+  <div class="glass" style="border-left: 3px solid var(--green);">
+    <h4>Low Risk &mdash; Auto-approve</h4>
+    <p style="font-size:0.88rem; margin-bottom:0.5rem;"><strong>Scope:</strong> Social posts using approved templates, templated design, routine emails</p>
+    <p style="font-size:0.88rem; margin-bottom:0;"><strong>Process:</strong> Auto-approve. Human-on-the-loop monitoring (spot-check 10-20%). No approval gate.</p>
+  </div>
+
+  <div class="glass" style="border-left: 3px solid var(--amber);">
+    <h4>Medium Risk &mdash; Peer Review</h4>
+    <p style="font-size:0.88rem; margin-bottom:0.5rem;"><strong>Scope:</strong> Blog articles, campaign copy, new design concepts</p>
+    <p style="font-size:0.88rem; margin-bottom:0;"><strong>Process:</strong> Peer review + Marketing Ops Manager sign-off. <strong>24-hour SLA.</strong></p>
+  </div>
+
+  <div class="glass" style="border-left: 3px solid var(--red);">
+    <h4>High Risk &mdash; Full Review</h4>
+    <p style="font-size:0.88rem; margin-bottom:0.5rem;"><strong>Scope:</strong> Brand campaigns, PR, regulated content, new channel launches</p>
+    <p style="font-size:0.88rem; margin-bottom:0;"><strong>Process:</strong> Full review: peer + Ops Manager + Stephen. <strong>48-hour SLA.</strong></p>
+  </div>
+
+  <div class="pull-quote">"Governance should accelerate 80% of work and protect 20%. If it slows everything equally, it's not governance &mdash; it's bureaucracy."</div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 6 — QUALITY GATES
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <h2>Quality Gates</h2>
+  <p>Three-layer QA system. Automated catches the obvious. Peer review catches the nuanced. Brand governance catches the strategic.</p>
+
+  <div class="glass">
+    <span class="layer-badge layer-1">Layer 1 &mdash; Automated (AI)</span>
+    <h3 style="margin-top:0;">Machine QA</h3>
+    <p style="font-size:0.88rem; margin-bottom:0.5rem;"><strong>What it catches:</strong> Spelling, grammar, plagiarism, brand voice drift, formatting, link validation, rendering issues</p>
+    <p style="font-size:0.88rem; margin-bottom:0;"><strong>Tools:</strong> Grammarly, AI brand voice checker, Copyscape</p>
+  </div>
+
+  <div class="glass">
+    <span class="layer-badge layer-2">Layer 2 &mdash; Peer Review (Human)</span>
+    <h3 style="margin-top:0;">Builder QA</h3>
+    <p style="font-size:0.88rem; margin-bottom:0.5rem;"><strong>What it catches:</strong> Fact accuracy, readability, brief alignment, tone consistency, audience fit</p>
+    <p style="font-size:0.88rem; margin-bottom:0;"><strong>Method:</strong> Read aloud, cross-reference claims, run checklist. Every piece of content reviewed by one other builder before publish.</p>
+  </div>
+
+  <div class="glass">
+    <span class="layer-badge layer-3">Layer 3 &mdash; Brand Governance</span>
+    <h3 style="margin-top:0;">Strategic QA</h3>
+    <p style="font-size:0.88rem; margin-bottom:0.5rem;"><strong>What it catches:</strong> Brand compliance, claims substantiation, accessibility, legal/regulatory alignment</p>
+    <p style="font-size:0.88rem; margin-bottom:0;"><strong>Method:</strong> Monthly brand audit (AI-assisted), style guide enforcement, quarterly competitive review</p>
+  </div>
+
+  <div class="pull-quote">"Quality at speed means building quality into the process &mdash; not bolting it on at the end. Automated QA catches 80% of errors in seconds. Humans catch the 20% that matters."</div>
+
+  <hr>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <div class="footer">
+    <p>Confidential &mdash; March 2026 &middot; Owner: Nick Lunn, Chief Growth Officer</p>
+    <p><a href="index.html">&larr; Back to Builder Model</a></p>
+  </div>
+
+</div>
+
+<script>
+  // Scroll progress bar
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    progressBar.style.width = progress + '%';
+  });
+</script>
+
+</body>
+</html>
